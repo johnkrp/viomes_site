@@ -21,10 +21,9 @@ const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const heroImages = [
-    "https://v3b.fal.media/files/b/0a8e4e59/OfAX0aNsLnRXJfrKzLjj3_WfvAFjNB.png",
-    "https://v3b.fal.media/files/b/0a8e4e5b/avWYgEBa80l0zBpSkcjX5_6Uir9IRV.png",
-    "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200",
-    "https://images.unsplash.com/photo-1530124560676-4fbc91abc6f2?auto=format&fit=crop&q=80&w=1200",
+    "/SCROLL1(1).JPG",
+    "/AND_6099.JPG",
+    "/DSC_3421.JPG",
   ];
 
   useEffect(() => {
@@ -37,34 +36,19 @@ const Home = () => {
 
   const categories = [
     {
-      title: "Οικιακά & Αποθήκευση",
-      en: "Household & Storage",
-      image:
-        "https://v3b.fal.media/files/b/0a8e4e5b/avWYgEBa80l0zBpSkcjX5_6Uir9IRV.png",
+      title: "Είδη Σπιτιού",
+      en: "Home Items",
+      image: "/ΕΙΔΗ ΣΠΙΤΙΟΥ.JPG",
     },
     {
-      title: "Κουζίνα & Οργάνωση",
-      en: "Kitchen & Organization",
-      image:
-        "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800",
+      title: "Γλάστρες",
+      en: "Planters",
+      image: "/ΓΛΑΣΤΡΕΣ.JPG",
     },
     {
-      title: "Καθαρισμός",
-      en: "Cleaning",
-      image:
-        "https://images.unsplash.com/photo-1584622781564-1d9876a13d00?auto=format&fit=crop&q=80&w=800",
-    },
-    {
-      title: "Βιομηχανικά Προϊόντα",
-      en: "Industrial Products",
-      image:
-        "https://v3b.fal.media/files/b/0a8e4e5b/a4QGBjH7ig_iFAgLmGjHy_M9Fh1dBc.png",
-    },
-    {
-      title: "Custom & Private Label",
-      en: "Custom & Private Label",
-      image:
-        "https://images.unsplash.com/photo-1530124560676-4fbc91abc6f2?auto=format&fit=crop&q=80&w=800",
+      title: "Επαγγελματικός Εξοπλισμός",
+      en: "Professional Equipment",
+      image: "/ΚΑΔΟΙ.JPG",
     },
   ];
 
@@ -176,7 +160,7 @@ const Home = () => {
       </section>
 
       {/* Category Tiles */}
-      <section className="py-24 bg-primary" id="products">
+      <section className="py-24 bg-background" id="products">
         <div className="px-12 lg:px-20">
 
           <div>
@@ -241,7 +225,7 @@ const Home = () => {
           <div className="w-full lg:w-[54%] mb-10 lg:mb-0 flex-shrink-0">
             <div className="relative w-full h-64 lg:h-[400px] rounded-3xl overflow-hidden shadow-lg">
               <img
-                src="https://v3b.fal.media/files/b/0a8e4e5b/aG9W4QPU_6VT-E5efRjNa_mWgtvmrb.png"
+                src="/circular-economy.jpg"
                 alt="Sustainability"
                 className="w-full h-full object-cover"
                 style={{ opacity: 0.9 }}
