@@ -3,8 +3,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import {
   ArrowRight,
@@ -43,7 +41,7 @@ const Home = () => {
     {
       title: "Γλάστρες",
       en: "Planters",
-      image: "/ΓΛΑΣΤΡΕΣ.JPG",
+      image: "/AND_6053.JPG",
     },
     {
       title: "Επαγγελματικός Εξοπλισμός",
@@ -169,57 +167,44 @@ const Home = () => {
                 align: "start",
                 loop: true,
               }}
-              className="w-full"
+              className="w-full max-w-7xl mx-auto"
             >
-              <CarouselContent className="-ml-4">
+              <CarouselContent className="ml-5">
                 {categories.map((cat, i) => (
                   <CarouselItem
                     key={i}
-                    className="pl-4 md:basis-1/2 lg:basis-1/3"
+                    className="pl-5 md:basis-1/2 lg:basis-1/3"
                   >
                     <Link
                       to="/products"
-                      className="group block border rounded-2xl overflow-hidden bg-white text-foreground hover:border-accent transition-all duration-300 shadow-sm hover:shadow-md"
+                      className="group block w-full border rounded-2xl overflow-hidden bg-white text-foreground hover:border-accent transition-all duration-300 shadow-sm hover:shadow-md"
                     >
-                      <div className="aspect-square overflow-hidden relative">
+                      <div className="h-77 overflow-hidden relative">
                         <img
                           src={cat.image}
                           alt={cat.title}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                       </div>
-                      <div className="p-6">
-                        <span className="text-sm text-foreground/70 block mb-2">
+                      <div className="p-4">
+                        <span className="text-xs text-foreground/70 block mb-1">
                           {cat.en}
                         </span>
-                        <h4 className="font-bold text-lg text-foreground mb-2">
+                        <h4 className="font-bold text-base text-foreground mb-1">
                           {cat.title}
                         </h4>
-                        <div className="flex items-center justify-between">
-                          <Button
-                            variant="link"
-                            className="text-accent font-semibold p-0"
-                          >
-                            Δείτε προϊόντα
-                          </Button>
-                          <ArrowRight className="w-5 h-5 text-accent" />
-                        </div>
                       </div>
                     </Link>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <div className="flex justify-center gap-4 mt-6">
-                <CarouselPrevious className="static translate-y-0 h-10 w-10 border-2" />
-                <CarouselNext className="static translate-y-0 h-10 w-10 border-2" />
-              </div>
             </Carousel>
           </div>
         </div>
       </section>
 
       {/* Sustainability Section (swapped sides) */}
-      <section className="py-24 bg-background text-foreground relative overflow-hidden">
+      <section className="py-24 bg-secondary/60 text-foreground relative overflow-hidden">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-10 px-8 lg:px-12 relative z-10">
           {/* Image on the left for large screens */}
           <div className="w-full lg:w-[54%] mb-10 lg:mb-0 flex-shrink-0">
@@ -230,7 +215,7 @@ const Home = () => {
                 className="w-full h-full object-cover"
                 style={{ opacity: 0.9 }}
               />
-              <div className="absolute inset-0 bg-secondary opacity-20" />
+              <div className="absolute inset-0 bg-secondary opacity-10" />
             </div>
           </div>
           {/* Text on the right */}
@@ -260,7 +245,7 @@ const Home = () => {
                 <span className="font-medium">Πιστοποίηση ISO 14001</span>
               </div>
             </div>
-            <Button className="bg-white text-secondary hover:bg-white/90 rounded-full px-8 h-12 font-bold uppercase tracking-widest text-xs">
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12 font-bold uppercase tracking-widest text-xs">
               Μάθετε περισσότερα
             </Button>
           </div>
