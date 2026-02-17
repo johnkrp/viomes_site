@@ -1,4 +1,4 @@
-import {
+﻿import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/check-box";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -15,356 +16,475 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import catalogData from "@/data/products-grouped.json";
+import { matchesColorSelection, resolveSwatchBackground } from "@/lib/colorSwatch";
 import { cn } from "@/lib/utils";
-import {
-  ArrowRight,
-  ChevronDown,
-  Filter,
-  LayoutGrid,
-  List,
-} from "lucide-react";
-import { useState } from "react";
+import { ChevronDown, Search } from "lucide-react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
+type Variant = {
+  code: string;
+  description: string;
+  color: string;
+  image_url: string;
+  stock?: number | null;
+};
+
+type SizeGroup = {
+  size_label: string;
+  size_code: string;
+  variants: Variant[];
+  colors_count: number;
+};
+
+type GroupedProduct = {
+  id: string;
+  family_indicator?: string;
+  group_root?: string;
+  title: string;
+  representative_image: string;
+  sizes: SizeGroup[];
+  sizes_count: number;
+  variants_count: number;
+};
+
+type SortMode = "relevant" | "title-asc" | "variants-desc" | "sizes-desc";
+
+const products = (catalogData as { products: GroupedProduct[] }).products;
+const siteCategories = ["Είδη Σπιτιού", "Γλάστρες", "Επαγγελματικός Εξοπλισμός"];
+
+const normalizeExcelColor = (value: string) => {
+  const normalized = (value || "").trim();
+  if (!normalized) return "";
+  if (normalized.toLowerCase() === "nan") return "";
+  return normalized;
+};
+
+const allColors = (product: GroupedProduct) => {
+  const set = new Set<string>();
+  product.sizes.forEach((size) => {
+    size.variants.forEach((variant) => {
+      const colorFromExcelColumnI = normalizeExcelColor(variant.color);
+      if (colorFromExcelColumnI) set.add(colorFromExcelColumnI);
+    });
+  });
+  return Array.from(set);
+};
+
+const allCodes = (product: GroupedProduct) => {
+  const set = new Set<string>();
+  product.sizes.forEach((size) => {
+    size.variants.forEach((variant) => set.add(variant.code));
+  });
+  return Array.from(set);
+};
+
+const normalizeGreek = (value: string) =>
+  value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+
+const resolveSiteCategories = (product: GroupedProduct) => {
+  const familyText = product.family_indicator || product.group_root || "";
+  const text = normalizeGreek(`${product.title} ${product.id} ${familyText}`);
+  const categories = new Set<string>();
+
+  const homeKeywords = [
+    "showroom",
+    "kiklos",
+    "deco",
+    "cubo",
+    "basic bin",
+    "waste container",
+    "pedal bin",
+    "wc equipment",
+    "equipment for clothes",
+    "storage box",
+    "nova box",
+    "cleaning equipment",
+    "bucket",
+    "wringer",
+    "dust pan",
+    "kitchen collection",
+    "fresco",
+    "food container",
+    "ora basin",
+    "basin",
+    "dish drainer",
+    "kitchen equipment",
+    "household article",
+    "garden furniture",
+    "καδος",
+    "λεκαν",
+    "κουβα",
+    "κουτι",
+    "αποθηκευ",
+    "πιατοθηκ",
+    "κουζιν",
+    "wc",
+  ];
+
+  if (homeKeywords.some((keyword) => text.includes(keyword))) {
+    categories.add("Είδη Σπιτιού");
+  }
+
+  const planterKeywords = [
+    "γλαστ",
+    "πιατο γλαστ",
+    "ζαρντιν",
+    "κασπω",
+    "φυτο",
+    "orchid flowerpot",
+    "lily flowerpot",
+    "terracotta flowerpot",
+    "terracotta round",
+    "terracotta flowerbowl",
+    "terracotta plate",
+    "terracotta small jardiniere",
+    "terracotta big jardiniere",
+    "greenhouse flowerpot",
+    "linea flowerpot",
+    "linea round",
+    "linea square",
+    "linea mosaic",
+    "linea jardiniere",
+    "vita",
+    "lotus",
+    "iris",
+    "innova",
+    "cilindro",
+    "gea",
+    "plant",
+    "planter",
+    "pot",
+    "campana",
+    "sydney",
+    "rondo",
+  ];
+
+  if (planterKeywords.some((keyword) => text.includes(keyword))) {
+    categories.add("Γλάστρες");
+  }
+
+  const professionalKeywords = [
+    "ho.re.ca",
+    "horeca",
+    "βιομηχαν",
+    "επαγγελματ",
+    "kiklos collection",
+    "deco bin",
+    "cubo bin",
+    "basic bin",
+    "waste container",
+    "pedal bin",
+    "wc equipment",
+    "toilet brush",
+    "καδος",
+    "πενταλ",
+    "τουαλετ",
+    "stand",
+    "κονταρι",
+    "παρκετεζ",
+  ];
+
+  if (professionalKeywords.some((keyword) => text.includes(keyword))) {
+    categories.add("Επαγγελματικός Εξοπλισμός");
+  }
+
+  if (categories.size === 0) {
+    categories.add("Είδη Σπιτιού");
+  }
+
+  return Array.from(categories);
+};
+
 const Products = () => {
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortMode, setSortMode] = useState<SortMode>("relevant");
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedColors, setSelectedColors] = useState<string[]>([]);
 
-  const products = [
-    {
-      id: 1,
-      name: "Storage Box Pro 45L",
-      code: "V-1024",
-      material: "PP",
-      size: "60x40x30cm",
-      image:
-        "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      id: 2,
-      name: "Kitchen Organizer Set",
-      code: "V-2055",
-      material: "PET",
-      size: "Various",
-      image:
-        "https://images.unsplash.com/photo-1594913785162-e6786b42eda8?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      id: 3,
-      name: "Industrial Crate XL",
-      code: "V-5080",
-      material: "HDPE",
-      size: "80x60x40cm",
-      image:
-        "https://images.unsplash.com/photo-1530124560676-4fbc91abc6f2?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      id: 4,
-      name: "Cleaning Bucket 15L",
-      code: "V-3012",
-      material: "PP",
-      size: "Ø32cm",
-      image:
-        "https://images.unsplash.com/photo-1584622781564-1d9876a13d00?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      id: 5,
-      name: "Modular Shelf Unit",
-      code: "V-4040",
-      material: "PP",
-      size: "120x40x180cm",
-      image:
-        "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      id: 6,
-      name: "Garden Pot 30cm",
-      code: "V-6030",
-      material: "PP",
-      size: "Ø30cm",
-      image:
-        "https://images.unsplash.com/photo-1592150621344-828ec9639a0c?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      id: 7,
-      name: "Waste Bin 60L",
-      code: "V-3060",
-      material: "HDPE",
-      size: "40x40x70cm",
-      image:
-        "https://images.unsplash.com/photo-1530124560676-4fbc91abc6f2?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      id: 8,
-      name: "Drawer Organizer",
-      code: "V-2022",
-      material: "PS",
-      size: "10x30x5cm",
-      image:
-        "https://images.unsplash.com/photo-1594913785162-e6786b42eda8?auto=format&fit=crop&q=80&w=400",
-    },
-  ];
+  const colorOptions = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          products.flatMap((product) =>
+            product.sizes.flatMap((size) =>
+              size.variants
+                .map((variant) => normalizeExcelColor(variant.color))
+                .filter(Boolean),
+            ),
+          ),
+        ),
+      ).sort(),
+    [],
+  );
 
-  const filters = [
-    {
-      title: "Κατηγορία",
-      options: ["Αποθήκευση", "Κουζίνα", "Καθαρισμός", "Βιομηχανικά", "Κήπος"],
-    },
-    {
-      title: "Υλικό",
-      options: ["PP (Πολυπροπυλένιο)", "HDPE", "PET", "PS (Πολυστυρένιο)"],
-    },
-    { title: "Χρήση", options: ["Οικιακή", "Επαγγελματική", "Βιομηχανική"] },
-    {
-      title: "Χρώμα",
-      options: ["Λευκό", "Διαφανές", "Γκρι", "Μπλε", "Πράσινο"],
-    },
-  ];
+  const filteredProducts = useMemo(() => {
+    const query = searchTerm.trim().toLowerCase();
+
+    const filtered = products.filter((product) => {
+      const codes = allCodes(product);
+      const colors = allColors(product);
+      const categories = resolveSiteCategories(product);
+
+      const matchesQuery =
+        !query ||
+        product.title.toLowerCase().includes(query) ||
+        product.id.toLowerCase().includes(query) ||
+        codes.some((code) => code.toLowerCase().includes(query));
+
+      const matchesCategory =
+        selectedCategories.length === 0 ||
+        selectedCategories.some((selected) => categories.includes(selected));
+
+      const matchesColor =
+        selectedColors.length === 0 ||
+        colors.some((familyColor) =>
+          selectedColors.some((selectedColor) =>
+            matchesColorSelection(familyColor, selectedColor),
+          ),
+        );
+
+      return matchesQuery && matchesCategory && matchesColor;
+    });
+
+    if (sortMode === "title-asc") {
+      return [...filtered].sort((a, b) => a.title.localeCompare(b.title));
+    }
+
+    if (sortMode === "variants-desc") {
+      return [...filtered].sort((a, b) => b.variants_count - a.variants_count);
+    }
+
+    if (sortMode === "sizes-desc") {
+      return [...filtered].sort((a, b) => b.sizes_count - a.sizes_count);
+    }
+
+    return filtered;
+  }, [searchTerm, selectedCategories, selectedColors, sortMode]);
+
+  const toggleValue = (
+    value: string,
+    selectedValues: string[],
+    setter: (value: string[]) => void,
+  ) => {
+    if (selectedValues.includes(value)) {
+      setter(selectedValues.filter((entry) => entry !== value));
+      return;
+    }
+    setter([...selectedValues, value]);
+  };
+
+  const clearFilters = () => {
+    setSelectedCategories([]);
+    setSelectedColors([]);
+    setSearchTerm("");
+    setSortMode("relevant");
+  };
 
   return (
-    <div className="pt-24 min-h-screen bg-secondary/30">
-      {/* Category Hero */}
-      <section className="bg-primary text-white py-16 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img
-            src="https://images.unsplash.com/photo-1530124560676-4fbc91abc6f2?auto=format&fit=crop&q=80&w=1200"
-            alt="Banner"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <Breadcrumb className="mb-6">
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink
-                  href="/"
-                  className="text-white/60 hover:text-white"
-                >
-                  Αρχική
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-white/40" />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="text-white">Προϊόντα</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-          <h1 className="text-5xl font-black tracking-tight">
-            Όλα τα Προϊόντα
-          </h1>
-        </div>
+    <div className="pt-32 pb-20 bg-background min-h-screen">
+      <section className="container mx-auto px-6">
+        <Breadcrumb className="mb-6 text-sm text-foreground/70">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Αρχική</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Προϊόντα</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+
+        <h1 className="text-5xl font-black tracking-tight text-foreground">Προϊόντα</h1>
+        <p className="mt-4 max-w-3xl text-foreground/70 leading-relaxed">
+          Μία κάρτα ανά οικογένεια προϊόντος. Επιλέξτε προϊόν για να δείτε όλα τα διαθέσιμα
+          μεγέθη και χρώματα.
+        </p>
       </section>
 
-      <div className="container mx-auto px-4 py-12">
-        <div className="flex flex-col lg:flex-row gap-12">
-          {/* Sidebar Filters */}
-          <aside className="lg:w-72 shrink-0">
-            <div className="bg-white rounded-2xl p-8 sticky top-28 shadow-sm border border-border/50">
-              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-lg font-bold flex items-center gap-2">
-                  <Filter className="w-4 h-4 text-accent" />
-                  Φίλτρα
-                </h3>
-                <Button
-                  variant="link"
-                  className="text-xs text-muted-foreground p-0 h-auto"
-                >
-                  Καθαρισμός
-                </Button>
+      <section className="container mx-auto px-6 mt-14 grid grid-cols-1 lg:grid-cols-[16rem_1fr] gap-8 xl:gap-10">
+        <aside className="lg:sticky lg:top-44 lg:max-h-[calc(100vh-12rem)] lg:overflow-y-auto lg:pr-1 h-fit">
+          <div className="bg-transparent rounded-xl p-0 sm:p-0 space-y-3">
+            <div className="rounded-sm border border-border/70 bg-background/20">
+              <div className="px-4 py-3 text-sm font-medium text-foreground border-b border-border/50">
+                Κατηγορίες
               </div>
+              <div className="px-4 py-3 space-y-2">
+                {siteCategories.map((category) => (
+                  <label
+                    key={category}
+                    htmlFor={`category-${category}`}
+                    className="flex items-center gap-2.5 text-sm text-foreground/80 cursor-pointer"
+                  >
+                    <Checkbox
+                      id={`category-${category}`}
+                      checked={selectedCategories.includes(category)}
+                      onCheckedChange={() =>
+                        toggleValue(category, selectedCategories, setSelectedCategories)
+                      }
+                      className="border-border data-[state=checked]:bg-accent data-[state=checked]:border-accent"
+                    />
+                    <span>{category}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
 
-              <div className="flex flex-col gap-8">
-                {filters.map((filter, i) => (
-                  <div key={i}>
-                    <h4 className="text-sm font-bold mb-4 flex items-center justify-between group cursor-pointer">
-                      {filter.title}
-                      <ChevronDown className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                    </h4>
-                    <div className="flex flex-col gap-3">
-                      {filter.options.map((opt, j) => (
-                        <div key={j} className="flex items-center space-x-3">
-                          <Checkbox
-                            id={`${i}-${j}`}
-                            className="rounded border-border data-[state=checked]:bg-accent data-[state=checked]:border-accent"
-                          />
-                          <label
-                            htmlFor={`${i}-${j}`}
-                            className="text-sm text-muted-foreground cursor-pointer hover:text-primary transition-colors"
-                          >
-                            {opt}
-                          </label>
-                        </div>
+            <FilterGroup
+              title="Χρώματα"
+              options={colorOptions}
+              selected={selectedColors}
+              onToggle={(value) => toggleValue(value, selectedColors, setSelectedColors)}
+              renderOption={(option) => (
+                <span className="inline-flex items-center gap-2">
+                  <span
+                    className="h-3 w-3 rounded-full border border-black/10"
+                    style={{ background: resolveSwatchBackground(option) }}
+                  />
+                  <span className="truncate">{option}</span>
+                </span>
+              )}
+            />
+
+            <div className="pt-1">
+              <Button
+                variant="outline"
+                className="w-full rounded-sm border-border"
+                onClick={clearFilters}
+              >
+                Καθαρισμός φίλτρων
+              </Button>
+            </div>
+          </div>
+        </aside>
+
+        <main>
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_14rem] gap-3 mb-6">
+            <div className="relative">
+              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+                placeholder="Αναζήτηση οικογενειών ή κωδικών"
+                className="h-11 pl-10 bg-card border-border"
+              />
+            </div>
+
+            <Select value={sortMode} onValueChange={(value) => setSortMode(value as SortMode)}>
+              <SelectTrigger className="h-11 bg-card border-border">
+                <SelectValue placeholder="Ταξινόμηση" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="relevant">Σχετικά</SelectItem>
+                <SelectItem value="title-asc">Τίτλος (Α-Ω)</SelectItem>
+                <SelectItem value="variants-desc">Περισσότερα χρώματα/κωδικοί</SelectItem>
+                <SelectItem value="sizes-desc">Περισσότερα μεγέθη</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="mb-5 text-sm text-foreground/70">
+            <span className="font-semibold text-foreground">{filteredProducts.length}</span> οικογένειες
+            προϊόντων
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+            {filteredProducts.map((product, index) => {
+              const colors = allColors(product);
+              const cardKey = `${product.id}-${product.family_indicator || product.group_root || ""}-${product.title}-${index}`;
+
+              return (
+                <Link
+                  key={cardKey}
+                  to={`/products/${product.id}`}
+                  className={cn("group block transition-all duration-300")}
+                >
+                  <div className="relative aspect-[5/4] overflow-hidden rounded-md border border-border bg-background/70 p-4">
+                    <img
+                      src={product.representative_image}
+                      alt={product.title}
+                      className="h-full w-full object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  <div className="px-1 pt-4">
+                    <h3 className="text-xl leading-tight font-medium text-foreground min-h-14">
+                      {product.title}
+                    </h3>
+                    <p className="mt-1 text-xs text-foreground/60">
+                      {product.sizes_count} μεγέθη • {product.variants_count} χρώματα
+                    </p>
+
+                    <div className="mt-4 flex items-center gap-1.5 min-h-5">
+                      {colors.slice(0, 10).map((color) => (
+                        <span
+                          key={`${product.id}-${color}`}
+                          className="h-3.5 w-3.5 rounded-full border border-black/10"
+                          style={{ background: resolveSwatchBackground(color) }}
+                          title={color}
+                        />
                       ))}
                     </div>
                   </div>
-                ))}
-              </div>
-
-              <Button className="w-full mt-8 bg-primary hover:bg-primary/90 text-white rounded-full">
-                Εφαρμογή
-              </Button>
-            </div>
-          </aside>
-
-          {/* Main Content */}
-          <main className="flex-1">
-            {/* Toolbar */}
-            <div className="bg-white rounded-xl p-4 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4 border border-border/50 shadow-sm">
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <span className="font-medium text-primary">124</span> προϊόντα
-                βρέθηκαν
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="flex items-center border rounded-lg overflow-hidden mr-2">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className={cn(
-                      "rounded-none h-9 w-9",
-                      viewMode === "grid" ? "bg-secondary text-primary" : "",
-                    )}
-                    onClick={() => setViewMode("grid")}
-                  >
-                    <LayoutGrid className="w-4 h-4" />
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className={cn(
-                      "rounded-none h-9 w-9 border-l",
-                      viewMode === "list" ? "bg-secondary text-primary" : "",
-                    )}
-                    onClick={() => setViewMode("list")}
-                  >
-                    <List className="w-4 h-4" />
-                  </Button>
-                </div>
-
-                <Select defaultValue="popular">
-                  <SelectTrigger className="w-[180px] h-9 rounded-lg">
-                    <SelectValue placeholder="Ταξινόμηση" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="popular">Δημοφιλή</SelectItem>
-                    <SelectItem value="newest">Νεότερα</SelectItem>
-                    <SelectItem value="price-low">
-                      Τιμή: Χαμηλή σε Υψηλή
-                    </SelectItem>
-                    <SelectItem value="price-high">
-                      Τιμή: Υψηλή σε Χαμηλή
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-
-            {/* Product Grid */}
-            <div
-              className={cn(
-                "grid gap-8",
-                viewMode === "grid"
-                  ? "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
-                  : "grid-cols-1",
-              )}
-            >
-              {products.map((product) => (
-                <Link
-                  key={product.id}
-                  to={`/products/${product.id}`}
-                  className={cn(
-                    "group bg-white rounded-2xl border border-border/50 overflow-hidden hover:border-accent transition-all duration-300 hover:shadow-elegant",
-                    viewMode === "list" ? "flex flex-col md:flex-row" : "",
-                  )}
-                >
-                  <div
-                    className={cn(
-                      "relative overflow-hidden bg-secondary/20 flex items-center justify-center p-4",
-                      viewMode === "list"
-                        ? "md:w-64 md:h-64 shrink-0"
-                        : "aspect-square",
-                    )}
-                  >
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover rounded-xl transition-transform group-hover:scale-105"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-white/90 backdrop-blur-md px-2 py-1 rounded-md text-[10px] font-bold text-muted-foreground border">
-                        {product.code}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-8 flex flex-col justify-between flex-1 text-left">
-                    <div>
-                      <h3 className="text-xl font-bold mb-2 group-hover:text-accent transition-colors">
-                        {product.name}
-                      </h3>
-                      <div className="flex flex-wrap gap-x-6 gap-y-2 mb-6">
-                        <div className="text-xs">
-                          <span className="text-muted-foreground block mb-0.5 uppercase tracking-wider">
-                            Υλικό
-                          </span>
-                          <span className="font-bold">{product.material}</span>
-                        </div>
-                        <div className="text-xs">
-                          <span className="text-muted-foreground block mb-0.5 uppercase tracking-wider">
-                            Διαστάσεις
-                          </span>
-                          <span className="font-bold">{product.size}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div className="text-accent font-bold p-0 h-auto flex items-center group-hover:gap-3 transition-all">
-                        Περισσότερα <ArrowRight className="ml-2 w-4 h-4" />
-                      </div>
-                      <Button
-                        size="sm"
-                        className="rounded-full bg-secondary text-primary hover:bg-accent hover:text-white transition-colors"
-                        onClick={(e) => {
-                          e.preventDefault(); /* cart logic */
-                        }}
-                      >
-                        Στο καλάθι
-                      </Button>
-                    </div>
-                  </div>
                 </Link>
-              ))}
-            </div>
-
-            {/* Pagination */}
-            <div className="mt-16 flex justify-center gap-2">
-              <Button variant="outline" className="w-10 h-10 p-0 rounded-lg">
-                1
-              </Button>
-              <Button
-                variant="ghost"
-                className="w-10 h-10 p-0 rounded-lg text-muted-foreground"
-              >
-                2
-              </Button>
-              <Button
-                variant="ghost"
-                className="w-10 h-10 p-0 rounded-lg text-muted-foreground"
-              >
-                3
-              </Button>
-              <span className="w-10 h-10 flex items-center justify-center text-muted-foreground">
-                ...
-              </span>
-              <Button
-                variant="ghost"
-                className="w-10 h-10 p-0 rounded-lg text-muted-foreground"
-              >
-                12
-              </Button>
-            </div>
-          </main>
-        </div>
-      </div>
+              );
+            })}
+          </div>
+        </main>
+      </section>
     </div>
+  );
+};
+
+type FilterGroupProps = {
+  title: string;
+  options: string[];
+  selected: string[];
+  onToggle: (value: string) => void;
+  renderOption?: (option: string) => React.ReactNode;
+};
+
+const FilterGroup = ({
+  title,
+  options,
+  selected,
+  onToggle,
+  renderOption,
+}: FilterGroupProps) => {
+  return (
+    <details className="rounded-sm border border-border/70 bg-background/20" open>
+      <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-sm font-medium text-foreground">
+        {title}
+        <ChevronDown className="h-4 w-4 text-foreground/60" />
+      </summary>
+
+      <div className="px-4 pb-3 pt-2 max-h-56 overflow-auto space-y-2 border-t border-border/50">
+        {options.map((option) => {
+          const id = `${title}-${option}`;
+          return (
+            <label
+              key={id}
+              htmlFor={id}
+              className="flex items-center gap-2.5 text-sm text-foreground/80 cursor-pointer"
+            >
+              <Checkbox
+                id={id}
+                checked={selected.includes(option)}
+                onCheckedChange={() => onToggle(option)}
+                className="border-border data-[state=checked]:bg-accent data-[state=checked]:border-accent"
+              />
+              {renderOption ? renderOption(option) : <span className="truncate">{option}</span>}
+            </label>
+          );
+        })}
+      </div>
+    </details>
   );
 };
 
