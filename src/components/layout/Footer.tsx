@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+﻿import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   ArrowRight,
@@ -148,16 +148,21 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} VIOMES S.A. All rights reserved. |{" "}
-            <a href="#" className="hover:text-white transition-colors">
-              Privacy Policy
-            </a>{" "}
-            |{" "}
-            <a href="#" className="hover:text-white transition-colors">
-              Cookie Policy
-            </a>
-          </p>
+          <div className="text-xs text-muted-foreground text-center md:text-left">
+            <p>
+              © {new Date().getFullYear()} VIOMES S.A. All rights reserved. |{" "}
+              <a href="#" className="hover:text-white transition-colors">
+                Privacy Policy
+              </a>{" "}
+              |{" "}
+              <a href="#" className="hover:text-white transition-colors">
+                Cookie Policy
+              </a>
+            </p>
+            <p className="mt-2">
+              Developed by <span className="font-bold">VIOMES</span>
+            </p>
+          </div>
           <div className="flex items-center gap-6">
             <img
               src="https://img.icons8.com/color/48/iso.png"
@@ -177,3 +182,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+

@@ -245,7 +245,7 @@ const Home = () => {
                 <span className="font-medium">Πιστοποίηση ISO 14001</span>
               </div>
             </div>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12 font-bold uppercase tracking-widest text-xs">
+            <Button className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full px-8 h-12 font-bold uppercase tracking-widest text-xs shadow-sm">
               Μάθετε περισσότερα
             </Button>
           </div>
