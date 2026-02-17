@@ -7,22 +7,32 @@ import {
 import {
   ArrowRight,
   CheckCircle2,
-  Factory,
-  ShieldCheck,
-  Truck,
-  Zap,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+const heroImages = ["/SCROLL1(1).JPG", "/AND_6099.JPG", "/DSC_3421.JPG"];
+
+const categories = [
+  {
+    title: "Είδη Σπιτιού",
+    en: "Home Items",
+    image: "/ΕΙΔΗ ΣΠΙΤΙΟΥ.JPG",
+  },
+  {
+    title: "Γλάστρες",
+    en: "Planters",
+    image: "/AND_6053.JPG",
+  },
+  {
+    title: "Επαγγελματικός Εξοπλισμός",
+    en: "Professional Equipment",
+    image: "/ΚΑΔΟΙ.JPG",
+  },
+];
+
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const heroImages = [
-    "/SCROLL1(1).JPG",
-    "/AND_6099.JPG",
-    "/DSC_3421.JPG",
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -31,80 +41,6 @@ const Home = () => {
 
     return () => clearInterval(interval);
   }, [heroImages.length]);
-
-  const categories = [
-    {
-      title: "Είδη Σπιτιού",
-      en: "Home Items",
-      image: "/ΕΙΔΗ ΣΠΙΤΙΟΥ.JPG",
-    },
-    {
-      title: "Γλάστρες",
-      en: "Planters",
-      image: "/AND_6053.JPG",
-    },
-    {
-      title: "Επαγγελματικός Εξοπλισμός",
-      en: "Professional Equipment",
-      image: "/ΚΑΔΟΙ.JPG",
-    },
-  ];
-
-  const features = [
-    {
-      title: "Κορυφαία Ποιότητα",
-      desc: "Χρήση πρωτογενών υλικών υψηλής αντοχής για μέγιστη διάρκεια ζωής.",
-      icon: ShieldCheck,
-    },
-    {
-      title: "Μεγάλη Παραγωγή",
-      desc: "Σύγχρονες γραμμές παραγωγής με δυνατότητα κάλυψης μεγάλων παραγγελιών.",
-      icon: Factory,
-    },
-    {
-      title: "Private Label",
-      desc: "Εξειδίκευση στην παραγωγή προϊόντων με το δικό σας brand.",
-      icon: Zap,
-    },
-    {
-      title: "Άμεση Παράδοση",
-      desc: "Μεγάλο απόθεμα και ιδιόκτητος στόλος για γρήγορη εξυπηρέτηση.",
-      icon: Truck,
-    },
-  ];
-
-  const featuredProducts = [
-    {
-      name: "Storage Box Pro 45L",
-      price: "12.90€",
-      image:
-        "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Kitchen Organizer Set",
-      price: "24.50€",
-      image:
-        "https://images.unsplash.com/photo-1594913785162-e6786b42eda8?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Industrial Crate XL",
-      price: "18.00€",
-      image:
-        "https://images.unsplash.com/photo-1530124560676-4fbc91abc6f2?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Cleaning Bucket 15L",
-      price: "8.90€",
-      image:
-        "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Modular Shelf Unit",
-      price: "45.00€",
-      image:
-        "https://images.unsplash.com/photo-1584622781564-1d9876a13d00?auto=format&fit=crop&q=80&w=400",
-    },
-  ];
 
   return (
     <div className="flex flex-col">
@@ -160,7 +96,6 @@ const Home = () => {
       {/* Category Tiles */}
       <section className="py-24 bg-background" id="products">
         <div className="px-12 lg:px-20">
-
           <div>
             <Carousel
               opts={{
@@ -179,7 +114,7 @@ const Home = () => {
                       to="/products"
                       className="group block w-full border rounded-2xl overflow-hidden bg-white text-foreground hover:border-accent transition-all duration-300 shadow-sm hover:shadow-md"
                     >
-                      <div className="h-77 overflow-hidden relative">
+                      <div className="relative h-77 overflow-hidden">
                         <img
                           src={cat.image}
                           alt={cat.title}

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+﻿import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,53 +11,56 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+const navLinks = [
+  { name: "Προϊόντα", en: "Products", href: "/products" },
+  { name: "Η Εταιρεία", en: "About", href: "/about" },
+  { name: "Επικοινωνία", en: "Contact", href: "/contact" },
+];
+
+const languages = [
+  { code: "el", label: "Ελληνικά" },
+  { code: "en", label: "English" },
+  { code: "fr", label: "Français" },
+  { code: "de", label: "Deutsch" },
+];
+
+const flagClassByLanguage: Record<string, string> = {
+  el: "fi fi-gr",
+  en: "fi fi-gb",
+  fr: "fi fi-fr",
+  de: "fi fi-de",
+};
+
+const getFlagClass = (code: string) =>
+  flagClassByLanguage[code] ?? flagClassByLanguage.en;
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [language, setLanguage] = useState<string>(
+    () => localStorage.getItem("viomes_language") || "el",
+  );
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: "Προϊόντα", en: "Products", href: "/products" },
-    { name: "Η Εταιρεία", en: "About", href: "/about" },
-    { name: "Επικοινωνία", en: "Contact", href: "/contact" },
-  ];
-
-  const languages = [
-    { code: "el", label: "Ελληνικά" },
-    { code: "en", label: "English" },
-    { code: "fr", label: "Français" },
-    { code: "de", label: "Deutsch" },
-  ];
-
-  const flagClassByLanguage: Record<string, string> = {
-    el: "fi fi-gr",
-    en: "fi fi-gb",
-    fr: "fi fi-fr",
-    de: "fi fi-de",
-  };
-
-  const getFlagClass = (code: string) =>
-    flagClassByLanguage[code] ?? flagClassByLanguage.en;
-
-  const [language, setLanguage] = useState<string>(
-    () => localStorage.getItem("viomes_language") || "el",
-  );
-
   useEffect(() => {
     try {
       localStorage.setItem("viomes_language", language);
-    } catch (e) {
+    } catch {
       /* ignore */
     }
   }, [language]);
+
+  const selectedLanguage =
+    languages.find((selected) => selected.code === language) ?? languages[0];
 
   return (
     <header
@@ -69,7 +72,6 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto h-full px-6 py-6 relative bg-transparent lg:grid lg:grid-cols-3 lg:items-start">
-        {/* Left: social icons (desktop only) - top-left corner */}
         <div className="hidden lg:flex items-center gap-4 lg:justify-start lg:pl-0 lg:pt-2 lg:-ml-6">
           <a
             href="https://facebook.com"
@@ -130,14 +132,9 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Center: logo + nav */}
         <div className="flex flex-col items-center lg:col-span-1 lg:justify-center">
           <Link to="/" className="flex items-center gap-2">
-            <img
-              src="/viomes-logo.png"
-              alt="VIOMES Logo"
-              className="h-16 w-auto"
-            />
+            <img src="/viomes-logo.png" alt="VIOMES Logo" className="h-16 w-auto" />
           </Link>
           <nav className="hidden lg:flex items-center gap-6 mt-4">
             {navLinks.map((link) => (
@@ -146,9 +143,7 @@ const Navbar = () => {
                 to={link.href}
                 className={cn(
                   "text-lg font-semibold hover:text-accent transition-colors",
-                  location.pathname === link.href
-                    ? "text-accent"
-                    : "text-foreground/70",
+                  location.pathname === link.href ? "text-accent" : "text-foreground/70",
                 )}
               >
                 {link.name}
@@ -157,44 +152,30 @@ const Navbar = () => {
           </nav>
         </div>
 
-        {/* Right: language select (desktop) and mobile toggle */}
         <div className="flex items-center gap-4 lg:justify-end lg:pr-6 lg:pt-2">
           <div className="hidden lg:flex items-center">
             <DropdownMenu>
               <DropdownMenuTrigger className="inline-flex items-center gap-2 bg-white/90 border border-border px-3 py-1.5 rounded-md text-sm">
                 <span className="mr-2 inline-flex w-5 h-4">
                   <span
-                    className={cn(
-                      getFlagClass(
-                        languages.find((l) => l.code === language)!.code,
-                      ),
-                      "h-4 w-5 rounded-[2px]",
-                    )}
+                    className={cn(getFlagClass(selectedLanguage.code), "h-4 w-5 rounded-[2px]")}
                     aria-hidden
                   />
                 </span>
-                <span className="hidden sm:inline">
-                  {languages.find((l) => l.code === language)?.label}
-                </span>
+                <span className="hidden sm:inline">{selectedLanguage.label}</span>
                 <ChevronDown className="w-4 h-4 ml-1" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuRadioGroup
-                  value={language}
-                  onValueChange={(val) => setLanguage(val)}
-                >
-                  {languages.map((l) => (
-                    <DropdownMenuRadioItem key={l.code} value={l.code}>
+                <DropdownMenuRadioGroup value={language} onValueChange={setLanguage}>
+                  {languages.map((languageOption) => (
+                    <DropdownMenuRadioItem key={languageOption.code} value={languageOption.code}>
                       <span className="mr-2 inline-flex w-5 h-4">
                         <span
-                          className={cn(
-                            getFlagClass(l.code),
-                            "h-4 w-5 rounded-[2px]",
-                          )}
+                          className={cn(getFlagClass(languageOption.code), "h-4 w-5 rounded-[2px]")}
                           aria-hidden
                         />
                       </span>
-                      {l.label}
+                      {languageOption.label}
                     </DropdownMenuRadioItem>
                   ))}
                 </DropdownMenuRadioGroup>
@@ -205,18 +186,13 @@ const Navbar = () => {
             variant="ghost"
             size="icon"
             className="lg:hidden absolute right-4 top-4"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => setIsMobileMenuOpen((prevState) => !prevState)}
           >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </Button>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 top-20 bg-background z-40 animate-in fade-in slide-in-from-top-4">
           <div className="container mx-auto px-4 py-8 flex flex-col gap-6">
@@ -234,12 +210,12 @@ const Navbar = () => {
               <label className="sr-only">Language</label>
               <select
                 value={language}
-                onChange={(e) => setLanguage(e.target.value)}
+                onChange={(event) => setLanguage(event.target.value)}
                 className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
               >
-                {languages.map((l) => (
-                  <option key={l.code} value={l.code}>
-                    {l.label}
+                {languages.map((languageOption) => (
+                  <option key={languageOption.code} value={languageOption.code}>
+                    {languageOption.label}
                   </option>
                 ))}
               </select>
