@@ -7,13 +7,12 @@
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
+import additionalImagesData from "@/data/additional-images.json";
 import catalogData from "@/data/products-grouped.json";
-import oraLeftPhoto from "@/data/ora-left-placeholder.svg";
-import oraRightPhoto from "@/data/ora-page87-right.jpg";
 import { resolveSwatchBackground } from "@/lib/colorSwatch";
 import { cn } from "@/lib/utils";
-import { AlertCircle, ArrowLeft } from "lucide-react";
-import { useMemo, useState } from "react";
+import { AlertCircle, ArrowLeft, X } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 type Variant = {
@@ -21,6 +20,8 @@ type Variant = {
   description: string;
   color: string;
   image_url: string;
+  pack?: string;
+  excel_ar?: string;
   stock?: number | null;
 };
 
@@ -43,13 +44,14 @@ type GroupedProduct = {
 };
 
 const products = (catalogData as { products: GroupedProduct[] }).products;
+const additionalImagesByCode = additionalImagesData as Record<string, string[]>;
+const isValidImageUrl = (url: string | undefined | null) =>
+  Boolean(url && url.trim() && !url.includes("viomes_.jpg"));
 
 const parseVariantSpecs = (description: string) => {
   const text = description || "";
   const litersMatch = text.match(/(\d+(?:[.,]\d+)?)\s*lt/i);
   const dimensionsMatch = text.match(/([dDØΦ]?\s*[\d.,]+\s*x\s*[hH]?[\d.,]+(?:\s*x\s*[hH]?[\d.,]+)?)/i);
-  const packageMatch = text.match(/(\d+\s*\/\s*\d+)/);
-
   const formattedDimensions = dimensionsMatch
     ? dimensionsMatch[1]
         .replace(/[dD]/g, "Ø ")
@@ -63,7 +65,6 @@ const parseVariantSpecs = (description: string) => {
   return {
     liters: litersMatch ? litersMatch[1].replace(",", ".") : "-",
     dimensions: formattedDimensions,
-    packageInfo: packageMatch ? packageMatch[1].replace(/\s+/g, "") : "-",
   };
 };
 
@@ -74,6 +75,9 @@ const ProductDetail = () => {
 
   const [selectedSizeIndex, setSelectedSizeIndex] = useState(0);
   const [selectedColorIndex, setSelectedColorIndex] = useState(0);
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [isCarouselPaused, setIsCarouselPaused] = useState(false);
 
   if (!product) {
     return (
@@ -108,7 +112,34 @@ const ProductDetail = () => {
     setSelectedColorIndex(0);
   };
 
-  const isOraFamily = product.title.toLowerCase().includes("ora");
+  const rightCarouselImages = useMemo(() => {
+    const bySelectedCode = selectedVariant?.code ? additionalImagesByCode[selectedVariant.code] : undefined;
+    if (bySelectedCode && bySelectedCode.length > 0) {
+      return bySelectedCode.filter(isValidImageUrl);
+    }
+
+    const familyFallback = new Set<string>();
+    product.sizes.forEach((size) => {
+      size.variants.forEach((variant) => {
+        const entries = additionalImagesByCode[variant.code] || [];
+        entries.filter(isValidImageUrl).forEach((url) => familyFallback.add(url));
+      });
+    });
+    return Array.from(familyFallback);
+  }, [product.sizes, selectedVariant?.code]);
+
+  useEffect(() => {
+    setCarouselIndex(0);
+    setIsCarouselPaused(false);
+  }, [selectedVariant?.code]);
+
+  useEffect(() => {
+    if (rightCarouselImages.length <= 1 || isCarouselPaused) return;
+    const interval = setInterval(() => {
+      setCarouselIndex((prev) => (prev + 1) % rightCarouselImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isCarouselPaused, rightCarouselImages]);
 
   const sizeRows = product.sizes.map((size) => {
     const preview = size.variants[0];
@@ -118,13 +149,18 @@ const ProductDetail = () => {
       sizeCode: size.size_code || size.size_label,
       dimensions: specs.dimensions,
       liters: specs.liters,
-      packageInfo: specs.packageInfo,
+      packageInfo: preview?.pack || "-",
     };
   });
 
+  const currentRightImage =
+    rightCarouselImages.length > 0
+      ? rightCarouselImages[carouselIndex % rightCarouselImages.length]
+      : selectedVariant?.image_url || product.representative_image;
+
   return (
     <div className="pt-24 pb-10 min-h-screen bg-background">
-      <div className={cn(isOraFamily ? "mx-auto w-full max-w-none px-2 md:px-4 xl:px-6" : "container mx-auto px-6")}>
+      <div className="mx-auto w-full max-w-none px-2 md:px-4 xl:px-6">
         <Breadcrumb className="mb-8 text-sm text-foreground/70">
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -141,172 +177,155 @@ const ProductDetail = () => {
           </BreadcrumbList>
         </Breadcrumb>
 
-        {isOraFamily ? (
-          <section className="mx-auto w-full grid grid-cols-1 xl:grid-cols-[minmax(640px,1.2fr)_minmax(520px,1fr)_380px] gap-8 xl:gap-12 items-start">
-            <div className="hidden xl:block pt-2">
-              <div className="bg-white/45 p-4 xl:p-5 h-[840px]">
-                <img
-                  src={oraLeftPhoto}
-                  alt="ORA λεκάνες παρουσίασης"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            <div className="pt-8 xl:pt-10">
-              <div className="flex items-end justify-between gap-6">
-                <div className="flex items-end gap-6">
-                  <img
-                    src={selectedVariant?.image_url || product.representative_image}
-                    alt={product.title}
-                    className="h-[130px] w-[170px] object-contain mix-blend-multiply"
-                  />
-                  <div className="pb-1">
-                    <h1 className="text-[46px] leading-none font-semibold text-foreground/95">ORA Round Basin</h1>
-                    <p className="mt-2 text-[31px] leading-tight text-foreground/85">ORA λεκάνη στρογγυλή</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap items-center justify-end gap-1">
-                  {selectedSize?.variants.map((variant, index) => (
-                    <button
-                      key={`${variant.code}-${variant.color}`}
-                      type="button"
-                      onClick={() => setSelectedColorIndex(index)}
-                      className={cn(
-                        "h-11 min-w-11 px-2.5 border text-[17px] leading-none transition-all",
-                        safeColorIndex === index
-                          ? "border-foreground/60 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.5)]"
-                          : "border-transparent hover:border-foreground/30",
-                      )}
-                      style={{
-                        background: resolveSwatchBackground(variant.color),
-                        color: "rgba(255,255,255,0.95)",
-                      }}
-                      title={`${variant.color} (${variant.code})`}
-                      aria-label={`${variant.color} (${variant.code})`}
-                    >
-                      {variant.code.split("-").pop()}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-5 bg-[#d7d7da] px-8 xl:px-10 py-5 xl:py-6">
-                <table className="w-full text-[21px] text-foreground/85">
-                  <thead>
-                    <tr className="text-[16px] italic text-foreground/75">
-                      <th className="text-left font-medium pb-2">article code</th>
-                      <th className="text-left font-medium pb-2">dimensions</th>
-                      <th className="text-left font-medium pb-2">liter</th>
-                      <th className="text-left font-medium pb-2">pack</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {sizeRows.map((row, index) => (
-                      <tr
-                        key={`${row.sizeCode}-${index}`}
-                        className={cn("border-t border-foreground/5", safeSizeIndex === index ? "bg-white/20" : "bg-transparent")}
-                        onClick={() => onSelectSize(index)}
-                      >
-                        <td className="py-2 cursor-pointer">{row.sizeCode}</td>
-                        <td className="py-2 cursor-pointer">{row.dimensions}</td>
-                        <td className="py-2 cursor-pointer">{row.liters}</td>
-                        <td className="py-2 cursor-pointer">{row.packageInfo}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="mt-4 text-[20px] leading-tight text-foreground/85">
-                Επιλεγμένος κωδικός: <span className="font-semibold">{selectedVariant?.code || "-"}</span>
-              </div>
-
-              <p className="mt-5 text-[21px] leading-[1.35] text-foreground/70 max-w-[980px]">
-                Λεκάνες στρογγυλές ORA με καινοτόμο σχεδιασμό για γενική χρήση. Με ένδειξη χωρητικότητας.
-                <br />
-                Round ORA basins with innovative design for general use. With capacity indication.
-              </p>
-            </div>
-
-            <div className="pt-4 xl:pt-0">
-              <img src={oraRightPhoto} alt="ORA λεκάνη σε χρήση" className="w-full h-[840px] object-cover" />
-            </div>
-          </section>
-        ) : (
-          <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-            <div className="rounded-md border border-border bg-background/70 p-8">
+        <section className="mx-auto w-full grid grid-cols-1 xl:grid-cols-[260px_minmax(520px,1fr)_460px] gap-6 xl:gap-8 items-start">
+          <div className="hidden xl:block pt-8">
+            <div className="bg-white/45 p-5 xl:p-6 h-[300px]">
               <img
                 src={selectedVariant?.image_url || product.representative_image}
-                alt={product.title}
-                className="w-full h-[420px] object-contain mix-blend-multiply"
+                alt={`${product.title} packshot`}
+                className="w-full h-full object-contain mix-blend-multiply"
               />
             </div>
+          </div>
 
-            <div>
-              <h1 className="text-4xl font-black tracking-tight mb-4">{product.title}</h1>
-
-              <p className="text-foreground/80 leading-relaxed">
-                {selectedVariant?.description || "Δεν υπάρχει περιγραφή παραλλαγής."}
-              </p>
-
-              {product.sizes.length > 1 ? (
-                <div className="mt-8">
-                  <h3 className="text-sm font-semibold uppercase tracking-wide text-foreground/70 mb-3">
-                    Επιλογή μεγέθους
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {product.sizes.map((size, index) => (
-                      <button
-                        key={size.size_label}
-                        type="button"
-                        onClick={() => onSelectSize(index)}
-                        className={cn(
-                          "rounded-full border px-4 py-2 text-sm transition-colors",
-                          safeSizeIndex === index
-                            ? "bg-primary text-primary-foreground border-primary"
-                            : "bg-transparent border-border hover:border-accent",
-                        )}
-                      >
-                        {size.size_code || size.size_label}
-                      </button>
-                    ))}
-                  </div>
+          <div className="pt-8 xl:pt-8">
+              <div className="flex items-end justify-between gap-6">
+                <div className="pb-1">
+                  <h1 className="text-[44px] leading-none font-semibold text-foreground/95">{product.title}</h1>
+                  <p className="mt-2 text-[20px] leading-tight text-foreground/85">{selectedVariant?.description || "-"}</p>
                 </div>
-              ) : null}
 
-              <div className="mt-8">
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-foreground/70 mb-3">
-                  Επιλογή χρώματος
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {selectedSize?.variants.map((variant, index) => (
+              <div className="flex flex-wrap items-center justify-end gap-1">
+                {selectedSize?.variants.map((variant, index) => (
+                  <button
+                    key={`${variant.code}-${variant.color}`}
+                    type="button"
+                    onClick={() => setSelectedColorIndex(index)}
+                    className={cn(
+                      "h-10 min-w-10 px-2.5 border text-[15px] leading-none transition-all",
+                      safeColorIndex === index
+                        ? "border-foreground/60 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.5)]"
+                        : "border-transparent hover:border-foreground/30",
+                    )}
+                    style={{
+                      background: resolveSwatchBackground(variant.color),
+                      color: "rgba(255,255,255,0.95)",
+                    }}
+                    title={`${variant.color} (${variant.code})`}
+                    aria-label={`${variant.color} (${variant.code})`}
+                  >
+                    {variant.code.split("-").pop()}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-5 bg-[#d7d7da] px-7 xl:px-8 py-4 xl:py-5">
+              <table className="w-full text-[14px] text-foreground/85">
+                <thead>
+                  <tr className="text-[16px] italic text-foreground/75">
+                    <th className="text-left font-medium pb-2">article code</th>
+                    <th className="text-left font-medium pb-2">dimensions</th>
+                    <th className="text-left font-medium pb-2">liter</th>
+                    <th className="text-left font-medium pb-2">
+                      <img
+                        src="https://viomes.gr/images/colors/BOX.png"
+                        alt="pack"
+                        className="h-4 w-auto"
+                      />
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {sizeRows.map((row, index) => (
+                    <tr
+                      key={`${row.sizeCode}-${index}`}
+                      className={cn("border-t border-foreground/5", safeSizeIndex === index ? "bg-white/20" : "bg-transparent")}
+                      onClick={() => onSelectSize(index)}
+                    >
+                      <td className="py-2 cursor-pointer">{row.sizeCode}</td>
+                      <td className="py-2 cursor-pointer">{row.dimensions}</td>
+                      <td className="py-2 cursor-pointer">{row.liters}</td>
+                      <td className="py-2 cursor-pointer">{row.packageInfo}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="mt-4 text-[18px] leading-tight text-foreground/85">
+              Επιλεγμένος κωδικός: <span className="font-semibold">{selectedVariant?.code || "-"}</span>
+            </div>
+            {selectedVariant?.excel_ar ? (
+              <p className="mt-2 text-[18px] leading-tight text-foreground/70">{selectedVariant.excel_ar}</p>
+            ) : null}
+          </div>
+
+          <div className="pt-4 xl:pt-0">
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsCarouselPaused(true);
+                  setIsLightboxOpen(true);
+                }}
+                className="w-full cursor-zoom-in"
+                aria-label="Προβολή εικόνας"
+              >
+                <img
+                  key={carouselIndex}
+                  src={currentRightImage}
+                  alt="Επιπλέον φωτογραφία προϊόντος"
+                  className="w-full h-[820px] object-cover transition-all duration-1000 ease-in-out hover:scale-105 animate-fade-in"
+                  style={{ animation: "fadeInScale 0.8s ease-in-out forwards" }}
+                />
+              </button>
+
+              {rightCarouselImages.length > 1 ? (
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2">
+                  {rightCarouselImages.map((_, index) => (
                     <button
-                      key={`${variant.code}-${variant.color}`}
+                      key={index}
                       type="button"
-                      onClick={() => setSelectedColorIndex(index)}
+                      onClick={() => setCarouselIndex(index)}
                       className={cn(
-                        "h-10 w-10 rounded-full border-2 transition-all",
-                        safeColorIndex === index ? "border-primary scale-105" : "border-border",
+                        "h-2.5 w-2.5 rounded-full transition-all",
+                        index === carouselIndex ? "bg-white scale-110" : "bg-white/55",
                       )}
-                      style={{ background: resolveSwatchBackground(variant.color) }}
-                      title={`${variant.color} (${variant.code})`}
-                      aria-label={`${variant.color} (${variant.code})`}
+                      aria-label={`Μετάβαση στην εικόνα ${index + 1}`}
                     />
                   ))}
                 </div>
-              </div>
-
-              <div className="mt-8 rounded-md border border-border p-4 bg-card">
-                <p className="text-sm text-muted-foreground">Επιλεγμένος κωδικός</p>
-                <p className="text-lg font-semibold">{selectedVariant?.code}</p>
-                <p className="mt-2 text-sm text-muted-foreground">Χρώμα: {selectedVariant?.color || "-"}</p>
-              </div>
+              ) : null}
             </div>
-          </section>
-        )}
+          </div>
+        </section>
       </div>
+
+      {isLightboxOpen ? (
+        <div
+          className="fixed inset-0 z-[120] bg-black/80 backdrop-blur-[1px] flex items-center justify-center p-4"
+          onClick={() => setIsLightboxOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Μεγέθυνση εικόνας προϊόντος"
+        >
+          <button
+            type="button"
+            onClick={() => setIsLightboxOpen(false)}
+            className="absolute top-4 right-4 rounded-full bg-white/10 text-white p-2 hover:bg-white/20"
+            aria-label="Κλείσιμο"
+          >
+            <X className="h-6 w-6" />
+          </button>
+          <img
+            src={currentRightImage}
+            alt="Μεγεθυμένη εικόνα προϊόντος"
+            className="max-h-[92vh] max-w-[92vw] object-contain"
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      ) : null}
     </div>
   );
 };
