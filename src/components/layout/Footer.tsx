@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import {
   ArrowRight,
   Facebook,
+  Hash,
   Instagram,
   Linkedin,
   Mail,
@@ -112,11 +113,15 @@ const Footer = () => {
             <ul className="flex flex-col gap-4 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-accent shrink-0" />
-                <span>Θέση Πάτημα, Οινόφυτα Βοιωτίας, 32011, Ελλάδα</span>
+                <span>19ο Χλμ. Λ. Αθηνών - Μαρκοπούλου</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Hash className="w-5 h-5 text-accent shrink-0" />
+                <span>Τ.Κ.: 19002 - Παιανία</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-accent shrink-0" />
-                <span>+30 22620 31234</span>
+                <span>+30 210 6646231-2</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-accent shrink-0" />
@@ -182,5 +187,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
