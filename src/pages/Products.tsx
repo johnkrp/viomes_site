@@ -17,7 +17,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import catalogData from "@/data/products-grouped.json";
-import { matchesColorSelection, resolveSwatchBackground } from "@/lib/colorSwatch";
+import {
+  matchesColorSelection,
+  resolveSwatchBackground,
+} from "@/lib/colorSwatch";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Search } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -52,7 +55,11 @@ type GroupedProduct = {
 type SortMode = "relevant" | "title-asc" | "variants-desc" | "sizes-desc";
 
 const products = (catalogData as { products: GroupedProduct[] }).products;
-const siteCategories = ["Είδη Σπιτιού", "Γλάστρες", "Επαγγελματικός Εξοπλισμός"];
+const siteCategories = [
+  "Είδη Σπιτιού",
+  "Γλάστρες",
+  "Επαγγελματικός Εξοπλισμός",
+];
 
 const normalizeExcelColor = (value: string) => {
   const normalized = (value || "").trim();
@@ -300,10 +307,12 @@ const Products = () => {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <h1 className="text-5xl font-black tracking-tight text-foreground">Προϊόντα</h1>
+        <h1 className="text-5xl font-black tracking-tight text-foreground">
+          Προϊόντα
+        </h1>
         <p className="mt-4 max-w-3xl text-foreground/70 leading-relaxed">
-          Μία κάρτα ανά οικογένεια προϊόντος. Επιλέξτε προϊόν για να δείτε όλα τα διαθέσιμα
-          μεγέθη και χρώματα.
+          Μία κάρτα ανά οικογένεια προϊόντος. Επιλέξτε προϊόν για να δείτε όλα
+          τα διαθέσιμα μεγέθη και χρώματα.
         </p>
       </section>
 
@@ -325,7 +334,11 @@ const Products = () => {
                       id={`category-${category}`}
                       checked={selectedCategories.includes(category)}
                       onCheckedChange={() =>
-                        toggleValue(category, selectedCategories, setSelectedCategories)
+                        toggleValue(
+                          category,
+                          selectedCategories,
+                          setSelectedCategories,
+                        )
                       }
                       className="border-border data-[state=checked]:bg-accent data-[state=checked]:border-accent"
                     />
@@ -339,7 +352,9 @@ const Products = () => {
               title="Χρώματα"
               options={colorOptions}
               selected={selectedColors}
-              onToggle={(value) => toggleValue(value, selectedColors, setSelectedColors)}
+              onToggle={(value) =>
+                toggleValue(value, selectedColors, setSelectedColors)
+              }
               renderOption={(option) => (
                 <span className="inline-flex items-center gap-2">
                   <span
@@ -375,22 +390,29 @@ const Products = () => {
               />
             </div>
 
-            <Select value={sortMode} onValueChange={(value) => setSortMode(value as SortMode)}>
+            <Select
+              value={sortMode}
+              onValueChange={(value) => setSortMode(value as SortMode)}
+            >
               <SelectTrigger className="h-11 bg-card border-border">
                 <SelectValue placeholder="Ταξινόμηση" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="relevant">Σχετικά</SelectItem>
                 <SelectItem value="title-asc">Τίτλος (Α-Ω)</SelectItem>
-                <SelectItem value="variants-desc">Περισσότερα χρώματα/κωδικοί</SelectItem>
+                <SelectItem value="variants-desc">
+                  Περισσότερα χρώματα/κωδικοί
+                </SelectItem>
                 <SelectItem value="sizes-desc">Περισσότερα μεγέθη</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div className="mb-5 text-sm text-foreground/70">
-            <span className="font-semibold text-foreground">{filteredProducts.length}</span> οικογένειες
-            προϊόντων
+            <span className="font-semibold text-foreground">
+              {filteredProducts.length}
+            </span>{" "}
+            οικογένειες προϊόντων
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
@@ -418,7 +440,8 @@ const Products = () => {
                       {product.title}
                     </h3>
                     <p className="mt-1 text-xs text-foreground/60">
-                      {product.sizes_count} μεγέθη • {product.variants_count} χρώματα
+                      {product.sizes_count} μεγέθη • {product.variants_count}{" "}
+                      χρώματα
                     </p>
 
                     <div className="mt-4 flex items-center gap-1.5 min-h-5">
@@ -458,7 +481,10 @@ const FilterGroup = ({
   renderOption,
 }: FilterGroupProps) => {
   return (
-    <details className="rounded-sm border border-border/70 bg-background/20" open>
+    <details
+      className="rounded-sm border border-border/70 bg-background/20"
+      open
+    >
       <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-sm font-medium text-foreground">
         {title}
         <ChevronDown className="h-4 w-4 text-foreground/60" />
@@ -479,7 +505,11 @@ const FilterGroup = ({
                 onCheckedChange={() => onToggle(option)}
                 className="border-border data-[state=checked]:bg-accent data-[state=checked]:border-accent"
               />
-              {renderOption ? renderOption(option) : <span className="truncate">{option}</span>}
+              {renderOption ? (
+                renderOption(option)
+              ) : (
+                <span className="truncate">{option}</span>
+              )}
             </label>
           );
         })}
