@@ -7,6 +7,7 @@
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
+import additionalImagesData from "@/data/additional-images.json";
 import catalogData from "@/data/products-grouped.json";
 import { resolveSwatchBackground } from "@/lib/colorSwatch";
 import { cn } from "@/lib/utils";
@@ -43,6 +44,62 @@ type GroupedProduct = {
 };
 
 const products = (catalogData as { products: GroupedProduct[] }).products;
+const additionalImagesByCode = additionalImagesData as Record<string, string[]>;
+const isValidImageUrl = (url: string | undefined | null) =>
+  Boolean(url && url.trim() && !url.includes("viomes_.jpg"));
+
+const normalizeGreek = (value: string) =>
+  value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+
+const resolvePrimaryCategory = (product: GroupedProduct) => {
+  const familyText = product.family_indicator || product.group_root || "";
+  const text = normalizeGreek(`${product.title} ${product.id} ${familyText}`);
+
+  const planterKeywords = [
+    "γλαστ",
+    "πιατο γλαστ",
+    "ζαρντιν",
+    "κασπω",
+    "φυτο",
+    "flowerpot",
+    "planter",
+    "pot",
+    "vita",
+    "lotus",
+    "iris",
+    "innova",
+    "cilindro",
+    "gea",
+    "campana",
+    "sydney",
+    "rondo",
+  ];
+
+  if (planterKeywords.some((keyword) => text.includes(keyword))) {
+    return "Γλάστρες";
+  }
+
+  const professionalKeywords = [
+    "ho.re.ca",
+    "horeca",
+    "βιομηχαν",
+    "επαγγελματ",
+    "pedal bin",
+    "waste container",
+    "toilet brush",
+    "πενταλ",
+    "τουαλετ",
+  ];
+
+  if (professionalKeywords.some((keyword) => text.includes(keyword))) {
+    return "Επαγγελματικός Εξοπλισμός";
+  }
+
+  return "Είδη Σπιτιού";
+};
 
 const parseSpecsFromText = (text: string) => {
   const normalized = (text || "").toLowerCase();
@@ -82,6 +139,7 @@ const ProductDetail = () => {
   const [selectedSizeIndex, setSelectedSizeIndex] = useState(0);
   const [selectedColorIndex, setSelectedColorIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   if (!product) {
     return (
@@ -111,6 +169,22 @@ const ProductDetail = () => {
   const safeColorIndex = Math.min(selectedColorIndex, Math.max((selectedSize?.variants?.length || 1) - 1, 0));
   const selectedVariant = selectedSize?.variants?.[safeColorIndex] || selectedSize?.variants?.[0];
   const packshotImage = selectedVariant?.image_url || product.representative_image;
+  const primaryCategory = useMemo(() => resolvePrimaryCategory(product), [product]);
+
+  const additionalImages = useMemo(() => {
+    const selectedCodeImages = selectedVariant?.code ? additionalImagesByCode[selectedVariant.code] || [] : [];
+    const validSelected = selectedCodeImages.filter(isValidImageUrl);
+    if (validSelected.length > 0) return validSelected;
+
+    const familyImages = new Set<string>();
+    product.sizes.forEach((size) => {
+      size.variants.forEach((variant) => {
+        (additionalImagesByCode[variant.code] || []).filter(isValidImageUrl).forEach((url) => familyImages.add(url));
+      });
+    });
+    return Array.from(familyImages);
+  }, [product.sizes, selectedVariant?.code]);
+
   const sizeSpecs = useMemo(
     () =>
       product.sizes.map((size) => {
@@ -148,6 +222,12 @@ const ProductDetail = () => {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
+                  <BreadcrumbLink href={`/products?category=${encodeURIComponent(primaryCategory)}`}>
+                    {primaryCategory}
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+                <BreadcrumbItem>
                   <BreadcrumbPage>{product.title}</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
@@ -156,7 +236,10 @@ const ProductDetail = () => {
             <div className="rounded-2xl bg-transparent p-2 md:p-4">
               <button
                 type="button"
-                onClick={() => setIsLightboxOpen(true)}
+                onClick={() => {
+                  setLightboxImage(packshotImage);
+                  setIsLightboxOpen(true);
+                }}
                 className="group relative block w-full cursor-zoom-in"
                 aria-label="Προβολή packshot"
               >
@@ -248,9 +331,33 @@ const ProductDetail = () => {
                 ))}
               </div>
             </div>
-
           </div>
         </section>
+
+        {additionalImages.length > 0 ? (
+          <section className="mt-10">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+              {additionalImages.map((image, index) => (
+                <button
+                  key={`${image}-${index}`}
+                  type="button"
+                  onClick={() => {
+                    setLightboxImage(image);
+                    setIsLightboxOpen(true);
+                  }}
+                  className="group overflow-hidden rounded-xl border border-foreground/15 bg-white/50"
+                  aria-label={`Επιπλέον εικόνα ${index + 1}`}
+                >
+                  <img
+                    src={image}
+                    alt={`Additional ${index + 1}`}
+                    className="h-44 w-full object-cover transition duration-300 group-hover:scale-105"
+                  />
+                </button>
+              ))}
+            </div>
+          </section>
+        ) : null}
       </div>
 
       {isLightboxOpen ? (
@@ -271,7 +378,7 @@ const ProductDetail = () => {
           </button>
 
           <img
-            src={packshotImage}
+            src={lightboxImage || packshotImage}
             alt="Μεγεθυμένη εικόνα προϊόντος"
             className="max-h-[92vh] max-w-[92vw] object-contain"
             onClick={(event) => event.stopPropagation()}

@@ -23,8 +23,8 @@ import {
 } from "@/lib/colorSwatch";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Search } from "lucide-react";
-import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 
 type Variant = {
   code: string;
@@ -208,10 +208,22 @@ const resolveSiteCategories = (product: GroupedProduct) => {
 };
 
 const Products = () => {
+  const [searchParams] = useSearchParams();
+  const categoryFromQuery = searchParams.get("category");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortMode, setSortMode] = useState<SortMode>("relevant");
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(
+    categoryFromQuery && siteCategories.includes(categoryFromQuery)
+      ? [categoryFromQuery]
+      : [],
+  );
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (!categoryFromQuery) return;
+    if (!siteCategories.includes(categoryFromQuery)) return;
+    setSelectedCategories([categoryFromQuery]);
+  }, [categoryFromQuery]);
 
   const colorOptions = useMemo(
     () =>
