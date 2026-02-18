@@ -71,8 +71,8 @@ const Navbar = () => {
           : "bg-background/95 backdrop-blur-sm border-b border-border/60",
       )}
     >
-      <div className="container mx-auto h-full px-6 py-6 relative bg-transparent lg:grid lg:grid-cols-3 lg:items-start">
-        <div className="hidden lg:flex items-center gap-4 lg:justify-start lg:pl-0 lg:pt-2 lg:-ml-6">
+      <div className="container mx-auto h-full px-6 py-3 relative bg-transparent lg:grid lg:grid-cols-3 lg:items-center lg:py-4">
+        <div className="hidden lg:flex items-center gap-4 lg:justify-start lg:pl-0 lg:-ml-6">
           <a
             href="https://facebook.com"
             target="_blank"
@@ -134,9 +134,9 @@ const Navbar = () => {
 
         <div className="flex flex-col items-center lg:col-span-1 lg:justify-center">
           <Link to="/" className="flex items-center gap-2">
-            <img src="/viomes-logo.png" alt="VIOMES Logo" className="h-16 w-auto" />
+            <img src="/images/viomes-logo.png" alt="VIOMES Logo" className="h-12 w-auto md:h-14" />
           </Link>
-          <nav className="hidden lg:flex items-center gap-6 mt-4">
+          <nav className="mt-2 hidden items-center gap-6 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -152,7 +152,7 @@ const Navbar = () => {
           </nav>
         </div>
 
-        <div className="flex items-center gap-4 lg:justify-end lg:pr-6 lg:pt-2">
+        <div className="flex items-center gap-4 lg:justify-end lg:pr-6">
           <div className="hidden lg:flex items-center">
             <DropdownMenu>
               <DropdownMenuTrigger className="inline-flex items-center gap-2 bg-white/90 border border-border px-3 py-1.5 rounded-md text-sm">
@@ -185,7 +185,7 @@ const Navbar = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden absolute right-4 top-4"
+            className="absolute right-4 top-3 lg:hidden"
             onClick={() => setIsMobileMenuOpen((prevState) => !prevState)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -194,7 +194,7 @@ const Navbar = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-20 bg-background z-40 animate-in fade-in slide-in-from-top-4">
+        <div className="fixed inset-0 top-16 z-40 bg-background animate-in fade-in slide-in-from-top-4 lg:hidden">
           <div className="container mx-auto px-4 py-8 flex flex-col gap-6">
             {navLinks.map((link) => (
               <Link
