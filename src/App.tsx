@@ -8,6 +8,9 @@ import ScrollToTop from "./components/layout/ScrollToTop";
 const Home = lazy(() => import("./pages/Home"));
 const Products = lazy(() => import("./pages/Products"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
+const CategoryHomeItems = lazy(() => import("./pages/CategoryHomeItems"));
+const CategoryPlanters = lazy(() => import("./pages/CategoryPlanters"));
+const CategoryProfessional = lazy(() => import("./pages/CategoryProfessional"));
 const About = lazy(() => import("./pages/About"));
 
 // Loading component
@@ -26,6 +29,12 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/eidi-spitioy" element={<CategoryHomeItems />} />
+            <Route path="/products/glastres" element={<CategoryPlanters />} />
+            <Route
+              path="/products/epaggelmatikos-eksoplismos"
+              element={<CategoryProfessional />}
+            />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/quality" element={<About />} />

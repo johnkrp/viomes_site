@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import additionalImagesData from "@/data/additional-images.json";
 import catalogData from "@/data/products-grouped.json";
 import { resolveSwatchBackground } from "@/lib/colorSwatch";
+import { resolvePrimaryCategory } from "@/lib/productCategories";
 import { cn } from "@/lib/utils";
 import { AlertCircle, ArrowLeft, Expand, X } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -47,59 +48,6 @@ const products = (catalogData as { products: GroupedProduct[] }).products;
 const additionalImagesByCode = additionalImagesData as Record<string, string[]>;
 const isValidImageUrl = (url: string | undefined | null) =>
   Boolean(url && url.trim() && !url.includes("viomes_.jpg"));
-
-const normalizeGreek = (value: string) =>
-  value
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
-
-const resolvePrimaryCategory = (product: GroupedProduct) => {
-  const familyText = product.family_indicator || product.group_root || "";
-  const text = normalizeGreek(`${product.title} ${product.id} ${familyText}`);
-
-  const planterKeywords = [
-    "γλαστ",
-    "πιατο γλαστ",
-    "ζαρντιν",
-    "κασπω",
-    "φυτο",
-    "flowerpot",
-    "planter",
-    "pot",
-    "vita",
-    "lotus",
-    "iris",
-    "innova",
-    "cilindro",
-    "gea",
-    "campana",
-    "sydney",
-    "rondo",
-  ];
-
-  if (planterKeywords.some((keyword) => text.includes(keyword))) {
-    return "Γλάστρες";
-  }
-
-  const professionalKeywords = [
-    "ho.re.ca",
-    "horeca",
-    "βιομηχαν",
-    "επαγγελματ",
-    "pedal bin",
-    "waste container",
-    "toilet brush",
-    "πενταλ",
-    "τουαλετ",
-  ];
-
-  if (professionalKeywords.some((keyword) => text.includes(keyword))) {
-    return "Επαγγελματικός Εξοπλισμός";
-  }
-
-  return "Είδη Σπιτιού";
-};
 
 const parseSpecsFromText = (text: string) => {
   const normalized = (text || "").toLowerCase();
@@ -275,7 +223,7 @@ const ProductDetail = () => {
             </div>
 
             <div>
-              <p className="mb-3 text-sm font-medium text-foreground/85">Select size</p>
+              <p className="mb-2 text-xs font-medium text-foreground/85">Select size</p>
               <div className="flex flex-wrap gap-2">
                 {product.sizes.map((size, index) => {
                   const active = index === safeSizeIndex;
@@ -293,16 +241,25 @@ const ProductDetail = () => {
                       type="button"
                       onClick={() => onSelectSize(index)}
                       className={cn(
-                        "rounded-2xl border px-4 py-2.5 text-left transition",
+                        "flex h-11 w-[220px] items-center justify-center rounded-xl border px-3 py-2 text-center transition",
                         active
                           ? "border-foreground bg-foreground text-background"
                           : "border-foreground/25 bg-white/70 text-foreground hover:border-foreground/55",
                       )}
                     >
                       {specsLabel ? (
-                        <p className={cn("text-xs", active ? "text-background/85" : "text-foreground/70")}>{specsLabel}</p>
+                        <p
+                          className={cn(
+                            "truncate text-xs",
+                            active ? "text-background/85" : "text-foreground/70",
+                          )}
+                        >
+                          {specsLabel}
+                        </p>
                       ) : (
-                        <p className={cn("text-xs", active ? "text-background/85" : "text-foreground/70")}>Επιλογή μεγέθους</p>
+                        <p className={cn("text-xs", active ? "text-background/85" : "text-foreground/70")}>
+                          Επιλογή μεγέθους
+                        </p>
                       )}
                     </button>
                   );
@@ -311,23 +268,26 @@ const ProductDetail = () => {
             </div>
 
             <div>
-              <p className="mb-3 text-sm font-medium text-foreground/85">Select color</p>
-              <div className="flex flex-wrap items-center gap-2">
+              <p className="mb-2 text-xs font-medium text-foreground/85">Select color</p>
+              <div className="flex flex-wrap items-end gap-2">
                 {selectedSize?.variants.map((variant, index) => (
-                  <button
-                    key={`${variant.code}-${variant.color}`}
-                    type="button"
-                    onClick={() => setSelectedColorIndex(index)}
-                    className={cn(
-                      "h-10 w-10 rounded-full border-2 transition",
-                      safeColorIndex === index
-                        ? "scale-110 border-foreground shadow-[0_0_0_3px_rgba(255,255,255,0.75)]"
-                        : "border-white/80 hover:scale-105",
-                    )}
-                    style={{ background: resolveSwatchBackground(variant.color) }}
-                    title={`${variant.color} (${variant.code})`}
-                    aria-label={`${variant.color} (${variant.code})`}
-                  />
+                  <div key={`${variant.code}-${variant.color}`} className="flex flex-col items-center gap-0.5">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedColorIndex(index)}
+                      className="h-8 w-8 rounded-full transition hover:scale-105"
+                      style={{ background: resolveSwatchBackground(variant.color) }}
+                      title={`${variant.color} (${variant.code})`}
+                      aria-label={`${variant.color} (${variant.code})`}
+                    />
+                    <span
+                      aria-hidden="true"
+                      className={cn(
+                        "h-[1.5px] w-5 rounded-full bg-foreground/75 transition-opacity",
+                        safeColorIndex === index ? "opacity-100" : "opacity-0",
+                      )}
+                    />
+                  </div>
                 ))}
               </div>
             </div>
@@ -351,7 +311,7 @@ const ProductDetail = () => {
                   <img
                     src={image}
                     alt={`Additional ${index + 1}`}
-                    className="h-44 w-full object-cover transition duration-300 group-hover:scale-105"
+                    className="h-72 w-full object-cover transition duration-300 group-hover:scale-105"
                   />
                 </button>
               ))}
@@ -362,7 +322,7 @@ const ProductDetail = () => {
 
       {isLightboxOpen ? (
         <div
-          className="fixed inset-0 z-[120] flex items-center justify-center bg-black/85 p-4"
+          className="fixed inset-0 z-[120] flex items-center justify-center bg-black/60 backdrop-blur-md p-4"
           onClick={() => setIsLightboxOpen(false)}
           role="dialog"
           aria-modal="true"

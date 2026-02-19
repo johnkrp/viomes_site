@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Geist:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -52,11 +52,11 @@
 
     /* Fonts */
     --font-sans: "Inter", sans-serif;
-    --font-heading: "Geist", sans-serif;
+    --font-heading: "Inter", sans-serif;
     --font-mono: "Geist Mono", monospace;
 
     /* Shadows */
-    --radius: 0.75rem; /* 12px rounded corners as per prompt */
+    --radius: 0.5rem; /* slightly sharper corners site-wide */
 
     --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.1);
 

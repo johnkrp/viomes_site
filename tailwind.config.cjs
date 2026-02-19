@@ -60,10 +60,13 @@ module.exports = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "calc(var(--radius) + 2px)",
+        "2xl": "calc(var(--radius) + 4px)",
+        "3xl": "calc(var(--radius) + 8px)",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "Inter", "sans-serif"],
-        heading: ["var(--font-heading)", "Geist", "sans-serif"],
+        heading: ["var(--font-heading)", "Inter", "sans-serif"],
         mono: ["var(--font-mono)", "Geist Mono", "monospace"],
       },
       boxShadow: {

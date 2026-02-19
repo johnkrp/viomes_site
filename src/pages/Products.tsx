@@ -17,6 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import catalogData from "@/data/products-grouped.json";
+import { resolveSiteCategories, siteCategories } from "@/lib/productCategories";
 import {
   matchesColorSelection,
   resolveSwatchBackground,
@@ -55,11 +56,6 @@ type GroupedProduct = {
 type SortMode = "relevant" | "title-asc" | "variants-desc" | "sizes-desc";
 
 const products = (catalogData as { products: GroupedProduct[] }).products;
-const siteCategories = [
-  "Είδη Σπιτιού",
-  "Γλάστρες",
-  "Επαγγελματικός Εξοπλισμός",
-];
 
 const normalizeExcelColor = (value: string) => {
   const normalized = (value || "").trim();
@@ -93,119 +89,11 @@ const normalizeGreek = (value: string) =>
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "");
 
-const resolveSiteCategories = (product: GroupedProduct) => {
-  const familyText = product.family_indicator || product.group_root || "";
-  const text = normalizeGreek(`${product.title} ${product.id} ${familyText}`);
-  const categories = new Set<string>();
-
-  const homeKeywords = [
-    "showroom",
-    "kiklos",
-    "deco",
-    "cubo",
-    "basic bin",
-    "waste container",
-    "pedal bin",
-    "wc equipment",
-    "equipment for clothes",
-    "storage box",
-    "nova box",
-    "cleaning equipment",
-    "bucket",
-    "wringer",
-    "dust pan",
-    "kitchen collection",
-    "fresco",
-    "food container",
-    "ora basin",
-    "basin",
-    "dish drainer",
-    "kitchen equipment",
-    "household article",
-    "garden furniture",
-    "καδος",
-    "λεκαν",
-    "κουβα",
-    "κουτι",
-    "αποθηκευ",
-    "πιατοθηκ",
-    "κουζιν",
-    "wc",
-  ];
-
-  if (homeKeywords.some((keyword) => text.includes(keyword))) {
-    categories.add("Είδη Σπιτιού");
-  }
-
-  const planterKeywords = [
-    "γλαστ",
-    "πιατο γλαστ",
-    "ζαρντιν",
-    "κασπω",
-    "φυτο",
-    "orchid flowerpot",
-    "lily flowerpot",
-    "terracotta flowerpot",
-    "terracotta round",
-    "terracotta flowerbowl",
-    "terracotta plate",
-    "terracotta small jardiniere",
-    "terracotta big jardiniere",
-    "greenhouse flowerpot",
-    "linea flowerpot",
-    "linea round",
-    "linea square",
-    "linea mosaic",
-    "linea jardiniere",
-    "vita",
-    "lotus",
-    "iris",
-    "innova",
-    "cilindro",
-    "gea",
-    "plant",
-    "planter",
-    "pot",
-    "campana",
-    "sydney",
-    "rondo",
-  ];
-
-  if (planterKeywords.some((keyword) => text.includes(keyword))) {
-    categories.add("Γλάστρες");
-  }
-
-  const professionalKeywords = [
-    "ho.re.ca",
-    "horeca",
-    "βιομηχαν",
-    "επαγγελματ",
-    "kiklos collection",
-    "deco bin",
-    "cubo bin",
-    "basic bin",
-    "waste container",
-    "pedal bin",
-    "wc equipment",
-    "toilet brush",
-    "καδος",
-    "πενταλ",
-    "τουαλετ",
-    "stand",
-    "κονταρι",
-    "παρκετεζ",
-  ];
-
-  if (professionalKeywords.some((keyword) => text.includes(keyword))) {
-    categories.add("Επαγγελματικός Εξοπλισμός");
-  }
-
-  if (categories.size === 0) {
-    categories.add("Είδη Σπιτιού");
-  }
-
-  return Array.from(categories);
-};
+const normalizeSearchText = (value: string) =>
+  normalizeGreek(value)
+    .replace(/[^\p{L}\p{N}\s]/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 
 const Products = () => {
   const [searchParams] = useSearchParams();
@@ -242,7 +130,7 @@ const Products = () => {
   );
 
   const filteredProducts = useMemo(() => {
-    const query = searchTerm.trim().toLowerCase();
+    const query = normalizeSearchText(searchTerm);
 
     const filtered = products.filter((product) => {
       const codes = allCodes(product);
@@ -251,9 +139,9 @@ const Products = () => {
 
       const matchesQuery =
         !query ||
-        product.title.toLowerCase().includes(query) ||
-        product.id.toLowerCase().includes(query) ||
-        codes.some((code) => code.toLowerCase().includes(query));
+        normalizeSearchText(product.title).includes(query) ||
+        normalizeSearchText(product.id).includes(query) ||
+        codes.some((code) => normalizeSearchText(code).includes(query));
 
       const matchesCategory =
         selectedCategories.length === 0 ||

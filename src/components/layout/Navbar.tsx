@@ -155,7 +155,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4 lg:justify-end lg:pr-6">
           <div className="hidden lg:flex items-center">
             <DropdownMenu>
-              <DropdownMenuTrigger className="inline-flex items-center gap-2 bg-white/90 border border-border px-3 py-1.5 rounded-md text-sm">
+              <DropdownMenuTrigger className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45">
                 <span className="mr-2 inline-flex w-5 h-4">
                   <span
                     className={cn(getFlagClass(selectedLanguage.code), "h-4 w-5 rounded-[2px]")}

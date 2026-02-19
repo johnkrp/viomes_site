@@ -6,33 +6,54 @@ import {
 } from "@/components/ui/carousel";
 import {
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
   CheckCircle2,
+  Expand,
+  X,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const heroImages = ["/SCROLL1(1).JPG", "/AND_6099.JPG", "/DSC_3421.JPG"];
+const heroImages = [
+  "/images/AND_6099.JPG",
+  "/images/DSC_3421.JPG",
+  "/images/hero-new-01.png",
+  "/images/V-517.JPG",
+];
 
 const categories = [
   {
     title: "Είδη Σπιτιού",
     en: "Home Items",
-    image: "/ΕΙΔΗ ΣΠΙΤΙΟΥ.JPG",
+    image: "/images/ΕΙΔΗ ΣΠΙΤΙΟΥ.JPG",
+    href: "/products/eidi-spitioy",
   },
   {
     title: "Γλάστρες",
     en: "Planters",
-    image: "/AND_6053.JPG",
+    image: "/images/AND_6053.JPG",
+    href: "/products/glastres",
   },
   {
     title: "Επαγγελματικός Εξοπλισμός",
     en: "Professional Equipment",
-    image: "/ΚΑΔΟΙ.JPG",
+    image: "/images/ΚΑΔΟΙ.JPG",
+    href: "/products/epaggelmatikos-eksoplismos",
   },
 ];
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isHeroLightboxOpen, setIsHeroLightboxOpen] = useState(false);
+  const goToPreviousImage = () => {
+    setCurrentImageIndex(
+      (prevIndex) => (prevIndex - 1 + heroImages.length) % heroImages.length,
+    );
+  };
+  const goToNextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -79,17 +100,70 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Image - Right Side - Full Width (with top/bottom inset to avoid touching the page top) */}
-        <div className="hidden lg:block absolute right-0 top-20 bottom-12 w-1/2 overflow-hidden bg-muted rounded-bl-[5px]">
-          <img
-            key={currentImageIndex}
-            src={heroImages[currentImageIndex]}
-            alt="Viomes Factory & Products"
-            className="w-full h-full object-cover animate-fade-in transition-all duration-1000 ease-in-out hover:scale-105"
-            style={{
-              animation: `fadeInScale 0.8s ease-in-out forwards`,
-            }}
-          />
+        {/* Image - Right Side with controls underneath */}
+        <div className="hidden lg:flex absolute right-0 top-20 bottom-12 w-1/2 flex-col">
+          <div className="min-h-0 flex-1 overflow-hidden bg-muted rounded-bl-[5px]">
+            <button
+              type="button"
+              onClick={() => setIsHeroLightboxOpen(true)}
+              className="group relative h-full w-full cursor-zoom-in"
+              aria-label="Μεγέθυνση εικόνας hero"
+            >
+              <img
+                key={currentImageIndex}
+                src={heroImages[currentImageIndex]}
+                alt="Viomes Factory & Products"
+                className="h-full w-full object-cover animate-fade-in transition-all duration-1000 ease-in-out group-hover:scale-105"
+                style={{
+                  animation: `fadeInScale 0.8s ease-in-out forwards`,
+                }}
+              />
+              <span className="pointer-events-none absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white opacity-0 transition group-hover:opacity-100">
+                <Expand className="h-3.5 w-3.5" />
+                Zoom
+              </span>
+            </button>
+          </div>
+
+          <div className="mt-3 flex items-center justify-center gap-4">
+            <button
+              type="button"
+              onClick={goToPreviousImage}
+              className="inline-flex h-6 w-6 items-center justify-center text-foreground/45 transition hover:text-foreground/75"
+              aria-label="Προηγούμενη εικόνα"
+            >
+              <ChevronLeft className="h-3.5 w-3.5" />
+            </button>
+
+            <div className="flex items-center gap-3">
+              {heroImages.map((_, index) => {
+              const isActive = index === currentImageIndex;
+              return (
+                <button
+                  key={`hero-selector-${index}`}
+                  type="button"
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`h-2.5 rounded-full transition-all ${
+                    isActive
+                      ? "w-2.5 bg-foreground/70"
+                      : "w-2.5 bg-foreground/30 hover:bg-foreground/50"
+                  }`}
+                  aria-label={`Εικόνα ${index + 1}`}
+                  aria-current={isActive ? "true" : "false"}
+                />
+              );
+              })}
+            </div>
+
+            <button
+              type="button"
+              onClick={goToNextImage}
+              className="inline-flex h-6 w-6 items-center justify-center text-foreground/45 transition hover:text-foreground/75"
+              aria-label="Επόμενη εικόνα"
+            >
+              <ChevronRight className="h-3.5 w-3.5" />
+            </button>
+          </div>
         </div>
       </section>
 
@@ -111,7 +185,7 @@ const Home = () => {
                     className="pl-5 md:basis-1/2 lg:basis-1/3"
                   >
                     <Link
-                      to="/products"
+                      to={cat.href}
                       className="group block w-full text-foreground"
                     >
                       <div className="relative h-[30rem] overflow-hidden rounded-lg shadow-sm">
@@ -145,7 +219,7 @@ const Home = () => {
           <div className="w-full lg:w-[54%] mb-10 lg:mb-0 flex-shrink-0">
             <div className="relative w-full h-64 lg:h-[400px] rounded-xl overflow-hidden shadow-lg">
               <img
-                src="/circular-economy.jpg"
+                src="/images/circular-economy.jpg"
                 alt="Sustainability"
                 className="w-full h-full object-cover"
                 style={{ opacity: 0.9 }}
@@ -262,6 +336,32 @@ const Home = () => {
       </section>
 
       {/* Removed Featured Products and duplicate Sustainability section per request */}
+
+      {isHeroLightboxOpen ? (
+        <div
+          className="fixed inset-0 z-[120] flex items-center justify-center bg-black/60 backdrop-blur-md p-4"
+          onClick={() => setIsHeroLightboxOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Μεγέθυνση εικόνας hero"
+        >
+          <button
+            type="button"
+            onClick={() => setIsHeroLightboxOpen(false)}
+            className="absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white hover:bg-white/20"
+            aria-label="Κλείσιμο"
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          <img
+            src={heroImages[currentImageIndex]}
+            alt="Μεγεθυμένη εικόνα hero"
+            className="max-h-[92vh] max-w-[92vw] object-contain"
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      ) : null}
     </div>
   );
 };

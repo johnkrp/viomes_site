@@ -21,7 +21,7 @@ const Footer = () => {
           <div className="flex flex-col gap-6">
             <Link to="/" className="flex items-center gap-2">
               <img
-                src="/viomes-logo.png"
+                src="/images/viomes-logo.png"
                 alt="VIOMES Logo"
                 className="h-10 w-auto"
               />
