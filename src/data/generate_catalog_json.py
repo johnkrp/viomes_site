@@ -18,8 +18,11 @@ import json
 import re
 import unicodedata
 from collections import Counter, defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
 
 import openpyxl
 
@@ -217,7 +220,65 @@ def build_additional_images(rows: list[dict[str, Any]]) -> dict[str, list[str]]:
             continue
         deduped = list(dict.fromkeys(images))
         mapping[code] = deduped
+
     return dict(sorted(mapping.items(), key=lambda item: item[0]))
+
+
+def is_url_reachable(url: str, timeout_seconds: float) -> bool:
+    if not url or not url.lower().startswith(("http://", "https://")):
+        return False
+
+    headers = {"User-Agent": "viomes-catalog-json-generator/1.0"}
+    for method in ("HEAD", "GET"):
+        request = Request(url, headers=headers, method=method)
+        try:
+            with urlopen(request, timeout=timeout_seconds) as response:
+                status = getattr(response, "status", None) or response.getcode()
+                return 200 <= int(status) < 400
+        except HTTPError as exc:
+            # Some servers reject HEAD even if GET would work.
+            if method == "HEAD" and exc.code in (405, 501):
+                continue
+            return False
+        except (URLError, TimeoutError):
+            return False
+        except Exception:
+            return False
+
+    return False
+
+
+def filter_unreachable_additional_images(
+    mapping: dict[str, list[str]],
+    timeout_seconds: float,
+    workers: int,
+) -> tuple[dict[str, list[str]], int, int]:
+    all_urls = sorted({url for urls in mapping.values() for url in urls})
+    if not all_urls:
+        return mapping, 0, 0
+
+    reachable_by_url: dict[str, bool] = {}
+    worker_count = max(1, min(workers, len(all_urls)))
+    with ThreadPoolExecutor(max_workers=worker_count) as executor:
+        futures = {
+            executor.submit(is_url_reachable, url, timeout_seconds): url
+            for url in all_urls
+        }
+        for future in as_completed(futures):
+            url = futures[future]
+            reachable_by_url[url] = future.result()
+
+    filtered: dict[str, list[str]] = {}
+    total_urls = 0
+    removed_urls = 0
+    for code, urls in mapping.items():
+        total_urls += len(urls)
+        valid_urls = [url for url in urls if reachable_by_url.get(url, False)]
+        removed_urls += len(urls) - len(valid_urls)
+        if valid_urls:
+            filtered[code] = valid_urls
+
+    return dict(sorted(filtered.items(), key=lambda item: item[0])), total_urls, removed_urls
 
 
 def parse_args() -> argparse.Namespace:
@@ -245,6 +306,23 @@ def parse_args() -> argparse.Namespace:
         default=Path("src/data/additional-images.json"),
         help="Output path for additional-images JSON.",
     )
+    parser.add_argument(
+        "--skip-url-validation",
+        action="store_true",
+        help="Skip URL reachability checks for additional images.",
+    )
+    parser.add_argument(
+        "--url-timeout",
+        type=float,
+        default=6.0,
+        help="Timeout in seconds for each additional-image URL check.",
+    )
+    parser.add_argument(
+        "--url-workers",
+        type=int,
+        default=24,
+        help="Parallel workers for additional-image URL checks.",
+    )
     return parser.parse_args()
 
 
@@ -270,6 +348,14 @@ def main() -> None:
     rows = build_rows(worksheet)
     products = build_grouped_products(rows)
     additional_images = build_additional_images(rows)
+    total_additional_urls = sum(len(urls) for urls in additional_images.values())
+    removed_additional_urls = 0
+    if not args.skip_url_validation:
+        additional_images, total_additional_urls, removed_additional_urls = filter_unreachable_additional_images(
+            additional_images,
+            timeout_seconds=args.url_timeout,
+            workers=args.url_workers,
+        )
 
     products_payload = {
         "source_file": xlsx_path.name,
@@ -291,6 +377,13 @@ def main() -> None:
 
     print(f"Wrote {args.products_out} ({len(products)} products)")
     print(f"Wrote {args.additional_out} ({len(additional_images)} variant image groups)")
+    if args.skip_url_validation:
+        print("Skipped additional-image URL validation")
+    else:
+        print(
+            f"Validated additional-image URLs: removed {removed_additional_urls} "
+            f"of {total_additional_urls} links"
+        )
 
 
 if __name__ == "__main__":

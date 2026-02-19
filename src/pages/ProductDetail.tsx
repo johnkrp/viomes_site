@@ -194,7 +194,7 @@ const ProductDetail = () => {
                 <img
                   src={packshotImage}
                   alt={`${product.title} packshot`}
-                  className="h-[320px] w-full object-contain mix-blend-multiply md:h-[520px]"
+                  className="mx-auto h-[320px] w-full object-contain mix-blend-multiply md:h-[520px]"
                 />
                 <span className="pointer-events-none absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white opacity-0 transition group-hover:opacity-100">
                   <Expand className="h-3.5 w-3.5" />
@@ -296,7 +296,15 @@ const ProductDetail = () => {
 
         {additionalImages.length > 0 ? (
           <section className="mt-10">
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+            <div
+              className={cn(
+                "mx-auto gap-3",
+                additionalImages.length === 1 && "grid max-w-md grid-cols-1 justify-items-center",
+                additionalImages.length === 2 && "grid max-w-3xl grid-cols-2 justify-items-center",
+                additionalImages.length === 3 && "grid max-w-5xl grid-cols-3 justify-items-center",
+                additionalImages.length >= 4 && "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4",
+              )}
+            >
               {additionalImages.map((image, index) => (
                 <button
                   key={`${image}-${index}`}
@@ -305,13 +313,13 @@ const ProductDetail = () => {
                     setLightboxImage(image);
                     setIsLightboxOpen(true);
                   }}
-                  className="group overflow-hidden rounded-xl border border-foreground/15 bg-white/50"
+                  className="group flex items-center justify-center overflow-hidden rounded-xl border border-foreground/15 bg-white/50"
                   aria-label={`Επιπλέον εικόνα ${index + 1}`}
                 >
                   <img
                     src={image}
                     alt={`Additional ${index + 1}`}
-                    className="h-72 w-full object-cover transition duration-300 group-hover:scale-105"
+                    className="h-72 w-full object-cover object-center transition duration-300 group-hover:scale-105"
                   />
                 </button>
               ))}
