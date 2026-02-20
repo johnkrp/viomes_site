@@ -7,6 +7,7 @@
       "family_indicator": "360",
       "group_root": "1090",
       "title": "Λεκάνες ORA",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_360-78.jpg",
       "sizes": [
         {
@@ -62,7 +63,16 @@
               "excel_ar": "Στρογγυλές λεκάνες ORA, σχεδιασμένες με καινοτομία και λειτουργικότητα, κατάλληλες για ευρεία γκάμα γενικών χρήσεων"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "4",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "26",
+            "height": "12",
+            "has_specs": true
+          }
         },
         {
           "size_label": "361",
@@ -109,7 +119,16 @@
               "excel_ar": "Στρογγυλές λεκάνες ORA, σχεδιασμένες με καινοτομία και λειτουργικότητα, κατάλληλες για ευρεία γκάμα γενικών χρήσεων"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "6",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "31",
+            "height": "13.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "362",
@@ -156,7 +175,16 @@
               "excel_ar": "Στρογγυλές λεκάνες ORA, σχεδιασμένες με καινοτομία και λειτουργικότητα, κατάλληλες για ευρεία γκάμα γενικών χρήσεων"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "9.5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "36",
+            "height": "15.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "363",
@@ -203,7 +231,16 @@
               "excel_ar": "Στρογγυλές λεκάνες ORA, σχεδιασμένες με καινοτομία και λειτουργικότητα, κατάλληλες για ευρεία γκάμα γενικών χρήσεων"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "14",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "41",
+            "height": "17.5",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,
@@ -214,6 +251,7 @@
       "family_indicator": "60",
       "group_root": "1110",
       "title": "Λεκάνες στρογγυλές",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_60-50.jpg",
       "sizes": [
         {
@@ -261,7 +299,16 @@
               "excel_ar": "Στρογγυλές λεκάνες, κατάλληλες για χρήση σε νεροχύτη ή μπάνιο, διαθέσιμες σε πολλά χρώματα"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "3",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "27",
+            "height": "10",
+            "has_specs": true
+          }
         },
         {
           "size_label": "61",
@@ -308,7 +355,16 @@
               "excel_ar": "Στρογγυλές λεκάνες, κατάλληλες για χρήση σε νεροχύτη ή μπάνιο, διαθέσιμες σε πολλά χρώματα"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "4",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30.5",
+            "height": "10",
+            "has_specs": true
+          }
         },
         {
           "size_label": "62",
@@ -355,7 +411,16 @@
               "excel_ar": "Στρογγυλές λεκάνες, κατάλληλες για χρήση σε νεροχύτη ή μπάνιο, διαθέσιμες σε πολλά χρώματα"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "6",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "35",
+            "height": "12.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "63",
@@ -402,7 +467,16 @@
               "excel_ar": "Στρογγυλές λεκάνες, κατάλληλες για χρήση σε νεροχύτη ή μπάνιο, διαθέσιμες σε πολλά χρώματα"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "8.5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "37.5",
+            "height": "14.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "64",
@@ -449,7 +523,16 @@
               "excel_ar": "Στρογγυλές λεκάνες, κατάλληλες για χρήση σε νεροχύτη ή μπάνιο, διαθέσιμες σε πολλά χρώματα"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "11.5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "41",
+            "height": "16",
+            "has_specs": true
+          }
         },
         {
           "size_label": "65",
@@ -488,7 +571,16 @@
               "excel_ar": "Στρογγυλές λεκάνες, κατάλληλες για χρήση σε νεροχύτη ή μπάνιο, διαθέσιμες σε πολλά χρώματα"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "15",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "45.5",
+            "height": "17.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "66",
@@ -527,7 +619,16 @@
               "excel_ar": "Στρογγυλές λεκάνες, κατάλληλες για χρήση σε νεροχύτη ή μπάνιο, διαθέσιμες σε πολλά χρώματα"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "20",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "48.1",
+            "height": "19.8",
+            "has_specs": true
+          }
         },
         {
           "size_label": "67",
@@ -566,7 +667,16 @@
               "excel_ar": "Στρογγυλές λεκάνες, κατάλληλες για χρήση σε νεροχύτη ή μπάνιο, διαθέσιμες σε πολλά χρώματα"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "30",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "55",
+            "height": "24",
+            "has_specs": true
+          }
         },
         {
           "size_label": "68",
@@ -605,7 +715,16 @@
               "excel_ar": "Στρογγυλές λεκάνες, κατάλληλες για χρήση σε νεροχύτη ή μπάνιο, διαθέσιμες σε πολλά χρώματα"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "48",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "61",
+            "height": "27",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 9,
@@ -616,6 +735,7 @@
       "family_indicator": "111",
       "group_root": "1120",
       "title": "Λεκάνες τετράγωνες",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_111-14.jpg",
       "sizes": [
         {
@@ -655,7 +775,16 @@
               "excel_ar": "Τετράγωνες λεκάνες, ανθεκτικές, ιδανικές για γενική και πολυχρηστική χρήση"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "5.5",
+            "width": "29",
+            "depth": "29",
+            "box_height": "12",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "112",
@@ -694,7 +823,16 @@
               "excel_ar": "Τετράγωνες λεκάνες, ανθεκτικές, ιδανικές για γενική και πολυχρηστική χρήση"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "9",
+            "width": "34",
+            "depth": "34",
+            "box_height": "14",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "113",
@@ -733,7 +871,16 @@
               "excel_ar": "Τετράγωνες λεκάνες, ανθεκτικές, ιδανικές για γενική και πολυχρηστική χρήση"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "14.5",
+            "width": "37.5",
+            "depth": "37.5",
+            "box_height": "15",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 3,
@@ -744,6 +891,7 @@
       "family_indicator": "114",
       "group_root": "1130",
       "title": "Λεκάνες οβάλ",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_114-50.jpg",
       "sizes": [
         {
@@ -783,7 +931,16 @@
               "excel_ar": "Οβάλ λεκάνες διαφόρων χρήσεων, εξαιρετικής αντοχής, διαθέσιμες σε μοντέρνα χρώματα"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "16",
+            "width": "47",
+            "depth": "35",
+            "box_height": "18",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "115",
@@ -822,7 +979,16 @@
               "excel_ar": "Οβάλ λεκάνες διαφόρων χρήσεων, εξαιρετικής αντοχής, διαθέσιμες σε μοντέρνα χρώματα"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "26",
+            "width": "56",
+            "depth": "41",
+            "box_height": "21",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 2,
@@ -833,6 +999,7 @@
       "family_indicator": "120",
       "group_root": "1150",
       "title": "Σκάφη",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_120-05.jpg",
       "sizes": [
         {
@@ -856,7 +1023,16 @@
               "excel_ar": "Σκάφη πρακτική και ενισχυμένη, ιδανική για κάθε χρήση, σε μοντέρνα και κομψά χρώματα"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "58",
+            "width": "90",
+            "depth": "52",
+            "box_height": "23",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 1,
@@ -867,6 +1043,7 @@
       "family_indicator": "415",
       "group_root": "1190",
       "title": "Μπωλάκια σετ 6 τεμαχίων",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_415-45.jpg",
       "sizes": [
         {
@@ -914,7 +1091,16 @@
               "excel_ar": "Σετ 6 τεμαχίων με μοντέρνα μπωλάκια, κατάλληλα για καθημερινή χρήση. Κατάλληλα για πλύσιμο στο πλυντήριο πιάτωνκ και ανθεκτικά σε φούρνο μικροκυμάτων"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "0.4",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "12",
+            "height": "6",
+            "has_specs": true
+          }
         },
         {
           "size_label": "420",
@@ -961,7 +1147,16 @@
               "excel_ar": "Μπωλ με μίνιμαλ σχεδιασμό και εξαιρετικά χρώματα. Κατάλληλα για τρόφιμα και ιδανικά για σερβίρισμα σαλάτας, φρούτων, ξηρών καρπών, παγωτού κ.ά. Ασφαλή για χρήση σε φούρνο μικροκυμάτων και πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "2",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "20",
+            "height": "9.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "421",
@@ -1008,7 +1203,16 @@
               "excel_ar": "Μπωλ με μίνιμαλ σχεδιασμό και εξαιρετικά χρώματα. Κατάλληλα για τρόφιμα και ιδανικά για σερβίρισμα σαλάτας, φρούτων, ξηρών καρπών, παγωτού κ.ά. Ασφαλή για χρήση σε φούρνο μικροκυμάτων και πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "3.3",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "25",
+            "height": "11",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 3,
@@ -1019,6 +1223,7 @@
       "family_indicator": "41",
       "group_root": "1200",
       "title": "Αεροστεγή στρογγυλά HO.RE.CA",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_41-90.jpg",
       "sizes": [
         {
@@ -1034,7 +1239,16 @@
               "excel_ar": "Πρακτικά και αξιόπιστά αεροστεγή δοχεία για καθημερινή χρήση. Ιδανικά για αποθήκευση και ζέσταμα φαγητού. Κατάλληλά για φούρνο μικροκυμάτων και πλύσιμο στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": "0.7",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "14",
+            "height": "7",
+            "has_specs": true
+          }
         },
         {
           "size_label": "42",
@@ -1049,7 +1263,16 @@
               "excel_ar": "Πρακτικά και αξιόπιστά αεροστεγή δοχεία για καθημερινή χρήση. Ιδανικά για αποθήκευση και ζέσταμα φαγητού. Κατάλληλά για φούρνο μικροκυμάτων και πλύσιμο στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": "1",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "16",
+            "height": "8",
+            "has_specs": true
+          }
         },
         {
           "size_label": "43",
@@ -1064,7 +1287,16 @@
               "excel_ar": "Πρακτικά και αξιόπιστά αεροστεγή δοχεία για καθημερινή χρήση. Ιδανικά για αποθήκευση και ζέσταμα φαγητού. Κατάλληλά για φούρνο μικροκυμάτων και πλύσιμο στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": "2",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "20",
+            "height": "9.5",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 3,
@@ -1075,6 +1307,7 @@
       "family_indicator": "1050",
       "group_root": "1205",
       "title": "Φαγητοδοχεία ορθογώνια KEEP IT FRESCO",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_1050-14.jpg",
       "sizes": [
         {
@@ -1122,7 +1355,16 @@
               "excel_ar": "Διάφανα φαγητοδοχεία με πρακτικό σύστημα κλεισίματος, ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται εύκολα στο πλυντήριο πιάτων. Διατίθενται σε πέντε εντυπωσιακά χρώματα"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "0.6",
+            "width": "14.5",
+            "depth": "14.5",
+            "box_height": "4.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "1051",
@@ -1169,7 +1411,16 @@
               "excel_ar": "Διάφανα φαγητοδοχεία με πρακτικό σύστημα κλεισίματος, ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται εύκολα στο πλυντήριο πιάτων. Διατίθενται σε πέντε εντυπωσιακά χρώματα"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "1.1",
+            "width": "17.5",
+            "depth": "17.5",
+            "box_height": "5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "1150",
@@ -1216,7 +1467,16 @@
               "excel_ar": "Διάφανα φαγητοδοχεία με πρακτικό σύστημα κλεισίματος, ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται εύκολα στο πλυντήριο πιάτων. Διατίθενται σε πέντε εντυπωσιακά χρώματα"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "1",
+            "width": "14.5",
+            "depth": "14.5",
+            "box_height": "7",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "1151",
@@ -1263,7 +1523,16 @@
               "excel_ar": "Διάφανα φαγητοδοχεία με πρακτικό σύστημα κλεισίματος, ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται εύκολα στο πλυντήριο πιάτων. Διατίθενται σε πέντε εντυπωσιακά χρώματα"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "1.65",
+            "width": "17.5",
+            "depth": "17.5",
+            "box_height": "7.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "1250",
@@ -1310,7 +1579,16 @@
               "excel_ar": "Διάφανα φαγητοδοχεία με πρακτικό σύστημα κλεισίματος, ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται εύκολα στο πλυντήριο πιάτων. Διατίθενται σε πέντε εντυπωσιακά χρώματα"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "1.4",
+            "width": "14.5",
+            "depth": "14.5",
+            "box_height": "10",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "1251",
@@ -1357,7 +1635,16 @@
               "excel_ar": "Διάφανα φαγητοδοχεία με πρακτικό σύστημα κλεισίματος, ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται εύκολα στο πλυντήριο πιάτων. Διατίθενται σε πέντε εντυπωσιακά χρώματα"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "2.3",
+            "width": "17.5",
+            "depth": "17.5",
+            "box_height": "10.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "1950",
@@ -1372,7 +1659,16 @@
               "excel_ar": ""
             }
           ],
-          "colors_count": 0
+          "colors_count": 0,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         },
         {
           "size_label": "1951",
@@ -1387,7 +1683,16 @@
               "excel_ar": ""
             }
           ],
-          "colors_count": 0
+          "colors_count": 0,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         }
       ],
       "sizes_count": 8,
@@ -1398,6 +1703,7 @@
       "family_indicator": "447",
       "group_root": "1210",
       "title": "Αεροστεγή παραλληλόγραμμα χαμηλά",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_447-50.jpg",
       "sizes": [
         {
@@ -1461,7 +1767,16 @@
               "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "5.5",
+            "width": "38",
+            "depth": "28",
+            "box_height": "8.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "45",
@@ -1516,7 +1831,16 @@
               "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "2",
+            "width": "29.5",
+            "depth": "18",
+            "box_height": "8",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "450",
@@ -1555,7 +1879,16 @@
               "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "0.9",
+            "width": "17",
+            "depth": "17",
+            "box_height": "5.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "451",
@@ -1610,7 +1943,16 @@
               "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "1.8",
+            "width": "20",
+            "depth": "20",
+            "box_height": "6.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "452",
@@ -1649,7 +1991,16 @@
               "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "3.2",
+            "width": "27",
+            "depth": "27",
+            "box_height": "7.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "46.1",
@@ -1696,7 +2047,16 @@
               "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "4",
+            "width": "29.5",
+            "depth": "18",
+            "box_height": "12",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "47.1",
@@ -1743,7 +2103,16 @@
               "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "8",
+            "width": "38",
+            "depth": "28",
+            "box_height": "13",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "50",
@@ -1806,7 +2175,16 @@
               "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "1.3",
+            "width": "17",
+            "depth": "17",
+            "box_height": "8",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "51",
@@ -1869,7 +2247,16 @@
               "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "2.5",
+            "width": "20",
+            "depth": "20",
+            "box_height": "9",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "510",
@@ -1916,7 +2303,16 @@
               "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "3.2",
+            "width": "23",
+            "depth": "23",
+            "box_height": "10",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "52",
@@ -1963,7 +2359,16 @@
               "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "5.3",
+            "width": "27",
+            "depth": "27",
+            "box_height": "11",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 11,
@@ -1974,6 +2379,7 @@
       "family_indicator": "641",
       "group_root": "1250",
       "title": "Αεροστεγή στρογγυλά",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_641-14.jpg",
       "sizes": [
         {
@@ -1997,7 +2403,16 @@
               "excel_ar": "Στρογγυλά μοντέρνα φαγητοδοχεία, διάφανα με χρωματιστά καπάκια. Κατάλληλα για τη διατήρηση, φύλαξη και μεταφορά τροφίμων. Διαθέτουν εύκολο άνοιγμα και αεροστεγές κλείσιμο. Ιδανικά για χρήση σε φούρνο μικροκυμάτων και πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "0.5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "742",
@@ -2020,7 +2435,16 @@
               "excel_ar": "Στρογγυλά μοντέρνα φαγητοδοχεία, διάφανα με χρωματιστά καπάκια. Κατάλληλα για τη διατήρηση, φύλαξη και μεταφορά τροφίμων. Διαθέτουν εύκολο άνοιγμα και αεροστεγές κλείσιμο. Ιδανικά για χρήση σε φούρνο μικροκυμάτων και πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "0.9",
+            "width": "17",
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": "6",
+            "has_specs": true
+          }
         },
         {
           "size_label": "843",
@@ -2043,7 +2467,16 @@
               "excel_ar": "Στρογγυλά μοντέρνα φαγητοδοχεία, διάφανα με χρωματιστά καπάκια. Κατάλληλα για τη διατήρηση, φύλαξη και μεταφορά τροφίμων. Διαθέτουν εύκολο άνοιγμα και αεροστεγές κλείσιμο. Ιδανικά για χρήση σε φούρνο μικροκυμάτων και πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "1.7",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "941",
@@ -2058,7 +2491,16 @@
               "excel_ar": "Σετ 3 τεμαχίων στρογγυλών φαγητοδοχείων, κατάλληλων για διατήρηση, φύλαξη και μεταφορά τροφίμων. Διαθέτουν εύκολο άνοιγμα και αεροστεγές κλείσιμο. Σχεδιασμένα ώστε να τοποθετούνται το ένα μέσα στο άλλο για εξοικονόμηση χώρου κατά την αποθήκευση"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": "1.5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "14",
+            "height": "8.5",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,
@@ -2069,6 +2511,7 @@
       "family_indicator": "101",
       "group_root": "1290",
       "title": "Χωνιά",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_101-50.jpg",
       "sizes": [
         {
@@ -2108,7 +2551,16 @@
               "excel_ar": "Χωνιά σε διαφορετικά μεγέθη και χρώματα, για καθημερινές και πρακτικές χρήσεις"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "11",
+            "height": "12",
+            "has_specs": true
+          }
         },
         {
           "size_label": "102",
@@ -2139,7 +2591,16 @@
               "excel_ar": "Χωνιά σε διαφορετικά μεγέθη και χρώματα, για καθημερινές και πρακτικές χρήσεις"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "15",
+            "height": "16.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "103",
@@ -2170,7 +2631,16 @@
               "excel_ar": "Χωνιά σε διαφορετικά μεγέθη και χρώματα, για καθημερινές και πρακτικές χρήσεις"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "18",
+            "height": "21",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 3,
@@ -2181,6 +2651,7 @@
       "family_indicator": "33",
       "group_root": "1297",
       "title": "Σουρωτήρι",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_33-50.jpg",
       "sizes": [
         {
@@ -2212,7 +2683,16 @@
               "excel_ar": "Ανθεκτικό σουρωτήρι τροφίμων σε σύγχρονους χρωματισμούς, ιδανικό για καθημερινή χρήση. Πλένεται εύκολα στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "28",
+            "height": "12",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 1,
@@ -2223,6 +2703,7 @@
       "family_indicator": "151",
       "group_root": "1299",
       "title": "Καλάθι πολλών χρήσεων",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_151-01.jpg",
       "sizes": [
         {
@@ -2246,7 +2727,16 @@
               "excel_ar": "Ορθογώνιο καλάθι πολλαπλών χρήσεων, εξαιρετικής αντοχής, διαθέσιμο σε διάφορα χρώματα."
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": null,
+            "width": "38",
+            "depth": "27",
+            "box_height": "15",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "153",
@@ -2269,7 +2759,16 @@
               "excel_ar": "Πρακτικό καλάθι απορριμμάτων για τον νεροχύτη με καπάκι. Ιδανικό για την καθημερινή κουζίνα"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "19",
+            "height": "19.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "183",
@@ -2292,7 +2791,16 @@
               "excel_ar": "Φρουτιέρες σε δύο μεγέθη, με εξαιρετικό σχεδιασμό και ποιότητα κατασκευής, υψηλής αντοχής και διαθέσιμες σε ποικιλία χρωμάτων. Συναρμολογούνται εύκολα, με οδηγίες που περιλαμβάνονται στη συσκευασία"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": null,
+            "width": "41",
+            "depth": "31.5",
+            "box_height": "57",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "184",
@@ -2315,7 +2823,16 @@
               "excel_ar": "Φρουτιέρες σε δύο μεγέθη, με εξαιρετικό σχεδιασμό και ποιότητα κατασκευής, υψηλής αντοχής και διαθέσιμες σε ποικιλία χρωμάτων. Συναρμολογούνται εύκολα, με οδηγίες που περιλαμβάνονται στη συσκευασία"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": null,
+            "width": "41",
+            "depth": "31.5",
+            "box_height": "81",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,
@@ -2326,6 +2843,7 @@
       "family_indicator": "156",
       "group_root": "1300",
       "title": "Στεγνωτήρι πιάτων & δίσκος",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_156-01.jpg",
       "sizes": [
         {
@@ -2349,7 +2867,16 @@
               "excel_ar": "Πρακτικό στεγνωτήρι για πιάτα και ποτήρια, με ειδική θήκη για μαχαιροπίρουνα. Διατίθεται σε μοντέρνους χρωματισμούς που ταιριάζουν σε κάθε κουζίνα"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": null,
+            "width": "48",
+            "depth": "37",
+            "box_height": "9.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "967",
@@ -2380,7 +2907,16 @@
               "excel_ar": "Στεγνωτήρι πιάτων και ποτηριών με ενσωματωμένη βάση για μαχαιροπίρουνα, διαθέσιμο σε διάφορα χρώματα"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": "41",
+            "depth": "39",
+            "box_height": "10",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 2,
@@ -2391,6 +2927,7 @@
       "family_indicator": "201",
       "group_root": "1310",
       "title": "Τιναχτήρι",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_201-05.jpg",
       "sizes": [
         {
@@ -2462,7 +2999,16 @@
               "excel_ar": "Ανθεκτικό τιναχτήρι για ρούχα και χαλιά, υψηλής ποιότητας, σε μοντέρνους χρωματισμούς. Ιδανικό για καθημερινή χρήση"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": null,
+            "width": "22.5",
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": "67",
+            "has_specs": true
+          }
         },
         {
           "size_label": "39",
@@ -2485,7 +3031,16 @@
               "excel_ar": "Μυγοσκοτώστρα υψηλής αντοχής, σε μοντέρνα χρώματα. Κατασκευασμένη για άνετη και μακροχρόνια χρήση"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "12",
+            "height": "44",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 2,
@@ -2496,6 +3051,7 @@
       "family_indicator": "136",
       "group_root": "1320",
       "title": "Ορθοπεδικό φαράσι με εργονομική λαβή",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_136-37.jpg",
       "sizes": [
         {
@@ -2527,7 +3083,16 @@
               "excel_ar": "Ορθοπεδικό φαράσι με λάστιχο, μεταλλικό κοντάρι και εργονομική λαβή. Εξαιρετικής ποιότητας και κατασκευής"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": "28",
+            "depth": "26.5",
+            "box_height": "85.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "137",
@@ -2550,7 +3115,16 @@
               "excel_ar": "Σετ ορθοπεδικού φαρασιού και σκουπάκι με λάστιχο και μεταλλικά κοντάρια. Ανθεκτική και ποιοτική κατασκευή"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": null,
+            "width": "28",
+            "depth": "26.5",
+            "box_height": "87.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "36",
@@ -2589,7 +3163,16 @@
               "excel_ar": "Ανθεκτικό μεγάλο φαράσι με ενσωματωμένο λάστιχο για καλύτερη επαφή με το δάπεδο. Διατίθεται σε μοντέρνους χρωματισμούς υψηλής αισθητικής"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": null,
+            "width": "32.5",
+            "depth": "22",
+            "box_height": "6.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "437",
@@ -2604,7 +3187,16 @@
               "excel_ar": "Ορθοπεδικό σετ φαρασιού με λάστιχο και σκουπάκι, με ενισχυμένα μεταλλικά κοντάρια και περιστρεφόμενο γάντζο. Εξαιρετικής ποιότητας κατασκευή"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": "28",
+            "depth": "26.5",
+            "box_height": "90",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,
@@ -2615,6 +3207,7 @@
       "family_indicator": "140",
       "group_root": "1340",
       "title": "Κάδος ECOBIN",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_140-02.jpg",
       "sizes": [
         {
@@ -2654,7 +3247,16 @@
               "excel_ar": "Κάδος απορριμμάτων ECOBIN 60 λίτρων, υψηλής ποιότητας και αντοχής. Κατάλληλος για χρήση τόσο σε εσωτερικούς όσο και σε εξωτερικούς χώρους. Κατασκευασμένος από ανακυκλωμένο πλαστικό υψηλής ποιότητας. Διαθέτει στεγανό καπάκι με μηχανισμό Soft Close και εσωτερικό σύστημα συγκράτησης σακούλας"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "60",
+            "width": "32",
+            "depth": "40",
+            "box_height": "65",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 1,
@@ -2665,6 +3267,7 @@
       "family_indicator": "145",
       "group_root": "1350",
       "title": "Πεντάλ κουζίνας στρογγυλό",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_145-01.jpg",
       "sizes": [
         {
@@ -2712,7 +3315,16 @@
               "excel_ar": "Στρογγυλός πεντάλ κουζίνας , εξαιρετικής ποιότητας και αντοχής, διαθέσιμος σε μοντέρνους χρωματισμούς"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "32",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "32",
+            "height": "55",
+            "has_specs": true
+          }
         },
         {
           "size_label": "146",
@@ -2831,7 +3443,16 @@
               "excel_ar": "Τετράγωνο πεντάλ κουζίνας, εξαιρετικής κατασκευής, με στεφάνι συγκράτησης σακούλας και διαθέσιμος σε μοντέρνα χρώματα"
             }
           ],
-          "colors_count": 14
+          "colors_count": 14,
+          "specs": {
+            "liters": "40",
+            "width": "30",
+            "depth": "31.5",
+            "box_height": "55",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "446",
@@ -2910,7 +3531,16 @@
               "excel_ar": "Τετράγωνο πεντάλ κουζίνας, εξαιρετικής κατασκευής, με στεφάνι συγκράτησης σακούλας και διαθέσιμος σε μοντέρνα χρώματα"
             }
           ],
-          "colors_count": 9
+          "colors_count": 9,
+          "specs": {
+            "liters": "28",
+            "width": "30",
+            "depth": "31.5",
+            "box_height": "44",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 3,
@@ -2921,6 +3551,7 @@
       "family_indicator": "154",
       "group_root": "1370",
       "title": "Πεντάλ τουαλέτας στρογγυλό νο 154",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_154-01.jpg",
       "sizes": [
         {
@@ -2960,7 +3591,16 @@
               "excel_ar": "Ανθεκτικό στρογγυλό πεντάλ χωρητικότητας 7 λίτρων, σε κομψά και μοντέρνα χρώματα. Ιδανικό για το μπάνιο"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "7",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "24",
+            "height": "29",
+            "has_specs": true
+          }
         },
         {
           "size_label": "155",
@@ -3031,7 +3671,16 @@
               "excel_ar": "Κομψό τετράγωνο πεντάλ 7 λίτρων με αποσπώμενο εσωτερικό κάδο. Ιδανικό για το μπάνιο, σε μοντέρνους χρωματισμούς και άριστη ποιότητα κατασκευής"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": "7.5",
+            "width": "25",
+            "depth": "22",
+            "box_height": "32",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "185",
@@ -3086,7 +3735,16 @@
               "excel_ar": "Κομψά πεντάλ 7 και 10 λίτρων με μηχανισμό Soft Close. Ιδανικά για κάθε μπάνιο χάρη στον μοντέρνο σχεδιασμό, τις πρακτικές διαστάσεις και τους σύγχρονους χρωματισμούς"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "7",
+            "width": "27",
+            "depth": "19",
+            "box_height": "29",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "185.6",
@@ -3109,7 +3767,16 @@
               "excel_ar": "Πεντάλ τουαλέτας 7 και 10 λίτρων με μηχανισμό Soft Close. Υψηλού επιπέδου σχεδιασμός και αισθητική, με ιδανικές διαστάσεις που ταιριάζουν σε κάθε χώρο. Διατίθεται σε δύο σύγχρονα χρώματα"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "7",
+            "width": "27",
+            "depth": "19",
+            "box_height": "29",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "186",
@@ -3156,7 +3823,16 @@
               "excel_ar": "Κομψά πεντάλ 7 και 10 λίτρων με μηχανισμό Soft Close. Ιδανικά για κάθε μπάνιο χάρη στον μοντέρνο σχεδιασμό, τις πρακτικές διαστάσεις και τους σύγχρονους χρωματισμούς"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "10",
+            "width": "27",
+            "depth": "19",
+            "box_height": "37.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "186.6",
@@ -3179,7 +3855,16 @@
               "excel_ar": "Πεντάλ τουαλέτας 7 και 10 λίτρων με μηχανισμό Soft Close. Υψηλού επιπέδου σχεδιασμός και αισθητική, με ιδανικές διαστάσεις που ταιριάζουν σε κάθε χώρο. Διατίθεται σε δύο σύγχρονα χρώματα"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "10",
+            "width": "27",
+            "depth": "19",
+            "box_height": "37.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "204",
@@ -3210,7 +3895,16 @@
               "excel_ar": "Ανθεκτικό καπάκι τουαλέτας σε κομψούς χρωματισμούς, ιδανικό για καθημερινή χρήση και εύκολη εφαρμογή"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": "34",
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": "45",
+            "has_specs": true
+          }
         },
         {
           "size_label": "454",
@@ -3241,7 +3935,16 @@
               "excel_ar": "Κομψό στρογγυλό πεντάλ 7 λίτρων με αποσπώμενο εσωτερικό κουβά. Υψηλής ποιότητας κατασκευή, σε σύγχρονους χρωματισμούς, σχεδιασμένο για το μπάνιο"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "7",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "24",
+            "height": "34",
+            "has_specs": true
+          }
         },
         {
           "size_label": "455",
@@ -3280,7 +3983,16 @@
               "excel_ar": "Πεντάλ 7 λίτρων, ανθεκτικής κατασκευής σε ποικιλία χρωμάτων"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "7",
+            "width": "20",
+            "depth": "23",
+            "box_height": "30",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 9,
@@ -3291,6 +4003,7 @@
       "family_indicator": "205",
       "group_root": "1380",
       "title": "Πιγκάλ τουαλέτας τετράγωνο ανοιχτό νο 205",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_205-01.jpg",
       "sizes": [
         {
@@ -3322,7 +4035,16 @@
               "excel_ar": "Εργονομικό πιγκάλ με σταθερή βάση και υψηλή αντοχή. Σε μοντέρνους χρωματισμούς για να ταιριάζει σε κάθε μπάνιο"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": "12",
+            "depth": "12",
+            "box_height": "37",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "210",
@@ -3345,7 +4067,16 @@
               "excel_ar": "Πρακτικό πιγκάλ με βάση, μεγάλης αντοχής και εργονομικό σχεδιασμό. Διαθέσιμο σε δύο ιδιαίτερες αποχρώσεις"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": null,
+            "width": "16",
+            "depth": "14",
+            "box_height": "37",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "215",
@@ -3416,7 +4147,16 @@
               "excel_ar": "Εργονομικό και ποιοτικό κλειστό πιγκάλ τουαλέτας, σε ποικιλία μοντέρνων αποχρώσεων"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": null,
+            "width": "13.5",
+            "depth": "13.5",
+            "box_height": "37",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "220",
@@ -3447,7 +4187,16 @@
               "excel_ar": "Εργονομικό και ποιοτικό κλειστό πιγκάλ τουαλέτας, σε μοντέρνες αποχρώσεις"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "14",
+            "height": "37",
+            "has_specs": true
+          }
         },
         {
           "size_label": "225",
@@ -3526,7 +4275,16 @@
               "excel_ar": "Κλειστό πιγκάλ μπάνιου με κομψό εργονομικό σχεδιασμό και υψηλής ποιότητας κατασκευή. Διατίθεται σε σύγχρονους χρωματισμούς για κάθε στυλ μπάνιου"
             }
           ],
-          "colors_count": 9
+          "colors_count": 9,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "10",
+            "height": "33",
+            "has_specs": true
+          }
         },
         {
           "size_label": "285",
@@ -3581,7 +4339,16 @@
               "excel_ar": "Πιγκάλ μπάνιου με μοντέρνο εργονομικό σχεδιασμό και εκλεπτυσμένη αισθητική. Υψηλής ποιότητας κατασκευή, σε σύγχρονους χρωματισμούς"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": null,
+            "width": "11.5",
+            "depth": "9.5",
+            "box_height": "36",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "285.6",
@@ -3604,7 +4371,16 @@
               "excel_ar": "Πρακτικό και ανθεκτικό πιγκάλ τουαλέτας με εργονομική σχεδίαση και αισθητική που ξεχωρίζει. Σε μοντέρνες αποχρώσεις"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": null,
+            "width": "11.5",
+            "depth": "9.5",
+            "box_height": "36",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 7,
@@ -3615,6 +4391,7 @@
       "family_indicator": "440",
       "group_root": "1390",
       "title": "Καλάθι ρούχων",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_440-01.jpg",
       "sizes": [
         {
@@ -3654,7 +4431,16 @@
               "excel_ar": "Καλάθι ρούχων με εργονομικό σχεδιασμό, ιδανικό για εύκολη μεταφορά ρούχων. Διατίθεται σε διάφορα χρώματα"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "36",
+            "width": "63",
+            "depth": "43",
+            "box_height": "22.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "460",
@@ -3701,7 +4487,16 @@
               "excel_ar": "Καλάθι απλύτων 52 λίτρων με ανοιγόμενο καπάκι και διάτρητο σχεδιασμό για σωστό αερισμό των ρούχων. Σε κομψούς και σύγχρονους χρωματισμούς"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "52",
+            "width": "43",
+            "depth": "36",
+            "box_height": "52",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "94",
@@ -3716,7 +4511,16 @@
               "excel_ar": "Ανθεκτικές κρεμάστρες σε σετ 6 τεμαχίων με σταθερό γάντζο και παστέλ αποχρώσεις"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": "41",
+            "depth": "19",
+            "box_height": "4.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "95",
@@ -3731,7 +4535,16 @@
               "excel_ar": "Ανθεκτικές κρεμάστρες σε σετ 3 τεμαχίων με περιστρεφόμενο γάντζο 360°, για μεγαλύτερη ευκολία στην τακτοποίηση. Σε μοντέρνες παστέλ αποχρώσεις"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": "41",
+            "depth": "21",
+            "box_height": "5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,
@@ -3742,6 +4555,7 @@
       "family_indicator": "121",
       "group_root": "1400",
       "title": "Κουβάδες κλασικοί",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_121-14.jpg",
       "sizes": [
         {
@@ -3781,7 +4595,16 @@
               "excel_ar": "Κλασικοί κουβάδες σφουγγαρίσματος εξαιρετικής αντοχής, διαθέσιμοι σε ποικιλία διαστάσεων και χρωμάτων"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "5.5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "23.5",
+            "height": "22",
+            "has_specs": true
+          }
         },
         {
           "size_label": "122",
@@ -3812,7 +4635,16 @@
               "excel_ar": "Κλασικοί κουβάδες σφουγγαρίσματος εξαιρετικής αντοχής, διαθέσιμοι σε ποικιλία διαστάσεων και χρωμάτων"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "9",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "28.5",
+            "height": "25",
+            "has_specs": true
+          }
         },
         {
           "size_label": "123",
@@ -3843,7 +4675,16 @@
               "excel_ar": "Κλασικοί κουβάδες σφουγγαρίσματος εξαιρετικής αντοχής, διαθέσιμοι σε ποικιλία διαστάσεων και χρωμάτων"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "12",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "31",
+            "height": "28.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "124",
@@ -3874,7 +4715,16 @@
               "excel_ar": "Κλασικοί κουβάδες σφουγγαρίσματος εξαιρετικής αντοχής, διαθέσιμοι σε ποικιλία διαστάσεων και χρωμάτων"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "15",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "33",
+            "height": "31",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,
@@ -3885,6 +4735,7 @@
       "family_indicator": "23",
       "group_root": "1410",
       "title": "Στυφτήρι για κουβάδες κλασικούς",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_23-01.jpg",
       "sizes": [
         {
@@ -3900,7 +4751,16 @@
               "excel_ar": "Στυφτήρι για κλασικούς κουβάδες σφουγγαρίσματος, με ειδική ενίσχυση στο χείλος για μεγαλύτερη σταθερότητα. Συμβατά με κουβάδες Νο123 και Νο124"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "31",
+            "height": "14",
+            "has_specs": true
+          }
         },
         {
           "size_label": "24",
@@ -3915,7 +4775,16 @@
               "excel_ar": "Στυφτήρι για κλασικούς κουβάδες σφουγγαρίσματος, με ειδική ενίσχυση στο χείλος για μεγαλύτερη σταθερότητα. Συμβατά με κουβάδες Νο123 και Νο127"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "33",
+            "height": "14",
+            "has_specs": true
+          }
         },
         {
           "size_label": "942",
@@ -3930,7 +4799,16 @@
               "excel_ar": "Στυφτήρι ενισχυμένο, εξαιρετικής αντοχής, σχεδιασμένο για στρογγυλούς κουβάδες 16 λίτρων με ροή"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": "30",
+            "depth": "18",
+            "box_height": "13",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 3,
@@ -3941,6 +4819,7 @@
       "family_indicator": "300",
       "group_root": "1450",
       "title": "Κουβάς οβάλ 16 λίτρων",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_300-05.jpg",
       "sizes": [
         {
@@ -3996,7 +4875,16 @@
               "excel_ar": "Εργονομικός και ανθεκτικός κουβάς σφουγγαρίσματος, με έξυπνη υποδοχή για το στύφτη και ισχυρή λαβή για άνετο άδειασμα. Ταιριάζει με δύο είδη στύφτη και διατίθεται σε μοντέρνα χρώματα"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "16",
+            "width": "39.5",
+            "depth": "27",
+            "box_height": "28.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "301",
@@ -4035,7 +4923,16 @@
               "excel_ar": "Στυφτήρι άριστης ποιότητας, με εργονομικό σχεδιασμό και κλιπ ασφαλείας για απόλυτη σταθερότητα κατά τη χρήση. Διατίθεται σε μοντέρνα χρώματα"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": null,
+            "width": "28",
+            "depth": "22",
+            "box_height": "16",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "302",
@@ -4058,7 +4955,16 @@
               "excel_ar": "Στυφτήρι πρέσα άριστης ποιότητας με εργονομικό σχεδιασμό και κλιπ ασφαλείας για εξαιρετική σταθερότητα κατά τη χρήση. Διατίθεται σε μοντέρνα χρώματα"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": null,
+            "width": "28",
+            "depth": "22",
+            "box_height": "10.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "305",
@@ -4089,7 +4995,16 @@
               "excel_ar": "Ανθεκτικός εργονομικός κουβάς σφουγγαρίσματος. Στιβαρή κατασκευή με ειδική υποδοχή για τη συγκράτηση του στύφτη και λαβή για γερό κράτημα στο άδειασμα. Μεταλλική λαβή με εργονομικό σχεδιασμό. Διατείθεται σε διάφορα χρώματα, συνδιάζεται με δύο είδη στύφτη"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "16",
+            "width": "39.5",
+            "depth": "27",
+            "box_height": "28.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,
@@ -4100,6 +5015,7 @@
       "family_indicator": "385",
       "group_root": "1460",
       "title": "Κουβάς οβάλ 14 λίτρων",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_381-02.jpg",
       "sizes": [
         {
@@ -4115,7 +5031,16 @@
               "excel_ar": "Στυφτήρι άριστης ποιότητας για οβάλ κουβά 14 λίτρων, με εργονομικό σχεδιασμό και κλιπ ασφαλείας που προσφέρει εξαιρετική σταθερότητα κατά τη χρήση. Διατίθεται σε μοντέρνα χρώματα"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": "26",
+            "depth": "21",
+            "box_height": "16",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "385",
@@ -4146,7 +5071,16 @@
               "excel_ar": "Οβάλ κουβάς σφουγγαρίσματος 14 λίτρων με καινοτόμο σχεδιασμό, διαθέσιμος σε μοντέρνα χρώματα"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "14",
+            "width": "36",
+            "depth": "27",
+            "box_height": "26.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "385.1",
@@ -4161,7 +5095,16 @@
               "excel_ar": "Οβάλ κουβάς σφουγγαρίσματος 14 λίτρων με καινοτόμο σχεδιασμό, διαθέσιμος σε μοντέρνα χρώματα"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": "14",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 3,
@@ -4172,6 +5115,7 @@
       "family_indicator": "530",
       "group_root": "1560",
       "title": "Κουβάς στρογγυλός τύπου Ιταλίας 13 λίτρων",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_530-02.jpg",
       "sizes": [
         {
@@ -4227,7 +5171,16 @@
               "excel_ar": "Κουβάς στρογγυλός 13 λίτρων τύπου Ιταλίας με πρακτικό σχεδιασμό και εντυπωσιακά χρώματα που ξεχωρίζουν"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "13",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "29",
+            "height": "27",
+            "has_specs": true
+          }
         },
         {
           "size_label": "531",
@@ -4242,7 +5195,16 @@
               "excel_ar": "Ανθεκτικό στυφτήρι για στρογγυλό κουβά τύπου Ιταλίας, με ενισχυμένη κατασκευή και ζωηρούς χρωματισμούς"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": "30",
+            "depth": "18",
+            "box_height": "13",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 2,
@@ -4253,6 +5215,7 @@
       "family_indicator": "830",
       "group_root": "1580",
       "title": "Κουβάδες αγροτικοί",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_830-05.jpg",
       "sizes": [
         {
@@ -4284,7 +5247,16 @@
               "excel_ar": "Αγροτικοί κουβάδες εξαιρετικής αντοχής, με μεταλλική λαβή, διαθέσιμοι σε δύο διαστάσεις και ιδιαίτερα χρώματα"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "12",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "33",
+            "height": "26",
+            "has_specs": true
+          }
         },
         {
           "size_label": "831",
@@ -4307,7 +5279,16 @@
               "excel_ar": "Αγροτικοί κουβάδες εξαιρετικής αντοχής, με μεταλλική λαβή, διαθέσιμοι σε δύο διαστάσεις και ιδιαίτερα χρώματα"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "18",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "37",
+            "height": "28",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 2,
@@ -4318,6 +5299,7 @@
       "family_indicator": "625",
       "group_root": "1870",
       "title": "Κουτιά αποθήκευσης",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_625-73.jpg",
       "sizes": [
         {
@@ -4357,7 +5339,16 @@
               "excel_ar": "Εργονομικό κουτί αποθήκευσης, ιδανικό για τοποθέτηση κάτω από το κρεβάτι. Διαθέτει minimal σχεδιασμό, καπάκι με κλιπ ασφαλείας και υψηλής ποιότητας κατασκευή. Είναι στοιβάξιμο για εξοικονόμηση χώρου και το καπάκι διατίθεται σε διάφορα χρώματα. Το μοντέλο 630 διαθέτει ροδάκια για εύκολη μετακίνηση"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "12",
+            "width": "39",
+            "depth": "30",
+            "box_height": "14.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "626",
@@ -4396,7 +5387,16 @@
               "excel_ar": "Εργονομικό κουτί αποθήκευσης, ιδανικό για τοποθέτηση κάτω από το κρεβάτι. Διαθέτει minimal σχεδιασμό, καπάκι με κλιπ ασφαλείας και υψηλής ποιότητας κατασκευή. Είναι στοιβάξιμο για εξοικονόμηση χώρου και το καπάκι διατίθεται σε διάφορα χρώματα. Το μοντέλο 630 διαθέτει ροδάκια για εύκολη μετακίνηση"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "17.5",
+            "width": "39",
+            "depth": "30",
+            "box_height": "21.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "627",
@@ -4435,7 +5435,16 @@
               "excel_ar": "Εργονομικό κουτί αποθήκευσης, ιδανικό για τοποθέτηση κάτω από το κρεβάτι. Διαθέτει minimal σχεδιασμό, καπάκι με κλιπ ασφαλείας και υψηλής ποιότητας κατασκευή. Είναι στοιβάξιμο για εξοικονόμηση χώρου και το καπάκι διατίθεται σε διάφορα χρώματα. Το μοντέλο 630 διαθέτει ροδάκια για εύκολη μετακίνηση"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "21",
+            "width": "39",
+            "depth": "30",
+            "box_height": "28",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "630",
@@ -4474,7 +5483,16 @@
               "excel_ar": "Εργονομικό κουτί αποθήκευσης, ιδανικό για τοποθέτηση κάτω από το κρεβάτι. Διαθέτει minimal σχεδιασμό, καπάκι με κλιπ ασφαλείας και υψηλής ποιότητας κατασκευή. Είναι στοιβάξιμο για εξοικονόμηση χώρου και το καπάκι διατίθεται σε διάφορα χρώματα. Το μοντέλο 630 διαθέτει ροδάκια για εύκολη μετακίνηση"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "33",
+            "width": "59",
+            "depth": "40",
+            "box_height": "19.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "631",
@@ -4513,7 +5531,16 @@
               "excel_ar": "Εργονομικό κουτί αποθήκευσης, ιδανικό για τοποθέτηση κάτω από το κρεβάτι. Διαθέτει minimal σχεδιασμό, καπάκι με κλιπ ασφαλείας και υψηλής ποιότητας κατασκευή. Είναι στοιβάξιμο για εξοικονόμηση χώρου και το καπάκι διατίθεται σε διάφορα χρώματα. Το μοντέλο 630 διαθέτει ροδάκια για εύκολη μετακίνηση"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "52",
+            "width": "59",
+            "depth": "40",
+            "box_height": "30",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 5,
@@ -4524,6 +5551,7 @@
       "family_indicator": "680",
       "group_root": "1880",
       "title": "Κουτιά τακτοποίησης NOVA",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_680-02.jpg",
       "sizes": [
         {
@@ -4587,7 +5615,16 @@
               "excel_ar": "Κομψά κουτιά τακτοποίησης NOVA που συνδυάζουν στυλ και λειτουργικότητα. Σε σύγχρονες αποχρώσεις που ταιριάζουν σε κάθε χώρο"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "3.5",
+            "width": "28",
+            "depth": "18.5",
+            "box_height": "9",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "681",
@@ -4690,7 +5727,16 @@
               "excel_ar": "Κομψά κουτιά τακτοποίησης NOVA που συνδυάζουν στυλ και λειτουργικότητα. Σε σύγχρονες αποχρώσεις που ταιριάζουν σε κάθε χώρο"
             }
           ],
-          "colors_count": 12
+          "colors_count": 12,
+          "specs": {
+            "liters": "5",
+            "width": "28",
+            "depth": "18.5",
+            "box_height": "13.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "681.6",
@@ -4713,7 +5759,16 @@
               "excel_ar": "Κουτιά τακτοποίησης NOVA MOSAIC με εξαιρετική αισθητική, ιδανικά για οργάνωση και διακόσμηση. Διατίθενται σε δύο ιδιαίτερα χρώματα"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "5",
+            "width": "28",
+            "depth": "18.5",
+            "box_height": "13.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "690",
@@ -4816,7 +5871,16 @@
               "excel_ar": "Κομψά κουτιά τακτοποίησης NOVA που συνδυάζουν στυλ και λειτουργικότητα. Σε σύγχρονες αποχρώσεις που ταιριάζουν σε κάθε χώρο"
             }
           ],
-          "colors_count": 12
+          "colors_count": 12,
+          "specs": {
+            "liters": "10",
+            "width": "35.5",
+            "depth": "26.5",
+            "box_height": "13.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "690.6",
@@ -4839,7 +5903,16 @@
               "excel_ar": "Κουτιά τακτοποίησης NOVA MOSAIC με εξαιρετική αισθητική, ιδανικά για οργάνωση και διακόσμηση. Διατίθενται σε δύο ιδιαίτερα χρώματα"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "10",
+            "width": "35.5",
+            "depth": "26.5",
+            "box_height": "13.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "691",
@@ -4934,7 +6007,16 @@
               "excel_ar": "Κομψά κουτιά τακτοποίησης NOVA που συνδυάζουν στυλ και λειτουργικότητα. Σε σύγχρονες αποχρώσεις που ταιριάζουν σε κάθε χώρο"
             }
           ],
-          "colors_count": 11
+          "colors_count": 11,
+          "specs": {
+            "liters": "16",
+            "width": "35.5",
+            "depth": "26.5",
+            "box_height": "22",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "691.6",
@@ -4957,7 +6039,16 @@
               "excel_ar": "Κουτιά τακτοποίησης NOVA MOSAIC με εξαιρετική αισθητική, ιδανικά για οργάνωση και διακόσμηση. Διατίθενται σε δύο ιδιαίτερα χρώματα"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "16",
+            "width": "35.5",
+            "depth": "26.5",
+            "box_height": "22",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 7,
@@ -4968,6 +6059,7 @@
       "family_indicator": "152",
       "group_root": "1884",
       "title": "Καλάθι γραφείου ανοιχτό",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_152-01.jpg",
       "sizes": [
         {
@@ -4999,7 +6091,16 @@
               "excel_ar": "Ανοιχτό καλάθι γραφείου σε μοντέρνα χρώματα, κατάλληλο για χρήση στο σπίτι ή στον εργασιακό χώρο"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "27.5",
+            "height": "24",
+            "has_specs": true
+          }
         },
         {
           "size_label": "552",
@@ -5046,7 +6147,16 @@
               "excel_ar": "Κλειστό καλάθι γραφείου με κομψό σχεδιασμό και υψηλή αισθητική. Διατίθεται σε μοντέρνα χρώματα, ιδανικό για επαγγελματικούς και εργασιακούς χώρους"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "14",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "29",
+            "height": "31",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 2,
@@ -5057,6 +6167,7 @@
       "family_indicator": "310",
       "group_root": "1885",
       "title": "Καλάθι με αιωρούμενο καπάκι",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_310-01.jpg",
       "sizes": [
         {
@@ -5096,7 +6207,16 @@
               "excel_ar": "Λειτουργικό καλάθι με αιωρούμενο καπάκι, ιδανικό για κουζίνα, μπάνιο ή γραφείο. Σε τρείς μοντέρνους χρωματισμούς που ταιριάζουν παντού"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "7",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "20",
+            "height": "30",
+            "has_specs": true
+          }
         },
         {
           "size_label": "311",
@@ -5127,7 +6247,16 @@
               "excel_ar": "Λειτουργικό καλάθι με αιωρούμενο καπάκι, ιδανικό για κουζίνα, μπάνιο ή γραφείο. Σε τρείς μοντέρνους χρωματισμούς που ταιριάζουν παντού"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "13",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "25",
+            "height": "45",
+            "has_specs": true
+          }
         },
         {
           "size_label": "315",
@@ -5150,7 +6279,16 @@
               "excel_ar": "Κάδος μεγάλης χωρητικότητας, διαθέσιμοι με αιωρούμενο καπάκι. Ιδανικός για ανακύκλωση, διαχείριση απορριμμάτων και ποικίλες επαγγελματικές ή οικιακές χρήσεις. Στιβαρή και ανθεκτική κατασκευή, εύκολος στο καθάρισμα"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "70",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "42",
+            "height": "77",
+            "has_specs": true
+          }
         },
         {
           "size_label": "315.1",
@@ -5173,7 +6311,16 @@
               "excel_ar": "Ενισχυμένος κουβάς απορριμμάτων 60 λίτρων, κατάλληλος για πολλαπλές χρήσεις"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "60",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "40",
+            "height": "58",
+            "has_specs": true
+          }
         },
         {
           "size_label": "316",
@@ -5236,7 +6383,16 @@
               "excel_ar": "Κάδος ανακύκλωσης 60 λίτρων με στιβαρό σώμα και ανοιχτό. Μεταλλική υποδοχή για σακούλα, κατασκευή από ανακυκλωμένο πλαστικό και εργονομικός σχεδιασμός για ανέπαφη χρήση και εύκολο καθάρισμα"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "60",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "42",
+            "height": "62.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "317",
@@ -5267,7 +6423,16 @@
               "excel_ar": "Πολυχρηστικός κάδος 60 λίτρων με καπάκι ασφάλειας. Ανθεκτική κατασκευή από ανακυκλωμένο πλαστικό και σχεδιασμένοι για εύκολο καθάρισμα και καθημερινή πρακτικότητα"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "60",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "42",
+            "height": "62",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 6,
@@ -5278,6 +6443,7 @@
       "family_indicator": "1070.1",
       "group_root": "1890",
       "title": "Κάδος ανακύκλωσης με ανοιχτό καπάκι CUBO | colored covers",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_1070-02.jpg",
       "sizes": [
         {
@@ -5301,7 +6467,16 @@
               "excel_ar": "Κομψός και λειτουργικός κάδος ανακύκλωσης 70 λίτρων από ανακυκλωμένο πλαστικό, με μοντέρνο σχεδιασμό που ταιριάζει παντού. Με πρακτικές λεπτομέρειες όπως εργονομικές λαβές, άγκιστρα για σακούλα και γρήγορη συναρμολόγηση"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "70",
+            "width": "30",
+            "depth": "30",
+            "box_height": "70",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "1070.1",
@@ -5420,7 +6595,16 @@
               "excel_ar": "Κομψός και μοντέρνος κάδος ανακύκλωσης που εντυπωσιάζει με την απλότητά του. Διατίθεται σε όμορφους συνδυασμούς χρωμάτων. Ιδανικός για σύγχρονους χώρους με απαιτήσεις αισθητικής και οργάνωσης. Εύκολος στη χρήση και στη μεταφορά"
             }
           ],
-          "colors_count": 14
+          "colors_count": 14,
+          "specs": {
+            "liters": "70",
+            "width": "30",
+            "depth": "30",
+            "box_height": "70",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "1070.6",
@@ -5451,7 +6635,16 @@
               "excel_ar": "Μοντέρνος κάδος ανακύκλωσης με διαχρονικό στυλ και ξεχωριστή αισθητική. Με υφές και τρεις σύγχρονες αποχρώσεις που αναδεικνύουν τον χώρο, είναι ιδανικός για ανακύκλωση σε κάθε περιβάλλον. Διατίθεται σε σετ των 2, 3 ή 4, προσφέροντας πρακτικότητα και οπτική αρμονία"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "70",
+            "width": "30",
+            "depth": "30",
+            "box_height": "70",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "1071",
@@ -5474,7 +6667,16 @@
               "excel_ar": "Μίνιμαλ κάδος ανακύκλωσης με καπάκι διπλής οπής, συναρμολογούμενος, σε δύο απλοϊκά χρώματα και μοναδικές υφές. Ιδανικός για εμπορικούς και δημόσιους χώρους, αλλά και απόλυτα ευέλικτος ώστε να ενσωματώνεται διακριτικά και με στυλ σε κάθε περιβάλλον. Κομψός, απέριττος και εντυπωσιακός, μαγνητίζει τα βλέμματα με την απλότητά του"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "70",
+            "width": "30",
+            "depth": "30",
+            "box_height": "85",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "1081",
@@ -5489,7 +6691,16 @@
               "excel_ar": "Ανθεκτική μεταλλική βάση για στήριξη των κάδων CUBO σε κάθε τύπο επιφάνειας. Ιδανική για χρήση σε σχολεία, παραλίες, κάμπινγκ και δημόσιους χώρους με εξωτερική έκθεση"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": "33",
+            "depth": "33",
+            "box_height": "12",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 5,
@@ -5500,6 +6711,7 @@
       "family_indicator": "320",
       "group_root": "1895",
       "title": "Κάδος με αιωρούμενο καπάκι DECO",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_320-01_96.jpg",
       "sizes": [
         {
@@ -5539,7 +6751,16 @@
               "excel_ar": "Πολυχρηστικός κάδος με επιλογή μεγέθους και καπακιού. Κατάλληλος για κάθε χώρο, με μεταλλικό στήριγμα σακούλας και εύκολο καθάρισμα"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "7",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "20",
+            "height": "28",
+            "has_specs": true
+          }
         },
         {
           "size_label": "328",
@@ -5578,7 +6799,16 @@
               "excel_ar": "Πολυχρηστικός κάδος με επιλογή μεγέθους και καπακιού. Κατάλληλος για κάθε χώρο, με μεταλλικό στήριγμα σακούλας και εύκολο καθάρισμα"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "28",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "50",
+            "has_specs": true
+          }
         },
         {
           "size_label": "328.1",
@@ -5617,7 +6847,16 @@
               "excel_ar": "Κομψός κάδος ανακύκλωσης που ξεχωρίζει για τη χρηστικότητά και για τον σύγχρονο σχεδιασμό του. Σχεδιασμένος σε μοντέρνες υφές, ταιριάζει απόλυτα τόσο σε επαγγελματικούς όσο και σε οικιακούς χώρους"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "28",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "50",
+            "has_specs": true
+          }
         },
         {
           "size_label": "328.6",
@@ -5648,7 +6887,16 @@
               "excel_ar": "Κομψός και ευέλικτος κάδος, που ξεχωρίζει χάρη στον σχεδιασμό του. Σε τρία μεγέθη και δύο καπάκια για κάθε ανάγκη. Ιδανικός για κάθε χώρο, από το σπίτι μέχρι τον επαγγελματικό σας χώρο. Εύκολος στη χρήση και στον καθαρισμό, με προαιρετικό στήριγμα σακούλας"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "28",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "50",
+            "has_specs": true
+          }
         },
         {
           "size_label": "328.7",
@@ -5663,7 +6911,16 @@
               "excel_ar": "Κάδος ανακύκλωσης με αιωρούμενο καπάκι DECOR INOX"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": "28",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "50",
+            "has_specs": true
+          }
         },
         {
           "size_label": "330",
@@ -5702,7 +6959,16 @@
               "excel_ar": "Πολυχρηστικός κάδος με επιλογή μεγέθους και καπακιού. Κατάλληλος για κάθε χώρο, με μεταλλικό στήριγμα σακούλας και εύκολο καθάρισμα"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "36",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "65",
+            "has_specs": true
+          }
         },
         {
           "size_label": "330.1",
@@ -5773,7 +7039,16 @@
               "excel_ar": "Κομψός κάδος ανακύκλωσης που ξεχωρίζει για τη χρηστικότητά και για τον σύγχρονο σχεδιασμό του. Σχεδιασμένος σε μοντέρνες υφές, ταιριάζει απόλυτα τόσο σε επαγγελματικούς όσο και σε οικιακούς χώρους"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": "36",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "65",
+            "has_specs": true
+          }
         },
         {
           "size_label": "330.6",
@@ -5804,7 +7079,16 @@
               "excel_ar": "Κομψός και ευέλικτος κάδος, που ξεχωρίζει χάρη στον σχεδιασμό του. Σε τρία μεγέθη και δύο καπάκια για κάθε ανάγκη. Ιδανικός για κάθε χώρο, από το σπίτι μέχρι τον επαγγελματικό σας χώρο. Εύκολος στη χρήση και στον καθαρισμό, με προαιρετικό στήριγμα σακούλας"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "36",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "65",
+            "has_specs": true
+          }
         },
         {
           "size_label": "330.7",
@@ -5819,7 +7103,16 @@
               "excel_ar": "Κάδος ανακύκλωσης με αιωρούμενο καπάκι DECOR INOX"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": "36",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "65",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 9,
@@ -5830,6 +7123,7 @@
       "family_indicator": "327.1",
       "group_root": "1896",
       "title": "Κάδος ανακύκλωσης με ανοιχτό καπάκι DECO | full color",
+      "category": "Είδη Σπιτιού",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_327-02.jpg",
       "sizes": [
         {
@@ -5853,7 +7147,16 @@
               "excel_ar": "Κομψός και σύγχρονος κάδος που συνδυάζει λειτουργικότητα και αισθητική. Ιδανικός για κάθε χώρο, με επιλογή μεγέθους και τύπου καπακιού. Ανέπαφης χρήσης και εύκολος στο καθάρισμα, με μεταλλική στήριξη σακούλας για μεγαλύτερη ευκολία"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "28",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "50",
+            "has_specs": true
+          }
         },
         {
           "size_label": "327.1",
@@ -5892,7 +7195,16 @@
               "excel_ar": "Μοντέρνος κάδος ανακύκλωσης με λιτές γραμμές, που ταιριάζει ιδανικά σε κάθε χώρο. Με σύγχρονο design, ανέπαφη χρήση και δύο πρακτικά μεγέθη"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "28",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "50",
+            "has_specs": true
+          }
         },
         {
           "size_label": "327.7",
@@ -5907,7 +7219,16 @@
               "excel_ar": "Recycling bin with open lid DECOR INOX"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": "28",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "50",
+            "has_specs": true
+          }
         },
         {
           "size_label": "329",
@@ -5930,7 +7251,16 @@
               "excel_ar": "Κομψός και σύγχρονος κάδος που συνδυάζει λειτουργικότητα και αισθητική. Ιδανικός για κάθε χώρο, με επιλογή μεγέθους και τύπου καπακιού. Ανέπαφης χρήσης και εύκολος στο καθάρισμα, με μεταλλική στήριξη σακούλας για μεγαλύτερη ευκολία"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "36",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "65",
+            "has_specs": true
+          }
         },
         {
           "size_label": "329.1",
@@ -6001,7 +7331,16 @@
               "excel_ar": "Μοντέρνος κάδος ανακύκλωσης με λιτές γραμμές, που ταιριάζει ιδανικά σε κάθε χώρο. Με σύγχρονο design, ανέπαφη χρήση και δύο πρακτικά μεγέθη"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": "36",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "65",
+            "has_specs": true
+          }
         },
         {
           "size_label": "329.7",
@@ -6016,7 +7355,16 @@
               "excel_ar": "Recycling bin with open lid DECOR INOX"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": "36",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "65",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 6,
@@ -6027,6 +7375,7 @@
       "family_indicator": "950",
       "group_root": "1898",
       "title": "PREMIUM ετικέτες ανακύκλωσης για απορρίματα λευκές",
+      "category": "Επαγγελματικός Εξοπλισμός",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_950-800.jpg",
       "sizes": [
         {
@@ -6282,7 +7631,16 @@
               "excel_ar": "PREMIUM ετικέτες ανακύκλωσης"
             }
           ],
-          "colors_count": 31
+          "colors_count": 31,
+          "specs": {
+            "liters": null,
+            "width": "8.5",
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": "33",
+            "has_specs": true
+          }
         },
         {
           "size_label": "951",
@@ -6385,7 +7743,16 @@
               "excel_ar": "PREMIUM ετικέτες ανακύκλωσης για καπάκι CUBO για μέταλλο μαύρες"
             }
           ],
-          "colors_count": 12
+          "colors_count": 12,
+          "specs": {
+            "liters": null,
+            "width": "13",
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": "13",
+            "has_specs": true
+          }
         },
         {
           "size_label": "952",
@@ -6440,7 +7807,16 @@
               "excel_ar": "ADVANCED ετικέτες ανακύκλωσης για μέταλλο"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": null,
+            "width": "10",
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": "10",
+            "has_specs": true
+          }
         },
         {
           "size_label": "953",
@@ -6519,7 +7895,16 @@
               "excel_ar": "PREMIUM ετικέτες ανακύκλωσης για οργανικά+AN1443:AN1506 λευκές"
             }
           ],
-          "colors_count": 9
+          "colors_count": 9,
+          "specs": {
+            "liters": null,
+            "width": "4.5",
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": "18",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,
@@ -6530,6 +7915,7 @@
       "family_indicator": "405",
       "group_root": "1900",
       "title": "Σκαμπώ",
+      "category": "Επαγγελματικός Εξοπλισμός",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_405-50.jpg",
       "sizes": [
         {
@@ -6545,7 +7931,16 @@
               "excel_ar": "Σκαμπώ βαρέως τύπου, εξαιρετικής αντοχής, κατάλληλο για εντατική χρήση"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "33",
+            "height": "43",
+            "has_specs": true
+          }
         },
         {
           "size_label": "505",
@@ -6560,7 +7955,16 @@
               "excel_ar": "Ενισχυμένο σκαμπώ με υψηλή αισθητική, ιδανικό για καθημερινή χρήση και για κάθε χώρο"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": "36",
+            "depth": "36",
+            "box_height": "46.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "705",
@@ -6575,7 +7979,16 @@
               "excel_ar": "Ορθογώνιο τραπέζι υψηλής ποιότητας κατασκευής, ιδανικό για έξι άτομα. Κατάλληλο για χρήση σε εσωτερικούς και εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": "80",
+            "depth": "135",
+            "box_height": "72",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "710",
@@ -6590,7 +8003,16 @@
               "excel_ar": "Καρέκλα με σχέδιο ψάθας, υψηλής ποιότητας και εξαιρετικής αντοχής. Ιδανική για εσωτερική και εξωτερική χρήση, με διαχρονικό στυλ"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": "45.5",
+            "depth": "46",
+            "box_height": "88",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "720",
@@ -6605,7 +8027,16 @@
               "excel_ar": "Καρέκλα με εντυπωσιακό σχέδιο βεντάλια, που συνδυάζει αισθητική και ανθεκτικότητα. Ιδανική για κάθε χώρο"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": "45.5",
+            "depth": "46",
+            "box_height": "88",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "770",
@@ -6620,7 +8051,16 @@
               "excel_ar": "Ενισχυμένη πολυθρόνα τύπου ψάθας, ποιοτική και ανθεκτική. Κατάλληλη για καθημερινή χρήση σε κάθε χώρο"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": "53",
+            "depth": "56",
+            "box_height": "82",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "780",
@@ -6635,7 +8075,16 @@
               "excel_ar": "Κομψή πολυθρόνα με μοναδικό σχέδιο βεντάλια, ανθεκτική και ιδανική για κάθε περιβάλλον. Ένας συνδυασμός στυλ, ποιότητας και πρακτικότητας"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": "53",
+            "depth": "56",
+            "box_height": "82",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 7,
@@ -6646,6 +8095,7 @@
       "family_indicator": "760",
       "group_root": "2560 - ΓΛΑΣΤΡΑ VITA",
       "title": "Γλάστρα αυτοποτιζόμενη VITA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_760-12.jpg",
       "sizes": [
         {
@@ -6725,7 +8175,16 @@
               "excel_ar": "Μοντέρνα γλάστρα με σύστημα αυτοποτισμού για εύκολη φροντίδα φυτών. Minimal αισθητική, ενσωματωμένο πιατάκι και χρώματα που ξεχωρίζουν"
             }
           ],
-          "colors_count": 9
+          "colors_count": 9,
+          "specs": {
+            "liters": "4",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "20",
+            "height": "18",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 1,
@@ -6736,6 +8195,7 @@
       "family_indicator": "667",
       "group_root": "2590 - ΚΑΣΠΩ ΟΡΧΙΔΕΑ",
       "title": "Κασπώ ορχιδέας",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_667-01.jpg",
       "sizes": [
         {
@@ -6831,7 +8291,16 @@
               "excel_ar": "Κασπώ υψηλής αισθητικής, ειδικά σχεδιασμένο για την κομψή παρουσίαση ορχιδέας. Διατίθεται σε μοντέρνα χρώματα, ιδανικό για να αναδείξει κάθε χώρο"
             }
           ],
-          "colors_count": 11
+          "colors_count": 11,
+          "specs": {
+            "liters": "1",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "13",
+            "height": "14",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 1,
@@ -6842,6 +8311,7 @@
       "family_indicator": "237",
       "group_root": "2670",
       "title": "Γλάστρες TERRACOTTA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_237-03.jpg",
       "sizes": [
         {
@@ -6905,7 +8375,16 @@
               "excel_ar": "Γλάστρες με σχέδιο τερακότα, εξαιρετικής αντοχής και ποιότητας, διαθέσιμες σε διάφορες διαστάσεις και μοντέρνα χρώματα. Ιδανικές για εσωτερικούς ή εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "3.1",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "21",
+            "height": "17",
+            "has_specs": true
+          }
         },
         {
           "size_label": "238",
@@ -6968,7 +8447,16 @@
               "excel_ar": "Γλάστρες με σχέδιο τερακότα, εξαιρετικής αντοχής και ποιότητας, διαθέσιμες σε διάφορες διαστάσεις και μοντέρνα χρώματα. Ιδανικές για εσωτερικούς ή εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "4.3",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "23",
+            "height": "18",
+            "has_specs": true
+          }
         },
         {
           "size_label": "239",
@@ -7031,7 +8519,16 @@
               "excel_ar": "Γλάστρες με σχέδιο τερακότα, εξαιρετικής αντοχής και ποιότητας, διαθέσιμες σε διάφορες διαστάσεις και μοντέρνα χρώματα. Ιδανικές για εσωτερικούς ή εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "6.2",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "25",
+            "height": "21",
+            "has_specs": true
+          }
         },
         {
           "size_label": "240",
@@ -7094,7 +8591,16 @@
               "excel_ar": "Γλάστρες με σχέδιο τερακότα, εξαιρετικής αντοχής και ποιότητας, διαθέσιμες σε διάφορες διαστάσεις και μοντέρνα χρώματα. Ιδανικές για εσωτερικούς ή εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "8.7",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "29",
+            "height": "23",
+            "has_specs": true
+          }
         },
         {
           "size_label": "241",
@@ -7157,7 +8663,16 @@
               "excel_ar": "Γλάστρες με σχέδιο τερακότα, εξαιρετικής αντοχής και ποιότητας, διαθέσιμες σε διάφορες διαστάσεις και μοντέρνα χρώματα. Ιδανικές για εσωτερικούς ή εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "11.9",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "32",
+            "height": "26",
+            "has_specs": true
+          }
         },
         {
           "size_label": "242",
@@ -7220,7 +8735,16 @@
               "excel_ar": "Γλάστρες με σχέδιο τερακότα, εξαιρετικής αντοχής και ποιότητας, διαθέσιμες σε διάφορες διαστάσεις και μοντέρνα χρώματα. Ιδανικές για εσωτερικούς ή εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "16.1",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "36",
+            "height": "29",
+            "has_specs": true
+          }
         },
         {
           "size_label": "243",
@@ -7283,7 +8807,16 @@
               "excel_ar": "Γλάστρες με σχέδιο τερακότα, εξαιρετικής αντοχής και ποιότητας, διαθέσιμες σε διάφορες διαστάσεις και μοντέρνα χρώματα. Ιδανικές για εσωτερικούς ή εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "21.6",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "40",
+            "height": "32",
+            "has_specs": true
+          }
         },
         {
           "size_label": "244",
@@ -7346,7 +8879,16 @@
               "excel_ar": "Γλάστρες με σχέδιο τερακότα, εξαιρετικής αντοχής και ποιότητας, διαθέσιμες σε διάφορες διαστάσεις και μοντέρνα χρώματα. Ιδανικές για εσωτερικούς ή εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "36",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "45",
+            "height": "37",
+            "has_specs": true
+          }
         },
         {
           "size_label": "245",
@@ -7409,7 +8951,16 @@
               "excel_ar": "Γλάστρες με σχέδιο τερακότα, εξαιρετικής αντοχής και ποιότητας, διαθέσιμες σε διάφορες διαστάσεις και μοντέρνα χρώματα. Ιδανικές για εσωτερικούς ή εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "50.5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "52",
+            "height": "41",
+            "has_specs": true
+          }
         },
         {
           "size_label": "246",
@@ -7472,7 +9023,16 @@
               "excel_ar": "Γλάστρες με σχέδιο τερακότα, εξαιρετικής αντοχής και ποιότητας, διαθέσιμες σε διάφορες διαστάσεις και μοντέρνα χρώματα. Ιδανικές για εσωτερικούς ή εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "56",
+            "height": "48",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 10,
@@ -7483,6 +9043,7 @@
       "family_indicator": "257",
       "group_root": "2680",
       "title": "Πιάτα TERRACOTTA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_257-03.jpg",
       "sizes": [
         {
@@ -7546,7 +9107,16 @@
               "excel_ar": "Πιάτα γλάστρας τύπου τερακότα, εξαιρετικής ποιότητας, διαθέσιμα σε ποικιλία διαστάσεων και μοντέρνους χρωματισμούς. Ιδανικά για συνδυασμό με γλάστρες αντίστοιχου σχεδιασμού"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         },
         {
           "size_label": "258",
@@ -7609,7 +9179,16 @@
               "excel_ar": "Πιάτα γλάστρας τύπου τερακότα, εξαιρετικής ποιότητας, διαθέσιμα σε ποικιλία διαστάσεων και μοντέρνους χρωματισμούς. Ιδανικά για συνδυασμό με γλάστρες αντίστοιχου σχεδιασμού"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         },
         {
           "size_label": "259",
@@ -7672,7 +9251,16 @@
               "excel_ar": "Πιάτα γλάστρας τύπου τερακότα, εξαιρετικής ποιότητας, διαθέσιμα σε ποικιλία διαστάσεων και μοντέρνους χρωματισμούς. Ιδανικά για συνδυασμό με γλάστρες αντίστοιχου σχεδιασμού"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         },
         {
           "size_label": "260",
@@ -7735,7 +9323,16 @@
               "excel_ar": "Πιάτα γλάστρας τύπου τερακότα, εξαιρετικής ποιότητας, διαθέσιμα σε ποικιλία διαστάσεων και μοντέρνους χρωματισμούς. Ιδανικά για συνδυασμό με γλάστρες αντίστοιχου σχεδιασμού"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         },
         {
           "size_label": "261",
@@ -7798,7 +9395,16 @@
               "excel_ar": "Πιάτα γλάστρας τύπου τερακότα, εξαιρετικής ποιότητας, διαθέσιμα σε ποικιλία διαστάσεων και μοντέρνους χρωματισμούς. Ιδανικά για συνδυασμό με γλάστρες αντίστοιχου σχεδιασμού"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         },
         {
           "size_label": "262",
@@ -7861,7 +9467,16 @@
               "excel_ar": "Πιάτα γλάστρας τύπου τερακότα, εξαιρετικής ποιότητας, διαθέσιμα σε ποικιλία διαστάσεων και μοντέρνους χρωματισμούς. Ιδανικά για συνδυασμό με γλάστρες αντίστοιχου σχεδιασμού"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         },
         {
           "size_label": "263",
@@ -7924,7 +9539,16 @@
               "excel_ar": "Πιάτα γλάστρας τύπου τερακότα, εξαιρετικής ποιότητας, διαθέσιμα σε ποικιλία διαστάσεων και μοντέρνους χρωματισμούς. Ιδανικά για συνδυασμό με γλάστρες αντίστοιχου σχεδιασμού"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         },
         {
           "size_label": "264",
@@ -7987,7 +9611,16 @@
               "excel_ar": "Πιάτα γλάστρας τύπου τερακότα, εξαιρετικής ποιότητας, διαθέσιμα σε ποικιλία διαστάσεων και μοντέρνους χρωματισμούς. Ιδανικά για συνδυασμό με γλάστρες αντίστοιχου σχεδιασμού"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         },
         {
           "size_label": "265",
@@ -8050,7 +9683,16 @@
               "excel_ar": "Πιάτα γλάστρας τύπου τερακότα, εξαιρετικής ποιότητας, διαθέσιμα σε ποικιλία διαστάσεων και μοντέρνους χρωματισμούς. Ιδανικά για συνδυασμό με γλάστρες αντίστοιχου σχεδιασμού"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         },
         {
           "size_label": "266",
@@ -8113,7 +9755,16 @@
               "excel_ar": "Πιάτα γλάστρας τύπου τερακότα, εξαιρετικής ποιότητας, διαθέσιμα σε ποικιλία διαστάσεων και μοντέρνους χρωματισμούς. Ιδανικά για συνδυασμό με γλάστρες αντίστοιχου σχεδιασμού"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         }
       ],
       "sizes_count": 10,
@@ -8124,6 +9775,7 @@
       "family_indicator": "271",
       "group_root": "2690",
       "title": "Πιάτα TERRACOTTA με ρόδες",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_271-03.jpg",
       "sizes": [
         {
@@ -8147,7 +9799,16 @@
               "excel_ar": "Πιάτα με ρόδες για γλάστρες τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Κατάλληλα για εύκολη μετακίνηση γλαστρών σε εσωτερικούς και εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         },
         {
           "size_label": "272",
@@ -8170,7 +9831,16 @@
               "excel_ar": "Πιάτα με ρόδες για γλάστρες τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Κατάλληλα για εύκολη μετακίνηση γλαστρών σε εσωτερικούς και εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         },
         {
           "size_label": "273",
@@ -8193,7 +9863,16 @@
               "excel_ar": "Πιάτα με ρόδες για γλάστρες τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Κατάλληλα για εύκολη μετακίνηση γλαστρών σε εσωτερικούς και εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         },
         {
           "size_label": "274",
@@ -8216,7 +9895,16 @@
               "excel_ar": "Πιάτα με ρόδες για γλάστρες τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Κατάλληλα για εύκολη μετακίνηση γλαστρών σε εσωτερικούς και εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": null,
+            "has_specs": false
+          }
         }
       ],
       "sizes_count": 4,
@@ -8227,6 +9915,7 @@
       "family_indicator": "290",
       "group_root": "2700",
       "title": "Ζαρντινιέρες μεγάλες TERRACOTTA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_290-03.jpg",
       "sizes": [
         {
@@ -8290,7 +9979,16 @@
               "excel_ar": "Ανθεκτικές και κομψές ζαρντινιέρες, ιδανικές για τη διακόσμηση και την οργάνωση φυτών σε κάθε χώρο. Σε μοντέρνες αποχρώσεις που εντυπωσιάζουν"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "30",
+            "width": "60",
+            "depth": "33",
+            "box_height": "26",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "291",
@@ -8353,7 +10051,16 @@
               "excel_ar": "Ανθεκτικές και κομψές ζαρντινιέρες, ιδανικές για τη διακόσμηση και την οργάνωση φυτών σε κάθε χώρο. Σε μοντέρνες αποχρώσεις που εντυπωσιάζουν"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "45",
+            "width": "70",
+            "depth": "34",
+            "box_height": "27",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "292",
@@ -8416,7 +10123,16 @@
               "excel_ar": "Ανθεκτικές και κομψές ζαρντινιέρες, ιδανικές για τη διακόσμηση και την οργάνωση φυτών σε κάθε χώρο. Σε μοντέρνες αποχρώσεις που εντυπωσιάζουν"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "55",
+            "width": "80",
+            "depth": "38",
+            "box_height": "31",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "293",
@@ -8479,7 +10195,16 @@
               "excel_ar": "Ανθεκτικές και κομψές ζαρντινιέρες, ιδανικές για τη διακόσμηση και την οργάνωση φυτών σε κάθε χώρο. Σε μοντέρνες αποχρώσεις που εντυπωσιάζουν"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "105",
+            "width": "100",
+            "depth": "45",
+            "box_height": "35",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,
@@ -8490,6 +10215,7 @@
       "family_indicator": "295",
       "group_root": "2710",
       "title": "Δίσκοι ζαρντινιέρας μεγάλης TERRACOTTA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_295-03.jpg",
       "sizes": [
         {
@@ -8553,7 +10279,16 @@
               "excel_ar": "Ποιοτικά πιάτα γλάστρας με εμφάνιση τερακότα, διαθέσιμα σε πολλές διαστάσεις και σύγχρονες αποχρώσεις. Ιδανικά για να ταιριάζουν αισθητικά με γλάστρες ίδιου στυλ"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": null,
+            "width": "56",
+            "depth": "28",
+            "box_height": "5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "296",
@@ -8616,7 +10351,16 @@
               "excel_ar": "Ποιοτικά πιάτα γλάστρας με εμφάνιση τερακότα, διαθέσιμα σε πολλές διαστάσεις και σύγχρονες αποχρώσεις. Ιδανικά για να ταιριάζουν αισθητικά με γλάστρες ίδιου στυλ"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": null,
+            "width": "65",
+            "depth": "30",
+            "box_height": "5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "297",
@@ -8679,7 +10423,16 @@
               "excel_ar": "Ποιοτικά πιάτα γλάστρας με εμφάνιση τερακότα, διαθέσιμα σε πολλές διαστάσεις και σύγχρονες αποχρώσεις. Ιδανικά για να ταιριάζουν αισθητικά με γλάστρες ίδιου στυλ"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": null,
+            "width": "76",
+            "depth": "34",
+            "box_height": "6",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "298",
@@ -8742,7 +10495,16 @@
               "excel_ar": "Ποιοτικά πιάτα γλάστρας με εμφάνιση τερακότα, διαθέσιμα σε πολλές διαστάσεις και σύγχρονες αποχρώσεις. Ιδανικά για να ταιριάζουν αισθητικά με γλάστρες ίδιου στυλ"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": null,
+            "width": "97",
+            "depth": "40",
+            "box_height": "6",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,
@@ -8753,6 +10515,7 @@
       "family_indicator": "491",
       "group_root": "2720",
       "title": "Ζαρντινιέρες μικρές TERRACOTTA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_491-03.jpg",
       "sizes": [
         {
@@ -8832,7 +10595,16 @@
               "excel_ar": "Ζαρντινιέρες τύπου τερακότας, ιδιαίτερα ανθεκτικές και ιδανικές για εξωτερική και εσωτερική χρήση. Διατίθεται σε μοντέρνες χρωματικές επιλογές που συνδυάζουν την κλασική αισθητική με το σύγχρονο στυλ"
             }
           ],
-          "colors_count": 9
+          "colors_count": 9,
+          "specs": {
+            "liters": "9.5",
+            "width": "45",
+            "depth": "21",
+            "box_height": "18",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "492",
@@ -8911,7 +10683,16 @@
               "excel_ar": "Ζαρντινιέρες τύπου τερακότας, ιδιαίτερα ανθεκτικές και ιδανικές για εξωτερική και εσωτερική χρήση. Διατίθεται σε μοντέρνες χρωματικές επιλογές που συνδυάζουν την κλασική αισθητική με το σύγχρονο στυλ"
             }
           ],
-          "colors_count": 9
+          "colors_count": 9,
+          "specs": {
+            "liters": "13.5",
+            "width": "59",
+            "depth": "22",
+            "box_height": "18",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 2,
@@ -8922,6 +10703,7 @@
       "family_indicator": "496",
       "group_root": "2730",
       "title": "Δίσκοι ζαρντινιέρας μικρής TERRACOTTA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_496-03.jpg",
       "sizes": [
         {
@@ -9001,7 +10783,16 @@
               "excel_ar": "Δίσκοι ζαρντινιέρας τύπου τερακότα, εξαιρετικής ποιότητας και μεγάλης αντοχής. Κατάλληλοι για χρήση σε εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα"
             }
           ],
-          "colors_count": 9
+          "colors_count": 9,
+          "specs": {
+            "liters": null,
+            "width": "40",
+            "depth": "17",
+            "box_height": "3",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "497",
@@ -9080,7 +10871,16 @@
               "excel_ar": "Δίσκοι ζαρντινιέρας τύπου τερακότα, εξαιρετικής ποιότητας και μεγάλης αντοχής. Κατάλληλοι για χρήση σε εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα"
             }
           ],
-          "colors_count": 9
+          "colors_count": 9,
+          "specs": {
+            "liters": null,
+            "width": "55",
+            "depth": "17",
+            "box_height": "3",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 2,
@@ -9091,6 +10891,7 @@
       "family_indicator": "860",
       "group_root": "2770",
       "title": "Κασπώ στρογγυλά ματ LINEA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_860-12.jpg",
       "sizes": [
         {
@@ -9162,7 +10963,16 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA, εξαιρετικής αντοχής και υψηλής αισθητικής, ιδανικά για εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": "3.5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "20",
+            "height": "17",
+            "has_specs": true
+          }
         },
         {
           "size_label": "860.2",
@@ -9209,7 +11019,16 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA με γυαλιστερή επιφάνεια, υψηλής αισθητικής και εξαιρετικής αντοχής. Ιδανικά για κάθε χώρο, εσωτερικό ή εξωτερικό, και διαθέσιμα σε κομψούς, μοντέρνους χρωματισμούς"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "3.5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "20",
+            "height": "17",
+            "has_specs": true
+          }
         },
         {
           "size_label": "860.5",
@@ -9240,7 +11059,16 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA σειρά NATURA, με επιφάνεια μοναδικής τεχνοτροπίας που προσφέρει φυσική υφή και ξεχωριστή αισθητική. Εξαιρετικής αντοχής, κατάλληλα για εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "3.5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "20",
+            "height": "17",
+            "has_specs": true
+          }
         },
         {
           "size_label": "861",
@@ -9311,7 +11139,16 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA, εξαιρετικής αντοχής και υψηλής αισθητικής, ιδανικά για εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": "7",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "25",
+            "height": "21",
+            "has_specs": true
+          }
         },
         {
           "size_label": "861.2",
@@ -9358,7 +11195,16 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA με γυαλιστερή επιφάνεια, υψηλής αισθητικής και εξαιρετικής αντοχής. Ιδανικά για κάθε χώρο, εσωτερικό ή εξωτερικό, και διαθέσιμα σε κομψούς, μοντέρνους χρωματισμούς"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "7",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "25",
+            "height": "21",
+            "has_specs": true
+          }
         },
         {
           "size_label": "862",
@@ -9405,7 +11251,16 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA, εξαιρετικής αντοχής και υψηλής αισθητικής, ιδανικά για εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "13",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "25",
+            "has_specs": true
+          }
         },
         {
           "size_label": "862.2",
@@ -9452,7 +11307,16 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA με γυαλιστερή επιφάνεια, υψηλής αισθητικής και εξαιρετικής αντοχής. Ιδανικά για κάθε χώρο, εσωτερικό ή εξωτερικό, και διαθέσιμα σε κομψούς, μοντέρνους χρωματισμούς"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "13",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "25",
+            "has_specs": true
+          }
         },
         {
           "size_label": "862.5",
@@ -9491,7 +11355,16 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA σειρά NATURA, με επιφάνεια μοναδικής τεχνοτροπίας που προσφέρει φυσική υφή και ξεχωριστή αισθητική. Εξαιρετικής αντοχής, κατάλληλα για εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "13",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "25",
+            "has_specs": true
+          }
         },
         {
           "size_label": "864",
@@ -9538,7 +11411,16 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA, εξαιρετικής αντοχής και υψηλής αισθητικής, ιδανικά για εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "30",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "40",
+            "height": "34",
+            "has_specs": true
+          }
         },
         {
           "size_label": "864.2",
@@ -9585,7 +11467,16 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA με γυαλιστερή επιφάνεια, υψηλής αισθητικής και εξαιρετικής αντοχής. Ιδανικά για κάθε χώρο, εσωτερικό ή εξωτερικό, και διαθέσιμα σε κομψούς, μοντέρνους χρωματισμούς"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "30",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "40",
+            "height": "34",
+            "has_specs": true
+          }
         },
         {
           "size_label": "864.5",
@@ -9624,7 +11515,16 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA σειρά NATURA, με επιφάνεια μοναδικής τεχνοτροπίας που προσφέρει φυσική υφή και ξεχωριστή αισθητική. Εξαιρετικής αντοχής, κατάλληλα για εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "30",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "40",
+            "height": "34",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 11,
@@ -9635,6 +11535,7 @@
       "family_indicator": "469",
       "group_root": "2780",
       "title": "Γλάστρες BASIC LINEA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_469-01.jpg",
       "sizes": [
         {
@@ -9674,7 +11575,16 @@
               "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "2",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "16",
+            "height": "15.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "470",
@@ -9737,7 +11647,16 @@
               "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "3.5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "20",
+            "height": "18.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "471",
@@ -9800,7 +11719,16 @@
               "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "7",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "25",
+            "height": "24",
+            "has_specs": true
+          }
         },
         {
           "size_label": "867",
@@ -9887,7 +11815,16 @@
               "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
             }
           ],
-          "colors_count": 10
+          "colors_count": 10,
+          "specs": {
+            "liters": "0.6",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "11",
+            "height": "10.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "868",
@@ -9982,7 +11919,16 @@
               "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
             }
           ],
-          "colors_count": 11
+          "colors_count": 11,
+          "specs": {
+            "liters": "1.2",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "13",
+            "height": "13",
+            "has_specs": true
+          }
         },
         {
           "size_label": "869",
@@ -10069,7 +12015,16 @@
               "excel_ar": "Χαμηλές στρογγυλές γλάστρες LINEA, εξαιρετικής αντοχής και υψηλής ποιότητας. Κατάλληλες για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που ταιριάζουν σε κάθε αισθητική"
             }
           ],
-          "colors_count": 10
+          "colors_count": 10,
+          "specs": {
+            "liters": "2",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "16",
+            "height": "15",
+            "has_specs": true
+          }
         },
         {
           "size_label": "870",
@@ -10156,7 +12111,16 @@
               "excel_ar": "Χαμηλές στρογγυλές γλάστρες LINEA, εξαιρετικής αντοχής και υψηλής ποιότητας. Κατάλληλες για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που ταιριάζουν σε κάθε αισθητική"
             }
           ],
-          "colors_count": 10
+          "colors_count": 10,
+          "specs": {
+            "liters": "3.5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "20",
+            "height": "18.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "871",
@@ -10275,7 +12239,16 @@
               "excel_ar": "Χαμηλές στρογγυλές γλάστρες LINEA, εξαιρετικής αντοχής και υψηλής ποιότητας. Κατάλληλες για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που ταιριάζουν σε κάθε αισθητική"
             }
           ],
-          "colors_count": 14
+          "colors_count": 14,
+          "specs": {
+            "liters": "7",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "25",
+            "height": "24",
+            "has_specs": true
+          }
         },
         {
           "size_label": "872",
@@ -10394,7 +12367,16 @@
               "excel_ar": "Χαμηλές στρογγυλές γλάστρες LINEA, εξαιρετικής αντοχής και υψηλής ποιότητας. Κατάλληλες για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που ταιριάζουν σε κάθε αισθητική"
             }
           ],
-          "colors_count": 14
+          "colors_count": 14,
+          "specs": {
+            "liters": "13",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "28.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "872.1",
@@ -10425,7 +12407,16 @@
               "excel_ar": "Στρογγυλή γλάστρα LINEA, εξαιρετικής ποιότητας και μοναδικής αισθητικής, με ανάγλυφη υφή που προσφέρει φυσική αίσθηση. Διατίθεται σε τρεις κομψές γήινες αποχρώσεις, ιδανικές για κάθε χώρο"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "13",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "28.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "873",
@@ -10496,7 +12487,16 @@
               "excel_ar": "Χαμηλές στρογγυλές γλάστρες LINEA, εξαιρετικής αντοχής και υψηλής ποιότητας. Κατάλληλες για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που ταιριάζουν σε κάθε αισθητική"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": "20",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "35",
+            "height": "33",
+            "has_specs": true
+          }
         },
         {
           "size_label": "874",
@@ -10567,7 +12567,16 @@
               "excel_ar": "Χαμηλές στρογγυλές γλάστρες LINEA, εξαιρετικής αντοχής και υψηλής ποιότητας. Κατάλληλες για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που ταιριάζουν σε κάθε αισθητική"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": "30",
+            "width": "40",
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": "37",
+            "has_specs": true
+          }
         },
         {
           "size_label": "875",
@@ -10630,7 +12639,16 @@
               "excel_ar": "Χαμηλές στρογγυλές γλάστρες LINEA, εξαιρετικής αντοχής και υψηλής ποιότητας. Κατάλληλες για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που ταιριάζουν σε κάθε αισθητική"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "44",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "45",
+            "height": "42",
+            "has_specs": true
+          }
         },
         {
           "size_label": "876",
@@ -10677,7 +12695,16 @@
               "excel_ar": "Χαμηλές στρογγυλές γλάστρες LINEA, εξαιρετικής αντοχής και υψηλής ποιότητας. Κατάλληλες για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που ταιριάζουν σε κάθε αισθητική"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "60",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "50",
+            "height": "46",
+            "has_specs": true
+          }
         },
         {
           "size_label": "877",
@@ -10732,7 +12759,16 @@
               "excel_ar": "Χαμηλές στρογγυλές γλάστρες LINEA, εξαιρετικής αντοχής και υψηλής ποιότητας. Κατάλληλες για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που ταιριάζουν σε κάθε αισθητική"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "78",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "55",
+            "height": "50",
+            "has_specs": true
+          }
         },
         {
           "size_label": "879",
@@ -10787,7 +12823,16 @@
               "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "3",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "16",
+            "height": "22",
+            "has_specs": true
+          }
         },
         {
           "size_label": "880",
@@ -10842,7 +12887,16 @@
               "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "20",
+            "height": "26",
+            "has_specs": true
+          }
         },
         {
           "size_label": "881",
@@ -10897,7 +12951,16 @@
               "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "10",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "25",
+            "height": "34",
+            "has_specs": true
+          }
         },
         {
           "size_label": "882",
@@ -10960,7 +13023,16 @@
               "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "18",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "41",
+            "has_specs": true
+          }
         },
         {
           "size_label": "884",
@@ -11015,7 +13087,16 @@
               "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "42",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "40",
+            "height": "52",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 20,
@@ -11026,6 +13107,7 @@
       "family_indicator": "889",
       "group_root": "2790",
       "title": "Πιάτα στρογγυλά LINEA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_889-12.jpg",
       "sizes": [
         {
@@ -11113,7 +13195,16 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             }
           ],
-          "colors_count": 10
+          "colors_count": 10,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "12.5",
+            "height": "1.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "890",
@@ -11232,7 +13323,16 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             }
           ],
-          "colors_count": 14
+          "colors_count": 14,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "16",
+            "height": "2",
+            "has_specs": true
+          }
         },
         {
           "size_label": "891",
@@ -11383,7 +13483,16 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             }
           ],
-          "colors_count": 18
+          "colors_count": 18,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "20",
+            "height": "2",
+            "has_specs": true
+          }
         },
         {
           "size_label": "892",
@@ -11558,7 +13667,16 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             }
           ],
-          "colors_count": 21
+          "colors_count": 21,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "24",
+            "height": "2.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "893",
@@ -11629,7 +13747,16 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "28",
+            "height": "2.8",
+            "has_specs": true
+          }
         },
         {
           "size_label": "894",
@@ -11756,7 +13883,16 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             }
           ],
-          "colors_count": 15
+          "colors_count": 15,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "32",
+            "height": "3",
+            "has_specs": true
+          }
         },
         {
           "size_label": "895",
@@ -11827,7 +13963,16 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "36",
+            "height": "3.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "896",
@@ -11898,7 +14043,16 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "38",
+            "height": "3.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "897",
@@ -11953,7 +14107,16 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "43",
+            "height": "4",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 9,
@@ -11964,6 +14127,7 @@
       "family_indicator": "560",
       "group_root": "2800",
       "title": "Κασπώ τετράγωνα ματ LINEA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_560-12.jpg",
       "sizes": [
         {
@@ -12027,7 +14191,16 @@
               "excel_ar": "Κομψά κασπώ LINEA με μοντέρνα σχεδίαση, σε πολλά μεγέθη και αποχρώσεις. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, με στυλ και ποιότητα"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "2",
+            "width": "15",
+            "depth": "15",
+            "box_height": "12.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "560.2",
@@ -12074,7 +14247,16 @@
               "excel_ar": "Γυαλιστερά τετράγωνα κασπώ LINEA, εξαιρετικής ποιότητας και φινιρίσματος, ιδανικά για χρήση σε εσωτερικούς και εξωτερικούς χώρους. Διατίθονται σε ποικιλία διαστάσεων και μοντέρνων χρωμάτων"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "2",
+            "width": "15",
+            "depth": "15",
+            "box_height": "12.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "560.5",
@@ -12105,7 +14287,16 @@
               "excel_ar": "Γυαλιστερά τετράγωνα κασπώ LINEA σειρά NATURA, εξαιρετικής ποιότητας, διαθέσιμα σε διαφορετικές τεχνοτροπίες επιφάνειας. Ιδανικά για σύγχρονους χώρους που συνδυάζουν φυσικότητα και κομψότητα"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "2",
+            "width": "15",
+            "depth": "15",
+            "box_height": "12.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "561",
@@ -12168,7 +14359,16 @@
               "excel_ar": "Κομψά κασπώ LINEA με μοντέρνα σχεδίαση, σε πολλά μεγέθη και αποχρώσεις. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, με στυλ και ποιότητα"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "5",
+            "width": "21",
+            "depth": "21",
+            "box_height": "17",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "562",
@@ -12231,7 +14431,16 @@
               "excel_ar": "Κομψά κασπώ LINEA με μοντέρνα σχεδίαση, σε πολλά μεγέθη και αποχρώσεις. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, με στυλ και ποιότητα"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "12",
+            "width": "27",
+            "depth": "27",
+            "box_height": "22",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "564",
@@ -12286,7 +14495,16 @@
               "excel_ar": "Κομψά κασπώ LINEA με μοντέρνα σχεδίαση, σε πολλά μεγέθη και αποχρώσεις. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, με στυλ και ποιότητα"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "21",
+            "width": "33",
+            "depth": "33",
+            "box_height": "27",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "570",
@@ -12365,7 +14583,16 @@
               "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με κομψό σχεδιασμό και εξαιρετική αντοχή. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             }
           ],
-          "colors_count": 9
+          "colors_count": 9,
+          "specs": {
+            "liters": "2.5",
+            "width": "15",
+            "depth": "15",
+            "box_height": "18",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "570.6",
@@ -12388,7 +14615,16 @@
               "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με ιδιαίτερη αισθητική και εξαιρετική αντοχή. Ιδανικές για όλους τους χώρους, εσωτερικούς ή εξωτερικούς, και διαθέσιμες σε σύγχρονους χρωματισμούς που αναδεικνύουν κάθε φυτό και διακόσμηση"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "2.5",
+            "width": "15",
+            "depth": "15",
+            "box_height": "18",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "571",
@@ -12459,7 +14695,16 @@
               "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με κομψό σχεδιασμό και εξαιρετική αντοχή. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": "7.5",
+            "width": "21",
+            "depth": "21",
+            "box_height": "26",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "571.6",
@@ -12482,7 +14727,16 @@
               "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με ιδιαίτερη αισθητική και εξαιρετική αντοχή. Ιδανικές για όλους τους χώρους, εσωτερικούς ή εξωτερικούς, και διαθέσιμες σε σύγχρονους χρωματισμούς που αναδεικνύουν κάθε φυτό και διακόσμηση"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "7.5",
+            "width": "21",
+            "depth": "21",
+            "box_height": "26",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "572",
@@ -12561,7 +14815,16 @@
               "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με κομψό σχεδιασμό και εξαιρετική αντοχή. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             }
           ],
-          "colors_count": 9
+          "colors_count": 9,
+          "specs": {
+            "liters": "17",
+            "width": "27",
+            "depth": "27",
+            "box_height": "34",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "572.6",
@@ -12584,7 +14847,16 @@
               "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με ιδιαίτερη αισθητική και εξαιρετική αντοχή. Ιδανικές για όλους τους χώρους, εσωτερικούς ή εξωτερικούς, και διαθέσιμες σε σύγχρονους χρωματισμούς που αναδεικνύουν κάθε φυτό και διακόσμηση"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "17",
+            "width": "27",
+            "depth": "27",
+            "box_height": "34",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "574",
@@ -12655,7 +14927,16 @@
               "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με κομψό σχεδιασμό και εξαιρετική αντοχή. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": "30",
+            "width": "33",
+            "depth": "33",
+            "box_height": "42",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "574.6",
@@ -12678,7 +14959,16 @@
               "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με ιδιαίτερη αισθητική και εξαιρετική αντοχή. Ιδανικές για όλους τους χώρους, εσωτερικούς ή εξωτερικούς, και διαθέσιμες σε σύγχρονους χρωματισμούς που αναδεικνύουν κάθε φυτό και διακόσμηση"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "30",
+            "width": "33",
+            "depth": "33",
+            "box_height": "42",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "580",
@@ -12741,7 +15031,16 @@
               "excel_ar": "Γλάστρες LINEA σε ψηλό τετράγωνο σχήμα, με σύγχρονο design και υψηλή αντοχή. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, σε μοντέρνες αποχρώσεις"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "3",
+            "width": "15",
+            "depth": "15",
+            "box_height": "27",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "581",
@@ -12796,7 +15095,16 @@
               "excel_ar": "Γλάστρες LINEA σε ψηλό τετράγωνο σχήμα, με σύγχρονο design και υψηλή αντοχή. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, σε μοντέρνες αποχρώσεις"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "11.5",
+            "width": "21",
+            "depth": "21",
+            "box_height": "38",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "582",
@@ -12859,7 +15167,16 @@
               "excel_ar": "Γλάστρες LINEA σε ψηλό τετράγωνο σχήμα, με σύγχρονο design και υψηλή αντοχή. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, σε μοντέρνες αποχρώσεις"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "26",
+            "width": "27",
+            "depth": "27",
+            "box_height": "50",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "582.6",
@@ -12882,7 +15199,16 @@
               "excel_ar": "Ψηλές τετράγωνες γλάστρες MOSAIC, ανθεκτικές και καλαίσθητες, σε δύο μοντέρνα χρώματα. Κατάλληλες για όλους τους χώρους"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "26",
+            "width": "27",
+            "depth": "27",
+            "box_height": "50",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "584",
@@ -12945,7 +15271,16 @@
               "excel_ar": "Γλάστρες LINEA σε ψηλό τετράγωνο σχήμα, με σύγχρονο design και υψηλή αντοχή. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, σε μοντέρνες αποχρώσεις"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "46",
+            "width": "33",
+            "depth": "33",
+            "box_height": "60",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "584.6",
@@ -12968,7 +15303,16 @@
               "excel_ar": "Ψηλές τετράγωνες γλάστρες MOSAIC, ανθεκτικές και καλαίσθητες, σε δύο μοντέρνα χρώματα. Κατάλληλες για όλους τους χώρους"
             }
           ],
-          "colors_count": 2
+          "colors_count": 2,
+          "specs": {
+            "liters": "46",
+            "width": "33",
+            "depth": "33",
+            "box_height": "60",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 20,
@@ -12979,6 +15323,7 @@
       "family_indicator": "590",
       "group_root": "2810",
       "title": "Πιάτα τετράγωνα LINEA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_590-12.jpg",
       "sizes": [
         {
@@ -13098,7 +15443,16 @@
               "excel_ar": "Κομψά τετράγωνα πιατάκια για γλάστρες LINEA, σε μοναδική αισθητική και χρωματική ποικιλία"
             }
           ],
-          "colors_count": 14
+          "colors_count": 14,
+          "specs": {
+            "liters": null,
+            "width": "12",
+            "depth": "12",
+            "box_height": "2",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "591",
@@ -13169,7 +15523,16 @@
               "excel_ar": "Κομψά τετράγωνα πιατάκια για γλάστρες LINEA, σε μοναδική αισθητική και χρωματική ποικιλία"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": null,
+            "width": "17",
+            "depth": "17",
+            "box_height": "2",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "592",
@@ -13248,7 +15611,16 @@
               "excel_ar": "Κομψά τετράγωνα πιατάκια για γλάστρες LINEA, σε μοναδική αισθητική και χρωματική ποικιλία"
             }
           ],
-          "colors_count": 9
+          "colors_count": 9,
+          "specs": {
+            "liters": null,
+            "width": "25",
+            "depth": "25",
+            "box_height": "3",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "594",
@@ -13319,7 +15691,16 @@
               "excel_ar": "Κομψά τετράγωνα πιατάκια για γλάστρες LINEA, σε μοναδική αισθητική και χρωματική ποικιλία"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": null,
+            "width": "29",
+            "depth": "29",
+            "box_height": "3",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,
@@ -13330,6 +15711,7 @@
       "family_indicator": "821",
       "group_root": "2820",
       "title": "Ζαρντινιέρες LINEA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_821-12.jpg",
       "sizes": [
         {
@@ -13377,7 +15759,16 @@
               "excel_ar": "Μοντέρνες ζαρντινιέρες LINEA με ενσωματωμένο πιάτο, για πρακτικότητα και κομψό αποτέλεσμα. Σε διαφορετικά μεγέθη και νέες μοντέρνες αποχρώσεις που ανανεώνουν κάθε χώρο"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "7",
+            "width": "38",
+            "depth": "18",
+            "box_height": "17",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "822",
@@ -13424,7 +15815,16 @@
               "excel_ar": "Μοντέρνες ζαρντινιέρες LINEA με ενσωματωμένο πιάτο, για πρακτικότητα και κομψό αποτέλεσμα. Σε διαφορετικά μεγέθη και νέες μοντέρνες αποχρώσεις που ανανεώνουν κάθε χώρο"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "9",
+            "width": "48",
+            "depth": "18",
+            "box_height": "17",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "823",
@@ -13471,7 +15871,16 @@
               "excel_ar": "Μοντέρνες ζαρντινιέρες LINEA με ενσωματωμένο πιάτο, για πρακτικότητα και κομψό αποτέλεσμα. Σε διαφορετικά μεγέθη και νέες μοντέρνες αποχρώσεις που ανανεώνουν κάθε χώρο"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "11",
+            "width": "58",
+            "depth": "18",
+            "box_height": "17",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 3,
@@ -13482,6 +15891,7 @@
       "family_indicator": "969",
       "group_root": "2840",
       "title": "Γλάστρες IRIS",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_969-12.jpg",
       "sizes": [
         {
@@ -13553,7 +15963,16 @@
               "excel_ar": "Γλάστρες IRIS, υψηλής ποιότητας και κομψής αισθητικής, ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό. Διατίθενται σε μοντέρνα χρώματα και ποικιλία διαστάσεων. Οι κωδικοί 974 και 976 είναι συμβατοί με το καινοτόμο σύστημα OMNIROLL, που επιτρέπει εύκολη και ασφαλή μετακίνηση"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": "1.5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "16",
+            "height": "14.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "970",
@@ -13616,7 +16035,16 @@
               "excel_ar": "Γλάστρες IRIS, υψηλής ποιότητας και κομψής αισθητικής, ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό. Διατίθενται σε μοντέρνα χρώματα και ποικιλία διαστάσεων. Οι κωδικοί 974 και 976 είναι συμβατοί με το καινοτόμο σύστημα OMNIROLL, που επιτρέπει εύκολη και ασφαλή μετακίνηση"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "3",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "20",
+            "height": "18",
+            "has_specs": true
+          }
         },
         {
           "size_label": "971",
@@ -13679,7 +16107,16 @@
               "excel_ar": "Γλάστρες IRIS, υψηλής ποιότητας και κομψής αισθητικής, ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό. Διατίθενται σε μοντέρνα χρώματα και ποικιλία διαστάσεων. Οι κωδικοί 974 και 976 είναι συμβατοί με το καινοτόμο σύστημα OMNIROLL, που επιτρέπει εύκολη και ασφαλή μετακίνηση"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "6",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "25",
+            "height": "22",
+            "has_specs": true
+          }
         },
         {
           "size_label": "972",
@@ -13742,7 +16179,16 @@
               "excel_ar": "Γλάστρες IRIS, υψηλής ποιότητας και κομψής αισθητικής, ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό. Διατίθενται σε μοντέρνα χρώματα και ποικιλία διαστάσεων. Οι κωδικοί 974 και 976 είναι συμβατοί με το καινοτόμο σύστημα OMNIROLL, που επιτρέπει εύκολη και ασφαλή μετακίνηση"
             }
           ],
-          "colors_count": 7
+          "colors_count": 7,
+          "specs": {
+            "liters": "11",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "27",
+            "has_specs": true
+          }
         },
         {
           "size_label": "973",
@@ -13789,7 +16235,16 @@
               "excel_ar": "Γλάστρες IRIS, υψηλής ποιότητας και κομψής αισθητικής, ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό. Διατίθενται σε μοντέρνα χρώματα και ποικιλία διαστάσεων. Οι κωδικοί 974 και 976 είναι συμβατοί με το καινοτόμο σύστημα OMNIROLL, που επιτρέπει εύκολη και ασφαλή μετακίνηση"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "17",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "35",
+            "height": "31",
+            "has_specs": true
+          }
         },
         {
           "size_label": "974",
@@ -13844,7 +16299,16 @@
               "excel_ar": "Γλάστρες IRIS, υψηλής ποιότητας και κομψής αισθητικής, ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό. Διατίθενται σε μοντέρνα χρώματα και ποικιλία διαστάσεων. Οι κωδικοί 974 και 976 είναι συμβατοί με το καινοτόμο σύστημα OMNIROLL, που επιτρέπει εύκολη και ασφαλή μετακίνηση"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "28",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "40",
+            "height": "35",
+            "has_specs": true
+          }
         },
         {
           "size_label": "976",
@@ -13899,7 +16363,16 @@
               "excel_ar": "Γλάστρες IRIS, υψηλής ποιότητας και κομψής αισθητικής, ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό. Διατίθενται σε μοντέρνα χρώματα και ποικιλία διαστάσεων. Οι κωδικοί 974 και 976 είναι συμβατοί με το καινοτόμο σύστημα OMNIROLL, που επιτρέπει εύκολη και ασφαλή μετακίνηση"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "55",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "50",
+            "height": "44",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 7,
@@ -13910,6 +16383,7 @@
       "family_indicator": "665.2",
       "group_root": "2860",
       "title": "Ζαρντινιέρες LILY GLOSS",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_665_2-12.jpg",
       "sizes": [
         {
@@ -13949,7 +16423,16 @@
               "excel_ar": "Ζαρντινιέρες LILY GLOSS με γυαλιστερή επιφάνεια και ξεχωριστά χρώματα. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, προσφέρουν κομψότητα και φρεσκάδα σε κάθε περιβάλλον"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "2.5",
+            "width": "30",
+            "depth": "12",
+            "box_height": "11",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "665.5",
@@ -13988,7 +16471,16 @@
               "excel_ar": "Ζαρντινιέρες LILY NATURA, διαθέσιμες σε τέσσερις διαφορετικές τεχνοτροπίες, που προσφέρουν φυσική υφή και ξεχωριστή αισθητική. Ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "2.5",
+            "width": "30",
+            "depth": "12",
+            "box_height": "11",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "668.2",
@@ -14027,7 +16519,16 @@
               "excel_ar": "Διακοσμητικά γλαστράκια – κασπώ, ιδανικά για μικρά φυτά και διακοσμητικές συνθέσεις. Διατίθονται σε εντυπωσιακά χρώματα που δίνουν ζωντάνια και στυλ σε κάθε χώρο"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "1.1",
+            "width": "12",
+            "depth": "12",
+            "box_height": "14",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "668.5",
@@ -14066,7 +16567,16 @@
               "excel_ar": "Γλαστράκια LILY NATURA, διαθέσιμα σε τέσσερις μοναδικές τεχνοτροπίες που προσφέρουν φυσική υφή και υψηλή αισθητική. Ιδανικά για εσωτερικούς και εξωτερικούς χώρους, προσθέτουν στυλ σε κάθε περιβάλλον"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "1.1",
+            "width": "12",
+            "depth": "12",
+            "box_height": "14",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "669.2",
@@ -14097,7 +16607,16 @@
               "excel_ar": "Διακοσμητικά γλαστράκια – κασπώ, ιδανικά για μικρά φυτά και διακοσμητικές συνθέσεις. Διατίθονται σε εντυπωσιακά χρώματα που δίνουν ζωντάνια και στυλ σε κάθε χώρο"
             }
           ],
-          "colors_count": 3
+          "colors_count": 3,
+          "specs": {
+            "liters": "1.8",
+            "width": "15",
+            "depth": "15",
+            "box_height": "14",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "669.5",
@@ -14136,7 +16655,16 @@
               "excel_ar": "Γλαστράκια LILY NATURA, διαθέσιμα σε τέσσερις μοναδικές τεχνοτροπίες που προσφέρουν φυσική υφή και υψηλή αισθητική. Ιδανικά για εσωτερικούς και εξωτερικούς χώρους, προσθέτουν στυλ σε κάθε περιβάλλον"
             }
           ],
-          "colors_count": 4
+          "colors_count": 4,
+          "specs": {
+            "liters": "1.8",
+            "width": "15",
+            "depth": "15",
+            "box_height": "14",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 6,
@@ -14147,6 +16675,7 @@
       "family_indicator": "672",
       "group_root": "2870",
       "title": "Γλάστρες INNOVA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_672-12.jpg",
       "sizes": [
         {
@@ -14218,7 +16747,16 @@
               "excel_ar": "Γλάστρες INNOVA, ανθεκτικές και καλαίσθητες, σε δύο μεγέθη και σύγχρονα χρώματα. Κατάλληλες για όλους τους χώρους"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": "11",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "29",
+            "height": "26",
+            "has_specs": true
+          }
         },
         {
           "size_label": "684",
@@ -14273,7 +16811,16 @@
               "excel_ar": "Γλάστρες INNOVA, ανθεκτικές και καλαίσθητες, σε δύο μεγέθη και σύγχρονα χρώματα. Κατάλληλες για όλους τους χώρους"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "38",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "39",
+            "height": "48",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 2,
@@ -14284,6 +16831,7 @@
       "family_indicator": "12",
       "group_root": "2900",
       "title": "Κασπώ TERRACOTTA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_12-03.jpg",
       "sizes": [
         {
@@ -14339,7 +16887,16 @@
               "excel_ar": "Κασπώ τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Διατίθονται σε ξεχωριστά χρώματα και ποικιλία διαστάσεων, κατάλληλα για όλους τους χώρους και κάθε είδος φυτού"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "22",
+            "height": "10",
+            "has_specs": true
+          }
         },
         {
           "size_label": "22",
@@ -14394,7 +16951,16 @@
               "excel_ar": "Κασπώ τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Διατίθονται σε ξεχωριστά χρώματα και ποικιλία διαστάσεων, κατάλληλα για όλους τους χώρους και κάθε είδος φυτού"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "27",
+            "height": "11.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "32",
@@ -14449,7 +17015,16 @@
               "excel_ar": "Κασπώ τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Διατίθονται σε ξεχωριστά χρώματα και ποικιλία διαστάσεων, κατάλληλα για όλους τους χώρους και κάθε είδος φυτού"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "31.5",
+            "height": "12",
+            "has_specs": true
+          }
         },
         {
           "size_label": "6",
@@ -14464,7 +17039,16 @@
               "excel_ar": "Γλάστρα φυτωρίου, υψηλής αντοχής, σχεδιασμένη για να αντέχει σε όλες τις εξωτερικές συνθήκες. Διατίθεται σε ποικιλία διαστάσεων, κατάλληλη για καλλιέργεια και ανάπτυξη φυτών σε επαγγελματικό ή οικιακό περιβάλλον"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": "7.2",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "23",
+            "height": "22",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,
@@ -14475,6 +17059,7 @@
       "family_indicator": "731",
       "group_root": "2910",
       "title": "Ζαρντινιέρες αυτοποτιζόμενες LOTUS",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_731-03.jpg",
       "sizes": [
         {
@@ -14530,7 +17115,16 @@
               "excel_ar": "Αυτοποτιζόμενες ζαρντινιέρες LOTUS, με ενσωματωμένη δεξαμενή χωρητικότητας 12 λίτρων, προσφέροντας αυτόνομο πότισμα στα φυτά για έως και 6 εβδομάδες"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "46",
+            "width": "59",
+            "depth": "34.5",
+            "box_height": "40.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "732",
@@ -14585,7 +17179,16 @@
               "excel_ar": "Αυτοποτιζόμενες ζαρντινιέρες LOTUS, με ενσωματωμένη δεξαμενή χωρητικότητας 12 λίτρων, προσφέροντας αυτόνομο πότισμα στα φυτά για έως και 6 εβδομάδες"
             }
           ],
-          "colors_count": 6
+          "colors_count": 6,
+          "specs": {
+            "liters": "60",
+            "width": "79",
+            "depth": "34.5",
+            "box_height": "40.5",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
         },
         {
           "size_label": "751",
@@ -14600,7 +17203,16 @@
               "excel_ar": "Προηγμένο σύστημα αυτοποτισμού OASIS για τις ζαρντινιέρες LOTUS, με φλοτέρ και ορατό δείκτη στάθμης νερού, εξασφαλίζοντας έως και 6 εβδομάδες χωρίς πότισμα.Εφαρμόζονται στα μοντέλα LOTUS 731 και 732 αντίστοιχα"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": "59",
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": "34.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "752",
@@ -14615,7 +17227,16 @@
               "excel_ar": "Προηγμένο σύστημα αυτοποτισμού OASIS για τις ζαρντινιέρες LOTUS, με φλοτέρ και ορατό δείκτη στάθμης νερού, εξασφαλίζοντας έως και 6 εβδομάδες χωρίς πότισμα.Εφαρμόζονται στα μοντέλα LOTUS 731 και 732 αντίστοιχα"
             }
           ],
-          "colors_count": 1
+          "colors_count": 1,
+          "specs": {
+            "liters": null,
+            "width": "79",
+            "depth": null,
+            "box_height": null,
+            "diameter": null,
+            "height": "34.5",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,
@@ -14626,6 +17247,7 @@
       "family_indicator": "790",
       "group_root": "2920",
       "title": "Γλάστρες GEA",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_790-50.jpg",
       "sizes": [
         {
@@ -14673,7 +17295,16 @@
               "excel_ar": "Γλάστρες GEA με σύγχρονο, καινοτόμο σχεδιασμό και κορυφαία ποιότητα. Σε πέντε ιδιαίτερες αποχρώσεις που ταιριάζουν σε φυσικά και μοντέρνα περιβάλλοντα"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "23.5",
+            "height": "20.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "791",
@@ -14720,7 +17351,16 @@
               "excel_ar": "Γλάστρες GEA με σύγχρονο, καινοτόμο σχεδιασμό και κορυφαία ποιότητα. Σε πέντε ιδιαίτερες αποχρώσεις που ταιριάζουν σε φυσικά και μοντέρνα περιβάλλοντα"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "9",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "29",
+            "height": "25",
+            "has_specs": true
+          }
         },
         {
           "size_label": "792",
@@ -14767,7 +17407,16 @@
               "excel_ar": "Γλάστρες GEA με σύγχρονο, καινοτόμο σχεδιασμό και κορυφαία ποιότητα. Σε πέντε ιδιαίτερες αποχρώσεις που ταιριάζουν σε φυσικά και μοντέρνα περιβάλλοντα"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "16",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "35",
+            "height": "30",
+            "has_specs": true
+          }
         },
         {
           "size_label": "793",
@@ -14814,7 +17463,16 @@
               "excel_ar": "Γλάστρες GEA με σύγχρονο, καινοτόμο σχεδιασμό και κορυφαία ποιότητα. Σε πέντε ιδιαίτερες αποχρώσεις που ταιριάζουν σε φυσικά και μοντέρνα περιβάλλοντα"
             }
           ],
-          "colors_count": 5
+          "colors_count": 5,
+          "specs": {
+            "liters": "25",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "41",
+            "height": "35.50",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,
@@ -14825,6 +17483,7 @@
       "family_indicator": "980",
       "group_root": "2930",
       "title": "Γλάστρες CYLINDRO",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_980-26.jpg",
       "sizes": [
         {
@@ -14896,7 +17555,16 @@
               "excel_ar": "Γλάστρες CYLINDRO, σε τέσσερις πρακτικές διαστάσεις και μοντέρνες αποχρώσεις. Ιδανικές για κάθε στυλ και χώρο"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": "2.7",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "20",
+            "height": "15",
+            "has_specs": true
+          }
         },
         {
           "size_label": "981",
@@ -14967,7 +17635,16 @@
               "excel_ar": "Γλάστρες CYLINDRO, σε τέσσερις πρακτικές διαστάσεις και μοντέρνες αποχρώσεις. Ιδανικές για κάθε στυλ και χώρο"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": "5.5",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "25",
+            "height": "19",
+            "has_specs": true
+          }
         },
         {
           "size_label": "982",
@@ -15038,7 +17715,16 @@
               "excel_ar": "Γλάστρες CYLINDRO, σε τέσσερις πρακτικές διαστάσεις και μοντέρνες αποχρώσεις. Ιδανικές για κάθε στυλ και χώρο"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30",
+            "height": "23",
+            "has_specs": true
+          }
         },
         {
           "size_label": "983",
@@ -15109,7 +17795,16 @@
               "excel_ar": "Γλάστρες CYLINDRO, σε τέσσερις πρακτικές διαστάσεις και μοντέρνες αποχρώσεις. Ιδανικές για κάθε στυλ και χώρο"
             }
           ],
-          "colors_count": 8
+          "colors_count": 8,
+          "specs": {
+            "liters": "15",
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "35",
+            "height": "26",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,
@@ -15120,6 +17815,7 @@
       "family_indicator": "990",
       "group_root": "2940",
       "title": "Πιάτα RONDO",
+      "category": "Γλάστρες",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_990-26.jpg",
       "sizes": [
         {
@@ -15223,7 +17919,16 @@
               "excel_ar": "Μοντέρνα πιάτα RONDO για γλάστρες CYLINDRO, που συνδυάζουν πρακτικότητα και αισθητική. Διατίθενται σε πολλά χρώματα για να προσαρμόζονται σε κάθε διακόσμηση"
             }
           ],
-          "colors_count": 12
+          "colors_count": 12,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "17.50",
+            "height": "2",
+            "has_specs": true
+          }
         },
         {
           "size_label": "991",
@@ -15318,7 +18023,16 @@
               "excel_ar": "Μοντέρνα πιάτα RONDO για γλάστρες CYLINDRO, που συνδυάζουν πρακτικότητα και αισθητική. Διατίθενται σε πολλά χρώματα για να προσαρμόζονται σε κάθε διακόσμηση"
             }
           ],
-          "colors_count": 11
+          "colors_count": 11,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "22",
+            "height": "2.5",
+            "has_specs": true
+          }
         },
         {
           "size_label": "992",
@@ -15413,7 +18127,16 @@
               "excel_ar": "Μοντέρνα πιάτα RONDO για γλάστρες CYLINDRO, που συνδυάζουν πρακτικότητα και αισθητική. Διατίθενται σε πολλά χρώματα για να προσαρμόζονται σε κάθε διακόσμηση"
             }
           ],
-          "colors_count": 11
+          "colors_count": 11,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "26",
+            "height": "3",
+            "has_specs": true
+          }
         },
         {
           "size_label": "993",
@@ -15508,7 +18231,16 @@
               "excel_ar": "Μοντέρνα πιάτα RONDO για γλάστρες CYLINDRO, που συνδυάζουν πρακτικότητα και αισθητική. Διατίθενται σε πολλά χρώματα για να προσαρμόζονται σε κάθε διακόσμηση"
             }
           ],
-          "colors_count": 11
+          "colors_count": 11,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "30.5",
+            "height": "3.5",
+            "has_specs": true
+          }
         }
       ],
       "sizes_count": 4,

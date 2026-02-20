@@ -34,6 +34,7 @@ COL_CODE = 3               # D
 COL_DESCRIPTION = 5        # F
 COL_COLOR = 8              # I
 COL_PACK = 11              # L
+COL_CATEGORY = 29          # AD
 COL_TITLE_GR = 40          # AO (ΕΛΛΗΝΙΚΗ ΠΕΡΙΓΡΑΦΗ SITE)
 COL_TITLE_EN_SLUG = 41     # AP (ΑΓΓΛΙΚΗ ΠΕΡΙΓΡΑΦΗ ΓΙΑ ΣΚΡΟΥΤΖ)
 COL_EXCEL_AR = 43          # AR (ΚΕΙΜΕΝΟ SITE ΕΛΛΗΝΙΚΑ)
@@ -78,6 +79,20 @@ def derive_title(title_value: Any, description_value: Any, code: str) -> str:
     if description:
         return description.split("-")[0].strip()
     return code
+
+
+def normalize_for_match(value: str) -> str:
+    normalized = unicodedata.normalize("NFD", value.lower())
+    return "".join(ch for ch in normalized if unicodedata.category(ch) != "Mn")
+
+
+def resolve_site_category_from_excel(category_value: str) -> str:
+    normalized = normalize_for_match(clean(category_value))
+    if "ειδη σπιτιου" in normalized:
+        return "Είδη Σπιτιού"
+    if "γλαστρες" in normalized:
+        return "Γλάστρες"
+    return "Επαγγελματικός Εξοπλισμός"
 
 
 def is_green_description_cell(cell: Any) -> bool:
@@ -137,6 +152,7 @@ def build_rows(worksheet: Any) -> list[dict[str, Any]]:
                 "group_code": extract_group_code(current_group, code),
                 "title": title,
                 "title_en_slug": en_slug,
+                "category": resolve_site_category_from_excel(clean(row[COL_CATEGORY].value)),
                 "size_code": size_code,
                 "variant": {
                     "code": code,
@@ -174,12 +190,21 @@ def build_grouped_products(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         sizes = []
         for size_code, variants in sorted(variants_by_size.items(), key=lambda item: item[0]):
             colors_count = len({clean(variant["color"]) for variant in variants if clean(variant["color"])})
+            specs_source = next(
+                (
+                    variant
+                    for variant in variants
+                    if parse_specs_from_text(clean(variant.get("description"))).get("has_specs")
+                ),
+                variants[0] if variants else {},
+            )
             sizes.append(
                 {
                     "size_label": size_code,
                     "size_code": size_code,
                     "variants": variants,
                     "colors_count": colors_count,
+                    "specs": parse_specs_from_text(clean(specs_source.get("description"))),
                 }
             )
 
@@ -194,12 +219,19 @@ def build_grouped_products(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 break
 
         variants_count = sum(len(size["variants"]) for size in sizes)
+        category_counts = Counter(row["category"] for row in product_rows if clean(row.get("category")))
+        resolved_category = (
+            category_counts.most_common(1)[0][0]
+            if category_counts
+            else "Επαγγελματικός Εξοπλισμός"
+        )
         products.append(
             {
                 "id": product_id,
                 "family_indicator": clean(product_rows[0]["family_indicator"]),
                 "group_root": clean(product_rows[0]["group_root"]),
                 "title": title,
+                "category": resolved_category,
                 "representative_image": representative_image,
                 "sizes": sizes,
                 "sizes_count": len(sizes),
@@ -209,6 +241,98 @@ def build_grouped_products(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
     products.sort(key=lambda product: (product["group_root"], product["title"], product["id"]))
     return products
+
+
+def parse_specs_from_text(text: str) -> dict[str, Any]:
+    normalized = clean(text).lower()
+    if not normalized:
+        return {
+            "liters": None,
+            "width": None,
+            "depth": None,
+            "box_height": None,
+            "diameter": None,
+            "height": None,
+            "has_specs": False,
+        }
+
+    liters_match = re.search(r"(\d+(?:[.,]\d+)?)\s*(?:lt|l)\b", normalized, flags=re.IGNORECASE)
+    box_3d_match = re.search(
+        r"(\d+(?:[.,]\d+)?)\s*x\s*(\d+(?:[.,]\d+)?)\s*x\s*(\d+(?:[.,]\d+)?)(?:\s*h)?",
+        normalized,
+        flags=re.IGNORECASE,
+    )
+    # 2D sizes like stickers: 8,5x33 cm (no depth)
+    box_2d_match = None
+    if not box_3d_match:
+        box_2d_match = re.search(
+            r"(\d+(?:[.,]\d+)?)\s*x\s*(\d+(?:[.,]\d+)?)(?:\s*(?:cm|χιλ|mm)\b|\b)",
+            normalized,
+            flags=re.IGNORECASE,
+        )
+
+    dimensions_match = re.search(
+        r"(?:^|[^a-z0-9])d\s*([0-9]+(?:[.,][0-9]+)?)\s*x\s*([0-9]+(?:[.,][0-9]+)?)\s*h?",
+        normalized,
+        flags=re.IGNORECASE,
+    ) or re.search(
+        r"ø\s*([0-9]+(?:[.,][0-9]+)?)\s*x\s*h?\s*([0-9]+(?:[.,][0-9]+)?)",
+        normalized,
+        flags=re.IGNORECASE,
+    )
+
+    liters = liters_match.group(1).replace(",", ".") if liters_match else None
+    explicit_diameter = dimensions_match.group(1).replace(",", ".") if dimensions_match else None
+    explicit_height = dimensions_match.group(2).replace(",", ".") if dimensions_match else None
+
+    box_width = box_3d_match.group(1).replace(",", ".") if box_3d_match else None
+    box_depth = box_3d_match.group(2).replace(",", ".") if box_3d_match else None
+    box_height = box_3d_match.group(3).replace(",", ".") if box_3d_match else None
+
+    # If diameter syntax exists (d..x..h or ø..x..), do not treat it as width-height.
+    if explicit_diameter:
+        box_2d_match = None
+
+    two_d_width = box_2d_match.group(1).replace(",", ".") if box_2d_match else None
+    two_d_height = box_2d_match.group(2).replace(",", ".") if box_2d_match else None
+
+    # Some records encode round products as 8x16x16h; normalize to Ø8 x H16.
+    looks_like_round_duplicate = (
+        not explicit_diameter
+        and box_width
+        and box_depth
+        and box_height
+        and box_depth == box_height
+    )
+
+    width = None
+    depth = None
+    height = explicit_height
+    parsed_box_height = None
+    diameter = explicit_diameter
+
+    if looks_like_round_duplicate:
+        diameter = explicit_diameter or box_width
+        height = explicit_height or box_depth
+    elif box_3d_match:
+        width = box_width
+        depth = box_depth
+        parsed_box_height = box_height
+    elif box_2d_match:
+        width = two_d_width
+        # For flat/2D specs, treat second value as height so UI can display W x H.
+        height = two_d_height
+
+    has_specs = any([liters, width, depth, parsed_box_height, diameter, height])
+    return {
+        "liters": liters,
+        "width": width,
+        "depth": depth,
+        "box_height": parsed_box_height,
+        "diameter": diameter,
+        "height": height,
+        "has_specs": has_specs,
+    }
 
 
 def build_additional_images(rows: list[dict[str, Any]]) -> dict[str, list[str]]:

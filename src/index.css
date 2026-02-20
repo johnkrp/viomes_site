@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Merriweather:wght@400;500;700&family=Nunito+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -51,8 +51,8 @@
     --sidebar-ring: 2 39% 47%;
 
     /* Fonts */
-    --font-sans: "Inter", sans-serif;
-    --font-heading: "Inter", sans-serif;
+    --font-sans: "Manrope", sans-serif;
+    --font-heading: "Manrope", sans-serif;
     --font-mono: "Geist Mono", monospace;
 
     /* Shadows */
@@ -138,13 +138,14 @@
     @apply bg-background text-foreground;
     font-family:
       var(--font-sans),
-      "Inter",
+      "Manrope",
       -apple-system,
       BlinkMacSystemFont,
       "Segoe UI",
       "Roboto",
       sans-serif;
-    letter-spacing: -0.01em;
+    font-optical-sizing: none;
+    letter-spacing: 0;
   }
 }
 

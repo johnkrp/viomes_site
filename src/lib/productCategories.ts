@@ -11,6 +11,7 @@ type ProductCategoryCandidate = {
   title: string;
   family_indicator?: string;
   group_root?: string;
+  category?: string;
 };
 
 export const HOME_ITEMS_SUBCATEGORIES = [
@@ -45,7 +46,18 @@ export const normalizeGreek = (value: string) =>
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "");
 
+const mapExcelCategoryToSiteCategory = (value: string): SiteCategory => {
+  const normalized = normalizeGreek(value || "");
+  if (normalized.includes("ειδη σπιτιου")) return siteCategories[0];
+  if (normalized.includes("γλαστρες")) return siteCategories[1];
+  return siteCategories[2];
+};
+
 export const resolveSiteCategories = (product: ProductCategoryCandidate) => {
+  if (product.category) {
+    return [mapExcelCategoryToSiteCategory(product.category)];
+  }
+
   const familyText = product.family_indicator || product.group_root || "";
   const text = normalizeGreek(`${product.title} ${product.id} ${familyText}`);
   const categories = new Set<SiteCategory>();

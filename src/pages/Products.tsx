@@ -17,7 +17,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import catalogData from "@/data/products-grouped.json";
-import { resolveSiteCategories, siteCategories } from "@/lib/productCategories";
+import {
+  resolveSiteCategories,
+  siteCategories,
+  type SiteCategory,
+} from "@/lib/productCategories";
 import {
   matchesColorSelection,
   resolveSwatchBackground,
@@ -95,13 +99,16 @@ const normalizeSearchText = (value: string) =>
     .replace(/\s+/g, " ")
     .trim();
 
+const isSiteCategory = (value: string): value is SiteCategory =>
+  (siteCategories as readonly string[]).includes(value);
+
 const Products = () => {
   const [searchParams] = useSearchParams();
   const categoryFromQuery = searchParams.get("category");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortMode, setSortMode] = useState<SortMode>("relevant");
-  const [selectedCategories, setSelectedCategories] = useState<string[]>(
-    categoryFromQuery && siteCategories.includes(categoryFromQuery)
+  const [selectedCategories, setSelectedCategories] = useState<SiteCategory[]>(
+    categoryFromQuery && isSiteCategory(categoryFromQuery)
       ? [categoryFromQuery]
       : [],
   );
@@ -109,7 +116,7 @@ const Products = () => {
 
   useEffect(() => {
     if (!categoryFromQuery) return;
-    if (!siteCategories.includes(categoryFromQuery)) return;
+    if (!isSiteCategory(categoryFromQuery)) return;
     setSelectedCategories([categoryFromQuery]);
   }, [categoryFromQuery]);
 
@@ -173,10 +180,10 @@ const Products = () => {
     return filtered;
   }, [searchTerm, selectedCategories, selectedColors, sortMode]);
 
-  const toggleValue = (
-    value: string,
-    selectedValues: string[],
-    setter: (value: string[]) => void,
+  const toggleValue = <T extends string>(
+    value: T,
+    selectedValues: T[],
+    setter: (value: T[]) => void,
   ) => {
     if (selectedValues.includes(value)) {
       setter(selectedValues.filter((entry) => entry !== value));
@@ -217,7 +224,7 @@ const Products = () => {
       </section>
 
       <section className="container mx-auto px-6 mt-14 grid grid-cols-1 lg:grid-cols-[16rem_1fr] gap-8 xl:gap-10">
-        <aside className="lg:sticky lg:top-44 lg:max-h-[calc(100vh-12rem)] lg:overflow-y-auto lg:pr-1 h-fit">
+        <aside className="lg:sticky lg:top-36 lg:max-h-[calc(100vh-12rem)] lg:overflow-y-auto lg:pr-1 h-fit">
           <div className="bg-transparent rounded-xl p-0 sm:p-0 space-y-3">
             <div className="rounded-sm border border-border/70 bg-background/20">
               <div className="px-4 py-3 text-sm font-medium text-foreground border-b border-border/50">
@@ -315,7 +322,7 @@ const Products = () => {
             οικογένειες προϊόντων
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
             {filteredProducts.map((product, index) => {
               const colors = allColors(product);
               const cardKey = `${product.id}-${product.family_indicator || product.group_root || ""}-${product.title}-${index}`;
@@ -340,8 +347,7 @@ const Products = () => {
                       {product.title}
                     </h3>
                     <p className="mt-1 text-xs text-foreground/60">
-                      {product.sizes_count} μεγέθη • {product.variants_count}{" "}
-                      χρώματα
+                      {product.sizes_count} μεγέθη • {colors.length} χρώματα
                     </p>
 
                     <div className="mt-4 flex items-center gap-1.5 min-h-5">

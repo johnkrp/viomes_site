@@ -31,6 +31,15 @@ type SizeGroup = {
   size_code: string;
   variants: Variant[];
   colors_count: number;
+  specs?: {
+    liters?: string | null;
+    width?: string | null;
+    depth?: string | null;
+    box_height?: string | null;
+    diameter?: string | null;
+    height?: string | null;
+    has_specs?: boolean;
+  };
 };
 
 type GroupedProduct = {
@@ -55,8 +64,11 @@ const parseSpecsFromText = (text: string) => {
   const boxDimensionsMatch = normalized.match(
     /(\d+(?:[.,]\d+)?)\s*x\s*(\d+(?:[.,]\d+)?)\s*x\s*(\d+(?:[.,]\d+)?)(?:\s*h)?/i,
   );
+  const twoDimensionsMatch = !boxDimensionsMatch
+    ? normalized.match(/(\d+(?:[.,]\d+)?)\s*x\s*(\d+(?:[.,]\d+)?)(?:\s*(?:cm|χιλ|mm)\b|\b)/i)
+    : null;
   const dimensionsMatch =
-    normalized.match(/d\s*([0-9]+(?:[.,][0-9]+)?)\s*x\s*([0-9]+(?:[.,][0-9]+)?)\s*h?/i) ??
+    normalized.match(/(?:^|[^a-z0-9])d\s*([0-9]+(?:[.,][0-9]+)?)\s*x\s*([0-9]+(?:[.,][0-9]+)?)\s*h?/i) ??
     normalized.match(/ø\s*([0-9]+(?:[.,][0-9]+)?)\s*x\s*h?\s*([0-9]+(?:[.,][0-9]+)?)/i);
 
   const liters = litersMatch ? litersMatch[1].replace(",", ".") : null;
@@ -67,16 +79,21 @@ const parseSpecsFromText = (text: string) => {
   const boxDepth = boxDimensionsMatch ? boxDimensionsMatch[2].replace(",", ".") : null;
   const boxHeight = boxDimensionsMatch ? boxDimensionsMatch[3].replace(",", ".") : null;
 
+  // If diameter syntax exists, avoid falling back to width-height parsing.
+  const effectiveTwoDimensionsMatch = explicitDiameter ? null : twoDimensionsMatch;
+  const twoDimWidth = effectiveTwoDimensionsMatch ? effectiveTwoDimensionsMatch[1].replace(",", ".") : null;
+  const twoDimHeight = effectiveTwoDimensionsMatch ? effectiveTwoDimensionsMatch[2].replace(",", ".") : null;
+
   // Some records encode round products as 8x16x16h; normalize those to Ø8 x H16.
   const looksLikeRoundDuplicate = !explicitDiameter && boxWidth && boxDepth && boxHeight && boxDepth === boxHeight;
 
   return {
     liters,
-    width: looksLikeRoundDuplicate ? null : boxWidth,
+    width: looksLikeRoundDuplicate ? null : boxWidth || twoDimWidth,
     depth: looksLikeRoundDuplicate ? null : boxDepth,
     boxHeight: looksLikeRoundDuplicate ? null : boxHeight,
     diameter: explicitDiameter || (looksLikeRoundDuplicate ? boxWidth : null),
-    height: explicitHeight || (looksLikeRoundDuplicate ? boxDepth : null),
+    height: explicitHeight || (looksLikeRoundDuplicate ? boxDepth : twoDimHeight),
   };
 };
 
@@ -136,6 +153,19 @@ const ProductDetail = () => {
   const sizeSpecs = useMemo(
     () =>
       product.sizes.map((size) => {
+        if (size.specs?.has_specs) {
+          return {
+            specs: {
+              liters: size.specs.liters || null,
+              width: size.specs.width || null,
+              depth: size.specs.depth || null,
+              boxHeight: size.specs.box_height || null,
+              diameter: size.specs.diameter || null,
+              height: size.specs.height || null,
+            },
+          };
+        }
+
         const bestVariantForSpecs =
           size.variants.find((variant) => {
             const specs = parseSpecsFromText(variant.description || "");
@@ -159,19 +189,23 @@ const ProductDetail = () => {
       <div className="mx-auto w-full max-w-[1400px] px-4 md:px-7 lg:px-10">
         <section className="grid items-start gap-10 xl:grid-cols-[1.1fr_0.9fr]">
           <div>
-            <Breadcrumb className="mb-8 text-sm text-foreground/75">
+            <Breadcrumb className="mb-8 text-xs text-foreground/75">
               <BreadcrumbList>
                 <BreadcrumbItem>
-                  <BreadcrumbLink href="/">Αρχική</BreadcrumbLink>
+                  <BreadcrumbLink asChild>
+                    <Link to="/">Αρχική</Link>
+                  </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbLink href="/products">Προϊόντα</BreadcrumbLink>
+                  <BreadcrumbLink asChild>
+                    <Link to="/products">Προϊόντα</Link>
+                  </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  <BreadcrumbLink href={`/products?category=${encodeURIComponent(primaryCategory)}`}>
-                    {primaryCategory}
+                  <BreadcrumbLink asChild>
+                    <Link to={`/products?category=${encodeURIComponent(primaryCategory)}`}>{primaryCategory}</Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
@@ -206,35 +240,46 @@ const ProductDetail = () => {
 
           <div className="space-y-8">
             <div>
-              <h1 className="font-heading text-4xl font-semibold leading-[1.15] text-foreground md:text-6xl">
+              <h1 className="font-heading text-3xl font-semibold leading-[1.15] text-foreground md:text-5xl">
                 {product.title}
               </h1>
             </div>
 
             <div>
-              <p className="max-w-[56ch] text-lg leading-relaxed text-foreground/85 md:text-xl">
+              <p className="max-w-[56ch] text-base leading-relaxed text-foreground/85 md:text-lg">
                 {selectedVariant?.excel_ar || selectedVariant?.description || "Δεν υπάρχει περιγραφή για την τρέχουσα παραλλαγή."}
               </p>
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-foreground/60">Selected code</p>
-              <p className="mt-2 font-mono text-lg text-foreground">{selectedVariant?.code || "-"}</p>
+              <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/60">Selected code</p>
+              <p className="mt-2 font-mono text-base text-foreground">{selectedVariant?.code || "-"}</p>
             </div>
 
             <div>
-              <p className="mb-2 text-xs font-medium text-foreground/85">Select size</p>
+              <p className="mb-2 text-[11px] font-medium text-foreground/85">Select size</p>
               <div className="flex flex-wrap gap-2">
                 {product.sizes.map((size, index) => {
                   const active = index === safeSizeIndex;
                   const specs = sizeSpecs[index]?.specs;
-                  const specsLabel = specs?.width && specs?.depth && specs?.boxHeight
+                  const hasDiameter = Boolean(specs?.diameter);
+                  const hasBox3D = Boolean(specs?.width && specs?.depth && specs?.boxHeight);
+                  const hasWidthHeightOnly = Boolean(specs?.width && !specs?.depth && (specs?.height || specs?.boxHeight));
+                  const specsLabel = hasDiameter
+                    ? [specs?.liters ? `${specs.liters}L` : null, specs?.diameter ? `Ø${specs.diameter}cm` : null, specs?.height ? `H${specs.height}cm` : null]
+                        .filter(Boolean)
+                        .join(" · ")
+                    : hasBox3D
                     ? [specs?.liters ? `${specs.liters}L` : null, `W${specs.width}cm`, `D${specs.depth}cm`, `H${specs.boxHeight}cm`]
                         .filter(Boolean)
                         .join(" · ")
-                    : [specs?.liters ? `${specs.liters}L` : null, specs?.diameter ? `Ø${specs.diameter}cm` : null, specs?.height ? `H${specs.height}cm` : null]
-                        .filter(Boolean)
-                        .join(" · ");
+                    : hasWidthHeightOnly
+                      ? [specs?.liters ? `${specs.liters}L` : null, `W${specs.width}cm`, `H${specs.height || specs.boxHeight}cm`]
+                          .filter(Boolean)
+                          .join(" · ")
+                      : [specs?.liters ? `${specs.liters}L` : null, specs?.diameter ? `Ø${specs.diameter}cm` : null, specs?.height ? `H${specs.height}cm` : null]
+                          .filter(Boolean)
+                          .join(" · ");
                   return (
                     <button
                       key={`${size.size_code}-${index}`}
@@ -250,14 +295,14 @@ const ProductDetail = () => {
                       {specsLabel ? (
                         <p
                           className={cn(
-                            "truncate text-xs",
+                            "truncate text-[11px]",
                             active ? "text-background/85" : "text-foreground/70",
                           )}
                         >
                           {specsLabel}
                         </p>
                       ) : (
-                        <p className={cn("text-xs", active ? "text-background/85" : "text-foreground/70")}>
+                        <p className={cn("text-[11px]", active ? "text-background/85" : "text-foreground/70")}>
                           Επιλογή μεγέθους
                         </p>
                       )}
@@ -268,7 +313,7 @@ const ProductDetail = () => {
             </div>
 
             <div>
-              <p className="mb-2 text-xs font-medium text-foreground/85">Select color</p>
+              <p className="mb-2 text-[11px] font-medium text-foreground/85">Select color</p>
               <div className="flex flex-wrap items-end gap-2">
                 {selectedSize?.variants.map((variant, index) => (
                   <div key={`${variant.code}-${variant.color}`} className="flex flex-col items-center gap-0.5">

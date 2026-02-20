@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
@@ -24,6 +24,81 @@ const languages = [
   { code: "de", label: "Deutsch" },
 ];
 
+const typographyOptions = [
+  {
+    code: "manrope",
+    label: "Manrope",
+    sans: '"Manrope", sans-serif',
+    heading: '"Manrope", sans-serif',
+  },
+  {
+    code: "inter",
+    label: "Inter",
+    sans: '"Inter", sans-serif',
+    heading: '"Inter", sans-serif',
+  },
+  {
+    code: "ibm-plex-sans",
+    label: "IBM Plex Sans",
+    sans: '"IBM Plex Sans", sans-serif',
+    heading: '"IBM Plex Sans", sans-serif',
+  },
+  {
+    code: "source-serif-4",
+    label: "Source Serif 4",
+    sans: '"Source Serif 4", serif',
+    heading: '"Source Serif 4", serif',
+  },
+  {
+    code: "nunito-sans",
+    label: "Nunito Sans",
+    sans: '"Nunito Sans", sans-serif',
+    heading: '"Nunito Sans", sans-serif',
+  },
+  {
+    code: "rubik",
+    label: "Rubik",
+    sans: '"Rubik", sans-serif',
+    heading: '"Rubik", sans-serif',
+  },
+  {
+    code: "poppins",
+    label: "Poppins",
+    sans: '"Poppins", sans-serif',
+    heading: '"Poppins", sans-serif',
+  },
+  {
+    code: "space-grotesk",
+    label: "Space Grotesk",
+    sans: '"Space Grotesk", sans-serif',
+    heading: '"Space Grotesk", sans-serif',
+  },
+  {
+    code: "lora",
+    label: "Lora",
+    sans: '"Lora", serif',
+    heading: '"Lora", serif',
+  },
+  {
+    code: "merriweather",
+    label: "Merriweather",
+    sans: '"Merriweather", serif',
+    heading: '"Merriweather", serif',
+  },
+  {
+    code: "playfair-display",
+    label: "Playfair Display",
+    sans: '"Playfair Display", serif',
+    heading: '"Playfair Display", serif',
+  },
+  {
+    code: "ibm-plex-serif",
+    label: "IBM Plex Serif",
+    sans: '"IBM Plex Serif", serif',
+    heading: '"IBM Plex Serif", serif',
+  },
+];
+
 const flagClassByLanguage: Record<string, string> = {
   el: "fi fi-gr",
   en: "fi fi-gb",
@@ -36,20 +111,49 @@ const getFlagClass = (code: string) =>
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [language, setLanguage] = useState<string>(
     () => localStorage.getItem("viomes_language") || "el",
   );
+  const [typography, setTypography] = useState<string>(
+    () => localStorage.getItem("viomes_typography") || "manrope",
+  );
+  const lastScrollY = useRef(0);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      const isNearTop = currentScrollY < 24;
+      const isScrollingUp = currentScrollY < lastScrollY.current;
+      const isScrollingDown = currentScrollY > lastScrollY.current;
+      const hasMeaningfulDelta = Math.abs(currentScrollY - lastScrollY.current) > 4;
+
+      setIsScrolled(currentScrollY > 20);
+
+      if (isNearTop) {
+        setIsHeaderVisible(true);
+      } else if (hasMeaningfulDelta && isScrollingUp) {
+        setIsHeaderVisible(true);
+      } else if (hasMeaningfulDelta && isScrollingDown) {
+        setIsHeaderVisible(false);
+      }
+
+      lastScrollY.current = currentScrollY;
     };
 
+    lastScrollY.current = window.scrollY;
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      setIsHeaderVisible(true);
+    }
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     try {
@@ -59,13 +163,30 @@ const Navbar = () => {
     }
   }, [language]);
 
+  useEffect(() => {
+    const selectedTypography =
+      typographyOptions.find((option) => option.code === typography) ?? typographyOptions[0];
+
+    document.documentElement.style.setProperty("--font-sans", selectedTypography.sans);
+    document.documentElement.style.setProperty("--font-heading", selectedTypography.heading);
+
+    try {
+      localStorage.setItem("viomes_typography", selectedTypography.code);
+    } catch {
+      /* ignore */
+    }
+  }, [typography]);
+
   const selectedLanguage =
     languages.find((selected) => selected.code === language) ?? languages[0];
+  const selectedTypography =
+    typographyOptions.find((selected) => selected.code === typography) ?? typographyOptions[0];
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isHeaderVisible ? "translate-y-0" : "-translate-y-full",
         isScrolled
           ? "bg-secondary/90 backdrop-blur-sm border-b border-border"
           : "bg-background/95 backdrop-blur-sm border-b border-border/60",
@@ -153,7 +274,23 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4 lg:justify-end lg:pr-6">
-          <div className="hidden lg:flex items-center">
+          <div className="hidden lg:flex items-center gap-3">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45">
+                <span className="hidden sm:inline">Font</span>
+                <span>{selectedTypography.label}</span>
+                <ChevronDown className="w-4 h-4 ml-1" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuRadioGroup value={typography} onValueChange={setTypography}>
+                  {typographyOptions.map((option) => (
+                    <DropdownMenuRadioItem key={option.code} value={option.code}>
+                      {option.label}
+                    </DropdownMenuRadioItem>
+                  ))}
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <DropdownMenu>
               <DropdownMenuTrigger className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45">
                 <span className="mr-2 inline-flex w-5 h-4">
@@ -216,6 +353,20 @@ const Navbar = () => {
                 {languages.map((languageOption) => (
                   <option key={languageOption.code} value={languageOption.code}>
                     {languageOption.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="sr-only">Typography</label>
+              <select
+                value={typography}
+                onChange={(event) => setTypography(event.target.value)}
+                className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
+              >
+                {typographyOptions.map((option) => (
+                  <option key={option.code} value={option.code}>
+                    {option.label}
                   </option>
                 ))}
               </select>
