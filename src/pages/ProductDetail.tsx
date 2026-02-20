@@ -332,6 +332,15 @@ const ProductDetail = () => {
                         safeColorIndex === index ? "opacity-100" : "opacity-0",
                       )}
                     />
+                    <span
+                      className={cn(
+                        "max-w-14 truncate text-center text-[10px] leading-tight",
+                        safeColorIndex === index ? "text-foreground/85" : "text-foreground/60",
+                      )}
+                      title={variant.color}
+                    >
+                      {variant.color}
+                    </span>
                   </div>
                 ))}
               </div>

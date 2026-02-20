@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Merriweather:wght@400;500;700&family=Nunito+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Merriweather:wght@400;500;700&family=Mulish:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -51,9 +51,22 @@
     --sidebar-ring: 2 39% 47%;
 
     /* Fonts */
-    --font-sans: "Manrope", sans-serif;
-    --font-heading: "Manrope", sans-serif;
+    --font-sans: "Poppins", sans-serif;
+    --font-heading: "Inter", sans-serif;
     --font-mono: "Geist Mono", monospace;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+    --text-7xl: 4.5rem;
+    --text-8xl: 6rem;
+    --text-9xl: 8rem;
 
     /* Shadows */
     --radius: 0.5rem; /* slightly sharper corners site-wide */
@@ -138,7 +151,7 @@
     @apply bg-background text-foreground;
     font-family:
       var(--font-sans),
-      "Manrope",
+      "Poppins",
       -apple-system,
       BlinkMacSystemFont,
       "Segoe UI",
@@ -146,6 +159,15 @@
       sans-serif;
     font-optical-sizing: none;
     letter-spacing: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading), "Inter", sans-serif;
   }
 }
 

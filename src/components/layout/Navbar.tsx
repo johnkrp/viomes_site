@@ -26,6 +26,18 @@ const languages = [
 
 const typographyOptions = [
   {
+    code: "inter-poppins",
+    label: "Inter + Poppins",
+    sans: '"Poppins", sans-serif',
+    heading: '"Inter", sans-serif',
+  },
+  {
+    code: "manrope-poppins",
+    label: "Manrope + Poppins",
+    sans: '"Poppins", sans-serif',
+    heading: '"Manrope", sans-serif',
+  },
+  {
     code: "manrope",
     label: "Manrope",
     sans: '"Manrope", sans-serif',
@@ -54,6 +66,30 @@ const typographyOptions = [
     label: "Nunito Sans",
     sans: '"Nunito Sans", sans-serif',
     heading: '"Nunito Sans", sans-serif',
+  },
+  {
+    code: "quicksand",
+    label: "Quicksand",
+    sans: '"Quicksand", sans-serif',
+    heading: '"Quicksand", sans-serif',
+  },
+  {
+    code: "mulish",
+    label: "Mulish",
+    sans: '"Mulish", sans-serif',
+    heading: '"Mulish", sans-serif',
+  },
+  {
+    code: "noto-sans",
+    label: "Noto Sans",
+    sans: '"Noto Sans", sans-serif',
+    heading: '"Noto Sans", sans-serif',
+  },
+  {
+    code: "source-sans-3",
+    label: "Source Sans 3",
+    sans: '"Source Sans 3", sans-serif',
+    heading: '"Source Sans 3", sans-serif',
   },
   {
     code: "rubik",
@@ -99,6 +135,44 @@ const typographyOptions = [
   },
 ];
 
+const sizeOptions = [
+  { code: "xs", label: "X-Small", scale: 0.8 },
+  { code: "sm", label: "Small", scale: 0.9 },
+  { code: "md", label: "Medium", scale: 1 },
+  { code: "lg", label: "Large", scale: 1.1 },
+  { code: "xl", label: "X-Large", scale: 1.2 },
+  { code: "xxl", label: "XX-Large", scale: 1.3 },
+] as const;
+
+const baseTextSizes = {
+  "--text-xs": "0.75rem",
+  "--text-sm": "0.875rem",
+  "--text-base": "1rem",
+  "--text-lg": "1.125rem",
+  "--text-xl": "1.25rem",
+  "--text-2xl": "1.5rem",
+  "--text-3xl": "1.875rem",
+  "--text-4xl": "2.25rem",
+  "--text-5xl": "3rem",
+  "--text-6xl": "3.75rem",
+  "--text-7xl": "4.5rem",
+  "--text-8xl": "6rem",
+  "--text-9xl": "8rem",
+} as const;
+
+const plainTextSizeKeys = ["--text-xs", "--text-sm", "--text-base", "--text-lg"] as const;
+const titleSizeKeys = [
+  "--text-xl",
+  "--text-2xl",
+  "--text-3xl",
+  "--text-4xl",
+  "--text-5xl",
+  "--text-6xl",
+  "--text-7xl",
+  "--text-8xl",
+  "--text-9xl",
+] as const;
+
 const flagClassByLanguage: Record<string, string> = {
   el: "fi fi-gr",
   en: "fi fi-gb",
@@ -117,7 +191,13 @@ const Navbar = () => {
     () => localStorage.getItem("viomes_language") || "el",
   );
   const [typography, setTypography] = useState<string>(
-    () => localStorage.getItem("viomes_typography") || "manrope",
+    () => "inter-poppins",
+  );
+  const [titleSize, setTitleSize] = useState<string>(
+    () => localStorage.getItem("viomes_title_size") || "md",
+  );
+  const [plainTextSize, setPlainTextSize] = useState<string>(
+    () => localStorage.getItem("viomes_plain_text_size") || "md",
   );
   const lastScrollY = useRef(0);
   const location = useLocation();
@@ -177,10 +257,41 @@ const Navbar = () => {
     }
   }, [typography]);
 
+  useEffect(() => {
+    const selectedTitleSize = sizeOptions.find((option) => option.code === titleSize) ?? sizeOptions[1];
+    const selectedPlainTextSize =
+      sizeOptions.find((option) => option.code === plainTextSize) ?? sizeOptions[1];
+
+    const toScaledRem = (value: string, scale: number) => {
+      const rem = Number.parseFloat(value.replace("rem", ""));
+      return `${(rem * scale).toFixed(4).replace(/\.?0+$/, "")}rem`;
+    };
+
+    plainTextSizeKeys.forEach((cssVar) => {
+      const baseValue = baseTextSizes[cssVar];
+      document.documentElement.style.setProperty(cssVar, toScaledRem(baseValue, selectedPlainTextSize.scale));
+    });
+
+    titleSizeKeys.forEach((cssVar) => {
+      const baseValue = baseTextSizes[cssVar];
+      document.documentElement.style.setProperty(cssVar, toScaledRem(baseValue, selectedTitleSize.scale));
+    });
+
+    try {
+      localStorage.setItem("viomes_title_size", selectedTitleSize.code);
+      localStorage.setItem("viomes_plain_text_size", selectedPlainTextSize.code);
+    } catch {
+      /* ignore */
+    }
+  }, [titleSize, plainTextSize]);
+
   const selectedLanguage =
     languages.find((selected) => selected.code === language) ?? languages[0];
   const selectedTypography =
     typographyOptions.find((selected) => selected.code === typography) ?? typographyOptions[0];
+  const selectedTitleSize = sizeOptions.find((selected) => selected.code === titleSize) ?? sizeOptions[1];
+  const selectedPlainTextSize =
+    sizeOptions.find((selected) => selected.code === plainTextSize) ?? sizeOptions[1];
 
   return (
     <header
@@ -277,22 +388,6 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-3">
             <DropdownMenu>
               <DropdownMenuTrigger className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45">
-                <span className="hidden sm:inline">Font</span>
-                <span>{selectedTypography.label}</span>
-                <ChevronDown className="w-4 h-4 ml-1" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuRadioGroup value={typography} onValueChange={setTypography}>
-                  {typographyOptions.map((option) => (
-                    <DropdownMenuRadioItem key={option.code} value={option.code}>
-                      {option.label}
-                    </DropdownMenuRadioItem>
-                  ))}
-                </DropdownMenuRadioGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <DropdownMenu>
-              <DropdownMenuTrigger className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45">
                 <span className="mr-2 inline-flex w-5 h-4">
                   <span
                     className={cn(getFlagClass(selectedLanguage.code), "h-4 w-5 rounded-[2px]")}
@@ -313,6 +408,54 @@ const Navbar = () => {
                         />
                       </span>
                       {languageOption.label}
+                    </DropdownMenuRadioItem>
+                  ))}
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45">
+                <span className="hidden sm:inline">Title size</span>
+                <span>{selectedTitleSize.label}</span>
+                <ChevronDown className="w-4 h-4 ml-1" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuRadioGroup value={titleSize} onValueChange={setTitleSize}>
+                  {sizeOptions.map((option) => (
+                    <DropdownMenuRadioItem key={option.code} value={option.code}>
+                      {option.label}
+                    </DropdownMenuRadioItem>
+                  ))}
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45">
+                <span className="hidden sm:inline">Text size</span>
+                <span>{selectedPlainTextSize.label}</span>
+                <ChevronDown className="w-4 h-4 ml-1" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuRadioGroup value={plainTextSize} onValueChange={setPlainTextSize}>
+                  {sizeOptions.map((option) => (
+                    <DropdownMenuRadioItem key={option.code} value={option.code}>
+                      {option.label}
+                    </DropdownMenuRadioItem>
+                  ))}
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45">
+                <span className="hidden sm:inline">Font</span>
+                <span>{selectedTypography.label}</span>
+                <ChevronDown className="w-4 h-4 ml-1" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuRadioGroup value={typography} onValueChange={setTypography}>
+                  {typographyOptions.map((option) => (
+                    <DropdownMenuRadioItem key={option.code} value={option.code}>
+                      {option.label}
                     </DropdownMenuRadioItem>
                   ))}
                 </DropdownMenuRadioGroup>
@@ -353,6 +496,34 @@ const Navbar = () => {
                 {languages.map((languageOption) => (
                   <option key={languageOption.code} value={languageOption.code}>
                     {languageOption.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="sr-only">Title size</label>
+              <select
+                value={titleSize}
+                onChange={(event) => setTitleSize(event.target.value)}
+                className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
+              >
+                {sizeOptions.map((option) => (
+                  <option key={option.code} value={option.code}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="sr-only">Text size</label>
+              <select
+                value={plainTextSize}
+                onChange={(event) => setPlainTextSize(event.target.value)}
+                className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
+              >
+                {sizeOptions.map((option) => (
+                  <option key={option.code} value={option.code}>
+                    {option.label}
                   </option>
                 ))}
               </select>
