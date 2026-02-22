@@ -199,7 +199,7 @@ const Home = () => {
                         <span className="text-xs text-foreground/70 block mb-1">
                           {cat.en}
                         </span>
-                        <h4 className="font-bold text-base text-foreground mb-1">
+                        <h4 className="font-heading font-bold text-xl text-foreground mb-1">
                           {cat.title}
                         </h4>
                       </div>

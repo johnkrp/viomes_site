@@ -24,6 +24,223 @@ const languages = [
   { code: "de", label: "Deutsch" },
 ];
 
+const PALETTE_DEFAULT_VERSION = "classic-2026-02";
+
+type BackgroundColorOption = {
+  code: string;
+  label: string;
+  background: string;
+  card: string;
+  popover: string;
+  muted: string;
+  border: string;
+  input: string;
+  sidebar: string;
+  sidebarAccent: string;
+  sidebarBorder: string;
+};
+
+type TextSecondaryColorOption = {
+  code: string;
+  label: string;
+  foreground: string;
+  primary: string;
+  secondary: string;
+  mutedForeground: string;
+  ring: string;
+  sidebarForeground: string;
+};
+
+const backgroundColorOptions = [
+  {
+    code: "sand",
+    label: "Sand",
+    background: "33 17% 90%",
+    card: "33 17% 94%",
+    popover: "33 17% 94%",
+    muted: "33 17% 80%",
+    border: "33 17% 74%",
+    input: "33 17% 78%",
+    sidebar: "33 17% 86%",
+    sidebarAccent: "33 17% 80%",
+    sidebarBorder: "33 17% 72%",
+  },
+  {
+    code: "mist",
+    label: "Mist",
+    background: "210 18% 92%",
+    card: "210 20% 96%",
+    popover: "210 20% 96%",
+    muted: "210 15% 84%",
+    border: "210 14% 76%",
+    input: "210 14% 80%",
+    sidebar: "210 15% 88%",
+    sidebarAccent: "210 14% 83%",
+    sidebarBorder: "210 14% 74%",
+  },
+  {
+    code: "ivory",
+    label: "Ivory",
+    background: "42 35% 94%",
+    card: "42 38% 97%",
+    popover: "42 38% 97%",
+    muted: "42 22% 86%",
+    border: "42 20% 78%",
+    input: "42 20% 82%",
+    sidebar: "42 26% 90%",
+    sidebarAccent: "42 22% 84%",
+    sidebarBorder: "42 20% 76%",
+  },
+  {
+    code: "pearl",
+    label: "Pearl",
+    background: "30 20% 95%",
+    card: "30 22% 98%",
+    popover: "30 22% 98%",
+    muted: "30 14% 88%",
+    border: "30 12% 80%",
+    input: "30 12% 84%",
+    sidebar: "30 16% 91%",
+    sidebarAccent: "30 14% 86%",
+    sidebarBorder: "30 12% 78%",
+  },
+  {
+    code: "linen",
+    label: "Linen",
+    background: "18 26% 92%",
+    card: "18 30% 96%",
+    popover: "18 30% 96%",
+    muted: "18 20% 84%",
+    border: "18 18% 76%",
+    input: "18 18% 80%",
+    sidebar: "18 22% 88%",
+    sidebarAccent: "18 20% 82%",
+    sidebarBorder: "18 18% 74%",
+  },
+  {
+    code: "ash",
+    label: "Ash",
+    background: "210 8% 90%",
+    card: "210 10% 95%",
+    popover: "210 10% 95%",
+    muted: "210 8% 82%",
+    border: "210 8% 74%",
+    input: "210 8% 78%",
+    sidebar: "210 9% 86%",
+    sidebarAccent: "210 8% 80%",
+    sidebarBorder: "210 8% 72%",
+  },
+  {
+    code: "sage-paper",
+    label: "Sage Paper",
+    background: "118 16% 92%",
+    card: "118 18% 96%",
+    popover: "118 18% 96%",
+    muted: "118 12% 84%",
+    border: "118 10% 76%",
+    input: "118 10% 80%",
+    sidebar: "118 13% 88%",
+    sidebarAccent: "118 11% 82%",
+    sidebarBorder: "118 10% 74%",
+  },
+  {
+    code: "custom",
+    label: "Custom",
+    background: "33 17% 90%",
+    card: "33 17% 94%",
+    popover: "33 17% 94%",
+    muted: "33 17% 80%",
+    border: "33 17% 74%",
+    input: "33 17% 78%",
+    sidebar: "33 17% 86%",
+    sidebarAccent: "33 17% 80%",
+    sidebarBorder: "33 17% 72%",
+  },
+] as readonly BackgroundColorOption[];
+
+const textSecondaryColorOptions = [
+  {
+    code: "viomes-red",
+    label: "Viomes Red",
+    foreground: "2 39% 22%",
+    primary: "2 39% 47%",
+    secondary: "33 17% 84%",
+    mutedForeground: "2 20% 35%",
+    ring: "2 39% 47%",
+    sidebarForeground: "2 39% 25%",
+  },
+  {
+    code: "forest",
+    label: "Forest",
+    foreground: "148 34% 19%",
+    primary: "148 43% 35%",
+    secondary: "148 20% 84%",
+    mutedForeground: "148 12% 33%",
+    ring: "148 43% 35%",
+    sidebarForeground: "148 30% 23%",
+  },
+  {
+    code: "slate",
+    label: "Slate",
+    foreground: "218 18% 23%",
+    primary: "218 28% 40%",
+    secondary: "218 18% 85%",
+    mutedForeground: "218 12% 38%",
+    ring: "218 28% 40%",
+    sidebarForeground: "218 16% 28%",
+  },
+  {
+    code: "copper",
+    label: "Copper",
+    foreground: "19 42% 24%",
+    primary: "19 56% 43%",
+    secondary: "19 18% 84%",
+    mutedForeground: "19 16% 36%",
+    ring: "19 56% 43%",
+    sidebarForeground: "19 34% 29%",
+  },
+  {
+    code: "teal",
+    label: "Teal",
+    foreground: "182 54% 20%",
+    primary: "182 62% 36%",
+    secondary: "182 22% 84%",
+    mutedForeground: "182 18% 34%",
+    ring: "182 62% 36%",
+    sidebarForeground: "182 40% 25%",
+  },
+  {
+    code: "aubergine",
+    label: "Aubergine",
+    foreground: "318 30% 22%",
+    primary: "318 42% 40%",
+    secondary: "318 16% 84%",
+    mutedForeground: "318 14% 35%",
+    ring: "318 42% 40%",
+    sidebarForeground: "318 24% 27%",
+  },
+  {
+    code: "charcoal",
+    label: "Charcoal",
+    foreground: "220 9% 18%",
+    primary: "220 12% 34%",
+    secondary: "220 10% 82%",
+    mutedForeground: "220 8% 33%",
+    ring: "220 12% 34%",
+    sidebarForeground: "220 8% 24%",
+  },
+  {
+    code: "custom",
+    label: "Custom",
+    foreground: "2 39% 22%",
+    primary: "2 39% 47%",
+    secondary: "33 17% 84%",
+    mutedForeground: "2 20% 35%",
+    ring: "2 39% 47%",
+    sidebarForeground: "2 39% 25%",
+  },
+] as readonly TextSecondaryColorOption[];
+
 const typographyOptions = [
   {
     code: "inter-poppins",
@@ -183,6 +400,51 @@ const flagClassByLanguage: Record<string, string> = {
 const getFlagClass = (code: string) =>
   flagClassByLanguage[code] ?? flagClassByLanguage.en;
 
+const clamp = (value: number, min: number, max: number) =>
+  Math.min(max, Math.max(min, value));
+
+const hexToHsl = (hex: string) => {
+  const safeHex = hex.startsWith("#") ? hex.slice(1) : hex;
+  if (!/^[0-9a-fA-F]{6}$/.test(safeHex)) {
+    return { h: 0, s: 0, l: 0 };
+  }
+
+  const r = Number.parseInt(safeHex.slice(0, 2), 16) / 255;
+  const g = Number.parseInt(safeHex.slice(2, 4), 16) / 255;
+  const b = Number.parseInt(safeHex.slice(4, 6), 16) / 255;
+
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const delta = max - min;
+  const l = (max + min) / 2;
+
+  let h = 0;
+  let s = 0;
+
+  if (delta !== 0) {
+    s = delta / (1 - Math.abs(2 * l - 1));
+    switch (max) {
+      case r:
+        h = ((g - b) / delta) % 6;
+        break;
+      case g:
+        h = (b - r) / delta + 2;
+        break;
+      default:
+        h = (r - g) / delta + 4;
+        break;
+    }
+    h *= 60;
+    if (h < 0) h += 360;
+  }
+
+  return {
+    h: Math.round(h),
+    s: Math.round(s * 100),
+    l: Math.round(l * 100),
+  };
+};
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -190,15 +452,41 @@ const Navbar = () => {
   const [language, setLanguage] = useState<string>(
     () => localStorage.getItem("viomes_language") || "el",
   );
-  const [typography, setTypography] = useState<string>(
-    () => "inter-poppins",
+  const [backgroundColor, setBackgroundColor] = useState<string>(
+    () => {
+      try {
+        const savedVersion = localStorage.getItem("viomes_palette_version");
+        if (savedVersion !== PALETTE_DEFAULT_VERSION) {
+          return "sand";
+        }
+        return localStorage.getItem("viomes_background_color") || "sand";
+      } catch {
+        return "sand";
+      }
+    },
   );
-  const [titleSize, setTitleSize] = useState<string>(
-    () => localStorage.getItem("viomes_title_size") || "md",
+  const [textSecondaryColor, setTextSecondaryColor] = useState<string>(
+    () => {
+      try {
+        const savedVersion = localStorage.getItem("viomes_palette_version");
+        if (savedVersion !== PALETTE_DEFAULT_VERSION) {
+          return "viomes-red";
+        }
+        return localStorage.getItem("viomes_text_secondary_color") || "viomes-red";
+      } catch {
+        return "viomes-red";
+      }
+    },
   );
-  const [plainTextSize, setPlainTextSize] = useState<string>(
-    () => localStorage.getItem("viomes_plain_text_size") || "md",
+  const [customBackgroundHex, setCustomBackgroundHex] = useState<string>(
+    () => localStorage.getItem("viomes_custom_background_hex") || "#ded8cf",
   );
+  const [customTextHex, setCustomTextHex] = useState<string>(
+    () => localStorage.getItem("viomes_custom_text_hex") || "#6f3a3a",
+  );
+  const fixedTypography = "manrope-poppins";
+  const fixedTitleSize = "xl";
+  const fixedPlainTextSize = "sm";
   const lastScrollY = useRef(0);
   const location = useLocation();
 
@@ -244,8 +532,93 @@ const Navbar = () => {
   }, [language]);
 
   useEffect(() => {
+    let selectedBackground =
+      backgroundColorOptions.find((option) => option.code === backgroundColor) ??
+      backgroundColorOptions[0];
+
+    if (selectedBackground.code === "custom") {
+      const { h, s, l } = hexToHsl(customBackgroundHex);
+      selectedBackground = {
+        ...selectedBackground,
+        background: `${h} ${s}% ${clamp(l, 78, 97)}%`,
+        card: `${h} ${s}% ${clamp(l + 4, 82, 99)}%`,
+        popover: `${h} ${s}% ${clamp(l + 4, 82, 99)}%`,
+        muted: `${h} ${clamp(s - 2, 8, 28)}% ${clamp(l - 8, 64, 90)}%`,
+        border: `${h} ${clamp(s - 4, 6, 24)}% ${clamp(l - 16, 54, 84)}%`,
+        input: `${h} ${clamp(s - 3, 6, 24)}% ${clamp(l - 12, 58, 86)}%`,
+        sidebar: `${h} ${clamp(s - 1, 8, 28)}% ${clamp(l - 4, 70, 92)}%`,
+        sidebarAccent: `${h} ${clamp(s - 2, 8, 26)}% ${clamp(l - 10, 62, 88)}%`,
+        sidebarBorder: `${h} ${clamp(s - 4, 6, 24)}% ${clamp(l - 18, 52, 82)}%`,
+      };
+    }
+
+    document.documentElement.style.setProperty("--background", selectedBackground.background);
+    document.documentElement.style.setProperty("--card", selectedBackground.card);
+    document.documentElement.style.setProperty("--popover", selectedBackground.popover);
+    document.documentElement.style.setProperty("--muted", selectedBackground.muted);
+    document.documentElement.style.setProperty("--border", selectedBackground.border);
+    document.documentElement.style.setProperty("--input", selectedBackground.input);
+    document.documentElement.style.setProperty("--sidebar", selectedBackground.sidebar);
+    document.documentElement.style.setProperty("--sidebar-accent", selectedBackground.sidebarAccent);
+    document.documentElement.style.setProperty("--sidebar-border", selectedBackground.sidebarBorder);
+    document.documentElement.style.setProperty("--chart-2", selectedBackground.muted);
+    document.documentElement.style.setProperty("--chart-4", selectedBackground.border);
+
+    try {
+      localStorage.setItem("viomes_background_color", selectedBackground.code);
+      localStorage.setItem("viomes_custom_background_hex", customBackgroundHex);
+      localStorage.setItem("viomes_palette_version", PALETTE_DEFAULT_VERSION);
+    } catch {
+      /* ignore */
+    }
+  }, [backgroundColor, customBackgroundHex]);
+
+  useEffect(() => {
+    let selectedTextSecondary =
+      textSecondaryColorOptions.find((option) => option.code === textSecondaryColor) ??
+      textSecondaryColorOptions[0];
+
+    if (selectedTextSecondary.code === "custom") {
+      const { h, s, l } = hexToHsl(customTextHex);
+      selectedTextSecondary = {
+        ...selectedTextSecondary,
+        foreground: `${h} ${clamp(s, 10, 80)}% ${clamp(l, 14, 42)}%`,
+        primary: `${h} ${clamp(s, 20, 85)}% ${clamp(l + 16, 28, 60)}%`,
+        secondary: `${h} ${clamp(s - 10, 8, 24)}% 84%`,
+        mutedForeground: `${h} ${clamp(s - 8, 8, 40)}% ${clamp(l + 12, 28, 52)}%`,
+        ring: `${h} ${clamp(s, 20, 85)}% ${clamp(l + 16, 28, 60)}%`,
+        sidebarForeground: `${h} ${clamp(s, 10, 70)}% ${clamp(l + 4, 18, 44)}%`,
+      };
+    }
+
+    document.documentElement.style.setProperty("--foreground", selectedTextSecondary.foreground);
+    document.documentElement.style.setProperty("--card-foreground", selectedTextSecondary.foreground);
+    document.documentElement.style.setProperty("--popover-foreground", selectedTextSecondary.foreground);
+    document.documentElement.style.setProperty("--primary", selectedTextSecondary.primary);
+    document.documentElement.style.setProperty("--accent", selectedTextSecondary.primary);
+    document.documentElement.style.setProperty("--secondary", selectedTextSecondary.secondary);
+    document.documentElement.style.setProperty("--secondary-foreground", selectedTextSecondary.foreground);
+    document.documentElement.style.setProperty("--muted-foreground", selectedTextSecondary.mutedForeground);
+    document.documentElement.style.setProperty("--ring", selectedTextSecondary.ring);
+    document.documentElement.style.setProperty("--sidebar-foreground", selectedTextSecondary.sidebarForeground);
+    document.documentElement.style.setProperty("--sidebar-primary", selectedTextSecondary.primary);
+    document.documentElement.style.setProperty("--sidebar-ring", selectedTextSecondary.ring);
+    document.documentElement.style.setProperty("--chart-1", selectedTextSecondary.primary);
+    document.documentElement.style.setProperty("--chart-3", selectedTextSecondary.foreground);
+    document.documentElement.style.setProperty("--chart-5", selectedTextSecondary.primary);
+
+    try {
+      localStorage.setItem("viomes_text_secondary_color", selectedTextSecondary.code);
+      localStorage.setItem("viomes_custom_text_hex", customTextHex);
+      localStorage.setItem("viomes_palette_version", PALETTE_DEFAULT_VERSION);
+    } catch {
+      /* ignore */
+    }
+  }, [textSecondaryColor, customTextHex]);
+
+  useEffect(() => {
     const selectedTypography =
-      typographyOptions.find((option) => option.code === typography) ?? typographyOptions[0];
+      typographyOptions.find((option) => option.code === fixedTypography) ?? typographyOptions[0];
 
     document.documentElement.style.setProperty("--font-sans", selectedTypography.sans);
     document.documentElement.style.setProperty("--font-heading", selectedTypography.heading);
@@ -255,12 +628,12 @@ const Navbar = () => {
     } catch {
       /* ignore */
     }
-  }, [typography]);
+  }, [fixedTypography]);
 
   useEffect(() => {
-    const selectedTitleSize = sizeOptions.find((option) => option.code === titleSize) ?? sizeOptions[1];
+    const selectedTitleSize = sizeOptions.find((option) => option.code === fixedTitleSize) ?? sizeOptions[1];
     const selectedPlainTextSize =
-      sizeOptions.find((option) => option.code === plainTextSize) ?? sizeOptions[1];
+      sizeOptions.find((option) => option.code === fixedPlainTextSize) ?? sizeOptions[1];
 
     const toScaledRem = (value: string, scale: number) => {
       const rem = Number.parseFloat(value.replace("rem", ""));
@@ -283,15 +656,16 @@ const Navbar = () => {
     } catch {
       /* ignore */
     }
-  }, [titleSize, plainTextSize]);
+  }, [fixedTitleSize, fixedPlainTextSize]);
 
   const selectedLanguage =
     languages.find((selected) => selected.code === language) ?? languages[0];
-  const selectedTypography =
-    typographyOptions.find((selected) => selected.code === typography) ?? typographyOptions[0];
-  const selectedTitleSize = sizeOptions.find((selected) => selected.code === titleSize) ?? sizeOptions[1];
-  const selectedPlainTextSize =
-    sizeOptions.find((selected) => selected.code === plainTextSize) ?? sizeOptions[1];
+  const selectedBackgroundColor =
+    backgroundColorOptions.find((selected) => selected.code === backgroundColor) ??
+    backgroundColorOptions[0];
+  const selectedTextSecondaryColor =
+    textSecondaryColorOptions.find((selected) => selected.code === textSecondaryColor) ??
+    textSecondaryColorOptions[0];
 
   return (
     <header
@@ -415,13 +789,13 @@ const Navbar = () => {
             </DropdownMenu>
             <DropdownMenu>
               <DropdownMenuTrigger className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45">
-                <span className="hidden sm:inline">Title size</span>
-                <span>{selectedTitleSize.label}</span>
+                <span className="hidden sm:inline">Background</span>
+                <span>{selectedBackgroundColor.label}</span>
                 <ChevronDown className="w-4 h-4 ml-1" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuRadioGroup value={titleSize} onValueChange={setTitleSize}>
-                  {sizeOptions.map((option) => (
+                <DropdownMenuRadioGroup value={backgroundColor} onValueChange={setBackgroundColor}>
+                  {backgroundColorOptions.map((option) => (
                     <DropdownMenuRadioItem key={option.code} value={option.code}>
                       {option.label}
                     </DropdownMenuRadioItem>
@@ -429,15 +803,24 @@ const Navbar = () => {
                 </DropdownMenuRadioGroup>
               </DropdownMenuContent>
             </DropdownMenu>
+            {backgroundColor === "custom" ? (
+              <input
+                type="color"
+                value={customBackgroundHex}
+                onChange={(event) => setCustomBackgroundHex(event.target.value)}
+                className="h-9 w-9 cursor-pointer rounded-md border border-border/60 bg-background/30 p-1"
+                aria-label="Custom background color"
+              />
+            ) : null}
             <DropdownMenu>
               <DropdownMenuTrigger className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45">
-                <span className="hidden sm:inline">Text size</span>
-                <span>{selectedPlainTextSize.label}</span>
+                <span className="hidden sm:inline">Text / Secondary</span>
+                <span>{selectedTextSecondaryColor.label}</span>
                 <ChevronDown className="w-4 h-4 ml-1" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuRadioGroup value={plainTextSize} onValueChange={setPlainTextSize}>
-                  {sizeOptions.map((option) => (
+                <DropdownMenuRadioGroup value={textSecondaryColor} onValueChange={setTextSecondaryColor}>
+                  {textSecondaryColorOptions.map((option) => (
                     <DropdownMenuRadioItem key={option.code} value={option.code}>
                       {option.label}
                     </DropdownMenuRadioItem>
@@ -445,22 +828,15 @@ const Navbar = () => {
                 </DropdownMenuRadioGroup>
               </DropdownMenuContent>
             </DropdownMenu>
-            <DropdownMenu>
-              <DropdownMenuTrigger className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45">
-                <span className="hidden sm:inline">Font</span>
-                <span>{selectedTypography.label}</span>
-                <ChevronDown className="w-4 h-4 ml-1" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuRadioGroup value={typography} onValueChange={setTypography}>
-                  {typographyOptions.map((option) => (
-                    <DropdownMenuRadioItem key={option.code} value={option.code}>
-                      {option.label}
-                    </DropdownMenuRadioItem>
-                  ))}
-                </DropdownMenuRadioGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {textSecondaryColor === "custom" ? (
+              <input
+                type="color"
+                value={customTextHex}
+                onChange={(event) => setCustomTextHex(event.target.value)}
+                className="h-9 w-9 cursor-pointer rounded-md border border-border/60 bg-background/30 p-1"
+                aria-label="Custom text and secondary color"
+              />
+            ) : null}
           </div>
           <Button
             variant="ghost"
@@ -501,47 +877,55 @@ const Navbar = () => {
               </select>
             </div>
             <div>
-              <label className="sr-only">Title size</label>
+              <label className="sr-only">Background color</label>
               <select
-                value={titleSize}
-                onChange={(event) => setTitleSize(event.target.value)}
+                value={backgroundColor}
+                onChange={(event) => setBackgroundColor(event.target.value)}
                 className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
               >
-                {sizeOptions.map((option) => (
+                {backgroundColorOptions.map((option) => (
                   <option key={option.code} value={option.code}>
                     {option.label}
                   </option>
                 ))}
               </select>
             </div>
+            {backgroundColor === "custom" ? (
+              <div>
+                <label className="sr-only">Custom background color</label>
+                <input
+                  type="color"
+                  value={customBackgroundHex}
+                  onChange={(event) => setCustomBackgroundHex(event.target.value)}
+                  className="h-10 w-full cursor-pointer rounded-md border border-border bg-transparent p-1"
+                />
+              </div>
+            ) : null}
             <div>
-              <label className="sr-only">Text size</label>
+              <label className="sr-only">Text and secondary color</label>
               <select
-                value={plainTextSize}
-                onChange={(event) => setPlainTextSize(event.target.value)}
+                value={textSecondaryColor}
+                onChange={(event) => setTextSecondaryColor(event.target.value)}
                 className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
               >
-                {sizeOptions.map((option) => (
+                {textSecondaryColorOptions.map((option) => (
                   <option key={option.code} value={option.code}>
                     {option.label}
                   </option>
                 ))}
               </select>
             </div>
-            <div>
-              <label className="sr-only">Typography</label>
-              <select
-                value={typography}
-                onChange={(event) => setTypography(event.target.value)}
-                className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
-              >
-                {typographyOptions.map((option) => (
-                  <option key={option.code} value={option.code}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {textSecondaryColor === "custom" ? (
+              <div>
+                <label className="sr-only">Custom text and secondary color</label>
+                <input
+                  type="color"
+                  value={customTextHex}
+                  onChange={(event) => setCustomTextHex(event.target.value)}
+                  className="h-10 w-full cursor-pointer rounded-md border border-border bg-transparent p-1"
+                />
+              </div>
+            ) : null}
           </div>
         </div>
       )}
