@@ -2,8 +2,13 @@
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
@@ -484,9 +489,15 @@ const Navbar = () => {
   const [customTextHex, setCustomTextHex] = useState<string>(
     () => localStorage.getItem("viomes_custom_text_hex") || "#6f3a3a",
   );
-  const fixedTypography = "manrope-poppins";
-  const fixedTitleSize = "xl";
-  const fixedPlainTextSize = "sm";
+  const [typography, setTypography] = useState<string>(
+    () => localStorage.getItem("viomes_typography") || "manrope-poppins",
+  );
+  const [titleSize, setTitleSize] = useState<string>(
+    () => localStorage.getItem("viomes_title_size") || "xl",
+  );
+  const [plainTextSize, setPlainTextSize] = useState<string>(
+    () => localStorage.getItem("viomes_plain_text_size") || "sm",
+  );
   const lastScrollY = useRef(0);
   const location = useLocation();
 
@@ -618,7 +629,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const selectedTypography =
-      typographyOptions.find((option) => option.code === fixedTypography) ?? typographyOptions[0];
+      typographyOptions.find((option) => option.code === typography) ?? typographyOptions[0];
 
     document.documentElement.style.setProperty("--font-sans", selectedTypography.sans);
     document.documentElement.style.setProperty("--font-heading", selectedTypography.heading);
@@ -628,12 +639,12 @@ const Navbar = () => {
     } catch {
       /* ignore */
     }
-  }, [fixedTypography]);
+  }, [typography]);
 
   useEffect(() => {
-    const selectedTitleSize = sizeOptions.find((option) => option.code === fixedTitleSize) ?? sizeOptions[1];
+    const selectedTitleSize = sizeOptions.find((option) => option.code === titleSize) ?? sizeOptions[1];
     const selectedPlainTextSize =
-      sizeOptions.find((option) => option.code === fixedPlainTextSize) ?? sizeOptions[1];
+      sizeOptions.find((option) => option.code === plainTextSize) ?? sizeOptions[1];
 
     const toScaledRem = (value: string, scale: number) => {
       const rem = Number.parseFloat(value.replace("rem", ""));
@@ -656,7 +667,7 @@ const Navbar = () => {
     } catch {
       /* ignore */
     }
-  }, [fixedTitleSize, fixedPlainTextSize]);
+  }, [titleSize, plainTextSize]);
 
   const selectedLanguage =
     languages.find((selected) => selected.code === language) ?? languages[0];
@@ -666,6 +677,13 @@ const Navbar = () => {
   const selectedTextSecondaryColor =
     textSecondaryColorOptions.find((selected) => selected.code === textSecondaryColor) ??
     textSecondaryColorOptions[0];
+  const selectedTypography =
+    typographyOptions.find((selected) => selected.code === typography) ?? typographyOptions[0];
+  const selectedTitleSize = sizeOptions.find((selected) => selected.code === titleSize) ?? sizeOptions[1];
+  const selectedPlainTextSize =
+    sizeOptions.find((selected) => selected.code === plainTextSize) ?? sizeOptions[1];
+  const compactTriggerClassName =
+    "inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45";
 
   return (
     <header
@@ -759,84 +777,126 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4 lg:justify-end lg:pr-6">
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-1.5">
             <DropdownMenu>
-              <DropdownMenuTrigger className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45">
-                <span className="mr-2 inline-flex w-5 h-4">
-                  <span
-                    className={cn(getFlagClass(selectedLanguage.code), "h-4 w-5 rounded-[2px]")}
-                    aria-hidden
-                  />
-                </span>
-                <span className="hidden sm:inline">{selectedLanguage.label}</span>
-                <ChevronDown className="w-4 h-4 ml-1" />
+              <DropdownMenuTrigger className={compactTriggerClassName}>
+                <span>Settings</span>
+                <ChevronDown className="ml-0.5 h-3.5 w-3.5" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuRadioGroup value={language} onValueChange={setLanguage}>
-                  {languages.map((languageOption) => (
-                    <DropdownMenuRadioItem key={languageOption.code} value={languageOption.code}>
-                      <span className="mr-2 inline-flex w-5 h-4">
-                        <span
-                          className={cn(getFlagClass(languageOption.code), "h-4 w-5 rounded-[2px]")}
-                          aria-hidden
+              <DropdownMenuContent align="end" className="w-72">
+                <DropdownMenuLabel className="text-sm font-semibold uppercase tracking-wide text-foreground/70">
+                  Site Settings
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger className="text-sm">Language: {selectedLanguage.label}</DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent>
+                    <DropdownMenuRadioGroup value={language} onValueChange={setLanguage}>
+                      {languages.map((languageOption) => (
+                        <DropdownMenuRadioItem key={languageOption.code} value={languageOption.code}>
+                          <span className="mr-2 inline-flex w-5 h-4">
+                            <span
+                              className={cn(getFlagClass(languageOption.code), "h-4 w-5 rounded-[2px]")}
+                              aria-hidden
+                            />
+                          </span>
+                          {languageOption.label}
+                        </DropdownMenuRadioItem>
+                      ))}
+                    </DropdownMenuRadioGroup>
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger className="text-sm">Font: {selectedTypography.label}</DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent>
+                    <DropdownMenuRadioGroup value={typography} onValueChange={setTypography}>
+                      {typographyOptions.map((option) => (
+                        <DropdownMenuRadioItem key={option.code} value={option.code}>
+                          {option.label}
+                        </DropdownMenuRadioItem>
+                      ))}
+                    </DropdownMenuRadioGroup>
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger className="text-sm">Title size: {selectedTitleSize.label}</DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent>
+                    <DropdownMenuRadioGroup value={titleSize} onValueChange={setTitleSize}>
+                      {sizeOptions.map((option) => (
+                        <DropdownMenuRadioItem key={option.code} value={option.code}>
+                          {option.label}
+                        </DropdownMenuRadioItem>
+                      ))}
+                    </DropdownMenuRadioGroup>
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger className="text-sm">Text size: {selectedPlainTextSize.label}</DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent>
+                    <DropdownMenuRadioGroup value={plainTextSize} onValueChange={setPlainTextSize}>
+                      {sizeOptions.map((option) => (
+                        <DropdownMenuRadioItem key={option.code} value={option.code}>
+                          {option.label}
+                        </DropdownMenuRadioItem>
+                      ))}
+                    </DropdownMenuRadioGroup>
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger className="text-sm">Background: {selectedBackgroundColor.label}</DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent>
+                    <DropdownMenuRadioGroup value={backgroundColor} onValueChange={setBackgroundColor}>
+                      {backgroundColorOptions.map((option) => (
+                        <DropdownMenuRadioItem key={option.code} value={option.code}>
+                          {option.label}
+                        </DropdownMenuRadioItem>
+                      ))}
+                    </DropdownMenuRadioGroup>
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger className="text-sm">Text / Secondary: {selectedTextSecondaryColor.label}</DropdownMenuSubTrigger>
+                  <DropdownMenuSubContent>
+                    <DropdownMenuRadioGroup value={textSecondaryColor} onValueChange={setTextSecondaryColor}>
+                      {textSecondaryColorOptions.map((option) => (
+                        <DropdownMenuRadioItem key={option.code} value={option.code}>
+                          {option.label}
+                        </DropdownMenuRadioItem>
+                      ))}
+                    </DropdownMenuRadioGroup>
+                  </DropdownMenuSubContent>
+                </DropdownMenuSub>
+                {backgroundColor === "custom" || textSecondaryColor === "custom" ? (
+                  <>
+                    <DropdownMenuSeparator />
+                    {backgroundColor === "custom" ? (
+                      <div className="px-2 py-1.5">
+                        <label className="mb-1 block text-xs text-foreground/70">Custom background</label>
+                        <input
+                          type="color"
+                          value={customBackgroundHex}
+                          onChange={(event) => setCustomBackgroundHex(event.target.value)}
+                          className="h-8 w-full cursor-pointer rounded-md border border-border/60 bg-background/30 p-0.5"
+                          aria-label="Custom background color"
                         />
-                      </span>
-                      {languageOption.label}
-                    </DropdownMenuRadioItem>
-                  ))}
-                </DropdownMenuRadioGroup>
+                      </div>
+                    ) : null}
+                    {textSecondaryColor === "custom" ? (
+                      <div className="px-2 py-1.5">
+                        <label className="mb-1 block text-xs text-foreground/70">Custom text / secondary</label>
+                        <input
+                          type="color"
+                          value={customTextHex}
+                          onChange={(event) => setCustomTextHex(event.target.value)}
+                          className="h-8 w-full cursor-pointer rounded-md border border-border/60 bg-background/30 p-0.5"
+                          aria-label="Custom text and secondary color"
+                        />
+                      </div>
+                    ) : null}
+                  </>
+                ) : null}
               </DropdownMenuContent>
             </DropdownMenu>
-            <DropdownMenu>
-              <DropdownMenuTrigger className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45">
-                <span className="hidden sm:inline">Background</span>
-                <span>{selectedBackgroundColor.label}</span>
-                <ChevronDown className="w-4 h-4 ml-1" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuRadioGroup value={backgroundColor} onValueChange={setBackgroundColor}>
-                  {backgroundColorOptions.map((option) => (
-                    <DropdownMenuRadioItem key={option.code} value={option.code}>
-                      {option.label}
-                    </DropdownMenuRadioItem>
-                  ))}
-                </DropdownMenuRadioGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            {backgroundColor === "custom" ? (
-              <input
-                type="color"
-                value={customBackgroundHex}
-                onChange={(event) => setCustomBackgroundHex(event.target.value)}
-                className="h-9 w-9 cursor-pointer rounded-md border border-border/60 bg-background/30 p-1"
-                aria-label="Custom background color"
-              />
-            ) : null}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45">
-                <span className="hidden sm:inline">Text / Secondary</span>
-                <span>{selectedTextSecondaryColor.label}</span>
-                <ChevronDown className="w-4 h-4 ml-1" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuRadioGroup value={textSecondaryColor} onValueChange={setTextSecondaryColor}>
-                  {textSecondaryColorOptions.map((option) => (
-                    <DropdownMenuRadioItem key={option.code} value={option.code}>
-                      {option.label}
-                    </DropdownMenuRadioItem>
-                  ))}
-                </DropdownMenuRadioGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            {textSecondaryColor === "custom" ? (
-              <input
-                type="color"
-                value={customTextHex}
-                onChange={(event) => setCustomTextHex(event.target.value)}
-                className="h-9 w-9 cursor-pointer rounded-md border border-border/60 bg-background/30 p-1"
-                aria-label="Custom text and secondary color"
-              />
-            ) : null}
           </div>
           <Button
             variant="ghost"
@@ -872,6 +932,48 @@ const Navbar = () => {
                 {languages.map((languageOption) => (
                   <option key={languageOption.code} value={languageOption.code}>
                     {languageOption.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="sr-only">Title size</label>
+              <select
+                value={titleSize}
+                onChange={(event) => setTitleSize(event.target.value)}
+                className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
+              >
+                {sizeOptions.map((option) => (
+                  <option key={option.code} value={option.code}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="sr-only">Text size</label>
+              <select
+                value={plainTextSize}
+                onChange={(event) => setPlainTextSize(event.target.value)}
+                className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
+              >
+                {sizeOptions.map((option) => (
+                  <option key={option.code} value={option.code}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="sr-only">Typography</label>
+              <select
+                value={typography}
+                onChange={(event) => setTypography(event.target.value)}
+                className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
+              >
+                {typographyOptions.map((option) => (
+                  <option key={option.code} value={option.code}>
+                    {option.label}
                   </option>
                 ))}
               </select>
