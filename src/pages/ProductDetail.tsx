@@ -1,4 +1,4 @@
-import {
+﻿import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -204,12 +204,12 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#d9d8d8] pt-36 pb-14">
-      <div className="mx-auto w-full max-w-[1400px] px-4 md:px-7 lg:px-10">
-        <section className="grid items-start gap-10 xl:grid-cols-[1.1fr_0.9fr]">
+    <div className="min-h-screen bg-background pb-12 pt-32 md:pb-14 md:pt-36 lg:pt-40">
+      <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 md:px-7 lg:px-10">
+        <section className="grid items-start gap-6 md:gap-8 xl:grid-cols-[1.1fr_0.9fr] xl:gap-10">
           <div>
             <Breadcrumb className="mb-8 text-xs text-foreground/75">
-              <BreadcrumbList>
+              <BreadcrumbList className="flex-wrap gap-y-1">
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
                     <Link to="/">Αρχική</Link>
@@ -247,7 +247,7 @@ const ProductDetail = () => {
                 <img
                   src={packshotImage}
                   alt={`${product.title} packshot`}
-                  className="mx-auto h-[320px] w-full object-contain mix-blend-multiply md:h-[520px]"
+                  className="mx-auto h-[260px] w-full object-contain mix-blend-multiply sm:h-[320px] md:h-[460px] lg:h-[520px]"
                 />
                 <span className="pointer-events-none absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white opacity-0 transition group-hover:opacity-100">
                   <Expand className="h-3.5 w-3.5" />
@@ -257,9 +257,9 @@ const ProductDetail = () => {
             </div>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             <div>
-              <h1 className="font-heading text-3xl font-semibold leading-[1.15] text-foreground md:text-5xl">
+              <h1 className="font-heading text-3xl font-semibold leading-[1.15] text-foreground sm:text-4xl md:text-5xl">
                 {product.title}
               </h1>
             </div>
@@ -277,7 +277,7 @@ const ProductDetail = () => {
 
             <div>
               <p className="mb-2 text-[11px] font-medium text-foreground/85">Select size</p>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                 {product.sizes.map((size, index) => {
                   const active = index === safeSizeIndex;
                   const specs = sizeSpecs[index]?.specs;
@@ -305,7 +305,7 @@ const ProductDetail = () => {
                       type="button"
                       onClick={() => onSelectSize(index)}
                       className={cn(
-                        "flex h-11 w-[220px] items-center justify-center rounded-xl border px-3 py-2 text-center transition",
+                        "flex h-11 w-full items-center justify-center rounded-xl border px-3 py-2 text-center transition",
                         active
                           ? "border-foreground bg-foreground text-background"
                           : "border-foreground/25 bg-white/70 text-foreground hover:border-foreground/55",
@@ -333,15 +333,15 @@ const ProductDetail = () => {
 
             <div>
               <p className="mb-2 text-[11px] font-medium text-foreground/85">Select color</p>
-              <div className="flex flex-wrap items-end gap-2">
+              <div className="flex flex-wrap items-end gap-2 sm:gap-3">
                 {sortedVariants.map((variant, index) => {
                   const colorTitle = resolveColorTitle(variant.color, language);
                   return (
-                    <div key={`${variant.code}-${variant.color}`} className="flex flex-col items-center gap-0.5">
+                    <div key={`${variant.code}-${variant.color}`} className="flex max-w-16 flex-col items-center gap-0.5">
                     <button
                       type="button"
                       onClick={() => setSelectedColorIndex(index)}
-                      className="h-8 w-8 rounded-full transition hover:scale-105"
+                      className="h-7 w-7 rounded-full transition hover:scale-105 sm:h-8 sm:w-8"
                       style={{ background: resolveSwatchBackground(variant.color) }}
                       title={`${colorTitle} (${variant.code})`}
                       aria-label={`${colorTitle} (${variant.code})`}
@@ -355,7 +355,7 @@ const ProductDetail = () => {
                     />
                     <span
                       className={cn(
-                        "max-w-14 truncate text-center text-[10px] leading-tight",
+                        "max-w-16 truncate text-center text-[10px] leading-tight",
                         safeColorIndex === index ? "text-foreground/85" : "text-foreground/60",
                       )}
                       title={variant.color}
@@ -371,7 +371,7 @@ const ProductDetail = () => {
         </section>
 
         {additionalImages.length > 0 ? (
-          <section className="mt-10">
+          <section className="mt-8 md:mt-10">
             <div
               className={cn(
                 "mx-auto gap-3",
@@ -395,7 +395,7 @@ const ProductDetail = () => {
                   <img
                     src={image}
                     alt={`Additional ${index + 1}`}
-                    className="h-72 w-full object-cover object-center transition duration-300 group-hover:scale-105"
+                    className="h-48 w-full object-cover object-center transition duration-300 group-hover:scale-105 sm:h-60 lg:h-72"
                   />
                 </button>
               ))}

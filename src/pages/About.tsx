@@ -32,7 +32,7 @@ const About = () => {
   ];
 
   return (
-    <div className="pt-24 min-h-screen">
+    <div className="pt-32 md:pt-36 min-h-screen">
       {/* About Hero */}
       <section className="relative h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0">

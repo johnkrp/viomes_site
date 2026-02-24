@@ -685,6 +685,10 @@ const Navbar = () => {
     sizeOptions.find((selected) => selected.code === plainTextSize) ?? sizeOptions[1];
   const compactTriggerClassName =
     "inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45";
+  const settingsPanelClassName =
+    "w-[min(92vw,22rem)] max-h-[min(80vh,36rem)] overflow-y-auto bg-card text-card-foreground border border-border shadow-xl backdrop-blur-none";
+  const settingsSubPanelClassName =
+    "w-[min(88vw,19rem)] max-h-[65vh] overflow-y-auto bg-card text-card-foreground border border-border shadow-xl backdrop-blur-none";
 
   return (
     <header
@@ -696,8 +700,8 @@ const Navbar = () => {
           : "bg-background/95 backdrop-blur-sm border-b border-border/60",
       )}
     >
-      <div className="container mx-auto h-full px-6 py-3 relative bg-transparent lg:grid lg:grid-cols-3 lg:items-center lg:py-4">
-        <div className="hidden lg:flex items-center gap-4 lg:justify-start lg:pl-0 lg:-ml-6">
+      <div className="relative h-full bg-transparent px-4 py-3 sm:px-6 lg:container lg:mx-auto lg:grid lg:grid-cols-3 lg:items-center lg:py-4">
+        <div className="hidden items-center gap-4 lg:flex lg:justify-start lg:pl-0 lg:-ml-6">
           <a
             href="https://facebook.com"
             target="_blank"
@@ -761,13 +765,13 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-2">
             <img src="/images/viomes-logo.png" alt="VIOMES Logo" className="h-12 w-auto md:h-14" />
           </Link>
-          <nav className="mt-2 hidden items-center gap-6 lg:flex">
+          <nav className="mt-2 hidden items-center gap-5 lg:flex xl:gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
                 className={cn(
-                  "text-lg font-semibold hover:text-accent transition-colors",
+                  "text-base font-semibold transition-colors hover:text-accent xl:text-lg",
                   location.pathname === link.href ? "text-accent" : "text-foreground/70",
                 )}
               >
@@ -784,14 +788,19 @@ const Navbar = () => {
                 <span>Settings</span>
                 <ChevronDown className="ml-0.5 h-3.5 w-3.5" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-72">
+              <DropdownMenuContent
+                align="end"
+                sideOffset={8}
+                collisionPadding={12}
+                className={settingsPanelClassName}
+              >
                 <DropdownMenuLabel className="text-sm font-semibold uppercase tracking-wide text-foreground/70">
                   Site Settings
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuSub>
                   <DropdownMenuSubTrigger className="text-sm">Language: {selectedLanguage.label}</DropdownMenuSubTrigger>
-                  <DropdownMenuSubContent>
+                  <DropdownMenuSubContent className={settingsSubPanelClassName}>
                     <DropdownMenuRadioGroup value={language} onValueChange={setLanguage}>
                       {languages.map((languageOption) => (
                         <DropdownMenuRadioItem key={languageOption.code} value={languageOption.code}>
@@ -809,7 +818,7 @@ const Navbar = () => {
                 </DropdownMenuSub>
                 <DropdownMenuSub>
                   <DropdownMenuSubTrigger className="text-sm">Font: {selectedTypography.label}</DropdownMenuSubTrigger>
-                  <DropdownMenuSubContent>
+                  <DropdownMenuSubContent className={settingsSubPanelClassName}>
                     <DropdownMenuRadioGroup value={typography} onValueChange={setTypography}>
                       {typographyOptions.map((option) => (
                         <DropdownMenuRadioItem key={option.code} value={option.code}>
@@ -821,7 +830,7 @@ const Navbar = () => {
                 </DropdownMenuSub>
                 <DropdownMenuSub>
                   <DropdownMenuSubTrigger className="text-sm">Title size: {selectedTitleSize.label}</DropdownMenuSubTrigger>
-                  <DropdownMenuSubContent>
+                  <DropdownMenuSubContent className={settingsSubPanelClassName}>
                     <DropdownMenuRadioGroup value={titleSize} onValueChange={setTitleSize}>
                       {sizeOptions.map((option) => (
                         <DropdownMenuRadioItem key={option.code} value={option.code}>
@@ -833,7 +842,7 @@ const Navbar = () => {
                 </DropdownMenuSub>
                 <DropdownMenuSub>
                   <DropdownMenuSubTrigger className="text-sm">Text size: {selectedPlainTextSize.label}</DropdownMenuSubTrigger>
-                  <DropdownMenuSubContent>
+                  <DropdownMenuSubContent className={settingsSubPanelClassName}>
                     <DropdownMenuRadioGroup value={plainTextSize} onValueChange={setPlainTextSize}>
                       {sizeOptions.map((option) => (
                         <DropdownMenuRadioItem key={option.code} value={option.code}>
@@ -845,7 +854,7 @@ const Navbar = () => {
                 </DropdownMenuSub>
                 <DropdownMenuSub>
                   <DropdownMenuSubTrigger className="text-sm">Background: {selectedBackgroundColor.label}</DropdownMenuSubTrigger>
-                  <DropdownMenuSubContent>
+                  <DropdownMenuSubContent className={settingsSubPanelClassName}>
                     <DropdownMenuRadioGroup value={backgroundColor} onValueChange={setBackgroundColor}>
                       {backgroundColorOptions.map((option) => (
                         <DropdownMenuRadioItem key={option.code} value={option.code}>
@@ -857,7 +866,7 @@ const Navbar = () => {
                 </DropdownMenuSub>
                 <DropdownMenuSub>
                   <DropdownMenuSubTrigger className="text-sm">Text / Secondary: {selectedTextSecondaryColor.label}</DropdownMenuSubTrigger>
-                  <DropdownMenuSubContent>
+                  <DropdownMenuSubContent className={settingsSubPanelClassName}>
                     <DropdownMenuRadioGroup value={textSecondaryColor} onValueChange={setTextSecondaryColor}>
                       {textSecondaryColorOptions.map((option) => (
                         <DropdownMenuRadioItem key={option.code} value={option.code}>
@@ -902,7 +911,7 @@ const Navbar = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="absolute right-4 top-3 lg:hidden"
+            className="absolute right-3 top-3 sm:right-4 lg:hidden"
             onClick={() => setIsMobileMenuOpen((prevState) => !prevState)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -911,7 +920,7 @@ const Navbar = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 top-16 z-40 bg-background animate-in fade-in slide-in-from-top-4 lg:hidden">
+        <div className="fixed inset-0 top-[4.25rem] z-40 bg-background animate-in fade-in slide-in-from-top-4 lg:hidden">
           <div className="container mx-auto px-4 py-8 flex flex-col gap-6">
             {navLinks.map((link) => (
               <Link

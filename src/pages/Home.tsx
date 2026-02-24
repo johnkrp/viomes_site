@@ -66,16 +66,16 @@ const Home = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center bg-background overflow-hidden">
-        <div className="w-1/2 px-12 relative z-10 flex flex-col justify-center h-full">
+      <section className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-background pt-20 lg:h-screen lg:pt-0">
+        <div className="relative z-10 flex h-full w-full flex-col justify-center px-5 py-10 sm:px-8 lg:w-1/2 lg:px-12 lg:py-0">
           <div className="text-foreground">
             <span className="inline-block px-4 py-1.5 bg-accent text-white text-xs font-bold rounded-full mb-6 tracking-wider uppercase animate-slide-up">
               Est. 1978 | EU Manufacturing
             </span>
-            <h1 className="text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] mb-6 animate-slide-up [animation-delay:100ms] text-foreground">
+            <h1 className="text-4xl font-black leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-7xl mb-6 animate-slide-up [animation-delay:100ms]">
               Πλαστικά Προϊόντα Υψηλής Ποιότητας.
             </h1>
-            <p className="text-lg text-foreground/70 mb-10 leading-relaxed animate-slide-up [animation-delay:200ms] max-w-lg">
+            <p className="max-w-lg text-base leading-relaxed text-foreground/70 sm:text-lg mb-8 lg:mb-10 animate-slide-up [animation-delay:200ms]">
               Κορυφαίες λύσεις για το σπίτι και τη βιομηχανία. Σχεδιάζουμε και
               παράγουμε στην Ελλάδα με σεβασμό στο περιβάλλον.
             </p>
@@ -83,7 +83,7 @@ const Home = () => {
               <Link to="/products">
                 <Button
                   size="lg"
-                  className="bg-accent hover:bg-accent/90 text-white px-8 h-14 rounded-full text-lg group"
+                  className="group h-11 rounded-full bg-accent px-6 text-base text-white hover:bg-accent/90 sm:h-12 sm:px-8 sm:text-lg"
                 >
                   Προϊόντα
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -92,7 +92,7 @@ const Home = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="bg-white border-2 border-accent text-accent hover:bg-accent/5 h-14 px-8 rounded-full text-lg font-semibold"
+                className="h-11 rounded-full border-2 border-accent bg-white px-6 text-base font-semibold text-accent hover:bg-accent/5 sm:h-12 sm:px-8 sm:text-lg"
               >
                 Ζητήστε Προσφορά
               </Button>
@@ -168,27 +168,27 @@ const Home = () => {
       </section>
 
       {/* Category Tiles */}
-      <section className="py-24 bg-background" id="products">
-        <div className="px-12 lg:px-20">
+      <section className="bg-background py-14 sm:py-16 lg:py-24" id="products">
+        <div className="px-4 sm:px-6 lg:px-20">
           <div>
             <Carousel
               opts={{
                 align: "start",
                 loop: true,
               }}
-              className="w-full max-w-7xl mx-auto"
+              className="mx-auto w-full max-w-7xl"
             >
-              <CarouselContent className="ml-5">
+              <CarouselContent className="ml-0 sm:ml-2 lg:ml-5">
                 {categories.map((cat, i) => (
                   <CarouselItem
                     key={i}
-                    className="pl-5 md:basis-1/2 lg:basis-1/3"
+                    className="pl-3 sm:pl-4 lg:pl-5 md:basis-1/2 lg:basis-1/3"
                   >
                     <Link
                       to={cat.href}
                       className="group block w-full text-foreground"
                     >
-                      <div className="relative h-[30rem] overflow-hidden rounded-lg shadow-sm">
+                      <div className="relative h-[18rem] overflow-hidden rounded-lg shadow-sm sm:h-[22rem] lg:h-[30rem]">
                         <img
                           src={cat.image}
                           alt={cat.title}
@@ -213,11 +213,11 @@ const Home = () => {
       </section>
 
       {/* Sustainability Section (swapped sides) */}
-      <section className="py-24 bg-background text-foreground relative overflow-hidden">
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-10 px-8 lg:px-12 relative z-10">
+      <section className="relative overflow-hidden bg-background py-14 text-foreground sm:py-16 lg:py-24">
+        <div className="relative z-10 flex flex-col items-center gap-8 px-4 sm:px-6 lg:flex-row lg:gap-10 lg:px-12">
           {/* Image on the left for large screens */}
-          <div className="w-full lg:w-[54%] mb-10 lg:mb-0 flex-shrink-0">
-            <div className="relative w-full h-64 lg:h-[400px] rounded-xl overflow-hidden shadow-lg">
+          <div className="mb-8 w-full shrink-0 lg:mb-0 lg:w-[54%]">
+            <div className="relative h-56 w-full overflow-hidden rounded-xl shadow-lg sm:h-72 lg:h-[400px]">
               <img
                 src="/images/circular-economy.jpg"
                 alt="Sustainability"
@@ -228,15 +228,15 @@ const Home = () => {
             </div>
           </div>
           {/* Text on the right */}
-          <div className="w-full lg:w-[46%] max-w-none">
-            <h2 className="text-4xl font-black mb-6">Βιωσιμότητα & Ευθύνη</h2>
-            <p className="text-lg text-foreground/70 mb-8 leading-relaxed">
+          <div className="w-full max-w-none lg:w-[46%]">
+            <h2 className="mb-5 text-3xl font-black sm:text-4xl">Βιωσιμότητα & Ευθύνη</h2>
+            <p className="mb-7 text-base leading-relaxed text-foreground/70 sm:text-lg">
               Στην VIOMES, η παραγωγή μας ευθυγραμμίζεται με τις αρχές της
               κυκλικής οικονομίας. Χρησιμοποιούμε ανακυκλωμένα υλικά και
               βελτιστοποιούμε τις διαδικασίες μας για την ελαχιστοποίηση του
               περιβαλλοντικού αποτυπώματος.
             </p>
-            <div className="grid grid-cols-2 gap-6 mb-10">
+            <div className="mb-8 grid grid-cols-1 gap-4 sm:mb-10 sm:grid-cols-2 sm:gap-6">
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="text-accent w-6 h-6" />
                 <span className="font-medium">100% Ανακυκλώσιμα Υλικά</span>
@@ -262,11 +262,11 @@ const Home = () => {
       </section>
 
       {/* News / Blog Section */}
-      <section className="py-24 bg-primary text-primary-foreground" id="news">
-        <div className="px-12 lg:px-20">
-          <div className="flex items-center justify-between mb-12">
+      <section className="bg-primary py-14 text-primary-foreground sm:py-16 lg:py-24" id="news">
+        <div className="px-4 sm:px-6 lg:px-20">
+          <div className="mb-10 flex flex-col gap-3 sm:mb-12 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <h2 className="text-4xl font-black tracking-tight mb-2">
+              <h2 className="mb-2 text-3xl font-black tracking-tight sm:text-4xl">
                 Νέα & Άρθρα
               </h2>
               <p className="text-primary-foreground/80">

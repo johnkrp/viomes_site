@@ -200,8 +200,8 @@ const Products = () => {
   };
 
   return (
-    <div className="pt-32 pb-20 bg-background min-h-screen">
-      <section className="container mx-auto px-6">
+    <div className="min-h-screen bg-background pb-16 pt-32 md:pt-36 lg:pb-20">
+      <section className="container mx-auto px-4 sm:px-6">
         <Breadcrumb className="mb-6 text-sm text-foreground/70">
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -214,17 +214,17 @@ const Products = () => {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <h1 className="text-5xl font-black tracking-tight text-foreground">
+        <h1 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-5xl">
           Προϊόντα
         </h1>
-        <p className="mt-4 max-w-3xl text-foreground/70 leading-relaxed">
+        <p className="mt-3 max-w-3xl leading-relaxed text-foreground/70 sm:mt-4">
           Μία κάρτα ανά οικογένεια προϊόντος. Επιλέξτε προϊόν για να δείτε όλα
           τα διαθέσιμα μεγέθη και χρώματα.
         </p>
       </section>
 
-      <section className="container mx-auto px-6 mt-14 grid grid-cols-1 lg:grid-cols-[16rem_1fr] gap-8 xl:gap-10">
-        <aside className="lg:sticky lg:top-36 lg:max-h-[calc(100vh-12rem)] lg:overflow-y-auto lg:pr-1 h-fit">
+      <section className="container mx-auto mt-8 grid grid-cols-1 gap-6 px-4 sm:mt-10 sm:px-6 lg:grid-cols-[15rem_1fr] lg:gap-8 xl:grid-cols-[16rem_1fr] xl:gap-10">
+        <aside className="h-fit lg:sticky lg:top-28 lg:max-h-[calc(100vh-9rem)] lg:overflow-y-auto lg:pr-1">
           <div className="bg-transparent rounded-xl p-0 sm:p-0 space-y-3">
             <div className="rounded-sm border border-border/70 bg-background/20">
               <div className="px-4 py-3 text-sm font-medium text-foreground border-b border-border/50">
@@ -286,7 +286,7 @@ const Products = () => {
         </aside>
 
         <main>
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_14rem] gap-3 mb-6">
+          <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-[1fr_12rem] md:grid-cols-[1fr_14rem]">
             <div className="relative">
               <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
               <Input
@@ -322,7 +322,7 @@ const Products = () => {
             οικογένειες προϊόντων
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {filteredProducts.map((product, index) => {
               const colors = allColors(product);
               const cardKey = `${product.id}-${product.family_indicator || product.group_root || ""}-${product.title}-${index}`;
@@ -333,7 +333,7 @@ const Products = () => {
                   to={`/products/${product.id}`}
                   className={cn("group block transition-all duration-300")}
                 >
-                  <div className="relative aspect-[5/4] overflow-hidden rounded-md border border-border bg-background/70 p-4">
+                  <div className="relative aspect-[5/4] overflow-hidden rounded-md border border-border bg-background/70 p-2 sm:p-3 lg:p-4">
                     <img
                       src={product.representative_image}
                       alt={product.title}
@@ -343,10 +343,10 @@ const Products = () => {
                   </div>
 
                   <div className="px-1 pt-4">
-                    <h3 className="text-xl leading-tight font-medium text-foreground min-h-14">
+                    <h3 className="min-h-12 text-base font-medium leading-tight text-foreground sm:min-h-14 sm:text-xl">
                       {product.title}
                     </h3>
-                    <p className="mt-1 text-xs text-foreground/60">
+                    <p className="mt-1 text-[11px] text-foreground/60 sm:text-xs">
                       {product.sizes_count} μεγέθη • {colors.length} χρώματα
                     </p>
 
