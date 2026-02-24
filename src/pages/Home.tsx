@@ -213,7 +213,7 @@ const Home = () => {
       </section>
 
       {/* Sustainability Section (swapped sides) */}
-      <section className="py-24 bg-secondary/60 text-foreground relative overflow-hidden">
+      <section className="py-24 bg-background text-foreground relative overflow-hidden">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-10 px-8 lg:px-12 relative z-10">
           {/* Image on the left for large screens */}
           <div className="w-full lg:w-[54%] mb-10 lg:mb-0 flex-shrink-0">

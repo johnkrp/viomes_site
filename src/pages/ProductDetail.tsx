@@ -1,4 +1,4 @@
-﻿import {
+import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -9,11 +9,11 @@
 import { Button } from "@/components/ui/button";
 import additionalImagesData from "@/data/additional-images.json";
 import catalogData from "@/data/products-grouped.json";
-import { resolveSwatchBackground } from "@/lib/colorSwatch";
+import { resolveColorTitle, resolveSwatchBackground } from "@/lib/colorSwatch";
 import { resolvePrimaryCategory } from "@/lib/productCategories";
 import { cn } from "@/lib/utils";
 import { AlertCircle, ArrowLeft, Expand, X } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 type Variant = {
@@ -105,6 +105,20 @@ const ProductDetail = () => {
   const [selectedColorIndex, setSelectedColorIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [language, setLanguage] = useState<"el" | "en">(() => {
+    if (typeof window === "undefined") return "el";
+    return localStorage.getItem("viomes_language") === "en" ? "en" : "el";
+  });
+
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      const next = localStorage.getItem("viomes_language") === "en" ? "en" : "el";
+      setLanguage(next);
+    };
+
+    window.addEventListener("viomes-language-change", handleLanguageChange);
+    return () => window.removeEventListener("viomes-language-change", handleLanguageChange);
+  }, []);
 
   if (!product) {
     return (
@@ -130,9 +144,14 @@ const ProductDetail = () => {
 
   const safeSizeIndex = Math.min(selectedSizeIndex, Math.max(product.sizes.length - 1, 0));
   const selectedSize = product.sizes[safeSizeIndex];
+  const sortedVariants = useMemo(() => {
+    if (!selectedSize?.variants) return [];
+    const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
+    return [...selectedSize.variants].sort((a, b) => collator.compare(a.code || "", b.code || ""));
+  }, [selectedSize]);
 
-  const safeColorIndex = Math.min(selectedColorIndex, Math.max((selectedSize?.variants?.length || 1) - 1, 0));
-  const selectedVariant = selectedSize?.variants?.[safeColorIndex] || selectedSize?.variants?.[0];
+  const safeColorIndex = Math.min(selectedColorIndex, Math.max((sortedVariants.length || 1) - 1, 0));
+  const selectedVariant = sortedVariants[safeColorIndex] || sortedVariants[0];
   const packshotImage = selectedVariant?.image_url || product.representative_image;
   const primaryCategory = useMemo(() => resolvePrimaryCategory(product), [product]);
 
@@ -315,15 +334,17 @@ const ProductDetail = () => {
             <div>
               <p className="mb-2 text-[11px] font-medium text-foreground/85">Select color</p>
               <div className="flex flex-wrap items-end gap-2">
-                {selectedSize?.variants.map((variant, index) => (
-                  <div key={`${variant.code}-${variant.color}`} className="flex flex-col items-center gap-0.5">
+                {sortedVariants.map((variant, index) => {
+                  const colorTitle = resolveColorTitle(variant.color, language);
+                  return (
+                    <div key={`${variant.code}-${variant.color}`} className="flex flex-col items-center gap-0.5">
                     <button
                       type="button"
                       onClick={() => setSelectedColorIndex(index)}
                       className="h-8 w-8 rounded-full transition hover:scale-105"
                       style={{ background: resolveSwatchBackground(variant.color) }}
-                      title={`${variant.color} (${variant.code})`}
-                      aria-label={`${variant.color} (${variant.code})`}
+                      title={`${colorTitle} (${variant.code})`}
+                      aria-label={`${colorTitle} (${variant.code})`}
                     />
                     <span
                       aria-hidden="true"
@@ -339,10 +360,11 @@ const ProductDetail = () => {
                       )}
                       title={variant.color}
                     >
-                      {variant.color}
+                      {colorTitle}
                     </span>
-                  </div>
-                ))}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

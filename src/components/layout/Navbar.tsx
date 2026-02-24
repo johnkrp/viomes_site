@@ -537,6 +537,7 @@ const Navbar = () => {
   useEffect(() => {
     try {
       localStorage.setItem("viomes_language", language);
+      window.dispatchEvent(new CustomEvent("viomes-language-change", { detail: language }));
     } catch {
       /* ignore */
     }
