@@ -920,24 +920,25 @@ const Navbar = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 top-[4.25rem] z-40 bg-background animate-in fade-in slide-in-from-top-4 lg:hidden">
-          <div className="container mx-auto px-4 py-8 flex flex-col gap-6">
+        <div className="absolute left-0 right-0 top-full z-40 max-h-[calc(100vh-4.75rem)] overflow-y-auto border-t border-border bg-card text-card-foreground animate-in fade-in slide-in-from-top-4 lg:hidden">
+          <div className="container mx-auto flex flex-col gap-5 px-4 py-6">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
-                className="text-xl font-semibold border-b border-border pb-4"
+                className="border-b border-border pb-4 text-xl font-semibold"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}
               </Link>
             ))}
-            <div className="pt-4">
-              <label className="sr-only">Language</label>
+
+            <div className="rounded-lg border border-border bg-card p-3">
+              <label className="mb-2 block text-sm font-medium text-foreground/80">Language</label>
               <select
                 value={language}
                 onChange={(event) => setLanguage(event.target.value)}
-                className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
+                className="w-full rounded-md border border-border bg-card px-3 py-2 text-sm"
               >
                 {languages.map((languageOption) => (
                   <option key={languageOption.code} value={languageOption.code}>
@@ -946,98 +947,6 @@ const Navbar = () => {
                 ))}
               </select>
             </div>
-            <div>
-              <label className="sr-only">Title size</label>
-              <select
-                value={titleSize}
-                onChange={(event) => setTitleSize(event.target.value)}
-                className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
-              >
-                {sizeOptions.map((option) => (
-                  <option key={option.code} value={option.code}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="sr-only">Text size</label>
-              <select
-                value={plainTextSize}
-                onChange={(event) => setPlainTextSize(event.target.value)}
-                className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
-              >
-                {sizeOptions.map((option) => (
-                  <option key={option.code} value={option.code}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="sr-only">Typography</label>
-              <select
-                value={typography}
-                onChange={(event) => setTypography(event.target.value)}
-                className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
-              >
-                {typographyOptions.map((option) => (
-                  <option key={option.code} value={option.code}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="sr-only">Background color</label>
-              <select
-                value={backgroundColor}
-                onChange={(event) => setBackgroundColor(event.target.value)}
-                className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
-              >
-                {backgroundColorOptions.map((option) => (
-                  <option key={option.code} value={option.code}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-            {backgroundColor === "custom" ? (
-              <div>
-                <label className="sr-only">Custom background color</label>
-                <input
-                  type="color"
-                  value={customBackgroundHex}
-                  onChange={(event) => setCustomBackgroundHex(event.target.value)}
-                  className="h-10 w-full cursor-pointer rounded-md border border-border bg-transparent p-1"
-                />
-              </div>
-            ) : null}
-            <div>
-              <label className="sr-only">Text and secondary color</label>
-              <select
-                value={textSecondaryColor}
-                onChange={(event) => setTextSecondaryColor(event.target.value)}
-                className="w-full bg-transparent border border-border text-sm rounded-md px-3 py-2"
-              >
-                {textSecondaryColorOptions.map((option) => (
-                  <option key={option.code} value={option.code}>
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-            {textSecondaryColor === "custom" ? (
-              <div>
-                <label className="sr-only">Custom text and secondary color</label>
-                <input
-                  type="color"
-                  value={customTextHex}
-                  onChange={(event) => setCustomTextHex(event.target.value)}
-                  className="h-10 w-full cursor-pointer rounded-md border border-border bg-transparent p-1"
-                />
-              </div>
-            ) : null}
           </div>
         </div>
       )}

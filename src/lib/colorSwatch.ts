@@ -32,7 +32,7 @@ const colorMap: Record<string, ColorMeta> = {
   "ΓΑΛΆΖΙΟ ΣΚΟΎΡΟ": { hex: "#407EC9", english: "Deep Azure", greek: "Γαλάζιο Σκούρο", code: "24" },
   "ΚΙΤΡΙΝΟΠΡΆΣΙΝΟ": { hex: "#A8AD00", english: "Chartreuse", greek: "Κιτρινοπράσινο", code: "12" },
   "ΠΡΆΣΙΝΟ ΣΚΟΎΡΟ": { hex: "#009A44", english: "Dark Green", greek: "Πράσινο Σκούρο", code: "36" },
-  "??????? ?????": { english: "Clear White", greek: "Διάφανο Λευκό", code: "31" },
+  "ΔΙΑΦΑΝΟ ΛΕΥΚΟ": { english: "Clear White", greek: "Διάφανο Λευκό", code: "31" },
   "MIDNIGHT BLUE": { hex: "#425563", english: "Midnight Blue", greek: "Γκρι Μπλε", code: "18" },
   "MΑΡΜΑΡΊ ΤΡΊΧΑ": { english: "Marble White", greek: "Mαρμαρί Τρίχα", code: "90" },
   "TITANIUM GREY": { hex: "#5B6770", english: "Titanium Grey", greek: "Γκρι Τιτανίου", code: "58" },

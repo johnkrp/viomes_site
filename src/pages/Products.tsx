@@ -263,7 +263,7 @@ const Products = () => {
                 toggleValue(value, selectedColors, setSelectedColors)
               }
               renderOption={(option) => (
-                <span className="inline-flex items-center gap-2">
+                <span className="inline-flex min-w-0 items-center gap-2">
                   <span
                     className="h-3 w-3 rounded-full border border-black/10"
                     style={{ background: resolveSwatchBackground(option) }}
@@ -396,14 +396,14 @@ const FilterGroup = ({
         <ChevronDown className="h-4 w-4 text-foreground/60" />
       </summary>
 
-      <div className="px-4 pb-3 pt-2 max-h-56 overflow-auto space-y-2 border-t border-border/50">
+      <div className="max-h-56 space-y-2 overflow-x-hidden overflow-y-auto border-t border-border/50 px-4 pb-3 pt-2">
         {options.map((option) => {
           const id = `${title}-${option}`;
           return (
             <label
               key={id}
               htmlFor={id}
-              className="flex items-center gap-2.5 text-sm text-foreground/80 cursor-pointer"
+              className="flex w-full min-w-0 cursor-pointer items-center gap-2.5 text-sm text-foreground/80"
             >
               <Checkbox
                 id={id}

@@ -12,7 +12,7 @@ import {
   Expand,
   X,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { type TouchEvent, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 const heroImages = [
@@ -46,6 +46,38 @@ const categories = [
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHeroLightboxOpen, setIsHeroLightboxOpen] = useState(false);
+  const touchStartXRef = useRef<number | null>(null);
+  const touchStartYRef = useRef<number | null>(null);
+
+  const handleHeroTouchStart = (event: TouchEvent<HTMLButtonElement>) => {
+    const touch = event.touches[0];
+    touchStartXRef.current = touch.clientX;
+    touchStartYRef.current = touch.clientY;
+  };
+
+  const handleHeroTouchEnd = (event: TouchEvent<HTMLButtonElement>) => {
+    if (touchStartXRef.current === null || touchStartYRef.current === null) {
+      return;
+    }
+
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - touchStartXRef.current;
+    const deltaY = touch.clientY - touchStartYRef.current;
+    const minSwipeDistance = 45;
+
+    // Only trigger carousel navigation for clear horizontal gestures.
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) >= minSwipeDistance) {
+      if (deltaX > 0) {
+        goToPreviousImage();
+      } else {
+        goToNextImage();
+      }
+    }
+
+    touchStartXRef.current = null;
+    touchStartYRef.current = null;
+  };
+
   const goToPreviousImage = () => {
     setCurrentImageIndex(
       (prevIndex) => (prevIndex - 1 + heroImages.length) % heroImages.length,
@@ -96,6 +128,73 @@ const Home = () => {
               >
                 Ζητήστε Προσφορά
               </Button>
+            </div>
+          </div>
+
+          <div className="mt-8 lg:hidden">
+            <div className="overflow-hidden rounded-lg bg-muted">
+              <button
+                type="button"
+                onClick={() => setIsHeroLightboxOpen(true)}
+                onTouchStart={handleHeroTouchStart}
+                onTouchEnd={handleHeroTouchEnd}
+                className="group relative h-[240px] w-full cursor-zoom-in sm:h-[300px]"
+                aria-label="Μεγέθυνση εικόνας hero"
+              >
+                <img
+                  key={`mobile-hero-${currentImageIndex}`}
+                  src={heroImages[currentImageIndex]}
+                  alt="Viomes Factory & Products"
+                  className="h-full w-full object-cover"
+                  style={{
+                    animation: `fadeInScale 0.8s ease-in-out forwards`,
+                  }}
+                />
+                <span className="pointer-events-none absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white">
+                  <Expand className="h-3.5 w-3.5" />
+                  Zoom
+                </span>
+              </button>
+            </div>
+
+            <div className="mt-3 flex items-center justify-center gap-4">
+              <button
+                type="button"
+                onClick={goToPreviousImage}
+                className="inline-flex h-6 w-6 items-center justify-center text-foreground/45 transition hover:text-foreground/75"
+                aria-label="Προηγούμενη εικόνα"
+              >
+                <ChevronLeft className="h-3.5 w-3.5" />
+              </button>
+
+              <div className="flex items-center gap-3">
+                {heroImages.map((_, index) => {
+                  const isActive = index === currentImageIndex;
+                  return (
+                    <button
+                      key={`mobile-hero-selector-${index}`}
+                      type="button"
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`h-2.5 rounded-full transition-all ${
+                        isActive
+                          ? "w-2.5 bg-foreground/70"
+                          : "w-2.5 bg-foreground/30 hover:bg-foreground/50"
+                      }`}
+                      aria-label={`Εικόνα ${index + 1}`}
+                      aria-current={isActive ? "true" : "false"}
+                    />
+                  );
+                })}
+              </div>
+
+              <button
+                type="button"
+                onClick={goToNextImage}
+                className="inline-flex h-6 w-6 items-center justify-center text-foreground/45 transition hover:text-foreground/75"
+                aria-label="Επόμενη εικόνα"
+              >
+                <ChevronRight className="h-3.5 w-3.5" />
+              </button>
             </div>
           </div>
         </div>
@@ -171,12 +270,38 @@ const Home = () => {
       <section className="bg-background py-14 sm:py-16 lg:py-24" id="products">
         <div className="px-4 sm:px-6 lg:px-20">
           <div>
+            <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-6 md:hidden">
+              {categories.map((cat, i) => (
+                <Link
+                  key={`mobile-category-${i}`}
+                  to={cat.href}
+                  className="group block w-full text-foreground"
+                >
+                  <div className="relative h-[18rem] overflow-hidden rounded-lg shadow-sm">
+                    <img
+                      src={cat.image}
+                      alt={cat.title}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="px-1 pt-4">
+                    <span className="mb-1 block text-xs text-foreground/70">
+                      {cat.en}
+                    </span>
+                    <h4 className="mb-1 text-xl font-bold text-foreground font-heading">
+                      {cat.title}
+                    </h4>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
             <Carousel
               opts={{
                 align: "start",
                 loop: true,
               }}
-              className="mx-auto w-full max-w-7xl"
+              className="mx-auto hidden w-full max-w-7xl md:block"
             >
               <CarouselContent className="ml-0 sm:ml-2 lg:ml-5">
                 {categories.map((cat, i) => (
