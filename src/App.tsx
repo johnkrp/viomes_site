@@ -12,6 +12,8 @@ const CategoryHomeItems = lazy(() => import("./pages/CategoryHomeItems"));
 const CategoryPlanters = lazy(() => import("./pages/CategoryPlanters"));
 const CategoryProfessional = lazy(() => import("./pages/CategoryProfessional"));
 const About = lazy(() => import("./pages/About"));
+const Sustainability = lazy(() => import("./pages/Sustainability"));
+const Contact = lazy(() => import("./pages/Contact"));
 
 // Loading component
 const PageLoader = () => (
@@ -37,10 +39,11 @@ function App() {
             />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/about" element={<About />} />
+            <Route path="/sustainability" element={<Sustainability />} />
             <Route path="/quality" element={<About />} />
             <Route path="/industries" element={<Home />} />
             <Route path="/news" element={<Home />} />
-            <Route path="/contact" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </Suspense>
       </Layout>

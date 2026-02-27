@@ -18,7 +18,15 @@ import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
   { name: "Προϊόντα", en: "Products", href: "/products" },
-  { name: "Η Εταιρεία", en: "About", href: "/about" },
+  {
+    name: "Η Εταιρεία",
+    en: "About",
+    href: "/about",
+    children: [
+      { name: "Η Εταιρεία", href: "/about" },
+      { name: "Βιώσιμη Ανάπτυξη", href: "/sustainability" },
+    ],
+  },
   { name: "Επικοινωνία", en: "Contact", href: "/contact" },
 ];
 
@@ -454,6 +462,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [language, setLanguage] = useState<string>(
     () => localStorage.getItem("viomes_language") || "el",
   );
@@ -504,6 +513,11 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      if (isSettingsOpen) {
+        setIsHeaderVisible(true);
+        lastScrollY.current = currentScrollY;
+        return;
+      }
       const isNearTop = currentScrollY < 24;
       const isScrollingUp = currentScrollY < lastScrollY.current;
       const isScrollingDown = currentScrollY > lastScrollY.current;
@@ -526,13 +540,19 @@ const Navbar = () => {
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isSettingsOpen]);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
       setIsHeaderVisible(true);
     }
   }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (isSettingsOpen) {
+      setIsHeaderVisible(true);
+    }
+  }, [isSettingsOpen]);
 
   useEffect(() => {
     try {
@@ -703,7 +723,7 @@ const Navbar = () => {
       <div className="relative h-full bg-transparent px-4 py-3 sm:px-6 lg:container lg:mx-auto lg:grid lg:grid-cols-3 lg:items-center lg:py-4">
         <div className="hidden items-center gap-4 lg:flex lg:justify-start lg:pl-0 lg:-ml-6">
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/ANARTISISVIOMES"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground/70 hover:text-accent"
@@ -720,7 +740,7 @@ const Navbar = () => {
             </svg>
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/viomes.sa/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground/70 hover:text-accent"
@@ -743,7 +763,7 @@ const Navbar = () => {
             </svg>
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/viomes-sa/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground/70 hover:text-accent"
@@ -766,24 +786,61 @@ const Navbar = () => {
             <img src="/images/viomes-logo.png" alt="VIOMES Logo" className="h-12 w-auto md:h-14" />
           </Link>
           <nav className="mt-2 hidden items-center gap-5 lg:flex xl:gap-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className={cn(
-                  "text-base font-semibold transition-colors hover:text-accent xl:text-lg",
-                  location.pathname === link.href ? "text-accent" : "text-foreground/70",
-                )}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive =
+                location.pathname === link.href ||
+                (link.children?.some((child) => child.href === location.pathname) ?? false);
+
+              if (link.children?.length) {
+                return (
+                  <div key={link.name} className="group relative">
+                    <button
+                      type="button"
+                      className={cn(
+                        "inline-flex items-center text-base font-semibold transition-colors hover:text-accent xl:text-lg",
+                        isActive ? "text-accent" : "text-foreground/70",
+                      )}
+                    >
+                      {link.name}
+                    </button>
+
+                    <div className="invisible absolute left-0 top-full z-40 mt-2 min-w-[13rem] rounded-md border border-border/70 bg-card p-2 opacity-0 shadow-lg transition-all duration-150 group-hover:visible group-hover:opacity-100">
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          to={child.href}
+                          className={cn(
+                            "block rounded-sm px-3 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent",
+                            location.pathname === child.href ? "text-accent" : "text-foreground/75",
+                          )}
+                        >
+                          {child.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={cn(
+                    "text-base font-semibold transition-colors hover:text-accent xl:text-lg",
+                    isActive ? "text-accent" : "text-foreground/70",
+                  )}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </nav>
         </div>
 
         <div className="flex items-center gap-4 lg:justify-end lg:pr-6">
           <div className="hidden lg:flex items-center gap-1.5">
-            <DropdownMenu>
+            <DropdownMenu open={isSettingsOpen} onOpenChange={setIsSettingsOpen}>
               <DropdownMenuTrigger className={compactTriggerClassName}>
                 <span>Settings</span>
                 <ChevronDown className="ml-0.5 h-3.5 w-3.5" />
@@ -923,14 +980,32 @@ const Navbar = () => {
         <div className="absolute left-0 right-0 top-full z-40 max-h-[calc(100vh-4.75rem)] overflow-y-auto border-t border-border bg-card text-card-foreground animate-in fade-in slide-in-from-top-4 lg:hidden">
           <div className="container mx-auto flex flex-col gap-5 px-4 py-6">
             {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className="border-b border-border pb-4 text-xl font-semibold"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
+              <div key={link.name} className="border-b border-border pb-4">
+                <Link
+                  to={link.href}
+                  className="block text-xl font-semibold"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+                {link.children?.length ? (
+                  <div className="mt-2 flex flex-col gap-2 pl-3">
+                    {link.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        to={child.href}
+                        className={cn(
+                          "text-sm",
+                          location.pathname === child.href ? "text-accent" : "text-foreground/80",
+                        )}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {child.name}
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
             ))}
 
             <div className="rounded-lg border border-border bg-card p-3">

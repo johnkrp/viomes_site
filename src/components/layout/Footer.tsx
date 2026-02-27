@@ -32,19 +32,25 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="#"
+                href="https://www.facebook.com/ANARTISISVIOMES"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/viomes.sa/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/viomes-sa/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
               >
                 <Linkedin className="w-5 h-5" />
@@ -66,14 +72,6 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/industries"
-                  className="hover:text-accent transition-colors"
-                >
-                  Βιομηχανίες
-                </Link>
-              </li>
-              <li>
-                <Link
                   to="/about"
                   className="hover:text-accent transition-colors"
                 >
@@ -82,26 +80,10 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/quality"
+                  to="/sustainability"
                   className="hover:text-accent transition-colors"
                 >
-                  Ποιότητα & Πιστοποιήσεις
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/private-label"
-                  className="hover:text-accent transition-colors"
-                >
-                  Private Label
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/careers"
-                  className="hover:text-accent transition-colors"
-                >
-                  Καριέρα
+                  Βιώσιμη Ανάπτυξη
                 </Link>
               </li>
             </ul>
@@ -168,17 +150,35 @@ const Footer = () => {
               Developed by <span className="font-bold">VIOMES</span>
             </p>
           </div>
-          <div className="flex items-center gap-6">
-            <img
-              src="https://img.icons8.com/color/48/iso.png"
-              alt="ISO 9001"
-              className="h-8 opacity-50 grayscale hover:grayscale-0 transition-all cursor-pointer"
-            />
-            <img
-              src="https://img.icons8.com/color/48/quality.png"
-              alt="Quality"
-              className="h-8 opacity-50 grayscale hover:grayscale-0 transition-all cursor-pointer"
-            />
+          <div className="flex flex-col items-center gap-3 md:items-end">
+            <a
+              href="http://www.viomes.gr/images/espa/WE_VENTURE_ABROAD_GR.jpg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-muted-foreground hover:text-white transition-colors"
+            >
+              WE VENTURE ABROAD (ΕΣΠΑ)
+            </a>
+            <a
+              href="https://viomes.gr/images/espa/POIOTIKOS-WEB-VIOMES.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-muted-foreground hover:text-white transition-colors"
+            >
+              Ποιοτικός Εκσυγχρονισμός (PDF)
+            </a>
+            <div className="flex items-center gap-6">
+              <img
+                src="https://img.icons8.com/color/48/iso.png"
+                alt="ISO 9001"
+                className="h-8 opacity-50 grayscale hover:grayscale-0 transition-all cursor-pointer"
+              />
+              <img
+                src="https://img.icons8.com/color/48/quality.png"
+                alt="Quality"
+                className="h-8 opacity-50 grayscale hover:grayscale-0 transition-all cursor-pointer"
+              />
+            </div>
           </div>
         </div>
       </div>
