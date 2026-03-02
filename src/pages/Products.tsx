@@ -16,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import additionalImagesData from "@/data/additional-images.json";
 import catalogData from "@/data/products-grouped.json";
 import {
   resolveSiteCategories,
@@ -60,6 +61,13 @@ type GroupedProduct = {
 type SortMode = "relevant" | "title-asc" | "variants-desc" | "sizes-desc";
 
 const products = (catalogData as { products: GroupedProduct[] }).products;
+const additionalImagesByCode = additionalImagesData as Record<string, string[]>;
+const tileAtmospheres = [
+  "radial-gradient(circle at 18% 18%, hsl(var(--background) / 0.72) 0%, hsl(var(--background) / 0) 46%), linear-gradient(145deg, hsl(var(--muted) / 0.7) 0%, hsl(var(--secondary) / 0.52) 45%, hsl(var(--background) / 0.92) 100%)",
+  "radial-gradient(circle at 78% 20%, hsl(var(--accent) / 0.28) 0%, hsl(var(--accent) / 0) 52%), linear-gradient(150deg, hsl(var(--card) / 0.72) 0%, hsl(var(--muted) / 0.6) 44%, hsl(var(--background) / 0.94) 100%)",
+  "radial-gradient(circle at 24% 80%, hsl(var(--background) / 0.56) 0%, hsl(var(--background) / 0) 44%), linear-gradient(140deg, hsl(var(--secondary) / 0.55) 0%, hsl(var(--muted) / 0.64) 42%, hsl(var(--card) / 0.88) 100%)",
+  "radial-gradient(circle at 82% 74%, hsl(var(--accent) / 0.22) 0%, hsl(var(--accent) / 0) 50%), linear-gradient(138deg, hsl(var(--muted) / 0.58) 0%, hsl(var(--card) / 0.62) 40%, hsl(var(--background) / 0.9) 100%)",
+];
 
 const normalizeExcelColor = (value: string) => {
   const normalized = (value || "").trim();
@@ -85,6 +93,32 @@ const allCodes = (product: GroupedProduct) => {
     size.variants.forEach((variant) => set.add(variant.code));
   });
   return Array.from(set);
+};
+
+const isValidImageUrl = (url: string | undefined | null) =>
+  Boolean(url && url.trim() && !url.includes("viomes_.jpg"));
+
+const resolveHoverImage = (product: GroupedProduct) => {
+  const seen = new Set<string>();
+  const images: string[] = [];
+
+  product.sizes.forEach((size) => {
+    size.variants.forEach((variant) => {
+      const additional = additionalImagesByCode[variant.code] || [];
+      additional.filter(isValidImageUrl).forEach((url) => {
+        const normalized = url.trim();
+        if (!normalized || seen.has(normalized)) return;
+        seen.add(normalized);
+        images.push(normalized);
+      });
+    });
+  });
+
+  return (
+    images.find((url) => url !== product.representative_image) ||
+    images[1] ||
+    null
+  );
 };
 
 const normalizeGreek = (value: string) =>
@@ -113,6 +147,8 @@ const Products = () => {
       : [],
   );
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
+  const [isCategoriesOpen, setIsCategoriesOpen] = useState(true);
+  const [isColorsOpen, setIsColorsOpen] = useState(true);
 
   useEffect(() => {
     if (!categoryFromQuery) return;
@@ -224,18 +260,27 @@ const Products = () => {
       </section>
 
       <section className="container mx-auto mt-8 grid grid-cols-1 gap-6 px-4 sm:mt-10 sm:px-6 lg:grid-cols-[15rem_1fr] lg:gap-8 xl:grid-cols-[16rem_1fr] xl:gap-10">
-        <aside className="h-fit lg:sticky lg:top-28 lg:max-h-[calc(100vh-9rem)] lg:overflow-y-auto lg:pr-1">
-          <div className="bg-transparent rounded-xl p-0 sm:p-0 space-y-3">
-            <div className="rounded-sm border border-border/70 bg-background/20">
-              <div className="px-4 py-3 text-sm font-medium text-foreground border-b border-border/50">
-                Κατηγορίες
+        <aside className="h-fit lg:sticky lg:top-28 lg:max-h-[calc(100vh-9rem)] lg:overflow-y-auto lg:pr-1 lg:[scrollbar-width:none] lg:[-ms-overflow-style:none] lg:[&::-webkit-scrollbar]:hidden">
+          <div className="space-y-8">
+            <div>
+              <div className="flex items-center justify-between">
+                <h2 className="text-sm font-medium text-foreground">Κατηγορίες</h2>
+                <button
+                  type="button"
+                  onClick={() => setIsCategoriesOpen((prev) => !prev)}
+                  className="text-xl leading-none text-foreground/80 hover:text-foreground"
+                  aria-label={isCategoriesOpen ? "Απόκρυψη κατηγοριών" : "Εμφάνιση κατηγοριών"}
+                >
+                  {isCategoriesOpen ? "-" : "+"}
+                </button>
               </div>
-              <div className="px-4 py-3 space-y-2">
+              <div className="mt-4 border-t border-border/80" />
+              <div className={cn("mt-4 space-y-2", isCategoriesOpen ? "block" : "hidden")}>
                 {siteCategories.map((category) => (
                   <label
                     key={category}
                     htmlFor={`category-${category}`}
-                    className="flex items-center gap-2.5 text-sm text-foreground/80 cursor-pointer"
+                    className="flex items-center gap-2.5 text-sm text-foreground/85 cursor-pointer"
                   >
                     <Checkbox
                       id={`category-${category}`}
@@ -254,29 +299,21 @@ const Products = () => {
                 ))}
               </div>
             </div>
-
-            <FilterGroup
+            <ColorFilterGroup
               title="Χρώματα"
               options={colorOptions}
               selected={selectedColors}
+              open={isColorsOpen}
+              onToggleOpen={() => setIsColorsOpen((prev) => !prev)}
               onToggle={(value) =>
                 toggleValue(value, selectedColors, setSelectedColors)
               }
-              renderOption={(option) => (
-                <span className="inline-flex min-w-0 items-center gap-2">
-                  <span
-                    className="h-3 w-3 rounded-full border border-black/10"
-                    style={{ background: resolveSwatchBackground(option) }}
-                  />
-                  <span className="truncate">{option}</span>
-                </span>
-              )}
             />
 
             <div className="pt-1">
               <Button
                 variant="outline"
-                className="w-full rounded-sm border-border"
+                className="mt-4 w-full rounded-sm border-border bg-transparent"
                 onClick={clearFilters}
               >
                 Καθαρισμός φίλτρων
@@ -322,10 +359,13 @@ const Products = () => {
             οικογένειες προϊόντων
           </div>
 
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
             {filteredProducts.map((product, index) => {
               const colors = allColors(product);
               const cardKey = `${product.id}-${product.family_indicator || product.group_root || ""}-${product.title}-${index}`;
+              const tileAtmosphere =
+                tileAtmospheres[index % tileAtmospheres.length];
+              const hoverImage = resolveHoverImage(product);
 
               return (
                 <Link
@@ -333,24 +373,40 @@ const Products = () => {
                   to={`/products/${product.id}`}
                   className={cn("group block transition-all duration-300")}
                 >
-                  <div className="relative aspect-[5/4] overflow-hidden rounded-md border border-border bg-background/70 p-2 sm:p-3 lg:p-4">
+                  <div
+                    className="relative aspect-[4/3] overflow-hidden p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] sm:p-1.5 lg:p-2"
+                    style={{ backgroundImage: tileAtmosphere }}
+                  >
                     <img
                       src={product.representative_image}
                       alt={product.title}
-                      className="h-full w-full object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
+                      className={cn(
+                        "absolute inset-0 h-full w-full object-contain mix-blend-multiply transition duration-500",
+                        hoverImage
+                          ? "opacity-100 group-hover:scale-[1.03] group-hover:opacity-0"
+                          : "opacity-100 group-hover:scale-[1.03]",
+                      )}
                       loading="lazy"
                     />
+                    {hoverImage ? (
+                      <img
+                        src={hoverImage}
+                        alt={`${product.title} alternate view`}
+                        className="absolute inset-0 h-full w-full object-cover opacity-0 transition duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
+                        loading="lazy"
+                      />
+                    ) : null}
                   </div>
 
-                  <div className="px-1 pt-4">
-                    <h3 className="min-h-12 text-base font-medium leading-tight text-foreground sm:min-h-14 sm:text-xl">
+                  <div className="px-0.5 pt-3">
+                    <h3 className="min-h-12 text-base font-medium leading-tight text-foreground sm:min-h-14 sm:text-lg">
                       {product.title}
                     </h3>
-                    <p className="mt-1 text-[11px] text-foreground/60 sm:text-xs">
+                    <p className="mt-1 text-xs text-foreground/65 sm:text-sm">
                       {product.sizes_count} μεγέθη • {colors.length} χρώματα
                     </p>
 
-                    <div className="mt-4 flex items-center gap-1.5 min-h-5">
+                    <div className="mt-3 flex min-h-5 items-center gap-1.5">
                       {colors.slice(0, 10).map((color) => (
                         <span
                           key={`${product.id}-${color}`}
@@ -371,56 +427,79 @@ const Products = () => {
   );
 };
 
-type FilterGroupProps = {
+type ColorFilterGroupProps = {
   title: string;
   options: string[];
   selected: string[];
+  open: boolean;
+  onToggleOpen: () => void;
   onToggle: (value: string) => void;
-  renderOption?: (option: string) => React.ReactNode;
 };
 
-const FilterGroup = ({
+const ColorFilterGroup = ({
   title,
   options,
   selected,
+  open,
+  onToggleOpen,
   onToggle,
-  renderOption,
-}: FilterGroupProps) => {
+}: ColorFilterGroupProps) => {
   return (
-    <details
-      className="rounded-sm border border-border/70 bg-background/20"
-      open
-    >
-      <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 text-sm font-medium text-foreground">
-        {title}
-        <ChevronDown className="h-4 w-4 text-foreground/60" />
-      </summary>
-
-      <div className="max-h-56 space-y-2 overflow-x-hidden overflow-y-auto border-t border-border/50 px-4 pb-3 pt-2">
+    <div className="pt-4">
+      <div className="flex items-center justify-between">
+        <h3 className="text-sm font-medium text-foreground">{title}</h3>
+        <button
+          type="button"
+          onClick={onToggleOpen}
+          className="text-xl leading-none text-foreground/80 hover:text-foreground"
+          aria-label={open ? `Απόκρυψη ${title}` : `Εμφάνιση ${title}`}
+        >
+          {open ? "-" : "+"}
+        </button>
+      </div>
+      <div className="mt-4 border-t border-border/80" />
+      <div
+        className={cn(
+          "relative mt-4 max-h-56 overflow-y-auto pb-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
+          open ? "block" : "hidden",
+        )}
+      >
+        <div className="grid grid-cols-1 gap-2">
         {options.map((option) => {
           const id = `${title}-${option}`;
           return (
-            <label
+            <button
               key={id}
-              htmlFor={id}
-              className="flex w-full min-w-0 cursor-pointer items-center gap-2.5 text-sm text-foreground/80"
-            >
-              <Checkbox
-                id={id}
-                checked={selected.includes(option)}
-                onCheckedChange={() => onToggle(option)}
-                className="border-border data-[state=checked]:bg-accent data-[state=checked]:border-accent"
-              />
-              {renderOption ? (
-                renderOption(option)
-              ) : (
-                <span className="truncate">{option}</span>
+              type="button"
+              onClick={() => onToggle(option)}
+              className={cn(
+                "inline-flex items-center gap-2.5 rounded-sm text-left text-sm text-foreground/85 transition",
+                selected.includes(option)
+                  ? "text-foreground"
+                  : "text-foreground/75 hover:text-foreground",
               )}
-            </label>
+              title={option}
+              aria-label={option}
+            >
+              <span
+                className={cn(
+                  "h-5 w-5 rounded-full border transition",
+                  selected.includes(option)
+                    ? "border-foreground ring-2 ring-foreground/30"
+                    : "border-black/15 hover:border-foreground/45",
+                )}
+                style={{ background: resolveSwatchBackground(option) }}
+              />
+              <span className="truncate">{option}</span>
+            </button>
           );
         })}
+        </div>
+        <div className="pointer-events-none absolute bottom-1 right-1 rounded-full bg-background/90 p-1 text-foreground/45 shadow-sm">
+          <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
+        </div>
       </div>
-    </details>
+    </div>
   );
 };
 
