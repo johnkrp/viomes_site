@@ -168,14 +168,41 @@ npm run preview
 npm run lint
 
 # Individual checks
-npm run lint:js      # TypeScript/JavaScript linting
-npm run lint:css     # CSS linting
 npm run lint:types   # TypeScript type checking
+npm run typecheck    # TypeScript type checking
 ```
+
+## 🧪 Temporary Packshot Test Mode
+
+This project supports a reversible test mode for product packshots used in:
+
+- Product list cards (`Products` page)
+- Product main image (`ProductDetail` page)
+
+Test images are loaded from:
+
+- `public/images/packshot-test`
+
+Enable the override in `.env.local`:
+
+```bash
+VITE_USE_TEST_PACKSHOTS=true
+```
+
+Disable and return to catalog JSON URLs:
+
+```bash
+VITE_USE_TEST_PACKSHOTS=false
+```
+
+Notes:
+
+- The catalog data files are not modified.
+- This mode is intended for temporary visual testing only.
 
 ## 📦 Tech Stack
 
-- **React 18** - UI library
+- **React** - UI library
 - **TypeScript** - Type safety
 - **Vite 7** - Build tool
 - **Tailwind CSS** - Utility-first styling
@@ -218,3 +245,74 @@ npm run lint:types   # TypeScript type checking
 ---
 
 For questions or issues, refer to the Vite, React, or Tailwind CSS documentation.
+
+## AI Tooling Setup (21st.dev MCP + UI UX Pro Max)
+
+This project includes workspace setup for:
+
+- **21st.dev Magic MCP** (component generation in IDE)
+- **UI UX Pro Max skill** (design-system/UI guidance for Copilot workflow mode)
+
+### 1) 21st.dev MCP setup (VS Code workspace)
+
+Create [/.vscode/mcp.json](.vscode/mcp.json) in your local workspace if it does not exist.
+
+What you need:
+
+1. Get an API key from 21st.dev Magic Console.
+2. In VS Code, enable MCP and reload window.
+3. On first use, enter the key when prompted (`apiKey` input).
+
+Notes:
+
+- This runs locally through `npx`.
+- No server (Plesk) Node.js requirement for this tool.
+
+### 2) UI UX Pro Max setup (GitHub Copilot workflow mode)
+
+Run from project root:
+
+```bash
+npm run uipro:init:copilot
+```
+
+This installs/copied skill assets for Copilot usage.
+
+Update later with:
+
+```bash
+npm run uipro:update
+```
+
+Usage in Copilot chat:
+
+```text
+/ui-ux-pro-max Build a landing page for my SaaS product
+```
+
+### Prerequisites
+
+- Node.js (local machine)
+- Python 3.x (required by UI UX Pro Max search scripts)
+
+### Deployment note
+
+These tools are **development-time only**. They do not replace Vite production build.
+
+## Copilot Orchestra (project workflow)
+
+Starter Orchestra agent files are included at project root:
+
+- [Conductor.agent.md](Conductor.agent.md)
+- [planning-subagent.agent.md](planning-subagent.agent.md)
+- [implement-subagent.agent.md](implement-subagent.agent.md)
+- [code-review-subagent.agent.md](code-review-subagent.agent.md)
+
+Generated plan artifacts are stored in [plans/README.md](plans/README.md).
+
+Suggested use:
+
+1. Select **Conductor** mode in Copilot Chat.
+2. Request the task (feature/fix/refactor).
+3. Approve the generated plan.
+4. Execute phase-by-phase (implement → review → commit).

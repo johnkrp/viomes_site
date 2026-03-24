@@ -20,6 +20,31 @@ const heroImages = [
   "/images/V-517.JPG",
 ];
 
+const latestNews = [
+  {
+    title: "Νέα γραμμή παραγωγής με χαμηλότερο αποτύπωμα",
+    date: "2026-02-01",
+    category: "Παραγωγή",
+    excerpt:
+      "Εγκαταστήσαμε μια νέα γραμμή παραγωγής που μειώνει σημαντικά την κατανάλωση ενέργειας.",
+    image: "/images/AND_6099.JPG",
+  },
+  {
+    title: "Συνεργασία με διεθνή εταίρο",
+    date: "2026-01-15",
+    category: "Εξαγωγές",
+    excerpt: "Νέα συνεργασία για επέκταση σε ευρωπαϊκές αγορές με έμφαση στη βιωσιμότητα.",
+    image: "/images/DSC_3421.JPG",
+  },
+  {
+    title: "Οδηγός για την ανακύκλωση πλαστικών προϊόντων",
+    date: "2025-12-20",
+    category: "Βιωσιμότητα",
+    excerpt: "Πρακτικές συμβουλές για σωστή διαχείριση και ανακύκλωση προϊόντων στο σπίτι.",
+    image: "/images/circular-economy.jpg",
+  },
+];
+
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHeroLightboxOpen, setIsHeroLightboxOpen] = useState(false);
@@ -81,14 +106,14 @@ const Home = () => {
             <span className="mb-6 inline-block rounded-full bg-accent px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-accent-foreground animate-slide-up">
               Est. 1978 | EU Manufacturing
             </span>
-            <h1 className="mb-6 text-4xl font-black leading-[1.1] tracking-tight text-foreground animate-slide-up [animation-delay:100ms] sm:text-5xl lg:text-7xl">
+            <h1 className="mb-6 text-4xl font-black leading-[1.1] tracking-tight text-foreground animate-slide-up sm:text-5xl lg:text-7xl">
               Πλαστικά Προϊόντα Υψηλής Ποιότητας.
             </h1>
-            <p className="mb-8 max-w-lg text-base leading-relaxed text-foreground/70 animate-slide-up [animation-delay:200ms] sm:text-lg lg:mb-10">
+            <p className="mb-8 max-w-lg text-base leading-relaxed text-foreground/70 animate-slide-up sm:text-lg lg:mb-10">
               Κορυφαίες λύσεις για το σπίτι και τη βιομηχανία. Σχεδιάζουμε και
               παράγουμε στην Ελλάδα με σεβασμό στο περιβάλλον.
             </p>
-            <div className="flex flex-wrap gap-4 animate-slide-up [animation-delay:300ms]">
+            <div className="flex flex-wrap gap-4 animate-slide-up">
               <Link to="/products">
                 <Button
                   size="lg"
@@ -263,43 +288,29 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "Νέα γραμμή παραγωγής με χαμηλότερο αποτύπωμα",
-                date: "2026-02-01",
-                excerpt:
-                  "Εγκαταστήσαμε μια νέα γραμμή παραγωγής που μειώνει την κατανάλωση ενέργειας.",
-                image:
-                  "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=800",
-              },
-              {
-                title: "Συνεργασία με διεθνή εταίρο",
-                date: "2026-01-15",
-                excerpt: "Νέα συνεργασία για επέκταση σε ευρωπαϊκές αγορές.",
-                image:
-                  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800",
-              },
-              {
-                title: "Οδηγός για την ανακύκλωση πλαστικών προϊόντων",
-                date: "2025-12-20",
-                excerpt: "Συμβουλές για σωστή διαχείριση και ανακύκλωση προϊόντων στο σπίτι.",
-                image:
-                  "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&q=80&w=800",
-              },
-            ].map((post, i) => (
+            {latestNews.map((post) => (
               <article
-                key={i}
+                key={post.title}
                 className="group overflow-hidden rounded-xl border bg-background text-foreground transition-all hover:shadow-md"
               >
-                <img src={post.image} alt={post.title} className="h-48 w-full object-cover" />
+                <div className="overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  />
+                </div>
                 <div className="p-6">
-                  <p className="mb-2 text-xs text-muted-foreground">
-                    {new Date(post.date).toLocaleDateString()}
+                  <p className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    {new Date(post.date).toLocaleDateString("el-GR")} • {post.category}
                   </p>
                   <h3 className="mb-2 text-lg font-bold">{post.title}</h3>
                   <p className="mb-4 text-sm text-muted-foreground">{post.excerpt}</p>
-                  <Button variant="link" className="p-0 font-semibold text-accent">
-                    Διαβάστε περισσότερα →
+                  <Button variant="link" className="group/readmore p-0 font-semibold text-accent">
+                    <span className="inline-flex items-center">
+                      Διαβάστε περισσότερα
+                      <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover/readmore:translate-x-1" />
+                    </span>
                   </Button>
                 </div>
               </article>

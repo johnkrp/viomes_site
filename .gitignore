@@ -28,3 +28,9 @@ coverage/
 
 # Misc
 .turbo/
+tmp_*
+
+# Orchestra plan artifacts
+plans/*-plan.md
+plans/*-phase-*-complete.md
+plans/*-complete.md

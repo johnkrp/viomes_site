@@ -7,56 +7,17 @@
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
-import catalogData from "@/data/products-grouped.json";
+import { loadCatalogProducts } from "@/lib/catalogDataLoader";
+import type { GroupedProduct } from "@/lib/catalogTypes";
+import { resolveSwatchBackground } from "@/lib/colorSwatch";
 import {
   HOME_ITEMS_SUBCATEGORIES,
   resolveSiteCategories,
 } from "@/lib/productCategories";
-import { resolveSwatchBackground } from "@/lib/colorSwatch";
 import { cn } from "@/lib/utils";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-
-type Variant = {
-  code: string;
-  description: string;
-  color: string;
-  image_url: string;
-};
-
-type SizeGroup = {
-  size_label: string;
-  size_code: string;
-  variants: Variant[];
-  colors_count: number;
-};
-
-type GroupedProduct = {
-  id: string;
-  family_indicator?: string;
-  group_root?: string;
-  title: string;
-  representative_image: string;
-  sizes: SizeGroup[];
-  sizes_count: number;
-  variants_count: number;
-};
-
-const products = (catalogData as { products: GroupedProduct[] }).products;
-
-const homeProducts = products.filter((product) =>
-  resolveSiteCategories(product).includes("Είδη Σπιτιού"),
-);
-
-const previewProducts = homeProducts.slice(0, 6);
-const totalVariants = homeProducts.reduce(
-  (sum, product) => sum + product.variants_count,
-  0,
-);
-const totalSizes = homeProducts.reduce(
-  (sum, product) => sum + product.sizes_count,
-  0,
-);
 
 const getFamilyColors = (product: GroupedProduct) => {
   const unique = new Set<string>();
@@ -70,6 +31,56 @@ const getFamilyColors = (product: GroupedProduct) => {
 };
 
 const CategoryHomeItems = () => {
+  const [products, setProducts] = useState<GroupedProduct[]>([]);
+  const [isDataLoading, setIsDataLoading] = useState(true);
+  const [dataLoadError, setDataLoadError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadData = async () => {
+      try {
+        setIsDataLoading(true);
+        setDataLoadError(null);
+        const catalogProducts = await loadCatalogProducts();
+        if (!isMounted) return;
+        setProducts(catalogProducts);
+      } catch {
+        if (!isMounted) return;
+        setDataLoadError("Αδυναμία φόρτωσης καταλόγου προϊόντων.");
+        setProducts([]);
+      } finally {
+        if (isMounted) {
+          setIsDataLoading(false);
+        }
+      }
+    };
+
+    void loadData();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const homeProducts = useMemo(
+    () =>
+      products.filter((product) =>
+        resolveSiteCategories(product).includes("Είδη Σπιτιού"),
+      ),
+    [products],
+  );
+
+  const previewProducts = useMemo(() => homeProducts.slice(0, 6), [homeProducts]);
+  const totalVariants = useMemo(
+    () => homeProducts.reduce((sum, product) => sum + product.variants_count, 0),
+    [homeProducts],
+  );
+  const totalSizes = useMemo(
+    () => homeProducts.reduce((sum, product) => sum + product.sizes_count, 0),
+    [homeProducts],
+  );
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#d9d1c4] via-[#e8e2d7] to-[#f3efe7] pt-32 pb-16">
       <section className="relative overflow-hidden">
@@ -158,6 +169,13 @@ const CategoryHomeItems = () => {
       </section>
 
       <section className="container mx-auto px-6">
+        {isDataLoading ? (
+          <p className="mb-6 text-sm text-foreground/70">Φόρτωση προϊόντων...</p>
+        ) : null}
+        {dataLoadError ? (
+          <p className="mb-6 text-sm text-destructive">{dataLoadError}</p>
+        ) : null}
+
         <div className="mb-8 flex items-end justify-between gap-4">
           <h2 className="text-2xl font-black text-[#2f281f] md:text-4xl">
             Επιλεγμένες Οικογένειες

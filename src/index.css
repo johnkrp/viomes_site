@@ -6,49 +6,49 @@
 
 @layer base {
   :root {
-    /* Viomes Design System - Two-Color Palette */
-    --background: 33 17% 90%;
-    --foreground: 2 39% 22%;
-    --card: 33 17% 94%;
-    --card-foreground: 2 39% 22%;
-    --popover: 33 17% 94%;
-    --popover-foreground: 2 39% 22%;
+    /* Viomes Design System - Earth Tone Palette */
+    --background: 36 20% 95%;
+    --foreground: 138 25% 22%;
+    --card: 36 20% 97%;
+    --card-foreground: 138 25% 22%;
+    --popover: 36 20% 97%;
+    --popover-foreground: 138 25% 22%;
 
-    --primary: 2 39% 47%;
-    --primary-foreground: 33 17% 96%;
+    --primary: 138 25% 39%;
+    --primary-foreground: 36 20% 95%;
 
-    --secondary: 33 17% 84%;
-    --secondary-foreground: 2 39% 25%;
+    --secondary: 43 38% 79%;
+    --secondary-foreground: 138 20% 27%;
 
-    --muted: 33 17% 80%;
-    --muted-foreground: 2 20% 35%;
+    --muted: 125 5% 87%;
+    --muted-foreground: 125 5% 42%;
 
-    --accent: 2 39% 47%;
-    --accent-foreground: 33 17% 96%;
+    --accent: 138 25% 39%;
+    --accent-foreground: 36 20% 95%;
 
-    --destructive: 2 55% 40%;
-    --destructive-foreground: 33 17% 96%;
+    --destructive: 8 58% 42%;
+    --destructive-foreground: 36 20% 95%;
 
-    --border: 33 17% 74%;
-    --input: 33 17% 78%;
-    --ring: 2 39% 47%;
+    --border: 43 28% 74%;
+    --input: 43 28% 77%;
+    --ring: 138 25% 39%;
 
-    /* Charts - Two-Color Palette */
-    --chart-1: 2 39% 47%;
-    --chart-2: 33 17% 84%;
-    --chart-3: 2 39% 36%;
-    --chart-4: 33 17% 72%;
-    --chart-5: 2 39% 58%;
+    /* Charts - Earth Tone Palette */
+    --chart-1: 138 25% 39%;
+    --chart-2: 43 38% 79%;
+    --chart-3: 125 5% 52%;
+    --chart-4: 43 31% 66%;
+    --chart-5: 138 22% 47%;
 
-    /* Sidebar - Two-Color Palette */
-    --sidebar: 33 17% 86%;
-    --sidebar-foreground: 2 39% 25%;
-    --sidebar-primary: 2 39% 47%;
-    --sidebar-primary-foreground: 33 17% 96%;
-    --sidebar-accent: 33 17% 80%;
-    --sidebar-accent-foreground: 2 39% 25%;
-    --sidebar-border: 33 17% 72%;
-    --sidebar-ring: 2 39% 47%;
+    /* Sidebar - Earth Tone Palette */
+    --sidebar: 43 31% 83%;
+    --sidebar-foreground: 138 20% 27%;
+    --sidebar-primary: 138 25% 39%;
+    --sidebar-primary-foreground: 36 20% 95%;
+    --sidebar-accent: 125 5% 87%;
+    --sidebar-accent-foreground: 138 20% 27%;
+    --sidebar-border: 43 28% 74%;
+    --sidebar-ring: 138 25% 39%;
 
     /* Fonts */
     --font-sans: "Poppins", sans-serif;

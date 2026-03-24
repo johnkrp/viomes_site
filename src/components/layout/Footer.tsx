@@ -2,21 +2,48 @@
 import { Input } from "@/components/ui/input";
 import {
   ArrowRight,
+  Award,
   Facebook,
-  Hash,
   Instagram,
   Linkedin,
   Mail,
   MapPin,
   Phone,
+  ShieldCheck,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary text-secondary-foreground pt-20 pb-10">
+    <footer className="bg-secondary text-secondary-foreground pb-10 pt-20">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <section className="mb-14 rounded-2xl border border-border/60 bg-background/35 p-6 sm:p-8 lg:p-10">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary-foreground/70">
+                Newsletter
+              </p>
+              <h3 className="mt-2 font-heading text-2xl font-semibold tracking-tight sm:text-3xl">
+                Μείνετε ενημερωμένοι για νέες σειρές και δράσεις βιωσιμότητας
+              </h3>
+              <p className="mt-3 text-sm text-secondary-foreground/80 sm:text-base">
+                Εγγραφείτε για να λαμβάνετε πρώτοι νέα για προϊόντα, συνεργασίες και
+                καινοτομίες της VIOMES.
+              </p>
+            </div>
+            <div className="flex w-full max-w-md gap-2">
+              <Input
+                placeholder="Email address"
+                className="bg-background/60 text-foreground placeholder:text-muted-foreground focus-visible:ring-accent"
+              />
+              <Button size="icon" className="shrink-0 bg-accent hover:bg-accent/90">
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand Column */}
           <div className="flex flex-col gap-6">
             <Link to="/" className="flex items-center gap-2">
@@ -26,7 +53,7 @@ const Footer = () => {
                 className="h-10 w-auto"
               />
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+            <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
               Κορυφαίος κατασκευαστής πλαστικών προϊόντων στην Ελλάδα από το
               1978. Ποιότητα, καινοτομία και βιωσιμότητα σε κάθε μας προϊόν.
             </p>
@@ -35,55 +62,88 @@ const Footer = () => {
                 href="https://www.facebook.com/ANARTISISVIOMES"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-accent"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="https://www.instagram.com/viomes.sa/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-accent"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="https://www.linkedin.com/company/viomes-sa/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-accent"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="h-5 w-5" />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Products */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Σύνδεσμοι</h4>
+            <h4 className="mb-6 text-lg font-bold">Προϊόντα</h4>
             <ul className="flex flex-col gap-4 text-sm text-muted-foreground">
               <li>
                 <Link
                   to="/products"
                   className="hover:text-accent transition-colors"
                 >
-                  Προϊόντα
+                  Όλα τα Προϊόντα
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/about"
+                  to="/products/eidi-spitioy"
                   className="hover:text-accent transition-colors"
                 >
+                  Είδη Σπιτιού
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/products/glastres"
+                  className="hover:text-accent transition-colors"
+                >
+                  Γλάστρες
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/products/epaggelmatikos-eksoplismos"
+                  className="hover:text-accent transition-colors"
+                >
+                  Επαγγελματικός Εξοπλισμός
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h4 className="mb-6 text-lg font-bold">Πληροφορίες</h4>
+            <ul className="flex flex-col gap-4 text-sm text-muted-foreground">
+              <li>
+                <Link to="/about" className="transition-colors hover:text-accent">
                   Η Εταιρεία
                 </Link>
               </li>
               <li>
                 <Link
                   to="/sustainability"
-                  className="hover:text-accent transition-colors"
+                  className="transition-colors hover:text-accent"
                 >
                   Βιώσιμη Ανάπτυξη
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="transition-colors hover:text-accent">
+                  Επικοινωνία
                 </Link>
               </li>
             </ul>
@@ -91,51 +151,31 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-bold mb-6">Επικοινωνία</h4>
+            <h4 className="mb-6 text-lg font-bold">Επικοινωνία</h4>
             <ul className="flex flex-col gap-4 text-sm text-muted-foreground">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-accent shrink-0" />
+                <MapPin className="h-5 w-5 shrink-0 text-accent" />
                 <span>19ο Χλμ. Λ. Αθηνών - Μαρκοπούλου</span>
               </li>
               <li className="flex items-center gap-3">
-                <Hash className="w-5 h-5 text-accent shrink-0" />
+                <MapPin className="h-5 w-5 shrink-0 text-accent" />
                 <span>Τ.Κ.: 19002 - Παιανία</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-accent shrink-0" />
+                <Phone className="h-5 w-5 shrink-0 text-accent" />
                 <span>+30 210 6646231-2</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-accent shrink-0" />
+                <Mail className="h-5 w-5 shrink-0 text-accent" />
                 <span>info@viomes.gr</span>
               </li>
             </ul>
           </div>
-
-          {/* Newsletter */}
-          <div>
-            <h4 className="text-lg font-bold mb-6">Newsletter</h4>
-            <p className="text-sm text-muted-foreground mb-6">
-              Εγγραφείτε για να μαθαίνετε πρώτοι τα νέα και τα νέα μας προϊόντα.
-            </p>
-            <div className="flex gap-2">
-              <Input
-                placeholder="Email address"
-                className="bg-white/10 border-white/20 text-white placeholder:text-muted-foreground focus-visible:ring-accent"
-              />
-              <Button
-                size="icon"
-                className="bg-accent hover:bg-accent/90 shrink-0"
-              >
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-            </div>
-          </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-xs text-muted-foreground text-center md:text-left">
+        <div className="flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-10 md:flex-row">
+          <div className="text-center text-xs text-muted-foreground md:text-left">
             <p>
               © {new Date().getFullYear()} VIOMES S.A. All rights reserved. |{" "}
               <a href="#" className="hover:text-white transition-colors">
@@ -155,7 +195,7 @@ const Footer = () => {
               href="http://www.viomes.gr/images/espa/WE_VENTURE_ABROAD_GR.jpg"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-muted-foreground hover:text-white transition-colors"
+              className="text-xs text-muted-foreground transition-colors hover:text-white"
             >
               WE VENTURE ABROAD (ΕΣΠΑ)
             </a>
@@ -163,21 +203,19 @@ const Footer = () => {
               href="https://viomes.gr/images/espa/POIOTIKOS-WEB-VIOMES.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-muted-foreground hover:text-white transition-colors"
+              className="text-xs text-muted-foreground transition-colors hover:text-white"
             >
               Ποιοτικός Εκσυγχρονισμός (PDF)
             </a>
-            <div className="flex items-center gap-6">
-              <img
-                src="https://img.icons8.com/color/48/iso.png"
-                alt="ISO 9001"
-                className="h-8 opacity-50 grayscale hover:grayscale-0 transition-all cursor-pointer"
-              />
-              <img
-                src="https://img.icons8.com/color/48/quality.png"
-                alt="Quality"
-                className="h-8 opacity-50 grayscale hover:grayscale-0 transition-all cursor-pointer"
-              />
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center gap-1 rounded-full border border-border/60 bg-background/45 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-secondary-foreground/80">
+                <ShieldCheck className="h-3.5 w-3.5 text-accent" />
+                ISO 9001
+              </span>
+              <span className="inline-flex items-center gap-1 rounded-full border border-border/60 bg-background/45 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-secondary-foreground/80">
+                <Award className="h-3.5 w-3.5 text-accent" />
+                Quality
+              </span>
             </div>
           </div>
         </div>

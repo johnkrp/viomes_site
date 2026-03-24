@@ -1,9 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import type { LucideIcon } from "lucide-react";
 import { Hash, Mail, MapPin, Phone, Send } from "lucide-react";
 
-const contactInfo = [
+type ContactInfoItem = {
+  icon: LucideIcon;
+  title: string;
+  value: string;
+  href?: string;
+};
+
+const contactInfo: readonly ContactInfoItem[] = [
   {
     icon: MapPin,
     title: "Διεύθυνση",
@@ -30,7 +38,7 @@ const contactInfo = [
     value: "info@viomes.gr",
     href: "mailto:info@viomes.gr",
   },
-] as const;
+];
 
 const mapUrl =
   "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d100698.77347601067!2d23.813316354617445!3d37.93424591633793!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3097c94e0fe0d276!2sVIOMES%20SA!5e0!3m2!1sen!2sgr!4v1584552447301!5m2!1sen!2sgr";
@@ -44,8 +52,8 @@ const Contact = () => {
             Επικοινωνία
           </h1>
           <p className="mt-4 max-w-3xl text-sm leading-relaxed text-foreground/75 sm:text-base">
-            Είμαστε στη διάθεσή σας για πληροφορίες σχετικά με τα προϊόντα και τις συνεργασίες
-            της VIOMES.
+            Είμαστε στη διάθεσή σας για πληροφορίες σχετικά με τα προϊόντα και
+            τις συνεργασίες της VIOMES.
           </p>
         </div>
       </section>
@@ -53,7 +61,9 @@ const Contact = () => {
       <section className="container mx-auto mt-8 px-4 pb-20 sm:px-6">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
           <div>
-            <h2 className="text-xl font-bold text-foreground sm:text-2xl">Στοιχεία επικοινωνίας</h2>
+            <h2 className="text-xl font-bold text-foreground sm:text-2xl">
+              Στοιχεία επικοινωνίας
+            </h2>
             <div className="mt-5 space-y-4">
               {contactInfo.map((item) => (
                 <div key={item.title} className="flex items-start gap-3">
@@ -65,11 +75,16 @@ const Contact = () => {
                       {item.title}
                     </p>
                     {item.href ? (
-                      <a href={item.href} className="text-sm text-foreground hover:text-accent sm:text-base">
+                      <a
+                        href={item.href}
+                        className="text-sm text-foreground hover:text-accent sm:text-base"
+                      >
                         {item.value}
                       </a>
                     ) : (
-                      <p className="text-sm text-foreground sm:text-base">{item.value}</p>
+                      <p className="text-sm text-foreground sm:text-base">
+                        {item.value}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -90,7 +105,9 @@ const Contact = () => {
         </div>
 
         <div className="mt-10">
-          <h2 className="text-xl font-bold text-foreground sm:text-2xl">Φόρμα επικοινωνίας</h2>
+          <h2 className="text-xl font-bold text-foreground sm:text-2xl">
+            Φόρμα επικοινωνίας
+          </h2>
           <p className="mt-2 text-sm text-foreground/70">
             Συμπληρώστε τα στοιχεία σας και θα επικοινωνήσουμε μαζί σας.
           </p>
@@ -116,4 +133,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

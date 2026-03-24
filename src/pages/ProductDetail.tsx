@@ -7,54 +7,19 @@
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
-import additionalImagesData from "@/data/additional-images.json";
-import catalogData from "@/data/products-grouped.json";
+import { loadAdditionalImages, loadCatalogProducts } from "@/lib/catalogDataLoader";
+import type { GroupedProduct } from "@/lib/catalogTypes";
 import { resolveColorTitle, resolveSwatchBackground } from "@/lib/colorSwatch";
 import { resolvePrimaryCategory } from "@/lib/productCategories";
+import {
+  resolveTestPackshotByCode,
+  resolveTestPackshotFromImageUrl,
+} from "@/lib/testPackshotOverrides";
 import { cn } from "@/lib/utils";
 import { AlertCircle, ArrowLeft, Expand, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-type Variant = {
-  code: string;
-  description: string;
-  color: string;
-  image_url: string;
-  pack?: string;
-  excel_ar?: string;
-  stock?: number | null;
-};
-
-type SizeGroup = {
-  size_label: string;
-  size_code: string;
-  variants: Variant[];
-  colors_count: number;
-  specs?: {
-    liters?: string | null;
-    width?: string | null;
-    depth?: string | null;
-    box_height?: string | null;
-    diameter?: string | null;
-    height?: string | null;
-    has_specs?: boolean;
-  };
-};
-
-type GroupedProduct = {
-  id: string;
-  family_indicator?: string;
-  group_root?: string;
-  title: string;
-  representative_image: string;
-  sizes: SizeGroup[];
-  sizes_count: number;
-  variants_count: number;
-};
-
-const products = (catalogData as { products: GroupedProduct[] }).products;
-const additionalImagesByCode = additionalImagesData as Record<string, string[]>;
 const isValidImageUrl = (url: string | undefined | null) =>
   Boolean(url && url.trim() && !url.includes("viomes_.jpg"));
 
@@ -65,27 +30,54 @@ const parseSpecsFromText = (text: string) => {
     /(\d+(?:[.,]\d+)?)\s*x\s*(\d+(?:[.,]\d+)?)\s*x\s*(\d+(?:[.,]\d+)?)(?:\s*h)?/i,
   );
   const twoDimensionsMatch = !boxDimensionsMatch
-    ? normalized.match(/(\d+(?:[.,]\d+)?)\s*x\s*(\d+(?:[.,]\d+)?)(?:\s*(?:cm|χιλ|mm)\b|\b)/i)
+    ? normalized.match(
+        /(\d+(?:[.,]\d+)?)\s*x\s*(\d+(?:[.,]\d+)?)(?:\s*(?:cm|χιλ|mm)\b|\b)/i,
+      )
     : null;
   const dimensionsMatch =
-    normalized.match(/(?:^|[^a-z0-9])d\s*([0-9]+(?:[.,][0-9]+)?)\s*x\s*([0-9]+(?:[.,][0-9]+)?)\s*h?/i) ??
-    normalized.match(/ø\s*([0-9]+(?:[.,][0-9]+)?)\s*x\s*h?\s*([0-9]+(?:[.,][0-9]+)?)/i);
+    normalized.match(
+      /(?:^|[^a-z0-9])d\s*([0-9]+(?:[.,][0-9]+)?)\s*x\s*([0-9]+(?:[.,][0-9]+)?)\s*h?/i,
+    ) ??
+    normalized.match(
+      /ø\s*([0-9]+(?:[.,][0-9]+)?)\s*x\s*h?\s*([0-9]+(?:[.,][0-9]+)?)/i,
+    );
 
   const liters = litersMatch ? litersMatch[1].replace(",", ".") : null;
-  const explicitDiameter = dimensionsMatch ? dimensionsMatch[1].replace(",", ".") : null;
-  const explicitHeight = dimensionsMatch ? dimensionsMatch[2].replace(",", ".") : null;
+  const explicitDiameter = dimensionsMatch
+    ? dimensionsMatch[1].replace(",", ".")
+    : null;
+  const explicitHeight = dimensionsMatch
+    ? dimensionsMatch[2].replace(",", ".")
+    : null;
 
-  const boxWidth = boxDimensionsMatch ? boxDimensionsMatch[1].replace(",", ".") : null;
-  const boxDepth = boxDimensionsMatch ? boxDimensionsMatch[2].replace(",", ".") : null;
-  const boxHeight = boxDimensionsMatch ? boxDimensionsMatch[3].replace(",", ".") : null;
+  const boxWidth = boxDimensionsMatch
+    ? boxDimensionsMatch[1].replace(",", ".")
+    : null;
+  const boxDepth = boxDimensionsMatch
+    ? boxDimensionsMatch[2].replace(",", ".")
+    : null;
+  const boxHeight = boxDimensionsMatch
+    ? boxDimensionsMatch[3].replace(",", ".")
+    : null;
 
   // If diameter syntax exists, avoid falling back to width-height parsing.
-  const effectiveTwoDimensionsMatch = explicitDiameter ? null : twoDimensionsMatch;
-  const twoDimWidth = effectiveTwoDimensionsMatch ? effectiveTwoDimensionsMatch[1].replace(",", ".") : null;
-  const twoDimHeight = effectiveTwoDimensionsMatch ? effectiveTwoDimensionsMatch[2].replace(",", ".") : null;
+  const effectiveTwoDimensionsMatch = explicitDiameter
+    ? null
+    : twoDimensionsMatch;
+  const twoDimWidth = effectiveTwoDimensionsMatch
+    ? effectiveTwoDimensionsMatch[1].replace(",", ".")
+    : null;
+  const twoDimHeight = effectiveTwoDimensionsMatch
+    ? effectiveTwoDimensionsMatch[2].replace(",", ".")
+    : null;
 
   // Some records encode round products as 8x16x16h; normalize those to Ø8 x H16.
-  const looksLikeRoundDuplicate = !explicitDiameter && boxWidth && boxDepth && boxHeight && boxDepth === boxHeight;
+  const looksLikeRoundDuplicate =
+    !explicitDiameter &&
+    boxWidth &&
+    boxDepth &&
+    boxHeight &&
+    boxDepth === boxHeight;
 
   return {
     liters,
@@ -93,14 +85,19 @@ const parseSpecsFromText = (text: string) => {
     depth: looksLikeRoundDuplicate ? null : boxDepth,
     boxHeight: looksLikeRoundDuplicate ? null : boxHeight,
     diameter: explicitDiameter || (looksLikeRoundDuplicate ? boxWidth : null),
-    height: explicitHeight || (looksLikeRoundDuplicate ? boxDepth : twoDimHeight),
+    height:
+      explicitHeight || (looksLikeRoundDuplicate ? boxDepth : twoDimHeight),
   };
 };
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const product = useMemo(() => products.find((entry) => entry.id === id), [id]);
-
+  const [products, setProducts] = useState<GroupedProduct[]>([]);
+  const [additionalImagesByCode, setAdditionalImagesByCode] = useState<
+    Record<string, string[]>
+  >({});
+  const [isDataLoading, setIsDataLoading] = useState(true);
+  const [dataLoadError, setDataLoadError] = useState<string | null>(null);
   const [selectedSizeIndex, setSelectedSizeIndex] = useState(0);
   const [selectedColorIndex, setSelectedColorIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -110,68 +107,97 @@ const ProductDetail = () => {
     return localStorage.getItem("viomes_language") === "en" ? "en" : "el";
   });
 
-  useEffect(() => {
-    const handleLanguageChange = () => {
-      const next = localStorage.getItem("viomes_language") === "en" ? "en" : "el";
-      setLanguage(next);
-    };
+  // IMPORTANT: All hooks must be called in the same order every render
+  // This must happen BEFORE any conditional early returns
 
-    window.addEventListener("viomes-language-change", handleLanguageChange);
-    return () => window.removeEventListener("viomes-language-change", handleLanguageChange);
-  }, []);
+  const product = useMemo(() => {
+    if (!products.length) return undefined;
+    console.log("[ProductDetail] Looking for product ID:", id, "in", products.length, "products");
+    console.log("[ProductDetail] First product sample:", products[0]);
+    const found = products.find((entry) => entry.id === id);
+    console.log("[ProductDetail] Product found:", found ? "YES" : "NO", found?.title);
+    return found;
+  }, [id, products]);
 
-  if (!product) {
-    return (
-      <div className="min-h-screen bg-background pt-32 pb-20">
-        <div className="container mx-auto max-w-3xl px-6">
-          <div className="rounded-2xl border border-border bg-card p-8 text-center shadow-sm">
-            <AlertCircle className="mx-auto h-8 w-8 text-muted-foreground" />
-            <h1 className="mt-4 text-2xl font-semibold">Το προϊόν δεν βρέθηκε</h1>
-            <p className="mt-2 text-muted-foreground">
-              Η επιλεγμένη οικογένεια προϊόντων δεν υπάρχει στον κατάλογο.
-            </p>
-            <Link to="/products" className="mt-6 inline-block">
-              <Button>
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Επιστροφή στα προϊόντα
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const safeSizeIndex = Math.min(
+    Math.max(product?.sizes.length ? selectedSizeIndex : 0, 0),
+    Math.max(product?.sizes.length ? product.sizes.length - 1 : 0, 0),
+  );
 
-  const safeSizeIndex = Math.min(selectedSizeIndex, Math.max(product.sizes.length - 1, 0));
-  const selectedSize = product.sizes[safeSizeIndex];
+  const selectedSize = product?.sizes?.[safeSizeIndex];
+
   const sortedVariants = useMemo(() => {
     if (!selectedSize?.variants) return [];
-    const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
-    return [...selectedSize.variants].sort((a, b) => collator.compare(a.code || "", b.code || ""));
+    const collator = new Intl.Collator(undefined, {
+      numeric: true,
+      sensitivity: "base",
+    });
+    return [...selectedSize.variants].sort((a, b) =>
+      collator.compare(a.code || "", b.code || ""),
+    );
   }, [selectedSize]);
 
-  const safeColorIndex = Math.min(selectedColorIndex, Math.max((sortedVariants.length || 1) - 1, 0));
+  const safeColorIndex = Math.min(
+    selectedColorIndex,
+    Math.max((sortedVariants.length || 1) - 1, 0),
+  );
+
   const selectedVariant = sortedVariants[safeColorIndex] || sortedVariants[0];
-  const packshotImage = selectedVariant?.image_url || product.representative_image;
-  const primaryCategory = useMemo(() => resolvePrimaryCategory(product), [product]);
+
+  const packshotImage = useMemo(() => {
+    if (!product) return "";
+    return (
+      resolveTestPackshotByCode(selectedVariant?.code) ||
+      resolveTestPackshotFromImageUrl(selectedVariant?.image_url) ||
+      selectedVariant?.image_url ||
+      resolveTestPackshotFromImageUrl(product.representative_image) ||
+      product.representative_image ||
+      ""
+    );
+  }, [product, selectedVariant]);
+
+  const isTestPackshot = packshotImage.includes("/images/packshot-test/");
+
+  const primaryCategory = useMemo(
+    () => (product ? resolvePrimaryCategory(product) : ""),
+    [product],
+  );
 
   const additionalImages = useMemo(() => {
-    const selectedCodeImages = selectedVariant?.code ? additionalImagesByCode[selectedVariant.code] || [] : [];
+    if (!product) return [];
+    if (!product) return [];
+
+    const selectedCodeImages = selectedVariant?.code
+      ? additionalImagesByCode[selectedVariant.code] || []
+      : [];
     const validSelected = selectedCodeImages.filter(isValidImageUrl);
     if (validSelected.length > 0) return validSelected;
 
     const familyImages = new Set<string>();
+
     product.sizes.forEach((size) => {
       size.variants.forEach((variant) => {
-        (additionalImagesByCode[variant.code] || []).filter(isValidImageUrl).forEach((url) => familyImages.add(url));
+        (additionalImagesByCode[variant.code] || [])
+          .filter(isValidImageUrl)
+          .forEach((url) => familyImages.add(url));
+
+        if (variant.image_url && isValidImageUrl(variant.image_url)) {
+          familyImages.add(variant.image_url);
+        }
       });
     });
+
+    if (product.representative_image && isValidImageUrl(product.representative_image)) {
+      familyImages.add(product.representative_image);
+    }
+
     return Array.from(familyImages);
-  }, [product.sizes, selectedVariant?.code]);
+  }, [product, additionalImagesByCode, selectedVariant?.code]);
 
   const sizeSpecs = useMemo(
-    () =>
-      product.sizes.map((size) => {
+    () => {
+      if (!product) return [];
+      return product.sizes.map((size) => {
         if (size.specs?.has_specs) {
           return {
             specs: {
@@ -194,9 +220,115 @@ const ProductDetail = () => {
         return {
           specs: parseSpecsFromText(bestVariantForSpecs?.description || ""),
         };
-      }),
-    [product.sizes],
+      });
+    },
+    [product],
   );
+
+  // All effect hooks must also be called consistently
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      const next =
+        localStorage.getItem("viomes_language") === "en" ? "en" : "el";
+      setLanguage(next);
+    };
+
+    window.addEventListener("viomes-language-change", handleLanguageChange);
+    return () =>
+      window.removeEventListener(
+        "viomes-language-change",
+        handleLanguageChange,
+      );
+  }, []);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadData = async () => {
+      try {
+        console.log("[ProductDetail] Loading data for ID:", id);
+        setIsDataLoading(true);
+        setDataLoadError(null);
+
+        const [catalogProducts, additionalImages] = await Promise.all([
+          loadCatalogProducts(),
+          loadAdditionalImages(),
+        ]);
+
+        console.log("[ProductDetail] Data loaded. Products:", catalogProducts.length, "Additional images keys:", Object.keys(additionalImages).length);
+
+        if (!isMounted) return;
+
+        setProducts(catalogProducts);
+        setAdditionalImagesByCode(additionalImages);
+      } catch (error) {
+        console.error("[ProductDetail] Data loading failed:", error);
+        if (!isMounted) return;
+        setDataLoadError("Αδυναμία φόρτωσης καταλόγου προϊόντων.");
+        setProducts([]);
+        setAdditionalImagesByCode({});
+      } finally {
+        if (isMounted) {
+          setIsDataLoading(false);
+        }
+      }
+    };
+
+    void loadData();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  // NOW do conditional early returns for rendering
+  if (isDataLoading) {
+    return (
+      <div className="min-h-screen bg-background pt-32 pb-20">
+        <div className="container mx-auto max-w-3xl px-6">
+          <div className="rounded-2xl border border-border bg-card p-8 text-center shadow-sm text-muted-foreground">
+            Φόρτωση προϊόντος...
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (dataLoadError) {
+    return (
+      <div className="min-h-screen bg-background pt-32 pb-20">
+        <div className="container mx-auto max-w-3xl px-6">
+          <div className="rounded-2xl border border-border bg-card p-8 text-center shadow-sm text-destructive">
+            {dataLoadError}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!product) {
+    return (
+      <div className="min-h-screen bg-background pt-32 pb-20">
+        <div className="container mx-auto max-w-3xl px-6">
+          <div className="rounded-2xl border border-border bg-card p-8 text-center shadow-sm">
+            <AlertCircle className="mx-auto h-8 w-8 text-muted-foreground" />
+            <h1 className="mt-4 text-2xl font-semibold">
+              Το προϊόν δεν βρέθηκε
+            </h1>
+            <p className="mt-2 text-muted-foreground">
+              Η επιλεγμένη οικογένεια προϊόντων δεν υπάρχει στον κατάλογο.
+            </p>
+            <Link to="/products" className="mt-6 inline-block">
+              <Button>
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Επιστροφή στα προϊόντα
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const onSelectSize = (index: number) => {
     setSelectedSizeIndex(index);
@@ -224,7 +356,11 @@ const ProductDetail = () => {
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
-                    <Link to={`/products?category=${encodeURIComponent(primaryCategory)}`}>{primaryCategory}</Link>
+                    <Link
+                      to={`/products?category=${encodeURIComponent(primaryCategory)}`}
+                    >
+                      {primaryCategory}
+                    </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
@@ -247,7 +383,20 @@ const ProductDetail = () => {
                 <img
                   src={packshotImage}
                   alt={`${product.title} packshot`}
-                  className="mx-auto h-[260px] w-full object-contain mix-blend-multiply sm:h-[320px] md:h-[460px] lg:h-[520px]"
+                  style={
+                    isTestPackshot
+                      ? {
+                          WebkitMaskImage:
+                            "radial-gradient(ellipse at center, black 56%, transparent 88%)",
+                          maskImage:
+                            "radial-gradient(ellipse at center, black 56%, transparent 88%)",
+                        }
+                      : undefined
+                  }
+                  className={cn(
+                    "mx-auto h-[260px] w-full object-contain sm:h-[320px] md:h-[460px] lg:h-[520px]",
+                    isTestPackshot ? "mix-blend-darken" : "mix-blend-multiply",
+                  )}
                 />
                 <span className="pointer-events-none absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white opacity-0 transition group-hover:opacity-100">
                   <Expand className="h-3.5 w-3.5" />
@@ -266,39 +415,70 @@ const ProductDetail = () => {
 
             <div>
               <p className="max-w-[56ch] text-base leading-relaxed text-foreground/85 md:text-lg">
-                {selectedVariant?.excel_ar || selectedVariant?.description || "Δεν υπάρχει περιγραφή για την τρέχουσα παραλλαγή."}
+                {selectedVariant?.excel_ar ||
+                  selectedVariant?.description ||
+                  "Δεν υπάρχει περιγραφή για την τρέχουσα παραλλαγή."}
               </p>
             </div>
 
             <div>
-              <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/60">Selected code</p>
-              <p className="mt-2 font-mono text-base text-foreground">{selectedVariant?.code || "-"}</p>
+              <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/60">
+                Selected code
+              </p>
+              <p className="mt-2 font-mono text-base text-foreground">
+                {selectedVariant?.code || "-"}
+              </p>
             </div>
 
             <div>
-              <p className="mb-2 text-[11px] font-medium text-foreground/85">Select size</p>
+              <p className="mb-2 text-[11px] font-medium text-foreground/85">
+                Select size
+              </p>
               <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                 {product.sizes.map((size, index) => {
                   const active = index === safeSizeIndex;
                   const specs = sizeSpecs[index]?.specs;
                   const hasDiameter = Boolean(specs?.diameter);
-                  const hasBox3D = Boolean(specs?.width && specs?.depth && specs?.boxHeight);
-                  const hasWidthHeightOnly = Boolean(specs?.width && !specs?.depth && (specs?.height || specs?.boxHeight));
+                  const hasBox3D = Boolean(
+                    specs?.width && specs?.depth && specs?.boxHeight,
+                  );
+                  const hasWidthHeightOnly = Boolean(
+                    specs?.width &&
+                    !specs?.depth &&
+                    (specs?.height || specs?.boxHeight),
+                  );
                   const specsLabel = hasDiameter
-                    ? [specs?.liters ? `${specs.liters}L` : null, specs?.diameter ? `Ø${specs.diameter}cm` : null, specs?.height ? `H${specs.height}cm` : null]
+                    ? [
+                        specs?.liters ? `${specs.liters}L` : null,
+                        specs?.diameter ? `Ø${specs.diameter}cm` : null,
+                        specs?.height ? `H${specs.height}cm` : null,
+                      ]
                         .filter(Boolean)
                         .join(" · ")
                     : hasBox3D
-                    ? [specs?.liters ? `${specs.liters}L` : null, `W${specs.width}cm`, `D${specs.depth}cm`, `H${specs.boxHeight}cm`]
-                        .filter(Boolean)
-                        .join(" · ")
-                    : hasWidthHeightOnly
-                      ? [specs?.liters ? `${specs.liters}L` : null, `W${specs.width}cm`, `H${specs.height || specs.boxHeight}cm`]
+                      ? [
+                          specs?.liters ? `${specs.liters}L` : null,
+                          `W${specs.width}cm`,
+                          `D${specs.depth}cm`,
+                          `H${specs.boxHeight}cm`,
+                        ]
                           .filter(Boolean)
                           .join(" · ")
-                      : [specs?.liters ? `${specs.liters}L` : null, specs?.diameter ? `Ø${specs.diameter}cm` : null, specs?.height ? `H${specs.height}cm` : null]
-                          .filter(Boolean)
-                          .join(" · ");
+                      : hasWidthHeightOnly
+                        ? [
+                            specs?.liters ? `${specs.liters}L` : null,
+                            `W${specs.width}cm`,
+                            `H${specs.height || specs.boxHeight}cm`,
+                          ]
+                            .filter(Boolean)
+                            .join(" · ")
+                        : [
+                            specs?.liters ? `${specs.liters}L` : null,
+                            specs?.diameter ? `Ø${specs.diameter}cm` : null,
+                            specs?.height ? `H${specs.height}cm` : null,
+                          ]
+                            .filter(Boolean)
+                            .join(" · ");
                   return (
                     <button
                       key={`${size.size_code}-${index}`}
@@ -315,13 +495,22 @@ const ProductDetail = () => {
                         <p
                           className={cn(
                             "truncate text-[11px]",
-                            active ? "text-background/85" : "text-foreground/70",
+                            active
+                              ? "text-background/85"
+                              : "text-foreground/70",
                           )}
                         >
                           {specsLabel}
                         </p>
                       ) : (
-                        <p className={cn("text-[11px]", active ? "text-background/85" : "text-foreground/70")}>
+                        <p
+                          className={cn(
+                            "text-[11px]",
+                            active
+                              ? "text-background/85"
+                              : "text-foreground/70",
+                          )}
+                        >
                           Επιλογή μεγέθους
                         </p>
                       )}
@@ -332,36 +521,47 @@ const ProductDetail = () => {
             </div>
 
             <div>
-              <p className="mb-2 text-[11px] font-medium text-foreground/85">Select color</p>
+              <p className="mb-2 text-[11px] font-medium text-foreground/85">
+                Select color
+              </p>
               <div className="flex flex-wrap items-end gap-2 sm:gap-3">
                 {sortedVariants.map((variant, index) => {
                   const colorTitle = resolveColorTitle(variant.color, language);
                   return (
-                    <div key={`${variant.code}-${variant.color}`} className="flex max-w-16 flex-col items-center gap-0.5">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedColorIndex(index)}
-                      className="h-7 w-7 rounded-full transition hover:scale-105 sm:h-8 sm:w-8"
-                      style={{ background: resolveSwatchBackground(variant.color) }}
-                      title={`${colorTitle} (${variant.code})`}
-                      aria-label={`${colorTitle} (${variant.code})`}
-                    />
-                    <span
-                      aria-hidden="true"
-                      className={cn(
-                        "h-[1.5px] w-5 rounded-full bg-foreground/75 transition-opacity",
-                        safeColorIndex === index ? "opacity-100" : "opacity-0",
-                      )}
-                    />
-                    <span
-                      className={cn(
-                        "max-w-16 truncate text-center text-[10px] leading-tight",
-                        safeColorIndex === index ? "text-foreground/85" : "text-foreground/60",
-                      )}
-                      title={variant.color}
+                    <div
+                      key={`${variant.code}-${variant.color}`}
+                      className="flex max-w-16 flex-col items-center gap-0.5"
                     >
-                      {colorTitle}
-                    </span>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedColorIndex(index)}
+                        className="h-7 w-7 rounded-full transition hover:scale-105 sm:h-8 sm:w-8"
+                        style={{
+                          background: resolveSwatchBackground(variant.color),
+                        }}
+                        title={`${colorTitle} (${variant.code})`}
+                        aria-label={`${colorTitle} (${variant.code})`}
+                      />
+                      <span
+                        aria-hidden="true"
+                        className={cn(
+                          "h-[1.5px] w-5 rounded-full bg-foreground/75 transition-opacity",
+                          safeColorIndex === index
+                            ? "opacity-100"
+                            : "opacity-0",
+                        )}
+                      />
+                      <span
+                        className={cn(
+                          "max-w-16 truncate text-center text-[10px] leading-tight",
+                          safeColorIndex === index
+                            ? "text-foreground/85"
+                            : "text-foreground/60",
+                        )}
+                        title={variant.color}
+                      >
+                        {colorTitle}
+                      </span>
                     </div>
                   );
                 })}
@@ -375,10 +575,14 @@ const ProductDetail = () => {
             <div
               className={cn(
                 "mx-auto gap-3",
-                additionalImages.length === 1 && "grid max-w-md grid-cols-1 justify-items-center",
-                additionalImages.length === 2 && "grid max-w-3xl grid-cols-2 justify-items-center",
-                additionalImages.length === 3 && "grid max-w-5xl grid-cols-3 justify-items-center",
-                additionalImages.length >= 4 && "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4",
+                additionalImages.length === 1 &&
+                  "grid max-w-md grid-cols-1 justify-items-center",
+                additionalImages.length === 2 &&
+                  "grid max-w-3xl grid-cols-2 justify-items-center",
+                additionalImages.length === 3 &&
+                  "grid max-w-5xl grid-cols-3 justify-items-center",
+                additionalImages.length >= 4 &&
+                  "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4",
               )}
             >
               {additionalImages.map((image, index) => (

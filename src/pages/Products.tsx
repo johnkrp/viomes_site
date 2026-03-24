@@ -16,52 +16,30 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import additionalImagesData from "@/data/additional-images.json";
-import catalogData from "@/data/products-grouped.json";
+import {
+  loadAdditionalImages,
+  loadCatalogProducts,
+} from "@/lib/catalogDataLoader";
+import type { GroupedProduct } from "@/lib/catalogTypes";
+import {
+  matchesColorSelection,
+  resolveSwatchBackground,
+} from "@/lib/colorSwatch";
 import {
   resolveSiteCategories,
   siteCategories,
   type SiteCategory,
 } from "@/lib/productCategories";
 import {
-  matchesColorSelection,
-  resolveSwatchBackground,
-} from "@/lib/colorSwatch";
+  resolveTestPackshotByCode,
+  resolveTestPackshotFromImageUrl,
+} from "@/lib/testPackshotOverrides";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Search } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
-type Variant = {
-  code: string;
-  description: string;
-  color: string;
-  image_url: string;
-  stock?: number | null;
-};
-
-type SizeGroup = {
-  size_label: string;
-  size_code: string;
-  variants: Variant[];
-  colors_count: number;
-};
-
-type GroupedProduct = {
-  id: string;
-  family_indicator?: string;
-  group_root?: string;
-  title: string;
-  representative_image: string;
-  sizes: SizeGroup[];
-  sizes_count: number;
-  variants_count: number;
-};
-
 type SortMode = "relevant" | "title-asc" | "variants-desc" | "sizes-desc";
-
-const products = (catalogData as { products: GroupedProduct[] }).products;
-const additionalImagesByCode = additionalImagesData as Record<string, string[]>;
 const tileAtmospheres = [
   "radial-gradient(circle at 18% 18%, hsl(var(--background) / 0.72) 0%, hsl(var(--background) / 0) 46%), linear-gradient(145deg, hsl(var(--muted) / 0.7) 0%, hsl(var(--secondary) / 0.52) 45%, hsl(var(--background) / 0.92) 100%)",
   "radial-gradient(circle at 78% 20%, hsl(var(--accent) / 0.28) 0%, hsl(var(--accent) / 0) 52%), linear-gradient(150deg, hsl(var(--card) / 0.72) 0%, hsl(var(--muted) / 0.6) 44%, hsl(var(--background) / 0.94) 100%)",
@@ -98,7 +76,10 @@ const allCodes = (product: GroupedProduct) => {
 const isValidImageUrl = (url: string | undefined | null) =>
   Boolean(url && url.trim() && !url.includes("viomes_.jpg"));
 
-const resolveHoverImage = (product: GroupedProduct) => {
+const resolveHoverImage = (
+  product: GroupedProduct,
+  additionalImagesByCode: Record<string, string[]>,
+) => {
   const seen = new Set<string>();
   const images: string[] = [];
 
@@ -121,6 +102,22 @@ const resolveHoverImage = (product: GroupedProduct) => {
   );
 };
 
+const resolveProductCardImage = (product: GroupedProduct) => {
+  const fromRepresentative = resolveTestPackshotFromImageUrl(
+    product.representative_image,
+  );
+  if (fromRepresentative) return fromRepresentative;
+
+  for (const size of product.sizes) {
+    for (const variant of size.variants) {
+      const fromCode = resolveTestPackshotByCode(variant.code);
+      if (fromCode) return fromCode;
+    }
+  }
+
+  return product.representative_image;
+};
+
 const normalizeGreek = (value: string) =>
   value
     .toLowerCase()
@@ -139,6 +136,12 @@ const isSiteCategory = (value: string): value is SiteCategory =>
 const Products = () => {
   const [searchParams] = useSearchParams();
   const categoryFromQuery = searchParams.get("category");
+  const [products, setProducts] = useState<GroupedProduct[]>([]);
+  const [additionalImagesByCode, setAdditionalImagesByCode] = useState<
+    Record<string, string[]>
+  >({});
+  const [isDataLoading, setIsDataLoading] = useState(true);
+  const [dataLoadError, setDataLoadError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortMode, setSortMode] = useState<SortMode>("relevant");
   const [selectedCategories, setSelectedCategories] = useState<SiteCategory[]>(
@@ -156,6 +159,42 @@ const Products = () => {
     setSelectedCategories([categoryFromQuery]);
   }, [categoryFromQuery]);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadData = async () => {
+      try {
+        setIsDataLoading(true);
+        setDataLoadError(null);
+
+        const [catalogProducts, additionalImages] = await Promise.all([
+          loadCatalogProducts(),
+          loadAdditionalImages(),
+        ]);
+
+        if (!isMounted) return;
+
+        setProducts(catalogProducts);
+        setAdditionalImagesByCode(additionalImages);
+      } catch (error) {
+        if (!isMounted) return;
+        setDataLoadError("Αδυναμία φόρτωσης καταλόγου προϊόντων.");
+        setProducts([]);
+        setAdditionalImagesByCode({});
+      } finally {
+        if (isMounted) {
+          setIsDataLoading(false);
+        }
+      }
+    };
+
+    void loadData();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   const colorOptions = useMemo(
     () =>
       Array.from(
@@ -169,7 +208,7 @@ const Products = () => {
           ),
         ),
       ).sort(),
-    [],
+    [products],
   );
 
   const filteredProducts = useMemo(() => {
@@ -214,7 +253,7 @@ const Products = () => {
     }
 
     return filtered;
-  }, [searchTerm, selectedCategories, selectedColors, sortMode]);
+  }, [products, searchTerm, selectedCategories, selectedColors, sortMode]);
 
   const toggleValue = <T extends string>(
     value: T,
@@ -264,18 +303,29 @@ const Products = () => {
           <div className="space-y-8">
             <div>
               <div className="flex items-center justify-between">
-                <h2 className="text-sm font-medium text-foreground">Κατηγορίες</h2>
+                <h2 className="text-sm font-medium text-foreground">
+                  Κατηγορίες
+                </h2>
                 <button
                   type="button"
                   onClick={() => setIsCategoriesOpen((prev) => !prev)}
                   className="text-xl leading-none text-foreground/80 hover:text-foreground"
-                  aria-label={isCategoriesOpen ? "Απόκρυψη κατηγοριών" : "Εμφάνιση κατηγοριών"}
+                  aria-label={
+                    isCategoriesOpen
+                      ? "Απόκρυψη κατηγοριών"
+                      : "Εμφάνιση κατηγοριών"
+                  }
                 >
                   {isCategoriesOpen ? "-" : "+"}
                 </button>
               </div>
               <div className="mt-4 border-t border-border/80" />
-              <div className={cn("mt-4 space-y-2", isCategoriesOpen ? "block" : "hidden")}>
+              <div
+                className={cn(
+                  "mt-4 space-y-2",
+                  isCategoriesOpen ? "block" : "hidden",
+                )}
+              >
                 {siteCategories.map((category) => (
                   <label
                     key={category}
@@ -353,10 +403,18 @@ const Products = () => {
           </div>
 
           <div className="mb-5 text-sm text-foreground/70">
-            <span className="font-semibold text-foreground">
-              {filteredProducts.length}
-            </span>{" "}
-            οικογένειες προϊόντων
+            {isDataLoading ? (
+              <span>Φόρτωση προϊόντων...</span>
+            ) : dataLoadError ? (
+              <span className="text-destructive">{dataLoadError}</span>
+            ) : (
+              <>
+                <span className="font-semibold text-foreground">
+                  {filteredProducts.length}
+                </span>{" "}
+                οικογένειες προϊόντων
+              </>
+            )}
           </div>
 
           <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
@@ -365,7 +423,14 @@ const Products = () => {
               const cardKey = `${product.id}-${product.family_indicator || product.group_root || ""}-${product.title}-${index}`;
               const tileAtmosphere =
                 tileAtmospheres[index % tileAtmospheres.length];
-              const hoverImage = resolveHoverImage(product);
+              const hoverImage = resolveHoverImage(
+                product,
+                additionalImagesByCode,
+              );
+              const cardImage = resolveProductCardImage(product);
+              const isTestPackshot = cardImage.includes(
+                "/images/packshot-test/",
+              );
 
               return (
                 <Link
@@ -378,10 +443,23 @@ const Products = () => {
                     style={{ backgroundImage: tileAtmosphere }}
                   >
                     <img
-                      src={product.representative_image}
+                      src={cardImage}
                       alt={product.title}
+                      style={
+                        isTestPackshot
+                          ? {
+                              WebkitMaskImage:
+                                "radial-gradient(ellipse at center, black 54%, transparent 86%)",
+                              maskImage:
+                                "radial-gradient(ellipse at center, black 54%, transparent 86%)",
+                            }
+                          : undefined
+                      }
                       className={cn(
-                        "absolute inset-0 h-full w-full object-contain mix-blend-multiply transition duration-500",
+                        "absolute inset-0 h-full w-full object-contain transition duration-500",
+                        isTestPackshot
+                          ? "mix-blend-darken"
+                          : "mix-blend-multiply",
                         hoverImage
                           ? "opacity-100 group-hover:scale-[1.03] group-hover:opacity-0"
                           : "opacity-100 group-hover:scale-[1.03]",
@@ -465,35 +543,35 @@ const ColorFilterGroup = ({
         )}
       >
         <div className="grid grid-cols-1 gap-2">
-        {options.map((option) => {
-          const id = `${title}-${option}`;
-          return (
-            <button
-              key={id}
-              type="button"
-              onClick={() => onToggle(option)}
-              className={cn(
-                "inline-flex items-center gap-2.5 rounded-sm text-left text-sm text-foreground/85 transition",
-                selected.includes(option)
-                  ? "text-foreground"
-                  : "text-foreground/75 hover:text-foreground",
-              )}
-              title={option}
-              aria-label={option}
-            >
-              <span
+          {options.map((option) => {
+            const id = `${title}-${option}`;
+            return (
+              <button
+                key={id}
+                type="button"
+                onClick={() => onToggle(option)}
                 className={cn(
-                  "h-5 w-5 rounded-full border transition",
+                  "inline-flex items-center gap-2.5 rounded-sm text-left text-sm text-foreground/85 transition",
                   selected.includes(option)
-                    ? "border-foreground ring-2 ring-foreground/30"
-                    : "border-black/15 hover:border-foreground/45",
+                    ? "text-foreground"
+                    : "text-foreground/75 hover:text-foreground",
                 )}
-                style={{ background: resolveSwatchBackground(option) }}
-              />
-              <span className="truncate">{option}</span>
-            </button>
-          );
-        })}
+                title={option}
+                aria-label={option}
+              >
+                <span
+                  className={cn(
+                    "h-5 w-5 rounded-full border transition",
+                    selected.includes(option)
+                      ? "border-foreground ring-2 ring-foreground/30"
+                      : "border-black/15 hover:border-foreground/45",
+                  )}
+                  style={{ background: resolveSwatchBackground(option) }}
+                />
+                <span className="truncate">{option}</span>
+              </button>
+            );
+          })}
         </div>
         <div className="pointer-events-none absolute bottom-1 right-1 rounded-full bg-background/90 p-1 text-foreground/45 shadow-sm">
           <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />

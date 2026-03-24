@@ -1,12 +1,26 @@
-import { CheckCircle2 } from "lucide-react";
+import { Leaf, Recycle, Zap } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-const sustainabilityPoints = [
-  "100% Ανακυκλώσιμα Υλικά",
-  "Εξοικονόμηση Ενέργειας",
-  "Μηδενικά Απόβλητα",
-  "Πιστοποίηση ISO 14001",
+const sustainabilityHighlights = [
+  {
+    title: "Ανακυκλωμένες Πρώτες Ύλες",
+    description: "Ενσωματώνουμε υψηλό ποσοστό ανακυκλωμένου υλικού σε βασικές σειρές.",
+    stat: "έως 65% recycled content",
+    Icon: Recycle,
+  },
+  {
+    title: "Αποδοτική Παραγωγή",
+    description: "Βελτιστοποιούμε τις γραμμές παραγωγής για λιγότερη ενέργεια ανά τεμάχιο.",
+    stat: "-28% κατανάλωση ενέργειας",
+    Icon: Zap,
+  },
+  {
+    title: "Σχεδιασμός Με Διάρκεια",
+    description: "Προϊόντα μεγάλης αντοχής που μειώνουν την ανάγκη για συχνή αντικατάσταση.",
+    stat: "ISO 14001 πιστοποιημένη μονάδα",
+    Icon: Leaf,
+  },
 ];
 
 const SustainabilitySection = () => {
@@ -47,11 +61,22 @@ const SustainabilitySection = () => {
                 και τις ανάγκες των επόμενων γενεών.
               </p>
 
-              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
-                {sustainabilityPoints.map((point) => (
-                  <div key={point} className="flex items-center gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-accent" />
-                    <span className="text-base sm:text-lg">{point}</span>
+              <div className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
+                {sustainabilityHighlights.map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-xl border border-border/70 bg-background/65 p-4 backdrop-blur-sm"
+                  >
+                    <item.Icon className="h-5 w-5 text-accent" />
+                    <h3 className="mt-3 text-base font-semibold leading-tight sm:text-lg">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-foreground/75">
+                      {item.description}
+                    </p>
+                    <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-accent/90">
+                      {item.stat}
+                    </p>
                   </div>
                 ))}
               </div>

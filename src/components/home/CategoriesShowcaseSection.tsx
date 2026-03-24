@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
 import { productCategories } from "./homeData";
 
@@ -26,8 +27,8 @@ const CategoriesShowcaseSection = () => {
                 to={cat.href}
                 onMouseEnter={() => setCategoryPreviewIndex(i)}
                 onFocus={() => setCategoryPreviewIndex(i)}
-                className={`flex items-center justify-between px-6 py-10 text-2xl transition sm:px-10 sm:py-12 sm:text-3xl lg:px-14 lg:py-16 lg:text-4xl ${
-                  categoryPreviewIndex === i ? "bg-accent-foreground/10" : ""
+                className={`group flex items-center justify-between px-6 py-10 text-2xl transition-all duration-300 sm:px-10 sm:py-12 sm:text-3xl lg:px-14 lg:py-16 lg:text-4xl ${
+                  categoryPreviewIndex === i ? "bg-accent-foreground/10 shadow-[inset_0_0_0_1px_hsl(var(--accent-foreground)/0.22)]" : "hover:bg-accent-foreground/5"
                 }`}
               >
                 <span className="inline-flex items-center font-heading font-normal">
@@ -41,11 +42,14 @@ const CategoriesShowcaseSection = () => {
                   </span>
                   <span>{cat.title}</span>
                 </span>
-                <img
-                  src={cat.image}
-                  alt={cat.title}
-                  className="h-20 w-28 object-cover lg:hidden"
-                />
+                <span className="inline-flex items-center gap-2">
+                  <img
+                    src={cat.image}
+                    alt={cat.title}
+                    className="h-20 w-28 rounded-lg object-cover lg:hidden"
+                  />
+                  <ArrowUpRight className="hidden h-7 w-7 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 lg:block" />
+                </span>
               </Link>
             ))}
           </div>
@@ -55,7 +59,7 @@ const CategoriesShowcaseSection = () => {
               key={`category-preview-${categoryPreviewIndex}`}
               src={productCategories[categoryPreviewIndex].image}
               alt={productCategories[categoryPreviewIndex].title}
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
             />
           </div>
         </div>
