@@ -1,6 +1,6 @@
 {
   "source_file": "ΚΑΤΑΣΤΑΣΗ ΕΙΔΩΝ ΚΑΙ ΠΕΡΙΓΡΑΦΕΣ SITE.xlsx",
-  "products_count": 59,
+  "products_count": 61,
   "products": [
     {
       "id": "1090",
@@ -2409,8 +2409,8 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 14,
-            "height": 5,
+            "diameter": null,
+            "height": null,
             "has_specs": true
           }
         },
@@ -2438,10 +2438,10 @@
           "colors_count": 2,
           "specs": {
             "liters": "0.9",
-            "width": null,
+            "width": "17",
             "depth": null,
             "box_height": null,
-            "diameter": 17,
+            "diameter": null,
             "height": "6",
             "has_specs": true
           }
@@ -2473,8 +2473,8 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 20,
-            "height": 8,
+            "diameter": null,
+            "height": null,
             "has_specs": true
           }
         },
@@ -2505,6 +2505,298 @@
       ],
       "sizes_count": 4,
       "variants_count": 7
+    },
+    {
+      "id": "1270",
+      "family_indicator": "1020",
+      "group_root": "1270-V-GUSTO",
+      "title": "GUSTO Ποτήρι χυμού 300mL",
+      "category": "Είδη Σπιτιού",
+      "representative_image": "https://viomes.gr/images/packshot_photos/viomes_1020-50.jpg",
+      "sizes": [
+        {
+          "size_label": "1020",
+          "size_code": "1020",
+          "variants": [
+            {
+              "code": "1020-50",
+              "description": "GUSTO Ποτήρι χυμού 300mL-d8x9,5h cm-ΓΚΡΙ ΜΠΕΖ",
+              "color": "ΓΚΡΙ ΜΠΕΖ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1020-50.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1020-73",
+              "description": "GUSTO Ποτήρι χυμού 300mL-d8x9,5h cm-ΣΙΕΛ ΜΠΛΕ",
+              "color": "ΣΙΕΛ ΜΠΛΕ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1020-73.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1020-76",
+              "description": "GUSTO Ποτήρι χυμού 300mL-d8x9,5h cm-ΡΟΖ ΣΚΟΥΡΟ",
+              "color": "ΡΟΖ ΣΚΟΥΡΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1020-76.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            }
+          ],
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "8",
+            "height": "9.5",
+            "has_specs": true
+          }
+        },
+        {
+          "size_label": "1021",
+          "size_code": "1021",
+          "variants": [
+            {
+              "code": "1021-50",
+              "description": "GUSTO Ποτήρι νερού 450mL-d8,5x12,5h cm-ΓΚΡΙ ΜΠΕΖ",
+              "color": "ΓΚΡΙ ΜΠΕΖ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1021-50.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1021-73",
+              "description": "GUSTO Ποτήρι νερού 450mL-d8,5x12,5h cm-ΣΙΕΛ ΜΠΛΕ",
+              "color": "ΣΙΕΛ ΜΠΛΕ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1021-73.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1021-76",
+              "description": "GUSTO Ποτήρι νερού 450mL-d8,5x12,5h cm-ΡΟΖ ΣΚΟΥΡΟ",
+              "color": "ΡΟΖ ΣΚΟΥΡΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1021-76.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            }
+          ],
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "8.5",
+            "height": "12.5",
+            "has_specs": true
+          }
+        },
+        {
+          "size_label": "1030",
+          "size_code": "1030",
+          "variants": [
+            {
+              "code": "1030-50",
+              "description": "GUSTO Πιάτο γλυκού d17,5x2h cm-ΓΚΡΙ ΜΠΕΖ",
+              "color": "ΓΚΡΙ ΜΠΕΖ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1030-50.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1030-73",
+              "description": "GUSTO Πιάτο γλυκού d17,5x2h cm-ΣΙΕΛ ΜΠΛΕ",
+              "color": "ΣΙΕΛ ΜΠΛΕ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1030-73.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1030-76",
+              "description": "GUSTO Πιάτο γλυκού d17,5x2h cm-ΡΟΖ ΣΚΟΥΡΟ",
+              "color": "ΡΟΖ ΣΚΟΥΡΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1030-76.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            }
+          ],
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "17.5",
+            "height": "2",
+            "has_specs": true
+          }
+        },
+        {
+          "size_label": "1031",
+          "size_code": "1031",
+          "variants": [
+            {
+              "code": "1031-50",
+              "description": "GUSTO Πιάτο φαγητού d22,5x2h cm-ΓΚΡΙ ΜΠΕΖ",
+              "color": "ΓΚΡΙ ΜΠΕΖ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1031-50.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1031-73",
+              "description": "GUSTO Πιάτο φαγητού d22,5x2h cm-ΣΙΕΛ ΜΠΛΕ",
+              "color": "ΣΙΕΛ ΜΠΛΕ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1031-73.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1031-76",
+              "description": "GUSTO Πιάτο φαγητού d22,5x2h cm-ΡΟΖ ΣΚΟΥΡΟ",
+              "color": "ΡΟΖ ΣΚΟΥΡΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1031-76.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            }
+          ],
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "22.5",
+            "height": "2",
+            "has_specs": true
+          }
+        },
+        {
+          "size_label": "1032",
+          "size_code": "1032",
+          "variants": [
+            {
+              "code": "1032-50",
+              "description": "GUSTO Βαθύ πιάτο πρωινού d17,5x4h cm-ΓΚΡΙ ΜΠΕΖ",
+              "color": "ΓΚΡΙ ΜΠΕΖ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1032-50.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1032-73",
+              "description": "GUSTO Βαθύ πιάτο πρωινού d17,5x4h cm-ΣΙΕΛ ΜΠΛΕ",
+              "color": "ΣΙΕΛ ΜΠΛΕ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1032-73.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1032-76",
+              "description": "GUSTO Βαθύ πιάτο πρωινού d17,5x4h cm-ΡΟΖ ΣΚΟΥΡΟ",
+              "color": "ΡΟΖ ΣΚΟΥΡΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1032-76.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            }
+          ],
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "17.5",
+            "height": "4",
+            "has_specs": true
+          }
+        },
+        {
+          "size_label": "1040",
+          "size_code": "1040",
+          "variants": [
+            {
+              "code": "1040-50",
+              "description": "GUSTO Μπωλ παγωτού 550mL - d13x6h cm-ΓΚΡΙ ΜΠΕΖ",
+              "color": "ΓΚΡΙ ΜΠΕΖ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1040-50.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1040-73",
+              "description": "GUSTO Μπωλ παγωτού 550mL - d13x6h cm-ΣΙΕΛ ΜΠΛΕ",
+              "color": "ΣΙΕΛ ΜΠΛΕ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1040-73.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1040-76",
+              "description": "GUSTO Μπωλ παγωτού 550mL - d13x6h cm-ΡΟΖ ΣΚΟΥΡΟ",
+              "color": "ΡΟΖ ΣΚΟΥΡΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1040-76.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            }
+          ],
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "13",
+            "height": "6",
+            "has_specs": true
+          }
+        },
+        {
+          "size_label": "1041",
+          "size_code": "1041",
+          "variants": [
+            {
+              "code": "1041-50",
+              "description": "GUSTO Μπωλ σαλάτας 1600mL - d19x8h cm-ΓΚΡΙ ΜΠΕΖ",
+              "color": "ΓΚΡΙ ΜΠΕΖ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1041-50.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1041-73",
+              "description": "GUSTO Μπωλ σαλάτας 1600mL - d19x8h cm - ΣΙΕΛ ΜΠΛΕ",
+              "color": "ΣΙΕΛ ΜΠΛΕ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1041-73.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1041-76",
+              "description": "GUSTO Μπωλ σαλάτας 1600mL - d19x8h cm-ΡΟΖ ΣΚΟΥΡΟ",
+              "color": "DUSTY PINK",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1041-76.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            }
+          ],
+          "colors_count": 3,
+          "specs": {
+            "liters": null,
+            "width": null,
+            "depth": null,
+            "box_height": null,
+            "diameter": "19",
+            "height": "8",
+            "has_specs": true
+          }
+        }
+      ],
+      "sizes_count": 7,
+      "variants_count": 21
     },
     {
       "id": "1290",
@@ -6707,6 +6999,122 @@
       "variants_count": 22
     },
     {
+      "id": "1892",
+      "family_indicator": "125",
+      "group_root": "1892-ΚΑΔΟΙ.SLIMBIN",
+      "title": "SLIMBIN ΚΑΔΟΣ OPEN TOP 26lt",
+      "category": "Είδη Σπιτιού",
+      "representative_image": "https://viomes.gr/images/packshot_photos/viomes_125-50.jpg",
+      "sizes": [
+        {
+          "size_label": "125",
+          "size_code": "125",
+          "variants": [
+            {
+              "code": "125-50",
+              "description": "SLIMBIN ΚΑΔΟΣ OPEN TOP 26lt-31x24x58h cm-ΓΚΡΙ ΜΠΕΖ",
+              "color": "ΓΚΡΙ ΜΠΕΖ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_125-50.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "125-58",
+              "description": "SLIMBIN ΚΑΔΟΣ OPEN TOP 26lt-31x24x58h cm-ΓΚΡΙ ΤΙΤΑΝΙΟΥ",
+              "color": "ΓΚΡΙ ΤΙΤΑΝΙΟΥ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_125-58.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            }
+          ],
+          "colors_count": 2,
+          "specs": {
+            "liters": "26",
+            "width": "31",
+            "depth": "24",
+            "box_height": "58",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
+        },
+        {
+          "size_label": "309",
+          "size_code": "309",
+          "variants": [
+            {
+              "code": "309-50",
+              "description": "SLIMBIN ΚΑΔΟΣ SWING/LIFT 9lt-24x18x31h cm-ΓΚΡΙ ΜΠΕΖ",
+              "color": "ΓΚΡΙ ΜΠΕΖ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_309-50.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "309-58",
+              "description": "SLIMBIN ΚΑΔΟΣ SWING/LIFT 9lt-24x18x31h cm-ΓΚΡΙ ΤΙΤΑΝΙΟΥ",
+              "color": "ΓΚΡΙ ΤΙΤΑΝΙΟΥ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_309-58.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            }
+          ],
+          "colors_count": 2,
+          "specs": {
+            "liters": "9",
+            "width": "24",
+            "depth": "18",
+            "box_height": "31",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
+        },
+        {
+          "size_label": "325",
+          "size_code": "325",
+          "variants": [
+            {
+              "code": "325-50",
+              "description": "SLIMBIN ΚΑΔΟΣ SWING/LIFT 26lt-31x24x58h cm-ΓΚΡΙ ΜΠΕΖ",
+              "color": "ΓΚΡΙ ΜΠΕΖ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_325-50.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "325-58",
+              "description": "SLIMBIN ΚΑΔΟΣ SWING/LIFT 26lt-31x24x58h cm-ΓΚΡΙ ΤΙΤΑΝΙΟΥ",
+              "color": "ΓΚΡΙ ΤΙΤΑΝΙΟΥ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_325-58.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "325-99",
+              "description": "SLIMBIN ΚΑΔΟΣ SWING/LIFT 26lt-31x24x58h cm-ΔΙΑΦΟΡΑ ΧΡΩΜΑΤΑ",
+              "color": "ΜΠΛΕ,ΚΕΡΑΣΙ,ΜΑΝΓΚΟ,ΒΑΣΙΛΙΚΟΣ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_325-99.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            }
+          ],
+          "colors_count": 3,
+          "specs": {
+            "liters": "26",
+            "width": "31",
+            "depth": "24",
+            "box_height": "58",
+            "diameter": null,
+            "height": null,
+            "has_specs": true
+          }
+        }
+      ],
+      "sizes_count": 3,
+      "variants_count": 7
+    },
+    {
       "id": "1895",
       "family_indicator": "320",
       "group_root": "1895",
@@ -9113,9 +9521,9 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 15,
+            "diameter": null,
             "height": null,
-            "has_specs": true
+            "has_specs": false
           }
         },
         {
@@ -9185,9 +9593,9 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 17,
+            "diameter": null,
             "height": null,
-            "has_specs": true
+            "has_specs": false
           }
         },
         {
@@ -9257,9 +9665,9 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 18,
+            "diameter": null,
             "height": null,
-            "has_specs": true
+            "has_specs": false
           }
         },
         {
@@ -9329,9 +9737,9 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 21,
+            "diameter": null,
             "height": null,
-            "has_specs": true
+            "has_specs": false
           }
         },
         {
@@ -9401,9 +9809,9 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 23,
+            "diameter": null,
             "height": null,
-            "has_specs": true
+            "has_specs": false
           }
         },
         {
@@ -9473,9 +9881,9 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 25,
+            "diameter": null,
             "height": null,
-            "has_specs": true
+            "has_specs": false
           }
         },
         {
@@ -9545,9 +9953,9 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 28,
+            "diameter": null,
             "height": null,
-            "has_specs": true
+            "has_specs": false
           }
         },
         {
@@ -9617,9 +10025,9 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 31,
+            "diameter": null,
             "height": null,
-            "has_specs": true
+            "has_specs": false
           }
         },
         {
@@ -9689,9 +10097,9 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 36,
+            "diameter": null,
             "height": null,
-            "has_specs": true
+            "has_specs": false
           }
         },
         {
@@ -9761,9 +10169,9 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 40,
+            "diameter": null,
             "height": null,
-            "has_specs": true
+            "has_specs": false
           }
         }
       ],
@@ -9805,9 +10213,9 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 26,
+            "diameter": null,
             "height": null,
-            "has_specs": true
+            "has_specs": false
           }
         },
         {
@@ -9837,9 +10245,9 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 31,
+            "diameter": null,
             "height": null,
-            "has_specs": true
+            "has_specs": false
           }
         },
         {
@@ -9869,9 +10277,9 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 35.5,
+            "diameter": null,
             "height": null,
-            "has_specs": true
+            "has_specs": false
           }
         },
         {
@@ -9901,9 +10309,9 @@
             "width": null,
             "depth": null,
             "box_height": null,
-            "diameter": 42,
+            "diameter": null,
             "height": null,
-            "has_specs": true
+            "has_specs": false
           }
         }
       ],
