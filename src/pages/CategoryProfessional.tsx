@@ -76,11 +76,18 @@ const CategoryProfessional = () => {
   );
   const totalVariants = useMemo(
     () =>
-      professionalProducts.reduce((sum, product) => sum + product.variants_count, 0),
+      professionalProducts.reduce(
+        (sum, product) => sum + product.variants_count,
+        0,
+      ),
     [professionalProducts],
   );
   const totalSizes = useMemo(
-    () => professionalProducts.reduce((sum, product) => sum + product.sizes_count, 0),
+    () =>
+      professionalProducts.reduce(
+        (sum, product) => sum + product.sizes_count,
+        0,
+      ),
     [professionalProducts],
   );
 
@@ -88,9 +95,11 @@ const CategoryProfessional = () => {
     <div className="min-h-screen bg-gradient-to-b from-[#d7dbde] via-[#e7eaed] to-[#f4f6f7] pt-32 pb-16">
       <section className="relative overflow-hidden">
         <img
-          src="/images/ΚΑΔΟΙ.JPG"
+          src="https://viomes.gr/images/hero/ΚΑΔΟΙ.JPG"
           alt="Επαγγελματικός Εξοπλισμός"
           className="absolute inset-0 h-full w-full object-cover"
+          loading="eager"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#1b2229]/80 via-[#1b2229]/50 to-[#1b2229]/10" />
         <div className="relative container mx-auto px-6 py-14 md:py-20">
@@ -161,9 +170,11 @@ const CategoryProfessional = () => {
       <section className="container mx-auto px-6 pb-14">
         <div className="grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
           <img
-            src="/images/AND_6099.JPG"
+            src="https://viomes.gr/images/hero/AND_6099.JPG"
             alt="Επαγγελματικές εφαρμογές"
             className="h-64 w-full object-cover md:h-[23rem]"
+            loading="lazy"
+            decoding="async"
           />
           <div className="flex h-64 flex-col justify-end bg-[#c9d0d6] px-6 py-6 md:h-[23rem] md:px-8">
             <p className="text-sm leading-relaxed text-[#273038] md:text-base">
@@ -176,7 +187,9 @@ const CategoryProfessional = () => {
 
       <section className="container mx-auto px-6">
         {isDataLoading ? (
-          <p className="mb-6 text-sm text-foreground/70">Φόρτωση προϊόντων...</p>
+          <p className="mb-6 text-sm text-foreground/70">
+            Φόρτωση προϊόντων...
+          </p>
         ) : null}
         {dataLoadError ? (
           <p className="mb-6 text-sm text-destructive">{dataLoadError}</p>
@@ -214,6 +227,7 @@ const CategoryProfessional = () => {
                     alt={product.title}
                     className="h-full w-full object-contain mix-blend-multiply transition duration-500 group-hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
 

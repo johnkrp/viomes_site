@@ -29,6 +29,18 @@ coverage/
 # Misc
 .turbo/
 tmp_*
+.playwright-mcp/
+__pycache__/
+*.pyc
+
+# Local handoff and generated preview artifacts
+*.agent.md
+ACTIVATION-SUMMARY.md
+CHAT_HANDOFF_*.md
+design-variations.html
+design-variations.png
+homepage-current.png
+workspaceState.state.json
 
 # Orchestra plan artifacts
 plans/*-plan.md

@@ -8,7 +8,19 @@ import type {
 } from "./types";
 
 export const navLinks: readonly NavLink[] = [
-  { name: "Προϊόντα", en: "Products", href: "/products" },
+  {
+    name: "Προϊόντα",
+    en: "Products",
+    href: "/products",
+    children: [
+      { name: "Είδη Σπιτιού", href: "/products/eidi-spitioy" },
+      { name: "Γλάστρες", href: "/products/glastres" },
+      {
+        name: "Επαγγελματικός Εξοπλισμός",
+        href: "/products/epaggelmatikos-eksoplismos",
+      },
+    ],
+  },
   {
     name: "Η Εταιρεία",
     en: "About",

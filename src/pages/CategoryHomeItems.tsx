@@ -71,9 +71,13 @@ const CategoryHomeItems = () => {
     [products],
   );
 
-  const previewProducts = useMemo(() => homeProducts.slice(0, 6), [homeProducts]);
+  const previewProducts = useMemo(
+    () => homeProducts.slice(0, 6),
+    [homeProducts],
+  );
   const totalVariants = useMemo(
-    () => homeProducts.reduce((sum, product) => sum + product.variants_count, 0),
+    () =>
+      homeProducts.reduce((sum, product) => sum + product.variants_count, 0),
     [homeProducts],
   );
   const totalSizes = useMemo(
@@ -85,9 +89,11 @@ const CategoryHomeItems = () => {
     <div className="min-h-screen bg-gradient-to-b from-[#d9d1c4] via-[#e8e2d7] to-[#f3efe7] pt-32 pb-16">
       <section className="relative overflow-hidden">
         <img
-          src="/images/ΕΙΔΗ ΣΠΙΤΙΟΥ.JPG"
+          src="https://viomes.gr/images/hero/ΕΙΔΗ ΣΠΙΤΙΟΥ.JPG"
           alt="Είδη Σπιτιού"
           className="absolute inset-0 h-full w-full object-cover"
+          loading="eager"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#221c16]/75 via-[#221c16]/45 to-[#221c16]/10" />
         <div className="relative container mx-auto px-6 py-14 md:py-20">
@@ -155,9 +161,11 @@ const CategoryHomeItems = () => {
       <section className="container mx-auto px-6 pb-14">
         <div className="grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
           <img
-            src="/images/AND_6099.JPG"
+            src="https://viomes.gr/images/hero/AND_6099.JPG"
             alt="Οικιακά προϊόντα"
             className="h-64 w-full object-cover md:h-[23rem]"
+            loading="lazy"
+            decoding="async"
           />
           <div className="flex h-64 flex-col justify-end bg-[#cec5b7] px-6 py-6 md:h-[23rem] md:px-8">
             <p className="text-sm leading-relaxed text-[#332c22] md:text-base">
@@ -170,7 +178,9 @@ const CategoryHomeItems = () => {
 
       <section className="container mx-auto px-6">
         {isDataLoading ? (
-          <p className="mb-6 text-sm text-foreground/70">Φόρτωση προϊόντων...</p>
+          <p className="mb-6 text-sm text-foreground/70">
+            Φόρτωση προϊόντων...
+          </p>
         ) : null}
         {dataLoadError ? (
           <p className="mb-6 text-sm text-destructive">{dataLoadError}</p>
@@ -208,6 +218,7 @@ const CategoryHomeItems = () => {
                     alt={product.title}
                     className="h-full w-full object-contain mix-blend-multiply transition duration-500 group-hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
 

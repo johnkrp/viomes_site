@@ -70,13 +70,21 @@ const CategoryPlanters = () => {
       ),
     [products],
   );
-  const previewProducts = useMemo(() => plantersProducts.slice(0, 6), [plantersProducts]);
+  const previewProducts = useMemo(
+    () => plantersProducts.slice(0, 6),
+    [plantersProducts],
+  );
   const totalVariants = useMemo(
-    () => plantersProducts.reduce((sum, product) => sum + product.variants_count, 0),
+    () =>
+      plantersProducts.reduce(
+        (sum, product) => sum + product.variants_count,
+        0,
+      ),
     [plantersProducts],
   );
   const totalSizes = useMemo(
-    () => plantersProducts.reduce((sum, product) => sum + product.sizes_count, 0),
+    () =>
+      plantersProducts.reduce((sum, product) => sum + product.sizes_count, 0),
     [plantersProducts],
   );
 
@@ -84,9 +92,11 @@ const CategoryPlanters = () => {
     <div className="min-h-screen bg-gradient-to-b from-[#d5ddd2] via-[#e6ece3] to-[#f1f5ef] pt-32 pb-16">
       <section className="relative overflow-hidden">
         <img
-          src="/images/ΓΛΑΣΤΡΕΣ.JPG"
+          src="https://viomes.gr/images/hero/ΓΛΑΣΤΡΕΣ.JPG"
           alt="Γλάστρες"
           className="absolute inset-0 h-full w-full object-cover"
+          loading="eager"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#1d2b1f]/75 via-[#1d2b1f]/45 to-[#1d2b1f]/10" />
         <div className="relative container mx-auto px-6 py-14 md:py-20">
@@ -158,9 +168,11 @@ const CategoryPlanters = () => {
       <section className="container mx-auto px-6 pb-14">
         <div className="grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
           <img
-            src="/images/AND_6053.JPG"
+            src="https://viomes.gr/images/hero/AND_6053.JPG"
             alt="Σειρές γλαστρών"
             className="h-64 w-full object-cover md:h-[23rem]"
+            loading="lazy"
+            decoding="async"
           />
           <div className="flex h-64 flex-col justify-end bg-[#ccd5c8] px-6 py-6 md:h-[23rem] md:px-8">
             <p className="text-sm leading-relaxed text-[#273029] md:text-base">
@@ -173,7 +185,9 @@ const CategoryPlanters = () => {
 
       <section className="container mx-auto px-6">
         {isDataLoading ? (
-          <p className="mb-6 text-sm text-foreground/70">Φόρτωση προϊόντων...</p>
+          <p className="mb-6 text-sm text-foreground/70">
+            Φόρτωση προϊόντων...
+          </p>
         ) : null}
         {dataLoadError ? (
           <p className="mb-6 text-sm text-destructive">{dataLoadError}</p>
@@ -211,6 +225,7 @@ const CategoryPlanters = () => {
                     alt={product.title}
                     className="h-full w-full object-contain mix-blend-multiply transition duration-500 group-hover:scale-105"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
 

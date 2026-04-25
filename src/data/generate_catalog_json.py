@@ -339,7 +339,15 @@ def build_additional_images(rows: list[dict[str, Any]]) -> dict[str, list[str]]:
     mapping: dict[str, list[str]] = {}
     for row in rows:
         code = row["variant"]["code"]
-        images = row["additional_images"]
+        packshot = clean(row["variant"].get("image_url"))
+        images = [
+            image
+            for image in row["additional_images"]
+            if clean(image)
+            and clean(image) != packshot
+            and "/packshot_photos/" not in clean(image).lower()
+            and "/packshot-test/" not in clean(image).lower()
+        ]
         if not images:
             continue
         deduped = list(dict.fromkeys(images))

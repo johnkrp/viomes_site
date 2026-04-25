@@ -449,6 +449,8 @@ const Navbar = () => {
             size="icon"
             className="absolute right-3 top-3 sm:right-4 lg:hidden"
             onClick={() => setIsMobileMenuOpen((prevState) => !prevState)}
+            aria-label={isMobileMenuOpen ? "Κλείσιμο μενού" : "Άνοιγμα μενού"}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6" />

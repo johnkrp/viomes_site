@@ -1,5 +1,6 @@
 import { navLinks } from "@/components/layout/navbar/constants";
 import { cn } from "@/lib/utils";
+import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
 type DesktopNavProps = {
@@ -17,15 +18,16 @@ const DesktopNav = ({ pathname }: DesktopNavProps) => {
         if (link.children?.length) {
           return (
             <div key={link.name} className="group relative">
-              <button
-                type="button"
+              <Link
+                to={link.href}
                 className={cn(
                   "inline-flex items-center text-base font-semibold transition-colors hover:text-accent xl:text-lg",
                   isActive ? "text-accent" : "text-foreground/70",
                 )}
               >
                 {link.name}
-              </button>
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </Link>
 
               <div className="invisible absolute left-0 top-full z-40 mt-2 min-w-[13rem] rounded-md border border-border/70 bg-card p-2 opacity-0 shadow-lg transition-all duration-150 group-hover:visible group-hover:opacity-100">
                 {link.children.map((child) => (

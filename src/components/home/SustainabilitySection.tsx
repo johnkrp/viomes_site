@@ -5,19 +5,22 @@ import { Button } from "@/components/ui/button";
 const sustainabilityHighlights = [
   {
     title: "Ανακυκλωμένες Πρώτες Ύλες",
-    description: "Ενσωματώνουμε υψηλό ποσοστό ανακυκλωμένου υλικού σε βασικές σειρές.",
+    description:
+      "Ενσωματώνουμε υψηλό ποσοστό ανακυκλωμένου υλικού σε βασικές σειρές.",
     stat: "έως 65% recycled content",
     Icon: Recycle,
   },
   {
     title: "Αποδοτική Παραγωγή",
-    description: "Βελτιστοποιούμε τις γραμμές παραγωγής για λιγότερη ενέργεια ανά τεμάχιο.",
+    description:
+      "Βελτιστοποιούμε τις γραμμές παραγωγής για λιγότερη ενέργεια ανά τεμάχιο.",
     stat: "-28% κατανάλωση ενέργειας",
     Icon: Zap,
   },
   {
     title: "Σχεδιασμός Με Διάρκεια",
-    description: "Προϊόντα μεγάλης αντοχής που μειώνουν την ανάγκη για συχνή αντικατάσταση.",
+    description:
+      "Προϊόντα μεγάλης αντοχής που μειώνουν την ανάγκη για συχνή αντικατάσταση.",
     stat: "ISO 14001 πιστοποιημένη μονάδα",
     Icon: Leaf,
   },
@@ -36,11 +39,20 @@ const SustainabilitySection = () => {
           }}
         />
 
-        <div className="bg-accent/10 pb-24 sm:pb-28 lg:pb-34">
+        <div className="relative overflow-hidden bg-accent/10 pb-24 sm:pb-28 lg:pb-34">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 opacity-[0.13]"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 1px 1px, hsl(var(--foreground) / 0.16) 1px, transparent 0)",
+              backgroundSize: "22px 22px",
+            }}
+          />
           <div className="mx-auto grid w-full max-w-[1700px] grid-cols-1 gap-10 px-6 sm:px-10 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-14 lg:px-14">
             <div className="h-[320px] w-full overflow-hidden sm:h-[420px] lg:h-[560px]">
               <img
-                src="/images/circular-economy.jpg"
+                src="https://viomes.gr/images/hero/circular-economy.jpg"
                 alt="Βιωσιμότητα στην παραγωγή της VIOMES"
                 className="h-full w-full object-cover"
               />
@@ -51,14 +63,14 @@ const SustainabilitySection = () => {
                 Βιωσιμότητα και Κυκλική Οικονομία
               </h2>
               <p className="mt-7 text-base leading-relaxed text-foreground/80 sm:text-lg">
-                Στη VIOMES ενσωματώνουμε ανακυκλωμένες πρώτες ύλες και σχεδιάζουμε
-                προϊόντα με μεγάλη διάρκεια ζωής, ώστε να μειώνουμε το περιβαλλοντικό
-                αποτύπωμα σε κάθε στάδιο παραγωγής.
+                Στη VIOMES ενσωματώνουμε ανακυκλωμένες πρώτες ύλες και
+                σχεδιάζουμε προϊόντα με μεγάλη διάρκεια ζωής, ώστε να μειώνουμε
+                το περιβαλλοντικό αποτύπωμα σε κάθε στάδιο παραγωγής.
               </p>
               <p className="mt-6 text-base leading-relaxed text-foreground/80 sm:text-lg">
-                Επενδύουμε σε πιο αποδοτικές διαδικασίες, υπεύθυνη χρήση ενέργειας
-                και σταθερή βελτίωση, με στόχο μια παραγωγή που σέβεται το περιβάλλον
-                και τις ανάγκες των επόμενων γενεών.
+                Επενδύουμε σε πιο αποδοτικές διαδικασίες, υπεύθυνη χρήση
+                ενέργειας και σταθερή βελτίωση, με στόχο μια παραγωγή που
+                σέβεται το περιβάλλον και τις ανάγκες των επόμενων γενεών.
               </p>
 
               <div className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">

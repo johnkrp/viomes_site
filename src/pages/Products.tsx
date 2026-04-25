@@ -32,7 +32,7 @@ import {
 } from "@/lib/productCategories";
 import {
   resolveTestPackshotByCode,
-  resolveTestPackshotFromImageUrl,
+  resolveTestPackshotFromImageUrl
 } from "@/lib/testPackshotOverrides";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Search } from "lucide-react";
@@ -40,12 +40,49 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
 type SortMode = "relevant" | "title-asc" | "variants-desc" | "sizes-desc";
-const tileAtmospheres = [
-  "radial-gradient(circle at 18% 18%, hsl(var(--background) / 0.72) 0%, hsl(var(--background) / 0) 46%), linear-gradient(145deg, hsl(var(--muted) / 0.7) 0%, hsl(var(--secondary) / 0.52) 45%, hsl(var(--background) / 0.92) 100%)",
-  "radial-gradient(circle at 78% 20%, hsl(var(--accent) / 0.28) 0%, hsl(var(--accent) / 0) 52%), linear-gradient(150deg, hsl(var(--card) / 0.72) 0%, hsl(var(--muted) / 0.6) 44%, hsl(var(--background) / 0.94) 100%)",
-  "radial-gradient(circle at 24% 80%, hsl(var(--background) / 0.56) 0%, hsl(var(--background) / 0) 44%), linear-gradient(140deg, hsl(var(--secondary) / 0.55) 0%, hsl(var(--muted) / 0.64) 42%, hsl(var(--card) / 0.88) 100%)",
-  "radial-gradient(circle at 82% 74%, hsl(var(--accent) / 0.22) 0%, hsl(var(--accent) / 0) 50%), linear-gradient(138deg, hsl(var(--muted) / 0.58) 0%, hsl(var(--card) / 0.62) 40%, hsl(var(--background) / 0.9) 100%)",
-];
+
+const detectGrayBackground = (img: HTMLImageElement): boolean => {
+  if (!img.complete) return false;
+  try {
+    const canvas = document.createElement("canvas");
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return false;
+
+    ctx.drawImage(img, 0, 0);
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const data = imageData.data;
+
+    let grayCount = 0;
+    let whiteCount = 0;
+    const sampleSize = Math.min(1000, data.length / 4);
+
+    for (
+      let i = 0;
+      i < data.length;
+      i += Math.floor(data.length / sampleSize / 4) * 4
+    ) {
+      const r = data[i];
+      const g = data[i + 1];
+      const b = data[i + 2];
+      const a = data[i + 3];
+
+      if (a < 128) continue; // Skip transparent pixels
+
+      const isGray =
+        Math.abs(r - g) < 10 && Math.abs(g - b) < 10 && Math.abs(r - b) < 10;
+      const isWhite = r > 240 && g > 240 && b > 240;
+
+      if (isGray && r < 240) grayCount++;
+      if (isWhite) whiteCount++;
+    }
+
+    return grayCount > whiteCount;
+  } catch {
+    return false;
+  }
+};
 
 const normalizeExcelColor = (value: string) => {
   const normalized = (value || "").trim();
@@ -152,6 +189,9 @@ const Products = () => {
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(true);
   const [isColorsOpen, setIsColorsOpen] = useState(true);
+  const [grayBackgroundImages, setGrayBackgroundImages] = useState<Set<string>>(
+    new Set(),
+  );
 
   useEffect(() => {
     if (!categoryFromQuery) return;
@@ -421,16 +461,11 @@ const Products = () => {
             {filteredProducts.map((product, index) => {
               const colors = allColors(product);
               const cardKey = `${product.id}-${product.family_indicator || product.group_root || ""}-${product.title}-${index}`;
-              const tileAtmosphere =
-                tileAtmospheres[index % tileAtmospheres.length];
               const hoverImage = resolveHoverImage(
                 product,
                 additionalImagesByCode,
               );
               const cardImage = resolveProductCardImage(product);
-              const isTestPackshot = cardImage.includes(
-                "/images/packshot-test/",
-              );
 
               return (
                 <Link
@@ -438,33 +473,29 @@ const Products = () => {
                   to={`/products/${product.id}`}
                   className={cn("group block transition-all duration-300")}
                 >
-                  <div
-                    className="relative aspect-[4/3] overflow-hidden p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] sm:p-1.5 lg:p-2"
-                    style={{ backgroundImage: tileAtmosphere }}
-                  >
+                  <div className="relative aspect-[4/3] overflow-hidden p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] sm:p-1.5 lg:p-2 bg-background">
                     <img
                       src={cardImage}
                       alt={product.title}
-                      style={
-                        isTestPackshot
-                          ? {
-                              WebkitMaskImage:
-                                "radial-gradient(ellipse at center, black 54%, transparent 86%)",
-                              maskImage:
-                                "radial-gradient(ellipse at center, black 54%, transparent 86%)",
-                            }
-                          : undefined
-                      }
+                      onLoad={(e) => {
+                        const img = e.currentTarget;
+                        if (detectGrayBackground(img)) {
+                          setGrayBackgroundImages(
+                            (prev) => new Set([...prev, cardImage]),
+                          );
+                        }
+                      }}
                       className={cn(
                         "absolute inset-0 h-full w-full object-contain transition duration-500",
-                        isTestPackshot
-                          ? "mix-blend-darken"
+                        grayBackgroundImages.has(cardImage)
+                          ? "mix-blend-luminosity"
                           : "mix-blend-multiply",
                         hoverImage
                           ? "opacity-100 group-hover:scale-[1.03] group-hover:opacity-0"
                           : "opacity-100 group-hover:scale-[1.03]",
                       )}
                       loading="lazy"
+                      decoding="async"
                     />
                     {hoverImage ? (
                       <img
@@ -472,6 +503,7 @@ const Products = () => {
                         alt={`${product.title} alternate view`}
                         className="absolute inset-0 h-full w-full object-cover opacity-0 transition duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
                         loading="lazy"
+                        decoding="async"
                       />
                     ) : null}
                   </div>

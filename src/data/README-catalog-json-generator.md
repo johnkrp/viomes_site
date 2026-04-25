@@ -65,47 +65,62 @@ Zero-based indices in code (`generate_catalog_json.py`):
 - `AR` (`COL_EXCEL_AR`): Greek site text
 - `AZ` (`COL_PACKSHOT`): packshot image URL
 - `BA..BD` (`COL_LIFESTYLE_START..COL_LIFESTYLE_END`): additional/lifestyle image URLs
+- `AD` (`COL_CATEGORY`): raw Excel site category, normalized into the three site categories
 
 ## Transformation Rules
 
 1. Marker rows are used only as context:
+
 - Group marker updates current `group_root`.
 - Family marker updates current `family_indicator`.
 
 2. Data rows are included only when:
+
 - They have a code in column `D`.
 - Their description cell in column `F` has the green fill (`solid`, RGB ending in `C6EFCE`).
 
 3. Duplicate variant codes are deduplicated:
+
 - Keep the first row encountered for each code.
 - Ignore later rows with the same code.
 
 4. Title selection:
+
 - Prefer `AO` (Greek title).
 - Fallback to description prefix from `F` (before `-`).
 - Final fallback to variant code.
 
 5. Product grouping key:
+
 - `group_root` (Excel W marker) only.
 - Result: all variants under the same W marker are merged into a single product/page.
 
 6. Product ID generation:
+
 - `id = group_code`
 
 7. Size grouping:
+
 - `size_code` is prefix of variant code before first `-`.
 - Variants are nested under sizes.
 
 8. Counts:
+
 - `colors_count` per size (distinct non-empty colors)
 - `sizes_count` per product
 - `variants_count` per product
 
 9. Representative image:
+
 - First non-empty packshot found among variants.
 
 10. Additional images output:
+
 - `additional-images.json` maps variant `code` to deduplicated lifestyle images.
+
+11. Category mapping:
+
+- `AD` is normalized into `Είδη Σπιτιού`, `Γλάστρες`, or `Επαγγελματικός Εξοπλισμός` and written into the grouped product JSON for UI filtering.
 
 ## Output Schema Summary
 

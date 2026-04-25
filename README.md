@@ -1,263 +1,96 @@
-# VIOMES S.A. - Developer Guide
+# VIOMES S.A. Homepage
 
-Welcome to the VIOMES website repository! This is a modern React + TypeScript application built with Vite and Tailwind CSS. This guide explains the site's structure, key features, and how to modify them.
+Concise start-here guide for the VIOMES S.A. homepage repository.
 
-## 📋 Project Overview
+For a faster repo map and cleanup guide, see [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md), [MEMORY.md](MEMORY.md), and [DESIGN.md](DESIGN.md).
 
-VIOMES S.A. is a corporate website for a company with a professional product showcase, multiple pages, and interactive components. The site includes:
+Keep this README, [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md), [MEMORY.md](MEMORY.md), and [DESIGN.md](DESIGN.md) in sync whenever an important project change affects routes, data flow, scripts, workflow docs, or design direction.
 
-- **Homepage** - Landing page with hero section
-- **Products Page** - Product listing with filtering and view modes (grid/list)
-- **About Page** - Company information
-- **Navigation System** - Multi-language support (Greek/English) with responsive navbar
+## Project Snapshot
 
-## 🏗️ Project Structure
+This is a React + TypeScript + Vite single-page application for VIOMES S.A. The site is Greek-first, with route content and SEO metadata authored in Greek and no assumption of full multilingual coverage. Theme setup is wrapped in [src/main.tsx](src/main.tsx) through `ThemeProvider`, while route-aware page titles and meta descriptions are managed in [src/App.tsx](src/App.tsx).
 
-```
-src/
-├── components/
-│   ├── layout/              # Layout components
-│   │   ├── Navbar.tsx       # Top navigation bar
-│   │   ├── Footer.tsx       # Footer component
-│   │   ├── Layout.tsx       # Main layout wrapper
-│   │   └── ScrollToTop.tsx  # Scroll-to-top button
-│   └── ui/                  # Shadcn/ui components (pre-configured)
-│       ├── button.tsx
-│       ├── card.tsx
-│       ├── check-box.tsx    # Checkboxes for filtering
-│       ├── select.tsx       # Dropdown selects
-│       └── ... (40+ UI components)
-├── pages/                   # Page components
-│   ├── Home.tsx            # Homepage
-│   ├── Products.tsx        # Products listing page
-│   ├── ProductDetail.tsx   # Single product detail page
-│   └── About.tsx           # About us page
-├── hooks/
-│   └── use-mobile.tsx      # Mobile detection hook
-├── lib/
-│   └── utils.ts            # Utility functions
-├── App.tsx                 # Main app component with routing
-├── main.tsx                # Entry point
-└── index.css               # Global styles & CSS variables
-```
+## Quick Start
 
-## 🎨 Key Features & How to Modify
-
-### 1. **Navigation Bar (Navbar)**
-
-**File**: src/components/layout/Navbar.tsx
-
-**Current Features**:
-
-- Fixed top navigation with VIOMES logo
-- Language toggle (Greek/English)
-- Search, shopping cart, and user icons
-- Mobile-responsive menu
-- Smooth transitions on scroll
-
-**How to Change**:
-
-- **Logo**: Edit the `<img>` tag around line 43 to point to a different image
-- **Navigation Links**: Modify the `navLinks` array (lines 22-27) to add/remove menu items
-- **Colors/Styling**: Adjust Tailwind classes in the JSX
-- **Logo Size**: Change the `h-10` class to scale the image
-
-### 2. **Products Page**
-
-**File**: src/pages/Products.tsx
-
-**Current Features**:
-
-- Product grid/list view toggle
-- Filtering by category
-- Sorting options
-- Breadcrumb navigation
-- Checkbox and select components for filters
-
-**How to Change**:
-
-- **Add Products**: Modify the `products` data array (typically at top of component)
-- **Filter Logic**: Edit the filtering functions within the component
-- **Layout**: Change Tailwind grid classes (`grid-cols-1`, `grid-cols-2`, etc.)
-- **Remove Filters**: Delete the checkbox or select filter sections
-
-### 3. **Site Title & Favicon**
-
-**File**: index.html
-
-**Current Settings**:
-
-- Title: "VIOMES S.A." (line 7)
-- Favicon: `/favicon.ico` (line 5)
-
-**How to Change**:
-
-- **Title**: Edit the `<title>` tag
-- **Favicon**: Change `/favicon.ico` path to your icon file (must be in `public/` folder)
-
-### 4. **Global Styles & Colors**
-
-**File**: src/index.css
-
-**Contains**:
-
-- CSS variables for theming (colors, spacing, etc.)
-- Tailwind configuration
-- Global font imports
-- Custom component styles
-
-**How to Change**:
-
-- **Color Scheme**: Modify CSS variables like `--primary`, `--secondary` in `:root {}`
-- **Fonts**: Update `@import` statements or font family declarations
-- **Spacing**: Adjust custom CSS variables for consistency
-
-### 5. **UI Components**
-
-**File**: src/components/ui/
-
-All Shadcn/ui components are pre-installed here. These are ready-to-use components like buttons, cards, modals, etc.
-
-**How to Use**:
-
-```tsx
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-```
-
-**Note**: Use `check-box.tsx` not `checkbox.tsx` (file naming convention)
-
-### 6. **Routing & Pages**
-
-**File**: src/App.tsx
-
-Contains the routing configuration for all pages.
-
-**How to Add a New Page**:
-
-1. Create a new file in `src/pages/` (e.g., `NewPage.tsx`)
-2. Add it to the routing configuration in `App.tsx`
-3. Add the link to `Navbar.tsx` navigation links
-
-### 7. **Mobile Responsiveness**
-
-**File**: src/hooks/use-mobile.tsx
-
-This hook detects if the user is on mobile. Components use it to show/hide elements.
-
-**How to Use**:
-
-```tsx
-const isMobile = useMobile();
-return <>{isMobile ? <MobileView /> : <DesktopView />}</>;
-```
-
-## 🛠️ Development Scripts
+Install dependencies, then start the dev server:
 
 ```bash
-# Development server
+npm install
 npm run dev
+```
 
-# Build for production
+Useful scripts:
+
+```bash
 npm run build
-
-# Preview production build
 npm run preview
-
-# Run all quality checks
+npm run typecheck
 npm run lint
-
-# Individual checks
-npm run lint:types   # TypeScript type checking
-npm run typecheck    # TypeScript type checking
+npm run test
+npm run test:coverage
 ```
 
-## 🧪 Temporary Packshot Test Mode
+## Route and SEO Summary
 
-This project supports a reversible test mode for product packshots used in:
+Routing lives in [src/App.tsx](src/App.tsx). The app uses `react-router-dom` with lazy-loaded pages and a small client-side SEO manager that updates `document.title` and the description meta tag per route.
 
-- Product list cards (`Products` page)
-- Product main image (`ProductDetail` page)
+Key routes currently include `/`, `/products`, `/products/:id`, `/products/eidi-spitioy`, `/products/glastres`, `/products/epaggelmatikos-eksoplismos`, `/about`, `/sustainability`, `/quality`, `/industries`, `/news`, and `/contact`. Some informational routes reuse the main page components, so `App.tsx` is the source of truth for what is actually exposed.
 
-Test images are loaded from:
+## Catalog Data Pipeline
 
-- `public/images/packshot-test`
+Catalog content is not hardcoded in component-local product arrays. The flow is:
 
-Enable the override in `.env.local`:
+1. The source workbook in [src/data](src/data) is processed by [src/data/generate_catalog_json.py](src/data/generate_catalog_json.py).
+2. The generator reads the Excel markers and product fields, then writes `products-grouped.json` and `additional-images.json`.
+3. Runtime copies live in [public/data](public/data) for the deployed app, while bundled JSON in [src/data](src/data) acts as a fallback import.
+4. [src/lib/catalogDataLoader.ts](src/lib/catalogDataLoader.ts) loads `public/data/*` first and falls back to the bundled `src/data/*` imports if fetches fail.
+5. Pages such as [src/pages/Products.tsx](src/pages/Products.tsx), [src/pages/ProductDetail.tsx](src/pages/ProductDetail.tsx), and the category pages consume the grouped catalog data and additional image map to render the UI.
 
-```bash
-VITE_USE_TEST_PACKSHOTS=true
+Important observations:
+
+- Excel `W` and `X` markers carry grouping context; the generator turns those markers into product families and size groups.
+- Excel `D`, `F`, `I`, `L`, `AO`, `AP`, `AR`, `AZ`, and `BA..BD` feed the product code, description, color, pack, localized text, packshot, and extra images.
+- The generator groups variants under a product by Excel `W` marker, uses the code prefix before `-` as the size bucket, and picks the first non-empty packshot as the representative image.
+- The UI never reads Excel directly. It only consumes the generated JSON through the loader layer.
+
+When the catalog data changes, update the source generation flow, rebuild the JSON, and let the loader consume the refreshed files. The app code should stay focused on rendering and filtering that imported catalog data.
+
+## Temporary Packshot Override
+
+Temporary test packshots are handled in [src/lib/testPackshotOverrides.ts](src/lib/testPackshotOverrides.ts). Enable them with `VITE_USE_TEST_PACKSHOTS=true` to redirect matching product images to the test assets in `public/images/packshot-test`. Set the flag back to `false` to return to the normal catalog image URLs.
+
+## Project Structure
+
+```text
+src/
+├── App.tsx              # Routes and route-based SEO
+├── main.tsx             # App bootstrap and ThemeProvider
+├── components/          # Layout, home, and shared UI components
+├── pages/               # Route-level page components
+├── lib/                 # Catalog loading, color helpers, overrides, utilities
+└── data/                # Generated catalog JSON used by the loader
+
+public/
+├── data/                # Runtime JSON fallback copies
+└── images/packshot-test # Temporary packshot assets
+
+project-context/
+├── 1.define/            # Requirements and planning docs
+├── 2.build/             # Build and implementation docs
+└── 3.deliver/           # Release, deploy, and runbook docs
 ```
 
-Disable and return to catalog JSON URLs:
+## Workflow Docs
 
-```bash
-VITE_USE_TEST_PACKSHOTS=false
-```
+Start with `project-context/1.define/` for scope and requirements, then move to `project-context/2.build/` for implementation guidance, and use `project-context/3.deliver/` for deployment, monitoring, and release notes. Use the remaining top-level docs only when you need a specific project note or integration reference.
 
-Notes:
+## Documentation Maintenance
 
-- The catalog data files are not modified.
-- This mode is intended for temporary visual testing only.
+Keep this README aligned with important changes in the same change set. Update it when routes, catalog data flow, page structure, scripts, or workflow docs change, and reflect related shifts in project-context docs when that keeps the handoff clear.
 
-## 📦 Tech Stack
+## AI Tooling
 
-- **React** - UI library
-- **TypeScript** - Type safety
-- **Vite 7** - Build tool
-- **Tailwind CSS** - Utility-first styling
-- **Shadcn/ui** - Pre-built accessible components
-- **React Router** - Client-side routing
-- **Lucide React** - Icon library
-
-## ⚙️ Configuration Files
-
-- **`tsconfig.json`** - TypeScript configuration
-- **`tailwind.config.cjs`** - Tailwind CSS theme configuration
-- **`vite.config.ts`** - Vite build configuration
-- **`postcss.config.cjs`** - PostCSS configuration for Tailwind
-
-## 🚀 Quick Tips
-
-1. **Path Alias**: Use `@/` to import from `src/` (configured in `tsconfig.json`)
-2. **Component Imports**: Always import UI components from `@/components/ui/`
-3. **File Naming**: UI components use kebab-case (e.g., `check-box.tsx`)
-4. **Styling**: Prefer Tailwind classes over custom CSS
-5. **Mobile First**: Design with mobile in mind, then enhance for desktop
-
-## 🐛 Common Issues & Solutions
-
-| Issue                             | Solution                                                                     |
-| --------------------------------- | ---------------------------------------------------------------------------- |
-| Import error "Cannot find module" | Check file path, ensure correct file naming (kebab-case for UI components)   |
-| Style not applied                 | Verify CSS variable exists in `src/index.css` or use Tailwind class directly |
-| Type errors                       | Run `npm run lint:types` to see detailed TypeScript errors                   |
-| Component not rendering           | Check routing in `App.tsx` and ensure component is exported                  |
-
-## 📝 Best Practices
-
-- Keep components small and focused
-- Use TypeScript types for props
-- Leverage Shadcn/ui components for consistency
-- Use Tailwind classes instead of custom CSS when possible
-- Test responsive design on multiple screen sizes
-
----
-
-For questions or issues, refer to the Vite, React, or Tailwind CSS documentation.
-
-## AI Tooling Setup (21st.dev MCP + UI UX Pro Max)
-
-This project includes workspace setup for:
-
-- **21st.dev Magic MCP** (component generation in IDE)
-- **UI UX Pro Max skill** (design-system/UI guidance for Copilot workflow mode)
-
-### 1) 21st.dev MCP setup (VS Code workspace)
-
-Create [/.vscode/mcp.json](.vscode/mcp.json) in your local workspace if it does not exist.
-
-What you need:
+See the workspace Copilot instructions and any local skills before inventing new workflows. This repo already includes workflow guidance and skill docs for implementation, review, testing, and prompt-driven tasks.
 
 1. Get an API key from 21st.dev Magic Console.
 2. In VS Code, enable MCP and reload window.
@@ -290,6 +123,18 @@ Usage in Copilot chat:
 /ui-ux-pro-max Build a landing page for my SaaS product
 ```
 
+### Intent classification helper (superagent integration)
+
+A utility script is included for local intent mapping from user queries to agent delegates.
+
+Run it with:
+
+```bash
+npm run intent:classify
+```
+
+It reads request text and outputs delegates such as `ui-ux-pro-max-skill`, `testing-subagent`, `perf-subagent`, `security-subagent`, `debugging-subagent`, or `Conductor`.
+
 ### Prerequisites
 
 - Node.js (local machine)
@@ -301,18 +146,11 @@ These tools are **development-time only**. They do not replace Vite production b
 
 ## Copilot Orchestra (project workflow)
 
-Starter Orchestra agent files are included at project root:
-
-- [Conductor.agent.md](Conductor.agent.md)
-- [planning-subagent.agent.md](planning-subagent.agent.md)
-- [implement-subagent.agent.md](implement-subagent.agent.md)
-- [code-review-subagent.agent.md](code-review-subagent.agent.md)
-
 Generated plan artifacts are stored in [plans/README.md](plans/README.md).
 
 Suggested use:
 
-1. Select **Conductor** mode in Copilot Chat.
+1. Use the global Copilot workflow or the project docs to scope the task.
 2. Request the task (feature/fix/refactor).
 3. Approve the generated plan.
 4. Execute phase-by-phase (implement → review → commit).

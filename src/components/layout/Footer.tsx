@@ -27,8 +27,8 @@ const Footer = () => {
                 Μείνετε ενημερωμένοι για νέες σειρές και δράσεις βιωσιμότητας
               </h3>
               <p className="mt-3 text-sm text-secondary-foreground/80 sm:text-base">
-                Εγγραφείτε για να λαμβάνετε πρώτοι νέα για προϊόντα, συνεργασίες και
-                καινοτομίες της VIOMES.
+                Εγγραφείτε για να λαμβάνετε πρώτοι νέα για προϊόντα, συνεργασίες
+                και καινοτομίες της VIOMES.
               </p>
             </div>
             <div className="flex w-full max-w-md gap-2">
@@ -36,7 +36,11 @@ const Footer = () => {
                 placeholder="Email address"
                 className="bg-background/60 text-foreground placeholder:text-muted-foreground focus-visible:ring-accent"
               />
-              <Button size="icon" className="shrink-0 bg-accent hover:bg-accent/90">
+              <Button
+                size="icon"
+                className="shrink-0 bg-accent hover:bg-accent/90"
+                aria-label="Εγγραφή στο newsletter"
+              >
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
@@ -129,7 +133,10 @@ const Footer = () => {
             <h4 className="mb-6 text-lg font-bold">Πληροφορίες</h4>
             <ul className="flex flex-col gap-4 text-sm text-muted-foreground">
               <li>
-                <Link to="/about" className="transition-colors hover:text-accent">
+                <Link
+                  to="/about"
+                  className="transition-colors hover:text-accent"
+                >
                   Η Εταιρεία
                 </Link>
               </li>
@@ -142,7 +149,10 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="transition-colors hover:text-accent">
+                <Link
+                  to="/contact"
+                  className="transition-colors hover:text-accent"
+                >
                   Επικοινωνία
                 </Link>
               </li>
