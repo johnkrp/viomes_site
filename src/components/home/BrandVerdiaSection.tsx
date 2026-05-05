@@ -194,7 +194,7 @@ const BrandVerdiaSection = () => {
               <img
                 src={brandImages.cuboCherry}
                 alt="Cherry CUBO recycling bin"
-                className="h-full w-full object-cover object-center"
+                className="h-full w-full object-cover object-left"
                 loading="lazy"
                 decoding="async"
               />
