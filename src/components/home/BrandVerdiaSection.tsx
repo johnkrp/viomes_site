@@ -16,6 +16,13 @@ const brandSlides = [
   { label: "KIKLOS", shortLabel: "02" },
 ] as const;
 
+const brandLockup = {
+  desktopLogo: "h-auto w-[20%]",
+  desktopSignature: "h-auto w-[12%]",
+  mobileLogo: "h-auto w-56 max-w-full sm:w-64",
+  mobileSignature: "h-auto w-36 sm:w-40",
+};
+
 const desktopBaseCanvas =
   "absolute inset-0 aspect-[4.08/1] w-full min-h-[260px] overflow-hidden transition-opacity duration-1000 ease-out";
 
@@ -23,11 +30,10 @@ const desktopVerdia = {
   mainImage: "absolute left-[3%] top-[8%] h-[80%] w-[38%] overflow-hidden",
   gustoWordmark:
     "absolute left-[3.9%] top-1/2 -translate-y-1/2 -rotate-90 text-[clamp(2.4rem,4.05vw,4.8rem)] font-bold leading-none tracking-[0.08em] text-white",
-  logo:
-    "absolute left-[51%] top-[60%] h-auto w-[17%] -translate-x-1/2 -translate-y-1/2",
+  logo: "absolute left-[51%] top-[60%] -translate-x-1/2 -translate-y-1/2",
   headline:
     "absolute left-[64%] top-[8%] w-[24%] text-[clamp(2rem,2.55vw,3.35rem)] font-medium leading-[1.04] tracking-tight text-white",
-  signature: "absolute left-[64%] top-[72%] h-auto w-[12%]",
+  signature: "absolute left-[64%] top-[72%]",
   secondaryImage: "absolute right-[3%] top-[22%] h-[66%] w-[21%] overflow-hidden",
 };
 
@@ -35,9 +41,8 @@ const desktopKiklos = {
   cuboSet: "absolute left-[1.35%] top-[8%] h-[80%] w-[24%] overflow-hidden",
   cuboWordmark:
     "absolute left-[12.5%] top-[21%] text-[clamp(2rem,3.25vw,4.1rem)] font-bold leading-none tracking-[0.03em] text-white",
-  logo:
-    "absolute left-[41%] top-[40%] h-auto w-[28%] -translate-x-1/2 -translate-y-1/2",
-  signature: "absolute left-[31%] top-[74%] h-auto w-[19%]",
+  logo: "absolute left-[41%] top-[42%] -translate-x-1/2 -translate-y-1/2",
+  signature: "absolute left-[31%] top-[74%]",
   cuboCherry: "absolute left-[60%] top-[16%] h-[68%] w-[21%] overflow-hidden",
   cuboBlack: "absolute right-[1.35%] top-[6%] h-[82%] w-[18%] overflow-hidden",
 };
@@ -124,7 +129,7 @@ const BrandVerdiaSection = () => {
             <img
               src={brandImages.verdiaLogo}
               alt="VERDIA made by design"
-              className={desktopVerdia.logo}
+              className={`${desktopVerdia.logo} ${brandLockup.desktopLogo}`}
               loading="lazy"
               decoding="async"
             />
@@ -138,7 +143,7 @@ const BrandVerdiaSection = () => {
             <img
               src={brandImages.viomesSignature}
               alt="Designed and manufactured by VIOMES"
-              className={desktopVerdia.signature}
+              className={`${desktopVerdia.signature} ${brandLockup.desktopSignature}`}
               loading="lazy"
               decoding="async"
             />
@@ -175,7 +180,7 @@ const BrandVerdiaSection = () => {
             <img
               src={brandImages.kiklosLogo}
               alt="kiklos"
-              className={desktopKiklos.logo}
+              className={`${desktopKiklos.logo} ${brandLockup.desktopLogo}`}
               loading="lazy"
               decoding="async"
             />
@@ -183,7 +188,7 @@ const BrandVerdiaSection = () => {
             <img
               src={brandImages.viomesSignature}
               alt="Designed and manufactured by VIOMES"
-              className={desktopKiklos.signature}
+              className={`${desktopKiklos.signature} ${brandLockup.desktopSignature}`}
               loading="lazy"
               decoding="async"
             />
@@ -244,7 +249,7 @@ const BrandVerdiaSection = () => {
               <img
                 src={activeSlide === 0 ? brandImages.verdiaLogo : brandImages.kiklosLogo}
                 alt={activeSlide === 0 ? "VERDIA made by design" : "kiklos"}
-                className="h-auto w-56 max-w-full sm:w-64"
+                className={brandLockup.mobileLogo}
                 loading="lazy"
                 decoding="async"
               />
@@ -254,7 +259,7 @@ const BrandVerdiaSection = () => {
               <img
                 src={brandImages.viomesSignature}
                 alt="Designed and manufactured by VIOMES"
-                className="h-auto w-36 sm:w-40"
+                className={brandLockup.mobileSignature}
                 loading="lazy"
                 decoding="async"
               />
