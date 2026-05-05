@@ -29,18 +29,18 @@ const desktopBaseCanvas =
 const desktopVerdia = {
   mainImage: "absolute left-[3%] top-[8%] h-[80%] w-[38%] overflow-hidden",
   gustoWordmark:
-    "absolute left-[3.9%] top-1/2 -translate-y-1/2 -rotate-90 text-[clamp(2.4rem,4.05vw,4.8rem)] font-bold leading-none tracking-[0.08em] text-white",
-  logo: "absolute left-[51%] top-[60%] -translate-x-1/2 -translate-y-1/2",
+    "absolute left-[-2%] top-1/2 -translate-y-1/2 -rotate-90 text-[clamp(2.4rem,4.05vw,4.8rem)] font-bold leading-none tracking-[0.08em] text-white",
+  logo: "absolute left-[52%] top-[60%] -translate-x-1/2 -translate-y-1/2",
   headline:
-    "absolute left-[64%] top-[8%] w-[24%] text-[clamp(2rem,2.55vw,3.35rem)] font-medium leading-[1.04] tracking-tight text-white",
+    "absolute left-[65%] top-[8%] w-[24%] text-[clamp(2rem,2.55vw,3.35rem)] font-medium leading-[1.04] tracking-tight text-white",
   signature: "absolute left-[64%] top-[72%]",
-  secondaryImage: "absolute right-[3%] top-[22%] h-[66%] w-[21%] overflow-hidden",
+  secondaryImage: "absolute right-[2%] top-[22%] h-[66%] w-[21%] overflow-hidden",
 };
 
 const desktopKiklos = {
   cuboSet: "absolute left-[1.35%] top-[8%] h-[80%] w-[24%] overflow-hidden",
   cuboWordmark:
-    "absolute left-[12.5%] top-[21%] text-[clamp(2rem,3.25vw,4.1rem)] font-bold leading-none tracking-[0.03em] text-white",
+    "absolute left-[15%] top-[19%] text-[clamp(2rem,3.25vw,4.1rem)] font-bold leading-none tracking-[0.03em] text-white",
   logo: "absolute left-[41%] top-[42%] -translate-x-1/2 -translate-y-1/2",
   signature: "absolute left-[31%] top-[74%]",
   cuboCherry: "absolute left-[60%] top-[16%] h-[68%] w-[21%] overflow-hidden",
@@ -57,12 +57,9 @@ const BrandCarouselControls = ({
   className?: string;
 }) => (
   <div
-    className={`z-20 flex items-center gap-2 border border-white/20 bg-black/20 px-3 py-2 text-white shadow-lg shadow-black/10 backdrop-blur-sm ${className}`}
+    className={`z-40 flex items-center gap-2 border border-white/20 bg-black/20 px-3 py-2 text-white shadow-lg shadow-black/10 backdrop-blur-sm ${className}`}
     aria-label="Brand carousel controls"
   >
-    <span className="mr-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/70">
-      Brand
-    </span>
     {brandSlides.map((slide, index) => {
       const isActive = activeSlide === index;
 
