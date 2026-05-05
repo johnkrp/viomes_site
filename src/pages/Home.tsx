@@ -1,30 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import type { MouseEvent } from "react";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import BrandVerdiaSection from "@/components/home/BrandVerdiaSection";
 import CategoriesShowcaseSection from "@/components/home/CategoriesShowcaseSection";
 import SustainabilitySection from "@/components/home/SustainabilitySection";
 import TopProductsSection from "@/components/home/TopProductsSection";
-import BrandVerdiaSection from "@/components/home/BrandVerdiaSection";
 
-const heroSlides = [
-  {
-    title: "Κάδος Cubo",
-    description: "Μοντέρνος & για κάθε χώρο!",
-    cta: "Ανακαλύψτε τον",
-    href: "/products/1890",
-    image: "https://viomes.gr/images/hero/3500x1750_1.png",
-  },
-  {
-    title: "Linea",
-    description: "Διαχρονική ζαρντινιέρα με κυκλαδίτικο αέρα!",
-    cta: "Ανακαλύψτε τη",
-    href: "/products/2780",
-    image: "https://viomes.gr/images/hero/3500x1750_2.png",
-  },
-];
+const heroImage = "https://viomes.gr/images/hero_section/hero_1.jpg";
 
 const latestNews = [
   {
@@ -54,8 +38,6 @@ const latestNews = [
 ];
 
 const Home = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   const scrollToCategories = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
 
@@ -88,47 +70,45 @@ const Home = () => {
     window.requestAnimationFrame(step);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroSlides.length);
-    }, 20000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="flex flex-col">
-      <section className="relative h-[100svh] overflow-hidden bg-[#f0ede7]">
-        <div
-          className="flex h-full w-full transition-transform duration-500 ease-in-out"
-          style={{
-            transform: `translate3d(-${currentImageIndex * 100}%, 0, 0)`,
-          }}
-        >
-          {heroSlides.map((slide, index) => (
-            <div key={slide.image} className="relative h-full w-full flex-none">
+      <section className="relative min-h-[100svh] overflow-hidden bg-background pt-28 text-foreground sm:pt-32 lg:pt-36">
+        <div className="mx-auto grid min-h-[calc(100svh-8rem)] w-full max-w-[1480px] items-center gap-10 px-5 pb-20 sm:px-8 lg:grid-cols-[0.86fr_1.14fr] lg:gap-16 lg:px-16 xl:px-20">
+          <div className="relative z-10 flex flex-col items-start lg:pb-10">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+              VIOMES S.A.
+            </p>
+            <h1 className="max-w-[9ch] font-heading text-[clamp(4.2rem,8.4vw,9.5rem)] font-semibold leading-[0.84] tracking-[-0.07em] text-primary">
+              Προϊόντα για κάθε χώρο
+            </h1>
+            <p className="mt-8 max-w-md text-lg leading-relaxed text-muted-foreground sm:text-xl">
+              Ελληνικός σχεδιασμός και παραγωγή για το σπίτι, τον κήπο και τον επαγγελματικό εξοπλισμό.
+            </p>
+            <Button asChild variant="outline" className="mt-8 rounded-full px-9 py-6 text-xs font-semibold uppercase tracking-[0.18em]">
+              <Link to="/products">Δείτε προϊόντα</Link>
+            </Button>
+          </div>
+
+          <div className="relative min-h-[420px] lg:min-h-[620px]">
+            <div className="absolute -left-[10%] top-[8%] hidden h-[38%] w-[42%] border border-primary/15 lg:block" />
+            <div className="relative ml-auto w-full max-w-[760px] overflow-hidden bg-primary/5 shadow-sm lg:w-[88%]">
               <img
-                src={slide.image}
-                alt={slide.title}
-                className="absolute inset-0 h-full w-full object-cover object-center"
+                src={heroImage}
+                alt="VIOMES προϊόντα σε σύγχρονη σύνθεση"
+                className="aspect-[0.92/1] w-full object-cover object-center sm:aspect-[1.1/1] lg:aspect-[0.86/1]"
+                decoding="async"
+                fetchPriority="high"
               />
             </div>
-          ))}
-        </div>
-
-        <div className="absolute inset-x-0 top-0 z-20 flex h-full items-center px-4 pt-24 sm:px-8 md:pt-28 lg:px-20 lg:pt-24">
-          <div className="w-full max-w-[31rem] bg-[#f3f4f0]/70 p-3 text-[#45443f] backdrop-blur-[2px] sm:p-4 lg:max-w-[34rem]">
-            <div className="bg-[#f7f8f4]/92 px-6 py-7 shadow-lg sm:px-7 sm:py-8 lg:px-9 lg:py-9">
-              <h1 className="font-heading text-4xl font-semibold sm:text-5xl lg:text-6xl">
-                {heroSlides[currentImageIndex].title}
-              </h1>
-              <p className="mt-5 text-base text-[#62625d] sm:text-xl">
-                {heroSlides[currentImageIndex].description}
+            <div className="absolute -bottom-[7%] left-[5%] hidden w-[48%] bg-primary px-8 py-7 text-primary-foreground shadow-xl lg:block">
+              <h2 className="font-heading text-4xl font-semibold leading-[0.95] tracking-[-0.04em]">
+                Made in Greece
+              </h2>
+              <p className="mt-4 max-w-sm text-sm leading-relaxed text-primary-foreground/80">
+                Λύσεις καθημερινής χρήσης με έμφαση στην αντοχή, τη λειτουργικότητα και την αισθητική.
               </p>
-              <Button asChild variant="outline" className="mt-8">
-                <Link to={heroSlides[currentImageIndex].href}>
-                  {heroSlides[currentImageIndex].cta}
-                </Link>
+              <Button asChild variant="link" className="mt-3 h-auto px-0 text-primary-foreground underline underline-offset-4">
+                <Link to="/about">Μάθετε περισσότερα</Link>
               </Button>
             </div>
           </div>
@@ -137,7 +117,7 @@ const Home = () => {
         <a
           href="#categories"
           onClick={scrollToCategories}
-          className="absolute bottom-6 left-1/2 z-20 -translate-x-1/2 text-white"
+          className="absolute bottom-6 left-1/2 z-20 -translate-x-1/2 text-primary/70 transition hover:text-primary"
         >
           <ChevronDown />
         </a>
