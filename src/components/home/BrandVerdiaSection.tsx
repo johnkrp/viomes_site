@@ -7,10 +7,13 @@ const brandImages = {
 
 const BrandVerdiaSection = () => {
   return (
-    <section className="bg-primary text-primary-foreground" aria-label="VERDIA GUSTO collection">
+    <section
+      className="bg-primary text-primary-foreground"
+      aria-label="VERDIA GUSTO collection"
+    >
       <div className="hidden overflow-hidden lg:block">
         <div className="mx-auto w-full max-w-[1546px]">
-          <div className="relative aspect-[4.08/1] w-full overflow-hidden bg-[#817642]">
+          <div className="relative aspect-[4.08/1] w-full overflow-hidden">
             <div className="absolute left-[1.5%] top-[8%] h-[80%] w-[40%] overflow-hidden">
               <img
                 src={brandImages.main}
@@ -21,31 +24,32 @@ const BrandVerdiaSection = () => {
               />
             </div>
 
-            <div className="absolute left-[3.4%] top-1/2 -translate-y-1/2 -rotate-90 text-[clamp(2.4rem,4.3vw,4.4rem)] font-bold leading-none tracking-[0.08em] text-white">
+            <div className="absolute left-[-5%] top-1/2 -translate-y-1/2 -rotate-90 text-[clamp(2.4rem,4.3vw,4.4rem)] font-bold leading-none tracking-[0.08em] text-white">
               GUSTO
             </div>
 
             <img
               src={brandImages.logo}
               alt="VERDIA made by design"
-              className="absolute left-[50%] top-[56%] h-auto w-[17.5%] -translate-x-1/2 -translate-y-1/2"
+              className="absolute left-[52%] top-[63%] h-auto w-[17.5%] -translate-x-1/2 -translate-y-1/2"
               loading="lazy"
               decoding="async"
             />
 
-            <p className="absolute left-[62.2%] top-[8%] w-[29%] text-[clamp(2rem,3vw,3.6rem)] font-medium leading-[1.05] tracking-tight text-white">
-              Προϊόντα με σύγχρονη αισθητική
+            <p className="absolute left-[65%] top-[8%] w-[25%] text-[clamp(2rem,2.8vw,3.2rem)] font-medium leading-[1.05] tracking-tight text-white">
+              <span className="block whitespace-nowrap">Προϊόντα με σύγχρονη</span>
+              <span className="block whitespace-nowrap">αισθητική</span>
             </p>
 
             <img
               src={brandImages.signature}
               alt="Designed and manufactured by VIOMES"
-              className="absolute left-[61.4%] top-[76%] h-auto w-[12.5%]"
+              className="absolute left-[61.4%] top-[72%] h-auto w-[12.5%]"
               loading="lazy"
               decoding="async"
             />
 
-            <div className="absolute right-[2%] top-[20%] h-[66%] w-[22%] overflow-hidden">
+            <div className="absolute right-[-1%] top-[25%] h-[66%] w-[22%] overflow-hidden">
               <img
                 src={brandImages.secondary}
                 alt="GUSTO plate detail"
