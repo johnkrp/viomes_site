@@ -75,9 +75,6 @@ const Home = () => {
       <section className="relative min-h-[100svh] overflow-hidden bg-background pt-24 text-foreground sm:pt-28 lg:pt-32">
         <div className="mx-auto grid min-h-[calc(100svh-7rem)] w-full max-w-[1640px] items-center gap-8 px-4 pb-16 sm:px-6 lg:grid-cols-[0.72fr_1.28fr] lg:gap-10 lg:px-8 xl:px-10">
           <div className="relative z-10 flex flex-col items-start lg:pb-8">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
-              VIOMES S.A.
-            </p>
             <h1 className="max-w-[9ch] font-heading text-[clamp(4.2rem,8.4vw,9.5rem)] font-semibold leading-[0.84] tracking-[-0.07em] text-primary">
               Προϊόντα για κάθε χώρο
             </h1>
@@ -90,7 +87,6 @@ const Home = () => {
           </div>
 
           <div className="relative min-h-[440px] lg:min-h-[680px]">
-            <div className="absolute -left-[4%] top-[5%] hidden h-[34%] w-[32%] border border-primary/15 lg:block" />
             <div className="relative ml-auto h-full w-full overflow-hidden bg-primary/5 shadow-sm">
               <img
                 src={heroImage}
