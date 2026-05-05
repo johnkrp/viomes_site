@@ -214,20 +214,13 @@ const BrandVerdiaSection = () => {
           <BrandCarouselControls
             activeSlide={activeSlide}
             onSelectSlide={setActiveSlide}
-            className="absolute bottom-[7%] right-[3%]"
+            className="absolute bottom-[3%] right-[2%]"
           />
         </div>
       </div>
 
       <div className="lg:hidden">
         <div className="grid gap-6 bg-[#817642] px-5 py-8 sm:px-8 sm:py-10">
-          <div className="flex justify-end">
-            <BrandCarouselControls
-              activeSlide={activeSlide}
-              onSelectSlide={setActiveSlide}
-            />
-          </div>
-
           <div className="grid gap-4 sm:grid-cols-[1.15fr_0.85fr] sm:items-center">
             <div className="relative overflow-hidden">
               <img
@@ -270,6 +263,13 @@ const BrandVerdiaSection = () => {
             loading="lazy"
             decoding="async"
           />
+
+          <div className="flex justify-end">
+            <BrandCarouselControls
+              activeSlide={activeSlide}
+              onSelectSlide={setActiveSlide}
+            />
+          </div>
         </div>
       </div>
     </section>
