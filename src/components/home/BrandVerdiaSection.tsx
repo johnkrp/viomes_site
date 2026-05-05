@@ -5,6 +5,19 @@ const brandImages = {
   signature: "https://viomes.gr/images/brand_section/viomes_signature.png",
 };
 
+const desktopComposition = {
+  canvas: "relative aspect-[4.08/1] w-full min-h-[260px] overflow-hidden bg-[#817642]",
+  mainImage: "absolute left-[3%] top-[8%] h-[80%] w-[38%] overflow-hidden",
+  gustoWordmark:
+    "absolute left-[3.9%] top-1/2 -translate-y-1/2 -rotate-90 text-[clamp(2.4rem,4.05vw,4.8rem)] font-bold leading-none tracking-[0.08em] text-white",
+  logo:
+    "absolute left-[51%] top-[60%] h-auto w-[17%] -translate-x-1/2 -translate-y-1/2",
+  headline:
+    "absolute left-[64%] top-[8%] w-[24%] text-[clamp(2rem,2.55vw,3.35rem)] font-medium leading-[1.04] tracking-tight text-white",
+  signature: "absolute left-[64%] top-[72%] h-auto w-[12%]",
+  secondaryImage: "absolute right-[3%] top-[22%] h-[66%] w-[21%] overflow-hidden",
+};
+
 const BrandVerdiaSection = () => {
   return (
     <section
@@ -12,52 +25,49 @@ const BrandVerdiaSection = () => {
       aria-label="VERDIA GUSTO collection"
     >
       <div className="hidden overflow-hidden lg:block">
-        <div className="mx-auto w-full max-w-[2000px]">
-          <div className="relative aspect-[4.08/1] w-full min-h-[260px] overflow-hidden">
-            <div className="absolute left-[0.5%] top-[8%] h-[80%] w-[40%] overflow-hidden">
-              <img
-                src={brandImages.main}
-                alt="GUSTO collection tableware"
-                className="h-full w-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-
-            <div className="absolute left-[-5.5%] top-1/2 -translate-y-1/2 -rotate-90 text-[clamp(2.4rem,4.3vw,5rem)] font-bold leading-none tracking-[0.08em] text-white">
-              GUSTO
-            </div>
-
+        <div className={desktopComposition.canvas}>
+          <div className={desktopComposition.mainImage}>
             <img
-              src={brandImages.logo}
-              alt="VERDIA made by design"
-              className="absolute left-[52%] top-[63%] h-auto w-[17.5%] -translate-x-1/2 -translate-y-1/2"
+              src={brandImages.main}
+              alt="GUSTO collection tableware"
+              className="h-full w-full object-cover object-center"
               loading="lazy"
               decoding="async"
             />
+          </div>
 
-            <p className="absolute left-[65%] top-[8%] w-[25%] text-[clamp(2rem,2.8vw,3.6rem)] font-medium leading-[1.05] tracking-tight text-white">
-              <span className="block whitespace-nowrap">Προϊόντα με σύγχρονη</span>
-              <span className="block whitespace-nowrap">αισθητική</span>
-            </p>
+          <div className={desktopComposition.gustoWordmark}>GUSTO</div>
 
+          <img
+            src={brandImages.logo}
+            alt="VERDIA made by design"
+            className={desktopComposition.logo}
+            loading="lazy"
+            decoding="async"
+          />
+
+          <p className={desktopComposition.headline}>
+            <span className="block whitespace-nowrap">Προϊόντα με</span>
+            <span className="block whitespace-nowrap">σύγχρονη</span>
+            <span className="block whitespace-nowrap">αισθητική</span>
+          </p>
+
+          <img
+            src={brandImages.signature}
+            alt="Designed and manufactured by VIOMES"
+            className={desktopComposition.signature}
+            loading="lazy"
+            decoding="async"
+          />
+
+          <div className={desktopComposition.secondaryImage}>
             <img
-              src={brandImages.signature}
-              alt="Designed and manufactured by VIOMES"
-              className="absolute left-[63%] top-[72%] h-auto w-[12.5%]"
+              src={brandImages.secondary}
+              alt="GUSTO plate detail"
+              className="h-full w-full object-cover object-center"
               loading="lazy"
               decoding="async"
             />
-
-            <div className="absolute right-[0.5%] top-[25%] h-[66%] w-[22%] overflow-hidden">
-              <img
-                src={brandImages.secondary}
-                alt="GUSTO plate detail"
-                className="h-full w-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
           </div>
         </div>
       </div>
