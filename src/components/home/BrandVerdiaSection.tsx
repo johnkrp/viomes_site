@@ -14,7 +14,7 @@ const BrandVerdiaSection = () => {
       <div className="hidden overflow-hidden lg:block">
         <div className="mx-auto w-full max-w-[2000px]">
           <div className="relative aspect-[4.08/1] w-full min-h-[260px] overflow-hidden">
-            <div className="absolute left-[1.5%] top-[8%] h-[80%] w-[40%] overflow-hidden">
+            <div className="absolute left-[0.5%] top-[8%] h-[80%] w-[40%] overflow-hidden">
               <img
                 src={brandImages.main}
                 alt="GUSTO collection tableware"
@@ -24,7 +24,7 @@ const BrandVerdiaSection = () => {
               />
             </div>
 
-            <div className="absolute left-[-5%] top-1/2 -translate-y-1/2 -rotate-90 text-[clamp(2.4rem,4.3vw,5rem)] font-bold leading-none tracking-[0.08em] text-white">
+            <div className="absolute left-[-5.5%] top-1/2 -translate-y-1/2 -rotate-90 text-[clamp(2.4rem,4.3vw,5rem)] font-bold leading-none tracking-[0.08em] text-white">
               GUSTO
             </div>
 
@@ -36,7 +36,7 @@ const BrandVerdiaSection = () => {
               decoding="async"
             />
 
-            <p className="absolute left-[67%] top-[8%] w-[25%] text-[clamp(2rem,2.8vw,3.6rem)] font-medium leading-[1.05] tracking-tight text-white">
+            <p className="absolute left-[65%] top-[8%] w-[25%] text-[clamp(2rem,2.8vw,3.6rem)] font-medium leading-[1.05] tracking-tight text-white">
               <span className="block whitespace-nowrap">Προϊόντα με σύγχρονη</span>
               <span className="block whitespace-nowrap">αισθητική</span>
             </p>
@@ -44,12 +44,12 @@ const BrandVerdiaSection = () => {
             <img
               src={brandImages.signature}
               alt="Designed and manufactured by VIOMES"
-              className="absolute left-[65%] top-[72%] h-auto w-[12.5%]"
+              className="absolute left-[63%] top-[72%] h-auto w-[12.5%]"
               loading="lazy"
               decoding="async"
             />
 
-            <div className="absolute right-[-1%] top-[25%] h-[66%] w-[22%] overflow-hidden">
+            <div className="absolute right-[0.5%] top-[25%] h-[66%] w-[22%] overflow-hidden">
               <img
                 src={brandImages.secondary}
                 alt="GUSTO plate detail"
