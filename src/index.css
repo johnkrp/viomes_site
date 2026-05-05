@@ -6,54 +6,71 @@
 
 @layer base {
   :root {
-    /* Viomes Design System - Earth Tone Palette */
-    --background: 36 20% 95%;
-    --foreground: 138 25% 22%;
-    --card: 36 20% 97%;
-    --card-foreground: 138 25% 22%;
-    --popover: 36 20% 97%;
-    --popover-foreground: 138 25% 22%;
+    /* Viomes Design System - Palette from Chromatic swatch */
+    --background: 53 9% 82%;
+    --foreground: 37 25% 13%;
+    --card: 53 9% 98%;
+    --card-foreground: 37 25% 13%;
+    --popover: 53 9% 98%;
+    --popover-foreground: 37 25% 13%;
 
-    --primary: 138 25% 39%;
-    --primary-foreground: 36 20% 95%;
+    --primary: 46 31% 38%;
+    --primary-foreground: 53 9% 98%;
 
-    --secondary: 43 38% 79%;
-    --secondary-foreground: 138 20% 27%;
+    --secondary: 63 27% 46%;
+    --secondary-foreground: 37 25% 13%;
 
-    --muted: 125 5% 87%;
-    --muted-foreground: 125 5% 42%;
+    --muted: 53 9% 82%;
+    --muted-foreground: 37 14% 34%;
 
-    --accent: 138 25% 39%;
-    --accent-foreground: 36 20% 95%;
+    --accent: 24 27% 32%;
+    --accent-foreground: 53 9% 98%;
 
-    --destructive: 8 58% 42%;
-    --destructive-foreground: 36 20% 95%;
+    --destructive: 7 49% 40%;
+    --destructive-foreground: 53 9% 98%;
 
-    --border: 43 28% 74%;
-    --input: 43 28% 77%;
-    --ring: 138 25% 39%;
+    --border: 58 16% 60%;
+    --input: 58 16% 60%;
+    --ring: 46 31% 38%;
 
-    /* Charts - Earth Tone Palette */
-    --chart-1: 138 25% 39%;
-    --chart-2: 43 38% 79%;
-    --chart-3: 125 5% 52%;
-    --chart-4: 43 31% 66%;
-    --chart-5: 138 22% 47%;
+    /* Charts - Chromatic palette */
+    --chart-1: 46 31% 38%;
+    --chart-2: 63 27% 46%;
+    --chart-3: 24 27% 32%;
+    --chart-4: 58 16% 60%;
+    --chart-5: 37 25% 13%;
 
-    /* Sidebar - Earth Tone Palette */
-    --sidebar: 43 31% 83%;
-    --sidebar-foreground: 138 20% 27%;
-    --sidebar-primary: 138 25% 39%;
-    --sidebar-primary-foreground: 36 20% 95%;
-    --sidebar-accent: 125 5% 87%;
-    --sidebar-accent-foreground: 138 20% 27%;
-    --sidebar-border: 43 28% 74%;
-    --sidebar-ring: 138 25% 39%;
+    /* Sidebar - Chromatic palette */
+    --sidebar: 53 9% 82%;
+    --sidebar-foreground: 37 25% 13%;
+    --sidebar-primary: 46 31% 38%;
+    --sidebar-primary-foreground: 53 9% 98%;
+    --sidebar-accent: 53 9% 82%;
+    --sidebar-accent-foreground: 37 25% 13%;
+    --sidebar-border: 58 16% 60%;
+    --sidebar-ring: 46 31% 38%;
 
     /* Fonts */
     --font-sans: "Poppins", sans-serif;
     --font-heading: "Inter", sans-serif;
     --font-mono: "Geist Mono", monospace;
+    /* --viomes custom palette (added May 5, 2026) */
+    /* Background: #DCD8CF -> 42 16% 84% */
+    --viomes-bg: 42 16% 84%;
+    /* Surface / cards: #B7B69C -> 58 16% 66% */
+    --viomes-surface: 58 16% 66%;
+    /* Primary: #807244 -> 46 31% 38% (keeps existing primary) */
+    --primary: 46 31% 38%;
+    /* Accent / CTA: #56393E -> 350 20% 28% */
+    --accent: 350 20% 28%;
+    --accent-foreground: 42 16% 84%;
+    /* Dark grounding tone: #4C4326 -> 46 33% 22% */
+    --viomes-dark: 46 33% 22%;
+
+    /* Header/footer mapping (used by .site-header-footer rules) */
+    --header-bg: 46 33% 22%; /* deep grounding color */
+    --header-text: 42 16% 84%; /* light neutral for header text */
+    --header-hover: 350 20% 36%; /* slightly lighter accent for hovers */
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
     --text-base: 1rem;
@@ -98,49 +115,49 @@
   }
 
   .dark {
-    /* Viomes Design System - Dark Mode - Two-Color Palette */
-    --background: 2 25% 14%;
-    --foreground: 33 17% 90%;
-    --card: 2 24% 18%;
-    --card-foreground: 33 17% 90%;
-    --popover: 2 24% 18%;
-    --popover-foreground: 33 17% 90%;
+    /* Viomes Design System - Chromatic dark mode */
+    --background: 37 25% 13%;
+    --foreground: 53 9% 82%;
+    --card: 37 25% 17%;
+    --card-foreground: 53 9% 82%;
+    --popover: 37 25% 17%;
+    --popover-foreground: 53 9% 82%;
 
-    --primary: 2 39% 58%;
-    --primary-foreground: 33 17% 96%;
+    --primary: 46 31% 48%;
+    --primary-foreground: 37 25% 13%;
 
-    --secondary: 2 22% 24%;
-    --secondary-foreground: 33 17% 90%;
+    --secondary: 37 25% 23%;
+    --secondary-foreground: 53 9% 82%;
 
-    --muted: 2 18% 28%;
-    --muted-foreground: 33 12% 72%;
+    --muted: 37 20% 22%;
+    --muted-foreground: 53 9% 70%;
 
-    --accent: 2 39% 58%;
-    --accent-foreground: 33 17% 96%;
+    --accent: 24 27% 38%;
+    --accent-foreground: 53 9% 98%;
 
-    --destructive: 2 55% 50%;
-    --destructive-foreground: 33 17% 96%;
+    --destructive: 7 49% 50%;
+    --destructive-foreground: 53 9% 98%;
 
-    --border: 2 20% 30%;
-    --input: 2 20% 30%;
-    --ring: 2 39% 58%;
+    --border: 37 20% 26%;
+    --input: 37 20% 26%;
+    --ring: 46 31% 48%;
 
-    /* Charts - Consistent with dark mode */
-    --chart-1: 2 39% 58%;
-    --chart-2: 33 17% 65%;
-    --chart-3: 2 39% 45%;
-    --chart-4: 33 17% 85%;
-    --chart-5: 2 55% 50%;
+    /* Charts - Chromatic dark mode */
+    --chart-1: 46 31% 48%;
+    --chart-2: 63 27% 46%;
+    --chart-3: 24 27% 38%;
+    --chart-4: 58 16% 60%;
+    --chart-5: 53 9% 82%;
 
-    /* Sidebar - Consistent with dark mode */
-    --sidebar: 2 22% 18%;
-    --sidebar-foreground: 33 17% 90%;
-    --sidebar-primary: 2 39% 58%;
-    --sidebar-primary-foreground: 33 17% 96%;
-    --sidebar-accent: 2 20% 24%;
-    --sidebar-accent-foreground: 33 17% 90%;
-    --sidebar-border: 2 20% 30%;
-    --sidebar-ring: 2 39% 58%;
+    /* Sidebar - Chromatic dark mode */
+    --sidebar: 37 25% 17%;
+    --sidebar-foreground: 53 9% 82%;
+    --sidebar-primary: 46 31% 48%;
+    --sidebar-primary-foreground: 37 25% 13%;
+    --sidebar-accent: 37 20% 22%;
+    --sidebar-accent-foreground: 53 9% 82%;
+    --sidebar-border: 37 20% 26%;
+    --sidebar-ring: 46 31% 48%;
   }
 
   * {
@@ -175,6 +192,10 @@
   animation: fadeIn 0.3s ease-in-out;
 }
 
+.animate-scroll-cue {
+  animation: scrollCue 1.8s ease-in-out infinite;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -199,6 +220,22 @@
   }
 }
 
+@keyframes scrollCue {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(250%);
+  }
+}
+
 @keyframes slideInRight {
   from {
     opacity: 0;
@@ -209,4 +246,31 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* Header & Footer: explicit background + text colors + hover behavior */
+.site-header-footer {
+  background-color: hsl(var(--header-bg)) !important;
+  color: hsl(var(--header-text)) !important;
+}
+.site-header-footer * {
+  color: hsl(var(--header-text)) !important;
+}
+.site-header-footer a,
+.site-header-footer button {
+  transition:
+    color 150ms ease,
+    background-color 150ms ease,
+    fill 150ms ease;
+  color: hsl(var(--header-text)) !important;
+}
+.site-header-footer button:not(.no-accent-bg) {
+  background-color: hsl(var(--accent)) !important;
+}
+.site-header-footer a:hover,
+.site-header-footer button:hover,
+.site-header-footer [role="button"]:hover {
+  background-color: transparent !important;
+  color: hsl(var(--header-hover)) !important;
+  fill: hsl(var(--header-hover)) !important;
 }

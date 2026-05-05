@@ -7,7 +7,7 @@
       "family_indicator": "360",
       "group_root": "1090",
       "title": "Λεκάνες ORA",
-      "category": "Είδη Σπιτιού",
+      "category": "Κουζίνα",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_360-78.jpg",
       "sizes": [
         {
@@ -1273,41 +1273,17 @@
             "height": "8",
             "has_specs": true
           }
-        },
-        {
-          "size_label": "43",
-          "size_code": "43",
-          "variants": [
-            {
-              "code": "43-90",
-              "description": "ΑΕΡΟΣΤΕΓΕΣ ΣΤΡΟΓΓΥΛΟ 2lt-d20x9,5h cm-MAPMAPI",
-              "color": "MAPMAPI",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_43-90.jpg",
-              "pack": "0",
-              "excel_ar": "Πρακτικά και αξιόπιστά αεροστεγή δοχεία για καθημερινή χρήση. Ιδανικά για αποθήκευση και ζέσταμα φαγητού. Κατάλληλά για φούρνο μικροκυμάτων και πλύσιμο στο πλυντήριο πιάτων"
-            }
-          ],
-          "colors_count": 1,
-          "specs": {
-            "liters": "2",
-            "width": null,
-            "depth": null,
-            "box_height": null,
-            "diameter": "20",
-            "height": "9.5",
-            "has_specs": true
-          }
         }
       ],
-      "sizes_count": 3,
-      "variants_count": 3
+      "sizes_count": 2,
+      "variants_count": 2
     },
     {
       "id": "1205",
       "family_indicator": "1050",
       "group_root": "1205",
       "title": "Φαγητοδοχεία ορθογώνια KEEP IT FRESCO",
-      "category": "Είδη Σπιτιού",
+      "category": "Κουζίνα",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_1050-14.jpg",
       "sizes": [
         {
@@ -1645,65 +1621,17 @@
             "height": null,
             "has_specs": true
           }
-        },
-        {
-          "size_label": "1950",
-          "size_code": "1950",
-          "variants": [
-            {
-              "code": "1950-99",
-              "description": "ΑΕΡΟΣΤΕΓΗ FRESCO ΤΕΤΡ. ΣΕΤ 0,6ltx2τεμ.",
-              "color": "",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1950-99.jpg",
-              "pack": "0",
-              "excel_ar": ""
-            }
-          ],
-          "colors_count": 0,
-          "specs": {
-            "liters": null,
-            "width": null,
-            "depth": null,
-            "box_height": null,
-            "diameter": null,
-            "height": null,
-            "has_specs": false
-          }
-        },
-        {
-          "size_label": "1951",
-          "size_code": "1951",
-          "variants": [
-            {
-              "code": "1951-99",
-              "description": "ΑΕΡΟΣΤΕΓΗ FRESCO ΤΕΤΡ. ΣΕΤ 0,6ltx1τεμ.,1ltx 1τεμ.",
-              "color": "",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1951-99.jpg",
-              "pack": "0",
-              "excel_ar": ""
-            }
-          ],
-          "colors_count": 0,
-          "specs": {
-            "liters": null,
-            "width": null,
-            "depth": null,
-            "box_height": null,
-            "diameter": null,
-            "height": null,
-            "has_specs": false
-          }
         }
       ],
-      "sizes_count": 8,
-      "variants_count": 32
+      "sizes_count": 6,
+      "variants_count": 30
     },
     {
       "id": "1210",
       "family_indicator": "447",
       "group_root": "1210",
       "title": "Αεροστεγή παραλληλόγραμμα χαμηλά",
-      "category": "Είδη Σπιτιού",
+      "category": "Κουζίνα",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_447-50.jpg",
       "sizes": [
         {
@@ -2263,47 +2191,15 @@
           "size_code": "510",
           "variants": [
             {
-              "code": "510-50",
-              "description": "ΑΕΡΟΣΤΕΓΕΣ ΤΕΤΡΑΓΩΝΟ(51A)3,2lt-23x23x10h cm-ΓΚΡΙ ΜΠΕΖ",
-              "color": "ΓΚΡΙ ΜΠΕΖ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_510-50.jpg",
-              "pack": "0",
-              "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
-            },
-            {
-              "code": "510-14",
-              "description": "ΑΕΡΟΣΤΕΓΕΣ ΤΕΤΡΑΓΩΝΟ(51A)3,2lt-23x23x10h cm-ΜΠΟΡΝΤΩ",
-              "color": "ΜΠΟΡΝΤΩ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_510-14.jpg",
-              "pack": "0",
-              "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
-            },
-            {
-              "code": "510-84",
-              "description": "ΑΕΡΟΣΤΕΓΕΣ ΤΕΤΡΑΓΩΝΟ(51A)3,2lt-23x23x10h cm-ΒΑΣΙΛΙΚΟΣ",
-              "color": "ΒΑΣΙΛΙΚΟΣ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_510-84.jpg",
-              "pack": "0",
-              "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
-            },
-            {
               "code": "510-76",
               "description": "ΑΕΡΟΣΤΕΓΕΣ ΤΕΤΡΑΓΩΝΟ(51A)3,2lt-23x23x10h cm-ΡΟΖ ΣΚΟΥΡΟ",
               "color": "ΡΟΖ ΣΚΟΥΡΟ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_510-76.jpg",
               "pack": "0",
               "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
-            },
-            {
-              "code": "510-58",
-              "description": "ΑΕΡΟΣΤΕΓΕΣ ΤΕΤΡΑΓΩΝΟ(51A)3,2lt-23x23x10h cm-ΤΙΤΑΝΙΟ",
-              "color": "ΤΙΤΑΝΙΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_510-58.jpg",
-              "pack": "0",
-              "excel_ar": "Πλήρως αεροστεγή φαγητοδοχεία, διάφανα με χρωματιστό καπάκι. Ιδανικά για τη διατήρηση τροφίμων και κατάλληλα για χρήση σε φούρνο μικροκυμάτων. Πλένονται με ασφάλεια στο πλυντήριο πιάτων"
             }
           ],
-          "colors_count": 5,
+          "colors_count": 1,
           "specs": {
             "liters": "3.2",
             "width": "23",
@@ -2372,7 +2268,7 @@
         }
       ],
       "sizes_count": 11,
-      "variants_count": 61
+      "variants_count": 57
     },
     {
       "id": "1250",
@@ -2511,7 +2407,7 @@
       "family_indicator": "1020",
       "group_root": "1270-V-GUSTO",
       "title": "GUSTO Ποτήρι χυμού 300mL",
-      "category": "Είδη Σπιτιού",
+      "category": "Κουζίνα",
       "representative_image": "https://viomes.gr/images/packshot_photos/viomes_1020-50.jpg",
       "sizes": [
         {
@@ -2527,23 +2423,71 @@
               "excel_ar": ""
             },
             {
-              "code": "1020-73",
-              "description": "GUSTO Ποτήρι χυμού 300mL-d8x9,5h cm-ΣΙΕΛ ΜΠΛΕ",
-              "color": "ΣΙΕΛ ΜΠΛΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1020-73.jpg",
-              "pack": "0",
-              "excel_ar": ""
-            },
-            {
               "code": "1020-76",
               "description": "GUSTO Ποτήρι χυμού 300mL-d8x9,5h cm-ΡΟΖ ΣΚΟΥΡΟ",
               "color": "ΡΟΖ ΣΚΟΥΡΟ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_1020-76.jpg",
               "pack": "0",
               "excel_ar": ""
+            },
+            {
+              "code": "1020-111",
+              "description": "GUSTO Ποτήρι χυμού 300mL-d8x9,5h cm-ΜΕΛΙΤΖΑΝΙ",
+              "color": "ΜΕΛΙΤΖΑΝΙ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1020-111.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1020-138",
+              "description": "GUSTO Ποτήρι χυμού 300mL-d8x9,5h cm-ΠΕΤΡΟΛ",
+              "color": "ΠΕΤΡΟΛ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1020-138.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1020-139",
+              "description": "GUSTO Ποτήρι χυμού 300mL-d8x9,5h cm-ΙΝΤΙΓΚΟ",
+              "color": "ΙΝΤΙΓΚΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1020-139.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1020-163",
+              "description": "GUSTO Ποτήρι χυμού 300mL-d8x9,5h cm-ΣΥΝΝΕΦΟ",
+              "color": "ΣΥΝΝΕΦΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1020-163.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1020-173",
+              "description": "GUSTO Ποτήρι χυμού 300mL-d8x9,5h cm-ΣΚΟΥΡΟ ΣΙΕΛ",
+              "color": "ΣΚΟΥΡΟ ΣΙΕΛ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1020-173.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1020-184",
+              "description": "GUSTO Ποτήρι χυμού 300mL-d8x9,5h cm-ΠΡΑΣΙΝΟ ΜΟΣ",
+              "color": "ΠΡΑΣΙΝΟ ΜΟΣ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1020-184.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1020-189",
+              "description": "GUSTO Ποτήρι χυμού 300mL-d8x9,5h cm-ΜΟΥΣΤΑΡΔΙ",
+              "color": "ΜΟΥΣΤΑΡΔΙ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1020-189.jpg",
+              "pack": "0",
+              "excel_ar": ""
             }
           ],
-          "colors_count": 3,
+          "colors_count": 9,
           "specs": {
             "liters": null,
             "width": null,
@@ -2567,23 +2511,71 @@
               "excel_ar": ""
             },
             {
-              "code": "1021-73",
-              "description": "GUSTO Ποτήρι νερού 450mL-d8,5x12,5h cm-ΣΙΕΛ ΜΠΛΕ",
-              "color": "ΣΙΕΛ ΜΠΛΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1021-73.jpg",
-              "pack": "0",
-              "excel_ar": ""
-            },
-            {
               "code": "1021-76",
               "description": "GUSTO Ποτήρι νερού 450mL-d8,5x12,5h cm-ΡΟΖ ΣΚΟΥΡΟ",
               "color": "ΡΟΖ ΣΚΟΥΡΟ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_1021-76.jpg",
               "pack": "0",
               "excel_ar": ""
+            },
+            {
+              "code": "1021-111",
+              "description": "GUSTO Ποτήρι νερού 450mL-d8,5x12,5h cm-ΜΕΛΙΤΖΑΝΙ",
+              "color": "ΜΕΛΙΤΖΑΝΙ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1021-111.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1021-138",
+              "description": "GUSTO Ποτήρι νερού 450mL-d8,5x12,5h cm-ΠΕΤΡΟΛ",
+              "color": "ΠΕΤΡΟΛ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1021-138.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1021-139",
+              "description": "GUSTO Ποτήρι νερού 450mL-d8,5x12,5h cm-ΙΝΤΙΓΚΟ",
+              "color": "ΙΝΤΙΓΚΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1021-139.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1021-163",
+              "description": "GUSTO Ποτήρι νερού 450mL-d8,5x12,5h cm-ΣΥΝΝΕΦΟ",
+              "color": "ΣΥΝΝΕΦΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1021-76.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1021-173",
+              "description": "GUSTO Ποτήρι νερού 450mL-d8,5x12,5h cm-ΣΚΟΥΡΟ ΣΙΕΛ",
+              "color": "ΣΚΟΥΡΟ ΣΙΕΛ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1021-76.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1021-184",
+              "description": "GUSTO Ποτήρι νερού 450mL-d8,5x12,5h cm-ΠΡΑΣΙΝΟ ΜΟΣ",
+              "color": "ΠΡΑΣΙΝΟ ΜΟΣ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1021-76.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1021-189",
+              "description": "GUSTO Ποτήρι νερού 450mL-d8,5x12,5h cm-ΜΟΥΣΤΑΡΔΙ",
+              "color": "ΜΟΥΣΤΑΡΔΙ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1021-76.jpg",
+              "pack": "0",
+              "excel_ar": ""
             }
           ],
-          "colors_count": 3,
+          "colors_count": 9,
           "specs": {
             "liters": null,
             "width": null,
@@ -2607,23 +2599,71 @@
               "excel_ar": ""
             },
             {
-              "code": "1030-73",
-              "description": "GUSTO Πιάτο γλυκού d17,5x2h cm-ΣΙΕΛ ΜΠΛΕ",
-              "color": "ΣΙΕΛ ΜΠΛΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1030-73.jpg",
-              "pack": "0",
-              "excel_ar": ""
-            },
-            {
               "code": "1030-76",
               "description": "GUSTO Πιάτο γλυκού d17,5x2h cm-ΡΟΖ ΣΚΟΥΡΟ",
               "color": "ΡΟΖ ΣΚΟΥΡΟ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_1030-76.jpg",
               "pack": "0",
               "excel_ar": ""
+            },
+            {
+              "code": "1030-111",
+              "description": "GUSTO Πιάτο γλυκού d17,5x2h cm-ΜΕΛΙΤΖΑΝΙ",
+              "color": "ΜΕΛΙΤΖΑΝΙ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1030-111.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1030-138",
+              "description": "GUSTO Πιάτο γλυκού d17,5x2h cm-ΠΕΤΡΟΛ",
+              "color": "ΠΕΤΡΟΛ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1030-138.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1030-139",
+              "description": "GUSTO Πιάτο γλυκού d17,5x2h cm-ΙΝΤΙΓΚΟ",
+              "color": "ΙΝΤΙΓΚΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1030-139.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1030-163",
+              "description": "GUSTO Πιάτο γλυκού d17,5x2h cm-ΣΥΝΝΕΦΟ",
+              "color": "ΣΥΝΝΕΦΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1030-163.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1030-173",
+              "description": "GUSTO Πιάτο γλυκού d17,5x2h cm-ΣΚΟΥΡΟ ΣΙΕΛ",
+              "color": "ΣΚΟΥΡΟ ΣΙΕΛ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1030-173.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1030-184",
+              "description": "GUSTO Πιάτο γλυκού d17,5x2h cm-ΠΡΑΣΙΝΟ ΜΟΣ",
+              "color": "ΠΡΑΣΙΝΟ ΜΟΣ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1030-184.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1030-189",
+              "description": "GUSTO Πιάτο γλυκού d17,5x2h cm-ΜΟΥΣΤΑΡΔΙ",
+              "color": "ΜΟΥΣΤΑΡΔΙ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1030-189.jpg",
+              "pack": "0",
+              "excel_ar": ""
             }
           ],
-          "colors_count": 3,
+          "colors_count": 9,
           "specs": {
             "liters": null,
             "width": null,
@@ -2647,23 +2687,71 @@
               "excel_ar": ""
             },
             {
-              "code": "1031-73",
-              "description": "GUSTO Πιάτο φαγητού d22,5x2h cm-ΣΙΕΛ ΜΠΛΕ",
-              "color": "ΣΙΕΛ ΜΠΛΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1031-73.jpg",
-              "pack": "0",
-              "excel_ar": ""
-            },
-            {
               "code": "1031-76",
               "description": "GUSTO Πιάτο φαγητού d22,5x2h cm-ΡΟΖ ΣΚΟΥΡΟ",
               "color": "ΡΟΖ ΣΚΟΥΡΟ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_1031-76.jpg",
               "pack": "0",
               "excel_ar": ""
+            },
+            {
+              "code": "1031-111",
+              "description": "GUSTO Πιάτο φαγητού d22,5x2h cm-ΜΕΛΙΤΖΑΝΙ",
+              "color": "ΜΕΛΙΤΖΑΝΙ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1031-111.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1031-138",
+              "description": "GUSTO Πιάτο φαγητού d22,5x2h cm-ΠΕΤΡΟΛ",
+              "color": "ΠΕΤΡΟΛ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1031-138.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1031-139",
+              "description": "GUSTO Πιάτο φαγητού d22,5x2h cm-ΙΝΤΙΓΚΟ",
+              "color": "ΙΝΤΙΓΚΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1031-139.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1031-163",
+              "description": "GUSTO Πιάτο φαγητού d22,5x2h cm-ΣΥΝΝΕΦΟ",
+              "color": "ΣΥΝΝΕΦΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1031-163.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1031-173",
+              "description": "GUSTO Πιάτο φαγητού d22,5x2h cm-ΣΚΟΥΡΟ ΣΙΕΛ",
+              "color": "ΣΚΟΥΡΟ ΣΙΕΛ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1031-173.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1031-184",
+              "description": "GUSTO Πιάτο φαγητού d22,5x2h cm-ΠΡΑΣΙΝΟ ΜΟΣ",
+              "color": "ΠΡΑΣΙΝΟ ΜΟΣ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1031-184.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1031-189",
+              "description": "GUSTO Πιάτο φαγητού d22,5x2h cm-ΜΟΥΣΤΑΡΔΙ",
+              "color": "ΜΟΥΣΤΑΡΔΙ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1031-189.jpg",
+              "pack": "0",
+              "excel_ar": ""
             }
           ],
-          "colors_count": 3,
+          "colors_count": 9,
           "specs": {
             "liters": null,
             "width": null,
@@ -2687,23 +2775,71 @@
               "excel_ar": ""
             },
             {
-              "code": "1032-73",
-              "description": "GUSTO Βαθύ πιάτο πρωινού d17,5x4h cm-ΣΙΕΛ ΜΠΛΕ",
-              "color": "ΣΙΕΛ ΜΠΛΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1032-73.jpg",
-              "pack": "0",
-              "excel_ar": ""
-            },
-            {
               "code": "1032-76",
               "description": "GUSTO Βαθύ πιάτο πρωινού d17,5x4h cm-ΡΟΖ ΣΚΟΥΡΟ",
               "color": "ΡΟΖ ΣΚΟΥΡΟ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_1032-76.jpg",
               "pack": "0",
               "excel_ar": ""
+            },
+            {
+              "code": "1032-111",
+              "description": "GUSTO Βαθύ πιάτο πρωινού d17,5x4h cm-ΜΕΛΙΤΖΑΝΙ",
+              "color": "ΜΕΛΙΤΖΑΝΙ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1032-111.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1032-138",
+              "description": "GUSTO Βαθύ πιάτο πρωινού d17,5x4h cm-ΠΕΤΡΟΛ",
+              "color": "ΠΕΤΡΟΛ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1032-138.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1032-139",
+              "description": "GUSTO Βαθύ πιάτο πρωινού d17,5x4h cm-ΙΝΤΙΓΚΟ",
+              "color": "ΙΝΤΙΓΚΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1032-139.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1032-163",
+              "description": "GUSTO Βαθύ πιάτο πρωινού d17,5x4h cm-ΣΥΝΝΕΦΟ",
+              "color": "ΣΥΝΝΕΦΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1032-163.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1032-173",
+              "description": "GUSTO Βαθύ πιάτο πρωινού d17,5x4h cm-ΣΚΟΥΡΟ ΣΙΕΛ",
+              "color": "ΣΚΟΥΡΟ ΣΙΕΛ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1032-173.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1032-184",
+              "description": "GUSTO Βαθύ πιάτο πρωινού d17,5x4h cm-ΠΡΑΣΙΝΟ ΜΟΣ",
+              "color": "ΠΡΑΣΙΝΟ ΜΟΣ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1032-184.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1032-189",
+              "description": "GUSTO Βαθύ πιάτο πρωινού d17,5x4h cm-,ΜΟΥΣΤΑΡΔΙ",
+              "color": "ΜΟΥΣΤΑΡΔΙ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1032-189.jpg",
+              "pack": "0",
+              "excel_ar": ""
             }
           ],
-          "colors_count": 3,
+          "colors_count": 9,
           "specs": {
             "liters": null,
             "width": null,
@@ -2727,23 +2863,71 @@
               "excel_ar": ""
             },
             {
-              "code": "1040-73",
-              "description": "GUSTO Μπωλ παγωτού 550mL - d13x6h cm-ΣΙΕΛ ΜΠΛΕ",
-              "color": "ΣΙΕΛ ΜΠΛΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1040-73.jpg",
-              "pack": "0",
-              "excel_ar": ""
-            },
-            {
               "code": "1040-76",
               "description": "GUSTO Μπωλ παγωτού 550mL - d13x6h cm-ΡΟΖ ΣΚΟΥΡΟ",
               "color": "ΡΟΖ ΣΚΟΥΡΟ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_1040-76.jpg",
               "pack": "0",
               "excel_ar": ""
+            },
+            {
+              "code": "1040-111",
+              "description": "GUSTO Μπωλ παγωτού 550mL - d13x6h cm-ΜΕΛΙΤΖΑΝΙ",
+              "color": "ΜΕΛΙΤΖΑΝΙ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1040-111.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1040-138",
+              "description": "GUSTO Μπωλ παγωτού 550mL - d13x6h cm-ΠΕΤΡΟΛ",
+              "color": "ΠΕΤΡΟΛ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1040-138.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1040-139",
+              "description": "GUSTO Μπωλ παγωτού 550mL - d13x6h cm-ΙΝΤΙΓΚΟ",
+              "color": "ΙΝΤΙΓΚΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1040-139.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1040-163",
+              "description": "GUSTO Μπωλ παγωτού 550mL - d13x6h cm-ΣΥΝΝΕΦΟ",
+              "color": "ΣΥΝΝΕΦΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1040-163.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1040-173",
+              "description": "GUSTO Μπωλ παγωτού 550mL - d13x6h cm-ΣΚΟΥΡΟ ΣΙΕΛ",
+              "color": "ΣΚΟΥΡΟ ΣΙΕΛ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1040-173.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1040-184",
+              "description": "GUSTO Μπωλ παγωτού 550mL - d13x6h cm-ΠΡΑΣΙΝΟ ΜΟΣ",
+              "color": "ΠΡΑΣΙΝΟ ΜΟΣ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1040-184.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1040-189",
+              "description": "GUSTO Μπωλ παγωτού 550mL - d13x6h cm-ΜΟΥΣΤΑΡΔΙ",
+              "color": "ΜΟΥΣΤΑΡΔΙ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1040-189.jpg",
+              "pack": "0",
+              "excel_ar": ""
             }
           ],
-          "colors_count": 3,
+          "colors_count": 9,
           "specs": {
             "liters": null,
             "width": null,
@@ -2767,23 +2951,71 @@
               "excel_ar": ""
             },
             {
-              "code": "1041-73",
-              "description": "GUSTO Μπωλ σαλάτας 1600mL - d19x8h cm - ΣΙΕΛ ΜΠΛΕ",
-              "color": "ΣΙΕΛ ΜΠΛΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1041-73.jpg",
+              "code": "1041-76",
+              "description": "GUSTO Μπωλ σαλάτας 1600mL - d19x8h cm-ΡΟΖ ΣΚΟΥΡΟ",
+              "color": "ΡΟΖ ΣΚΟΥΡΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1041-76.jpg",
               "pack": "0",
               "excel_ar": ""
             },
             {
-              "code": "1041-76",
-              "description": "GUSTO Μπωλ σαλάτας 1600mL - d19x8h cm-ΡΟΖ ΣΚΟΥΡΟ",
-              "color": "DUSTY PINK",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1041-76.jpg",
+              "code": "1041-111",
+              "description": "GUSTO Μπωλ σαλάτας 1600mL - d19x8h cm-ΜΕΛΙΤΖΑΝΙ",
+              "color": "ΜΕΛΙΤΖΑΝΙ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1041-111.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1041-138",
+              "description": "GUSTO Μπωλ σαλάτας 1600mL - d19x8h cm-ΠΕΤΡΟΛ",
+              "color": "ΠΕΤΡΟΛ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1041-138.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1041-139",
+              "description": "GUSTO Μπωλ σαλάτας 1600mL - d19x8h cm-ΙΝΤΙΓΚΟ",
+              "color": "ΙΝΤΙΓΚΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1041-139.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1041-163",
+              "description": "GUSTO Μπωλ σαλάτας 1600mL - d19x8h cm-ΣΥΝΝΕΦΟ",
+              "color": "ΣΥΝΝΕΦΟ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1041-163.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1041-173",
+              "description": "GUSTO Μπωλ σαλάτας 1600mL - d19x8h cm-ΣΚΟΥΡΟ ΣΙΕΛ",
+              "color": "ΣΚΟΥΡΟ ΣΙΕΛ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1041-173.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1041-184",
+              "description": "GUSTO Μπωλ σαλάτας 1600mL - d19x8h cm-ΠΡΑΣΙΝΟ ΜΟΣ",
+              "color": "ΠΡΑΣΙΝΟ ΜΟΣ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1041-184.jpg",
+              "pack": "0",
+              "excel_ar": ""
+            },
+            {
+              "code": "1041-189",
+              "description": "GUSTO Μπωλ σαλάτας 1600mL - d19x8h cm-ΜΟΥΣΤΑΡΔΙ",
+              "color": "ΜΟΥΣΤΑΡΔΙ",
+              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1041-189.jpg",
               "pack": "0",
               "excel_ar": ""
             }
           ],
-          "colors_count": 3,
+          "colors_count": 9,
           "specs": {
             "liters": null,
             "width": null,
@@ -2796,7 +3028,7 @@
         }
       ],
       "sizes_count": 7,
-      "variants_count": 21
+      "variants_count": 63
     },
     {
       "id": "1290",
@@ -3220,28 +3452,12 @@
       "group_root": "1310",
       "title": "Τιναχτήρι",
       "category": "Είδη Σπιτιού",
-      "representative_image": "https://viomes.gr/images/packshot_photos/viomes_201-05.jpg",
+      "representative_image": "https://viomes.gr/images/packshot_photos/viomes_201-28.jpg",
       "sizes": [
         {
           "size_label": "201",
           "size_code": "201",
           "variants": [
-            {
-              "code": "201-05",
-              "description": "TINAXTHPI  22,5x67 cm-KOKKINO",
-              "color": "KOKKINO",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_201-05.jpg",
-              "pack": "12",
-              "excel_ar": "Ανθεκτικό τιναχτήρι για ρούχα και χαλιά, υψηλής ποιότητας, σε μοντέρνους χρωματισμούς. Ιδανικό για καθημερινή χρήση"
-            },
-            {
-              "code": "201-32",
-              "description": "TINAXTHPI  22,5x67 cm-ΛΑΧΑΝΙ",
-              "color": "ΛΑΧΑΝΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_201-32.jpg",
-              "pack": "12",
-              "excel_ar": "Ανθεκτικό τιναχτήρι για ρούχα και χαλιά, υψηλής ποιότητας, σε μοντέρνους χρωματισμούς. Ιδανικό για καθημερινή χρήση"
-            },
             {
               "code": "201-28",
               "description": "TINAXTHPI  22,5x67 cm-ΓΑΛΑΖΙΟ",
@@ -3291,7 +3507,7 @@
               "excel_ar": "Ανθεκτικό τιναχτήρι για ρούχα και χαλιά, υψηλής ποιότητας, σε μοντέρνους χρωματισμούς. Ιδανικό για καθημερινή χρήση"
             }
           ],
-          "colors_count": 8,
+          "colors_count": 6,
           "specs": {
             "liters": null,
             "width": "22.5",
@@ -3336,7 +3552,7 @@
         }
       ],
       "sizes_count": 2,
-      "variants_count": 10
+      "variants_count": 8
     },
     {
       "id": "1320",
@@ -3515,14 +3731,6 @@
               "excel_ar": "Κάδος απορριμμάτων ECOBIN 60 λίτρων, υψηλής ποιότητας και αντοχής. Κατάλληλος για χρήση τόσο σε εσωτερικούς όσο και σε εξωτερικούς χώρους. Κατασκευασμένος από ανακυκλωμένο πλαστικό υψηλής ποιότητας. Διαθέτει στεγανό καπάκι με μηχανισμό Soft Close και εσωτερικό σύστημα συγκράτησης σακούλας"
             },
             {
-              "code": "140-155",
-              "description": "ΠΕΝΤΑΛ ECOBIN 60lt-32x40x65h cm-ΧΑΚΙ",
-              "color": "ΧΑΚΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_140-155.jpg",
-              "pack": "0",
-              "excel_ar": "Κάδος απορριμμάτων ECOBIN 60 λίτρων, υψηλής ποιότητας και αντοχής. Κατάλληλος για χρήση τόσο σε εσωτερικούς όσο και σε εξωτερικούς χώρους. Κατασκευασμένος από ανακυκλωμένο πλαστικό υψηλής ποιότητας. Διαθέτει στεγανό καπάκι με μηχανισμό Soft Close και εσωτερικό σύστημα συγκράτησης σακούλας"
-            },
-            {
               "code": "140-50",
               "description": "ΠΕΝΤΑΛ ECOBIN 60lt-32x40x65h cm-ΓΚΡΙ ΜΠΕΖ",
               "color": "ΓΚΡΙ ΜΠΕΖ",
@@ -3539,7 +3747,7 @@
               "excel_ar": "Κάδος απορριμμάτων ECOBIN 60 λίτρων, υψηλής ποιότητας και αντοχής. Κατάλληλος για χρήση τόσο σε εσωτερικούς όσο και σε εξωτερικούς χώρους. Κατασκευασμένος από ανακυκλωμένο πλαστικό υψηλής ποιότητας. Διαθέτει στεγανό καπάκι με μηχανισμό Soft Close και εσωτερικό σύστημα συγκράτησης σακούλας"
             }
           ],
-          "colors_count": 4,
+          "colors_count": 3,
           "specs": {
             "liters": "60",
             "width": "32",
@@ -3552,7 +3760,7 @@
         }
       ],
       "sizes_count": 1,
-      "variants_count": 4
+      "variants_count": 3
     },
     {
       "id": "1350",
@@ -3571,14 +3779,6 @@
               "description": "ΠΕΝΤΑΛ ΚΟΥΖΙΝΑΣ ΣΤΡΟΓΓ.32lt-d32x55h cm-ΛΕΥΚΟ",
               "color": "ΛΕΥΚΟ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_145-01.jpg",
-              "pack": "0",
-              "excel_ar": "Στρογγυλός πεντάλ κουζίνας , εξαιρετικής ποιότητας και αντοχής, διαθέσιμος σε μοντέρνους χρωματισμούς"
-            },
-            {
-              "code": "145-02",
-              "description": "ΠΕΝΤΑΛ ΚΟΥΖΙΝΑΣ ΣΤΡΟΓΓ.32lt-d32x55h cm-MAYPO",
-              "color": "MAYPO",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_145-02.jpg",
               "pack": "0",
               "excel_ar": "Στρογγυλός πεντάλ κουζίνας , εξαιρετικής ποιότητας και αντοχής, διαθέσιμος σε μοντέρνους χρωματισμούς"
             },
@@ -3607,7 +3807,7 @@
               "excel_ar": "Στρογγυλός πεντάλ κουζίνας , εξαιρετικής ποιότητας και αντοχής, διαθέσιμος σε μοντέρνους χρωματισμούς"
             }
           ],
-          "colors_count": 5,
+          "colors_count": 4,
           "specs": {
             "liters": "32",
             "width": null,
@@ -3813,17 +4013,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_446-58.jpg",
               "pack": "0",
               "excel_ar": "Τετράγωνο πεντάλ κουζίνας, εξαιρετικής κατασκευής, με στεφάνι συγκράτησης σακούλας και διαθέσιμος σε μοντέρνα χρώματα"
-            },
-            {
-              "code": "446-60",
-              "description": "ΠΕΝΤΑΛ ΚΟΥΖΙΝΑΣ TETP.MIKPO 28lt-30x31,5x44h cm-ΓΡΑΝΙΤΗ",
-              "color": "ΓΡΑΝΙΤΗ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_446-60.jpg",
-              "pack": "0",
-              "excel_ar": "Τετράγωνο πεντάλ κουζίνας, εξαιρετικής κατασκευής, με στεφάνι συγκράτησης σακούλας και διαθέσιμος σε μοντέρνα χρώματα"
             }
           ],
-          "colors_count": 9,
+          "colors_count": 8,
           "specs": {
             "liters": "28",
             "width": "30",
@@ -3836,7 +4028,7 @@
         }
       ],
       "sizes_count": 3,
-      "variants_count": 28
+      "variants_count": 26
     },
     {
       "id": "1370",
@@ -4091,14 +4283,6 @@
               "excel_ar": "Κομψά πεντάλ 7 και 10 λίτρων με μηχανισμό Soft Close. Ιδανικά για κάθε μπάνιο χάρη στον μοντέρνο σχεδιασμό, τις πρακτικές διαστάσεις και τους σύγχρονους χρωματισμούς"
             },
             {
-              "code": "186-30",
-              "description": "ΠΕΝΤΑΛ ΤΟΥΑΛ.SOFT CLOSE 10lt 27x19x37,5cm-ΓΚΡΕΪΖ",
-              "color": "ΓΚΡΕΪΖ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_186-30.jpg",
-              "pack": "0",
-              "excel_ar": "Κομψά πεντάλ 7 και 10 λίτρων με μηχανισμό Soft Close. Ιδανικά για κάθε μπάνιο χάρη στον μοντέρνο σχεδιασμό, τις πρακτικές διαστάσεις και τους σύγχρονους χρωματισμούς"
-            },
-            {
               "code": "186-56",
               "description": "ΠΕΝΤΑΛ ΤΟΥΑΛ.SOFT CLOSE 10lt 27x19x37,5cm-ΜΠΕΖ ΑΜΜΟΥ",
               "color": "ΜΠΕΖ ΑΜΜΟΥ",
@@ -4115,7 +4299,7 @@
               "excel_ar": "Κομψά πεντάλ 7 και 10 λίτρων με μηχανισμό Soft Close. Ιδανικά για κάθε μπάνιο χάρη στον μοντέρνο σχεδιασμό, τις πρακτικές διαστάσεις και τους σύγχρονους χρωματισμούς"
             }
           ],
-          "colors_count": 5,
+          "colors_count": 4,
           "specs": {
             "liters": "10",
             "width": "27",
@@ -4288,7 +4472,7 @@
         }
       ],
       "sizes_count": 9,
-      "variants_count": 37
+      "variants_count": 36
     },
     {
       "id": "1380",
@@ -4296,20 +4480,12 @@
       "group_root": "1380",
       "title": "Πιγκάλ τουαλέτας τετράγωνο ανοιχτό νο 205",
       "category": "Είδη Σπιτιού",
-      "representative_image": "https://viomes.gr/images/packshot_photos/viomes_205-01.jpg",
+      "representative_image": "https://viomes.gr/images/packshot_photos/viomes_205-04.jpg",
       "sizes": [
         {
           "size_label": "205",
           "size_code": "205",
           "variants": [
-            {
-              "code": "205-01",
-              "description": "ΠΙΓΚΑΛ ΤΟΥΑΛΕΤΑΣ 12x12x37h cm-ΛΕΥΚΟ",
-              "color": "ΛΕΥΚΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_205-01.jpg",
-              "pack": "0",
-              "excel_ar": "Εργονομικό πιγκάλ με σταθερή βάση και υψηλή αντοχή. Σε μοντέρνους χρωματισμούς για να ταιριάζει σε κάθε μπάνιο"
-            },
             {
               "code": "205-04",
               "description": "ΠΙΓΚΑΛ ΤΟΥΑΛΕΤΑΣ 12x12x37h cm-ΜΠΕΖ ΙΒΟΥΑΡ",
@@ -4317,17 +4493,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_205-04.jpg",
               "pack": "0",
               "excel_ar": "Εργονομικό πιγκάλ με σταθερή βάση και υψηλή αντοχή. Σε μοντέρνους χρωματισμούς για να ταιριάζει σε κάθε μπάνιο"
-            },
-            {
-              "code": "205-28",
-              "description": "ΠΙΓΚΑΛ ΤΟΥΑΛΕΤΑΣ 12x12x37h cm-ΓΑΛΑΖΙΟ",
-              "color": "ΓΑΛΑΖΙΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_205-28.jpg",
-              "pack": "0",
-              "excel_ar": "Εργονομικό πιγκάλ με σταθερή βάση και υψηλή αντοχή. Σε μοντέρνους χρωματισμούς για να ταιριάζει σε κάθε μπάνιο"
             }
           ],
-          "colors_count": 3,
+          "colors_count": 1,
           "specs": {
             "liters": null,
             "width": "12",
@@ -4503,22 +4671,6 @@
               "excel_ar": "Κλειστό πιγκάλ μπάνιου με κομψό εργονομικό σχεδιασμό και υψηλής ποιότητας κατασκευή. Διατίθεται σε σύγχρονους χρωματισμούς για κάθε στυλ μπάνιου"
             },
             {
-              "code": "225-01",
-              "description": "ΠΙΓΚΑΛ ΤΟΥΑΛΕΤΑΣ ΣΤΡΟΓΓΥΛΟ d10x33h cm-ΛΕΥΚΟ",
-              "color": "ΛΕΥΚΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_225-01.jpg",
-              "pack": "0",
-              "excel_ar": "Κλειστό πιγκάλ μπάνιου με κομψό εργονομικό σχεδιασμό και υψηλής ποιότητας κατασκευή. Διατίθεται σε σύγχρονους χρωματισμούς για κάθε στυλ μπάνιου"
-            },
-            {
-              "code": "225-04",
-              "description": "ΠΙΓΚΑΛ ΤΟΥΑΛΕΤΑΣ ΣΤΡΟΓΓΥΛΟ d10x33h cm-ΜΠΕΖ ΙΒΟΥΑΡ",
-              "color": "ΜΠΕΖ ΙΒΟΥΑΡ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_225-04.jpg",
-              "pack": "0",
-              "excel_ar": "Κλειστό πιγκάλ μπάνιου με κομψό εργονομικό σχεδιασμό και υψηλής ποιότητας κατασκευή. Διατίθεται σε σύγχρονους χρωματισμούς για κάθε στυλ μπάνιου"
-            },
-            {
               "code": "225-08",
               "description": "ΠΙΓΚΑΛ ΤΟΥΑΛΕΤΑΣ ΣΤΡΟΓΓΥΛΟ d10x33h cm-ΣΙΕΛ",
               "color": "ΣΙΕΛ",
@@ -4567,7 +4719,7 @@
               "excel_ar": "Κλειστό πιγκάλ μπάνιου με κομψό εργονομικό σχεδιασμό και υψηλής ποιότητας κατασκευή. Διατίθεται σε σύγχρονους χρωματισμούς για κάθε στυλ μπάνιου"
             }
           ],
-          "colors_count": 9,
+          "colors_count": 7,
           "specs": {
             "liters": null,
             "width": null,
@@ -4676,7 +4828,7 @@
         }
       ],
       "sizes_count": 7,
-      "variants_count": 33
+      "variants_count": 29
     },
     {
       "id": "1390",
@@ -5077,34 +5229,10 @@
             "height": "14",
             "has_specs": true
           }
-        },
-        {
-          "size_label": "942",
-          "size_code": "942",
-          "variants": [
-            {
-              "code": "942-01",
-              "description": "ΣΤΥΦΤΗΡΙ 30x18x13h cm-ΛΕΥΚΟ",
-              "color": "ΛΕΥΚΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_942-01.jpg",
-              "pack": "0",
-              "excel_ar": "Στυφτήρι ενισχυμένο, εξαιρετικής αντοχής, σχεδιασμένο για στρογγυλούς κουβάδες 16 λίτρων με ροή"
-            }
-          ],
-          "colors_count": 1,
-          "specs": {
-            "liters": null,
-            "width": "30",
-            "depth": "18",
-            "box_height": "13",
-            "diameter": null,
-            "height": null,
-            "has_specs": true
-          }
         }
       ],
-      "sizes_count": 3,
-      "variants_count": 3
+      "sizes_count": 2,
+      "variants_count": 2
     },
     {
       "id": "1450",
@@ -5191,14 +5319,6 @@
               "excel_ar": "Στυφτήρι άριστης ποιότητας, με εργονομικό σχεδιασμό και κλιπ ασφαλείας για απόλυτη σταθερότητα κατά τη χρήση. Διατίθεται σε μοντέρνα χρώματα"
             },
             {
-              "code": "301-02-00011",
-              "description": "ΣΤΥΦΤΗΡΙ 28x22x16h cm-MAYPO",
-              "color": "MAYPO",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_301-02-00011.jpg",
-              "pack": "10",
-              "excel_ar": "Στυφτήρι άριστης ποιότητας, με εργονομικό σχεδιασμό και κλιπ ασφαλείας για απόλυτη σταθερότητα κατά τη χρήση. Διατίθεται σε μοντέρνα χρώματα"
-            },
-            {
               "code": "301-50",
               "description": "ΣΤΥΦΤΗΡΙ 28x22x16h cm-ΓΚΡΙ ΜΠΕΖ",
               "color": "ΓΚΡΙ ΜΠΕΖ",
@@ -5215,7 +5335,7 @@
               "excel_ar": "Στυφτήρι άριστης ποιότητας, με εργονομικό σχεδιασμό και κλιπ ασφαλείας για απόλυτη σταθερότητα κατά τη χρήση. Διατίθεται σε μοντέρνα χρώματα"
             }
           ],
-          "colors_count": 4,
+          "colors_count": 3,
           "specs": {
             "liters": null,
             "width": "28",
@@ -5231,14 +5351,6 @@
           "size_code": "302",
           "variants": [
             {
-              "code": "302-50",
-              "description": "ΣΤΥΦΤΗΡΙ 28x22x10,5h cm-ΓΚΡΙ ΜΠΕΖ",
-              "color": "ΓΚΡΙ ΜΠΕΖ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_302-50.jpg",
-              "pack": "10",
-              "excel_ar": "Στυφτήρι πρέσα άριστης ποιότητας με εργονομικό σχεδιασμό και κλιπ ασφαλείας για εξαιρετική σταθερότητα κατά τη χρήση. Διατίθεται σε μοντέρνα χρώματα"
-            },
-            {
               "code": "302-02",
               "description": "ΣΤΥΦΤΗΡΙ 28x22x10,5h cm-ΜΑΥΡΟ",
               "color": "ΜΑΥΡΟ",
@@ -5247,7 +5359,7 @@
               "excel_ar": "Στυφτήρι πρέσα άριστης ποιότητας με εργονομικό σχεδιασμό και κλιπ ασφαλείας για εξαιρετική σταθερότητα κατά τη χρήση. Διατίθεται σε μοντέρνα χρώματα"
             }
           ],
-          "colors_count": 2,
+          "colors_count": 1,
           "specs": {
             "liters": null,
             "width": "28",
@@ -5300,7 +5412,7 @@
         }
       ],
       "sizes_count": 4,
-      "variants_count": 15
+      "variants_count": 13
     },
     {
       "id": "1460",
@@ -5439,14 +5551,6 @@
               "excel_ar": "Κουβάς στρογγυλός 13 λίτρων τύπου Ιταλίας με πρακτικό σχεδιασμό και εντυπωσιακά χρώματα που ξεχωρίζουν"
             },
             {
-              "code": "530-33/32-00013",
-              "description": "ΚΟΥΒΑΣ ΤΥΠΟΥ ΙΤΑΛΙΑΣ ME MYTH 13lt d29x27h cm-ΡΑΦ/ΛΑΧΑΝΙ",
-              "color": "ΡΑΦ/ΛΑΧΑΝΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_530-33_32-00013.jpg",
-              "pack": "0",
-              "excel_ar": "Κουβάς στρογγυλός 13 λίτρων τύπου Ιταλίας με πρακτικό σχεδιασμό και εντυπωσιακά χρώματα που ξεχωρίζουν"
-            },
-            {
               "code": "530-50",
               "description": "ΚΟΥΒΑΣ ΤΥΠΟΥ ΙΤΑΛΙΑΣ ME MYTH 13lt d29x27h cm-ΓΚΡΙ ΜΠΕΖ",
               "color": "ΓΚΡΙ ΜΠΕΖ",
@@ -5463,7 +5567,7 @@
               "excel_ar": "Κουβάς στρογγυλός 13 λίτρων τύπου Ιταλίας με πρακτικό σχεδιασμό και εντυπωσιακά χρώματα που ξεχωρίζουν"
             }
           ],
-          "colors_count": 6,
+          "colors_count": 5,
           "specs": {
             "liters": "13",
             "width": null,
@@ -5473,34 +5577,10 @@
             "height": "27",
             "has_specs": true
           }
-        },
-        {
-          "size_label": "531",
-          "size_code": "531",
-          "variants": [
-            {
-              "code": "531-05",
-              "description": "ΣΤΥΦΤΗΡΙ KOYBA ΜΕ ΜΥΤΗ 30x18x13h cm-KOKKINO",
-              "color": "KOKKINO",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_531-05.jpg",
-              "pack": "0",
-              "excel_ar": "Ανθεκτικό στυφτήρι για στρογγυλό κουβά τύπου Ιταλίας, με ενισχυμένη κατασκευή και ζωηρούς χρωματισμούς"
-            }
-          ],
-          "colors_count": 1,
-          "specs": {
-            "liters": null,
-            "width": "30",
-            "depth": "18",
-            "box_height": "13",
-            "diameter": null,
-            "height": null,
-            "has_specs": true
-          }
         }
       ],
-      "sizes_count": 2,
-      "variants_count": 7
+      "sizes_count": 1,
+      "variants_count": 5
     },
     {
       "id": "1580",
@@ -5529,17 +5609,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_830-35.jpg",
               "pack": "0",
               "excel_ar": "Αγροτικοί κουβάδες εξαιρετικής αντοχής, με μεταλλική λαβή, διαθέσιμοι σε δύο διαστάσεις και ιδιαίτερα χρώματα"
-            },
-            {
-              "code": "830-58",
-              "description": "ΚΟΥΒΑΣ ΑΓΡΟΤΙΚΟΣ  12lt-d33x26h cm-ΤΙΤΑΝΙΟ",
-              "color": "ΤΙΤΑΝΙΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_830-58.jpg",
-              "pack": "0",
-              "excel_ar": "Αγροτικοί κουβάδες εξαιρετικής αντοχής, με μεταλλική λαβή, διαθέσιμοι σε δύο διαστάσεις και ιδιαίτερα χρώματα"
             }
           ],
-          "colors_count": 3,
+          "colors_count": 2,
           "specs": {
             "liters": "12",
             "width": null,
@@ -5549,42 +5621,10 @@
             "height": "26",
             "has_specs": true
           }
-        },
-        {
-          "size_label": "831",
-          "size_code": "831",
-          "variants": [
-            {
-              "code": "831-05",
-              "description": "ΚΟΥΒΑΣ ΑΓΡΟΤΙΚΟΣ  18lt-d37x28h cm-KOKKINO",
-              "color": "KOKKINO",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_831-05.jpg",
-              "pack": "0",
-              "excel_ar": "Αγροτικοί κουβάδες εξαιρετικής αντοχής, με μεταλλική λαβή, διαθέσιμοι σε δύο διαστάσεις και ιδιαίτερα χρώματα"
-            },
-            {
-              "code": "831-35",
-              "description": "ΚΟΥΒΑΣ ΑΓΡΟΤΙΚΟΣ  18lt-d37x28h cm-ΜΠΛΕ",
-              "color": "ΜΠΛΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_831-35.jpg",
-              "pack": "0",
-              "excel_ar": "Αγροτικοί κουβάδες εξαιρετικής αντοχής, με μεταλλική λαβή, διαθέσιμοι σε δύο διαστάσεις και ιδιαίτερα χρώματα"
-            }
-          ],
-          "colors_count": 2,
-          "specs": {
-            "liters": "18",
-            "width": null,
-            "depth": null,
-            "box_height": null,
-            "diameter": "37",
-            "height": "28",
-            "has_specs": true
-          }
         }
       ],
-      "sizes_count": 2,
-      "variants_count": 5
+      "sizes_count": 1,
+      "variants_count": 2
     },
     {
       "id": "1870",
@@ -6067,14 +6107,6 @@
           "size_code": "690",
           "variants": [
             {
-              "code": "690-02",
-              "description": "ΚΟΥΤΙ NOVA 10lt-35,5x26,5x13,5h cm-MAYPO",
-              "color": "MAYPO",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_690-02.jpg",
-              "pack": "0",
-              "excel_ar": "Κομψά κουτιά τακτοποίησης NOVA που συνδυάζουν στυλ και λειτουργικότητα. Σε σύγχρονες αποχρώσεις που ταιριάζουν σε κάθε χώρο"
-            },
-            {
               "code": "690-18",
               "description": "ΚΟΥΤΙ NOVA 10lt-35,5x26,5x13,5h cm-ΓΚΡΙ ΜΠΛΕ",
               "color": "ΓΚΡΙ ΜΠΛΕ",
@@ -6111,14 +6143,6 @@
               "description": "ΚΟΥΤΙ NOVA 10lt-35,5x26,5x13,5h cm-ΓΚΡΙ ΜΠΕΖ",
               "color": "ΓΚΡΙ ΜΠΕΖ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_690-50.jpg",
-              "pack": "0",
-              "excel_ar": "Κομψά κουτιά τακτοποίησης NOVA που συνδυάζουν στυλ και λειτουργικότητα. Σε σύγχρονες αποχρώσεις που ταιριάζουν σε κάθε χώρο"
-            },
-            {
-              "code": "690-56",
-              "description": "ΚΟΥΤΙ NOVA 10lt-35,5x26,5x13,5h cm-ΜΠΕΖ ΑΜΜΟΥ",
-              "color": "ΜΠΕΖ ΑΜΜΟΥ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_690-56.jpg",
               "pack": "0",
               "excel_ar": "Κομψά κουτιά τακτοποίησης NOVA που συνδυάζουν στυλ και λειτουργικότητα. Σε σύγχρονες αποχρώσεις που ταιριάζουν σε κάθε χώρο"
             },
@@ -6163,7 +6187,7 @@
               "excel_ar": "Κομψά κουτιά τακτοποίησης NOVA που συνδυάζουν στυλ και λειτουργικότητα. Σε σύγχρονες αποχρώσεις που ταιριάζουν σε κάθε χώρο"
             }
           ],
-          "colors_count": 12,
+          "colors_count": 10,
           "specs": {
             "liters": "10",
             "width": "35.5",
@@ -6267,14 +6291,6 @@
               "excel_ar": "Κομψά κουτιά τακτοποίησης NOVA που συνδυάζουν στυλ και λειτουργικότητα. Σε σύγχρονες αποχρώσεις που ταιριάζουν σε κάθε χώρο"
             },
             {
-              "code": "691-66",
-              "description": "ΚΟΥΤΙ NOVA 16lt-35,5x26,5x22h cm-ΓΚΡΙ",
-              "color": "ΓΚΡΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_691-66.jpg",
-              "pack": "0",
-              "excel_ar": "Κομψά κουτιά τακτοποίησης NOVA που συνδυάζουν στυλ και λειτουργικότητα. Σε σύγχρονες αποχρώσεις που ταιριάζουν σε κάθε χώρο"
-            },
-            {
               "code": "691-68",
               "description": "ΚΟΥΤΙ NOVA 16lt-35,5x26,5x22h cm-ΜΕΝΕΞΕΔΙ",
               "color": "ΜΕΝΕΞΕΔΙ",
@@ -6299,7 +6315,7 @@
               "excel_ar": "Κομψά κουτιά τακτοποίησης NOVA που συνδυάζουν στυλ και λειτουργικότητα. Σε σύγχρονες αποχρώσεις που ταιριάζουν σε κάθε χώρο"
             }
           ],
-          "colors_count": 11,
+          "colors_count": 10,
           "specs": {
             "liters": "16",
             "width": "35.5",
@@ -6344,7 +6360,7 @@
         }
       ],
       "sizes_count": 7,
-      "variants_count": 48
+      "variants_count": 45
     },
     {
       "id": "1884",
@@ -6593,17 +6609,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_315_1-02.jpg",
               "pack": "0",
               "excel_ar": "Ενισχυμένος κουβάς απορριμμάτων 60 λίτρων, κατάλληλος για πολλαπλές χρήσεις"
-            },
-            {
-              "code": "315.1-37",
-              "description": "ΚΟΥΒΑΣ ΑΠΟΡΡΙΜΑΤΩΝ 60lt-d40x58h cm-ΑΣΗΜΙ",
-              "color": "ΑΣΗΜΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_315_1-37.jpg",
-              "pack": "0",
-              "excel_ar": "Ενισχυμένος κουβάς απορριμμάτων 60 λίτρων, κατάλληλος για πολλαπλές χρήσεις"
             }
           ],
-          "colors_count": 2,
+          "colors_count": 1,
           "specs": {
             "liters": "60",
             "width": null,
@@ -6728,7 +6736,7 @@
         }
       ],
       "sizes_count": 6,
-      "variants_count": 21
+      "variants_count": 20
     },
     {
       "id": "1890",
@@ -6917,17 +6925,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_1070_6-97.jpg",
               "pack": "0",
               "excel_ar": "Μοντέρνος κάδος ανακύκλωσης με διαχρονικό στυλ και ξεχωριστή αισθητική. Με υφές και τρεις σύγχρονες αποχρώσεις που αναδεικνύουν τον χώρο, είναι ιδανικός για ανακύκλωση σε κάθε περιβάλλον. Διατίθεται σε σετ των 2, 3 ή 4, προσφέροντας πρακτικότητα και οπτική αρμονία"
-            },
-            {
-              "code": "1070.6-98",
-              "description": "CUBO MOSAIC ΚΑΔΟΣ ΑΝ.ΚΑΠΑΚΙ 70lt-30x30x70h-ΑΧΑΤΗΣ",
-              "color": "ΑΧΑΤΗΣ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_1070_6-98.jpg",
-              "pack": "0",
-              "excel_ar": "Μοντέρνος κάδος ανακύκλωσης με διαχρονικό στυλ και ξεχωριστή αισθητική. Με υφές και τρεις σύγχρονες αποχρώσεις που αναδεικνύουν τον χώρο, είναι ιδανικός για ανακύκλωση σε κάθε περιβάλλον. Διατίθεται σε σετ των 2, 3 ή 4, προσφέροντας πρακτικότητα και οπτική αρμονία"
             }
           ],
-          "colors_count": 3,
+          "colors_count": 2,
           "specs": {
             "liters": "70",
             "width": "30",
@@ -6996,7 +6996,7 @@
         }
       ],
       "sizes_count": 5,
-      "variants_count": 22
+      "variants_count": 21
     },
     {
       "id": "1892",
@@ -7089,17 +7089,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_325-58.jpg",
               "pack": "0",
               "excel_ar": ""
-            },
-            {
-              "code": "325-99",
-              "description": "SLIMBIN ΚΑΔΟΣ SWING/LIFT 26lt-31x24x58h cm-ΔΙΑΦΟΡΑ ΧΡΩΜΑΤΑ",
-              "color": "ΜΠΛΕ,ΚΕΡΑΣΙ,ΜΑΝΓΚΟ,ΒΑΣΙΛΙΚΟΣ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_325-99.jpg",
-              "pack": "0",
-              "excel_ar": ""
             }
           ],
-          "colors_count": 3,
+          "colors_count": 2,
           "specs": {
             "liters": "26",
             "width": "31",
@@ -7112,7 +7104,7 @@
         }
       ],
       "sizes_count": 3,
-      "variants_count": 7
+      "variants_count": 6
     },
     {
       "id": "1895",
@@ -7183,14 +7175,6 @@
               "excel_ar": "Πολυχρηστικός κάδος με επιλογή μεγέθους και καπακιού. Κατάλληλος για κάθε χώρο, με μεταλλικό στήριγμα σακούλας και εύκολο καθάρισμα"
             },
             {
-              "code": "328-01/97",
-              "description": "DECO STANDARDΚΑΔΟΣ ΑΙΩΡ/ΝΟ ΚΑΠ. 28lt-d30x50h cm-ΛΕΥΚΟ/ΠΕΤΡΑ",
-              "color": "ΛΕΥΚΟ/ΠΕΤΡΑ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_328-01_97.jpg",
-              "pack": "0",
-              "excel_ar": "Πολυχρηστικός κάδος με επιλογή μεγέθους και καπακιού. Κατάλληλος για κάθε χώρο, με μεταλλικό στήριγμα σακούλας και εύκολο καθάρισμα"
-            },
-            {
               "code": "328-02/96",
               "description": "DECO STANDARDΚΑΔΟΣ ΑΙΩΡ/ΝΟ ΚΑΠ. 28lt-d30x50h cm-ΜΑΥΡΟ/ΛΑΒΑ",
               "color": "ΜΑΥΡΟ/ΛΑΒΑ",
@@ -7207,7 +7191,7 @@
               "excel_ar": "Πολυχρηστικός κάδος με επιλογή μεγέθους και καπακιού. Κατάλληλος για κάθε χώρο, με μεταλλικό στήριγμα σακούλας και εύκολο καθάρισμα"
             }
           ],
-          "colors_count": 4,
+          "colors_count": 3,
           "specs": {
             "liters": "28",
             "width": null,
@@ -7285,17 +7269,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_328_6-97.jpg",
               "pack": "0",
               "excel_ar": "Κομψός και ευέλικτος κάδος, που ξεχωρίζει χάρη στον σχεδιασμό του. Σε τρία μεγέθη και δύο καπάκια για κάθε ανάγκη. Ιδανικός για κάθε χώρο, από το σπίτι μέχρι τον επαγγελματικό σας χώρο. Εύκολος στη χρήση και στον καθαρισμό, με προαιρετικό στήριγμα σακούλας"
-            },
-            {
-              "code": "328.6-98",
-              "description": "DECO MOSAIC ΚΑΔΟΣ ΑΙΩΡ/ΝΟ ΚΑΠ. 28lt-d30x50h cm-ΑΧΑΤΗΣ",
-              "color": "ΑΧΑΤΗΣ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_328_6-98.jpg",
-              "pack": "0",
-              "excel_ar": "Κομψός και ευέλικτος κάδος, που ξεχωρίζει χάρη στον σχεδιασμό του. Σε τρία μεγέθη και δύο καπάκια για κάθε ανάγκη. Ιδανικός για κάθε χώρο, από το σπίτι μέχρι τον επαγγελματικό σας χώρο. Εύκολος στη χρήση και στον καθαρισμό, με προαιρετικό στήριγμα σακούλας"
             }
           ],
-          "colors_count": 3,
+          "colors_count": 2,
           "specs": {
             "liters": "28",
             "width": null,
@@ -7431,14 +7407,6 @@
               "excel_ar": "Κομψός κάδος ανακύκλωσης που ξεχωρίζει για τη χρηστικότητά και για τον σύγχρονο σχεδιασμό του. Σχεδιασμένος σε μοντέρνες υφές, ταιριάζει απόλυτα τόσο σε επαγγελματικούς όσο και σε οικιακούς χώρους"
             },
             {
-              "code": "330.1-84",
-              "description": "DECO COLORED ΚΑΔΟΣ ΑΙΩΡ/ΝΟ ΚΑΠ.36lt-d30x65h cm-ΒΑΣΙΛΙΚΟΣ",
-              "color": "ΒΑΣΙΛΙΚΟΣ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_330_1-84.jpg",
-              "pack": "0",
-              "excel_ar": "Κομψός κάδος ανακύκλωσης που ξεχωρίζει για τη χρηστικότητά και για τον σύγχρονο σχεδιασμό του. Σχεδιασμένος σε μοντέρνες υφές, ταιριάζει απόλυτα τόσο σε επαγγελματικούς όσο και σε οικιακούς χώρους"
-            },
-            {
               "code": "330.1-89",
               "description": "DECO COLORED ΚΑΔΟΣ ΑΙΩΡ/ΝΟ ΚΑΠ.36lt-d30x65h cm-ΜΑΝΓΚΟ",
               "color": "ΜΑΝΓΚΟ",
@@ -7447,7 +7415,7 @@
               "excel_ar": "Κομψός κάδος ανακύκλωσης που ξεχωρίζει για τη χρηστικότητά και για τον σύγχρονο σχεδιασμό του. Σχεδιασμένος σε μοντέρνες υφές, ταιριάζει απόλυτα τόσο σε επαγγελματικούς όσο και σε οικιακούς χώρους"
             }
           ],
-          "colors_count": 8,
+          "colors_count": 7,
           "specs": {
             "liters": "36",
             "width": null,
@@ -7469,25 +7437,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_330_6-96.jpg",
               "pack": "0",
               "excel_ar": "Κομψός και ευέλικτος κάδος, που ξεχωρίζει χάρη στον σχεδιασμό του. Σε τρία μεγέθη και δύο καπάκια για κάθε ανάγκη. Ιδανικός για κάθε χώρο, από το σπίτι μέχρι τον επαγγελματικό σας χώρο. Εύκολος στη χρήση και στον καθαρισμό, με προαιρετικό στήριγμα σακούλας"
-            },
-            {
-              "code": "330.6-97",
-              "description": "DECO MOSAIC ΚΑΔΟΣ ΑΙΩΡ/ΝΟ ΚΑΠ. 36lt-d30x65h cm-ΠΕΤΡΑ",
-              "color": "ΠΕΤΡΑ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_330_6-97.jpg",
-              "pack": "0",
-              "excel_ar": "Κομψός και ευέλικτος κάδος, που ξεχωρίζει χάρη στον σχεδιασμό του. Σε τρία μεγέθη και δύο καπάκια για κάθε ανάγκη. Ιδανικός για κάθε χώρο, από το σπίτι μέχρι τον επαγγελματικό σας χώρο. Εύκολος στη χρήση και στον καθαρισμό, με προαιρετικό στήριγμα σακούλας"
-            },
-            {
-              "code": "330.6-98",
-              "description": "DECO MOSAIC ΚΑΔΟΣ ΑΙΩΡ/ΝΟ ΚΑΠ. 36lt-d30x65h cm-ΑΧΑΤΗΣ",
-              "color": "ΑΧΑΤΗΣ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_330_6-98.jpg",
-              "pack": "0",
-              "excel_ar": "Κομψός και ευέλικτος κάδος, που ξεχωρίζει χάρη στον σχεδιασμό του. Σε τρία μεγέθη και δύο καπάκια για κάθε ανάγκη. Ιδανικός για κάθε χώρο, από το σπίτι μέχρι τον επαγγελματικό σας χώρο. Εύκολος στη χρήση και στον καθαρισμό, με προαιρετικό στήριγμα σακούλας"
             }
           ],
-          "colors_count": 3,
+          "colors_count": 1,
           "specs": {
             "liters": "36",
             "width": null,
@@ -7524,7 +7476,7 @@
         }
       ],
       "sizes_count": 9,
-      "variants_count": 32
+      "variants_count": 27
     },
     {
       "id": "1896",
@@ -7839,14 +7791,6 @@
               "excel_ar": "PREMIUM ετικέτες ανακύκλωσης για μέταλλο λευκές"
             },
             {
-              "code": "950-806",
-              "description": "ΕΤΙΚΕΤΑ PREMIUM 8,5x33 cm-CUSTOM/ΛΕΥΚΟ",
-              "color": "CUSTOM/ΛΕΥΚΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_950-806.jpg",
-              "pack": "0",
-              "excel_ar": "PREMIUM ετικέτες ανακύκλωσης custom λευκές"
-            },
-            {
               "code": "950-810",
               "description": "ΕΤΙΚΕΤΑ PREMIUM 8,5x33 cm-ΑΠΟΡΡΙΜΜΑΤΑ/ΜΑΥΡΟ",
               "color": "ΑΠΟΡΡΙΜΜΑΤΑ/ΜΑΥΡΟ",
@@ -8039,7 +7983,7 @@
               "excel_ar": "PREMIUM ετικέτες ανακύκλωσης"
             }
           ],
-          "colors_count": 31,
+          "colors_count": 30,
           "specs": {
             "liters": null,
             "width": "8.5",
@@ -8103,14 +8047,6 @@
               "excel_ar": "PREMIUM ετικέτες ανακύκλωσης για καπάκι CUBO για μέταλλο λευκές"
             },
             {
-              "code": "951-810",
-              "description": "ΕΤΙΚΕΤΑ PREMIUM 13x13 cm-ΑΠΟΡΡΙΜΜΑΤΑ/ΜΑΥΡΟ",
-              "color": "ΑΠΟΡΡΙΜΜΑΤΑ/ΜΑΥΡΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_951-810.jpg",
-              "pack": "0",
-              "excel_ar": "PREMIUM ετικέτες ανακύκλωσης για καπάκι CUBO για απορρίματα μαύρες"
-            },
-            {
               "code": "951-811",
               "description": "ΕΤΙΚΕΤΑ PREMIUM 13x13 cm-ΜΙΧ/ΜΑΥΡΟ",
               "color": "ΜΙΧ/ΜΑΥΡΟ",
@@ -8151,7 +8087,7 @@
               "excel_ar": "PREMIUM ετικέτες ανακύκλωσης για καπάκι CUBO για μέταλλο μαύρες"
             }
           ],
-          "colors_count": 12,
+          "colors_count": 11,
           "specs": {
             "liters": null,
             "width": "13",
@@ -8231,14 +8167,6 @@
           "size_code": "953",
           "variants": [
             {
-              "code": "953-809",
-              "description": "ΕΤΙΚΕΤΑ PREMIUM 4,5x18 cm-ΜΑΣΚΕΣ/ΛΕΥΚΟ",
-              "color": "ΜΑΣΚΕΣ/ΛΕΥΚΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_953-809.jpg",
-              "pack": "0",
-              "excel_ar": "PREMIUM ετικέτες ανακύκλωσης για μάσκες λευκές"
-            },
-            {
               "code": "953-810",
               "description": "ΕΤΙΚΕΤΑ PREMIUM 4,5x18 cm-ΑΠΟΡΡΙΜΜΑΤΑ/ΜΑΥΡΟ",
               "color": "ΑΠΟΡΡΙΜΜΑΤΑ/ΜΑΥΡΟ",
@@ -8303,7 +8231,7 @@
               "excel_ar": "PREMIUM ετικέτες ανακύκλωσης για οργανικά+AN1443:AN1506 λευκές"
             }
           ],
-          "colors_count": 9,
+          "colors_count": 8,
           "specs": {
             "liters": null,
             "width": "4.5",
@@ -8316,7 +8244,7 @@
         }
       ],
       "sizes_count": 4,
-      "variants_count": 58
+      "variants_count": 55
     },
     {
       "id": "1900",
@@ -8535,14 +8463,6 @@
               "excel_ar": "Μοντέρνα γλάστρα με σύστημα αυτοποτισμού για εύκολη φροντίδα φυτών. Minimal αισθητική, ενσωματωμένο πιατάκι και χρώματα που ξεχωρίζουν"
             },
             {
-              "code": "760-14",
-              "description": "ΓΛΑΣΤΡΑ VITA 4lt-d20x18h cm-ΜΠΟΡΝΤΩ",
-              "color": "ΜΠΟΡΝΤΩ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_760-14.jpg",
-              "pack": "0",
-              "excel_ar": "Μοντέρνα γλάστρα με σύστημα αυτοποτισμού για εύκολη φροντίδα φυτών. Minimal αισθητική, ενσωματωμένο πιατάκι και χρώματα που ξεχωρίζουν"
-            },
-            {
               "code": "760-50",
               "description": "ΓΛΑΣΤΡΑ VITA 4lt-d20x18h cm-ΓΚΡΙ ΜΠΕΖ",
               "color": "ΓΚΡΙ ΜΠΕΖ",
@@ -8583,7 +8503,7 @@
               "excel_ar": "Μοντέρνα γλάστρα με σύστημα αυτοποτισμού για εύκολη φροντίδα φυτών. Minimal αισθητική, ενσωματωμένο πιατάκι και χρώματα που ξεχωρίζουν"
             }
           ],
-          "colors_count": 9,
+          "colors_count": 8,
           "specs": {
             "liters": "4",
             "width": null,
@@ -8596,7 +8516,7 @@
         }
       ],
       "sizes_count": 1,
-      "variants_count": 9
+      "variants_count": 8
     },
     {
       "id": "2590",
@@ -9015,14 +8935,6 @@
           "size_code": "241",
           "variants": [
             {
-              "code": "241-03",
-              "description": "ΓΛΑΣΤΡΑ ΤΕΡΑΚΟΤΑ 11,9lt-d32x26h cm-ΤΕΡΑΚΟΤΑ",
-              "color": "ΤΕΡΑΚΟΤΑ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_241-03.jpg",
-              "pack": "0",
-              "excel_ar": "Γλάστρες με σχέδιο τερακότα, εξαιρετικής αντοχής και ποιότητας, διαθέσιμες σε διάφορες διαστάσεις και μοντέρνα χρώματα. Ιδανικές για εσωτερικούς ή εξωτερικούς χώρους"
-            },
-            {
               "code": "241-90",
               "description": "ΓΛΑΣΤΡΑ ΤΕΡΑΚΟΤΑ 11,9lt-d32x26h cm-MAPMAPI",
               "color": "MAPMAPI",
@@ -9071,7 +8983,7 @@
               "excel_ar": "Γλάστρες με σχέδιο τερακότα, εξαιρετικής αντοχής και ποιότητας, διαθέσιμες σε διάφορες διαστάσεις και μοντέρνα χρώματα. Ιδανικές για εσωτερικούς ή εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 7,
+          "colors_count": 6,
           "specs": {
             "liters": "11.9",
             "width": null,
@@ -9444,7 +9356,7 @@
         }
       ],
       "sizes_count": 10,
-      "variants_count": 70
+      "variants_count": 69
     },
     {
       "id": "2680",
@@ -9987,14 +9899,6 @@
               "excel_ar": "Πιάτα γλάστρας τύπου τερακότα, εξαιρετικής ποιότητας, διαθέσιμα σε ποικιλία διαστάσεων και μοντέρνους χρωματισμούς. Ιδανικά για συνδυασμό με γλάστρες αντίστοιχου σχεδιασμού"
             },
             {
-              "code": "264-56",
-              "description": "ΠΙΑΤΟ ΤΕΡΑΚΟΤΑ  d31 cm-ΜΠΕΖ ΑΜΜΟΥ",
-              "color": "ΜΠΕΖ ΑΜΜΟΥ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_264-56.jpg",
-              "pack": "20",
-              "excel_ar": "Πιάτα γλάστρας τύπου τερακότα, εξαιρετικής ποιότητας, διαθέσιμα σε ποικιλία διαστάσεων και μοντέρνους χρωματισμούς. Ιδανικά για συνδυασμό με γλάστρες αντίστοιχου σχεδιασμού"
-            },
-            {
               "code": "264-58",
               "description": "ΠΙΑΤΟ ΤΕΡΑΚΟΤΑ  d31 cm-ΤΙΤΑΝΙΟ",
               "color": "ΤΙΤΑΝΙΟ",
@@ -10019,7 +9923,7 @@
               "excel_ar": "Πιάτα γλάστρας τύπου τερακότα, εξαιρετικής ποιότητας, διαθέσιμα σε ποικιλία διαστάσεων και μοντέρνους χρωματισμούς. Ιδανικά για συνδυασμό με γλάστρες αντίστοιχου σχεδιασμού"
             }
           ],
-          "colors_count": 7,
+          "colors_count": 6,
           "specs": {
             "liters": null,
             "width": null,
@@ -10034,14 +9938,6 @@
           "size_label": "265",
           "size_code": "265",
           "variants": [
-            {
-              "code": "265-03",
-              "description": "ΠΙΑΤΟ ΤΕΡΑΚΟΤΑ  d36 cm-ΤΕΡΑΚΟΤΑ",
-              "color": "ΤΕΡΑΚΟΤΑ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_265-03.jpg",
-              "pack": "20",
-              "excel_ar": "Πιάτα γλάστρας τύπου τερακότα, εξαιρετικής ποιότητας, διαθέσιμα σε ποικιλία διαστάσεων και μοντέρνους χρωματισμούς. Ιδανικά για συνδυασμό με γλάστρες αντίστοιχου σχεδιασμού"
-            },
             {
               "code": "265-90",
               "description": "ΠΙΑΤΟ ΤΕΡΑΚΟΤΑ  d36 cm-MAPMAPI",
@@ -10091,7 +9987,7 @@
               "excel_ar": "Πιάτα γλάστρας τύπου τερακότα, εξαιρετικής ποιότητας, διαθέσιμα σε ποικιλία διαστάσεων και μοντέρνους χρωματισμούς. Ιδανικά για συνδυασμό με γλάστρες αντίστοιχου σχεδιασμού"
             }
           ],
-          "colors_count": 7,
+          "colors_count": 6,
           "specs": {
             "liters": null,
             "width": null,
@@ -10176,7 +10072,7 @@
         }
       ],
       "sizes_count": 10,
-      "variants_count": 70
+      "variants_count": 68
     },
     {
       "id": "2690",
@@ -10229,17 +10125,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_272-03.jpg",
               "pack": "0",
               "excel_ar": "Πιάτα με ρόδες για γλάστρες τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Κατάλληλα για εύκολη μετακίνηση γλαστρών σε εσωτερικούς και εξωτερικούς χώρους"
-            },
-            {
-              "code": "272-90",
-              "description": "ΠΙΑΤΟ ΤΕΡΑΚΟΤΑ ME ΡΟΔΕΣ d31 cm-MAPMAPI",
-              "color": "MAPMAPI",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_272-90.jpg",
-              "pack": "0",
-              "excel_ar": "Πιάτα με ρόδες για γλάστρες τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Κατάλληλα για εύκολη μετακίνηση γλαστρών σε εσωτερικούς και εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 2,
+          "colors_count": 1,
           "specs": {
             "liters": null,
             "width": null,
@@ -10287,14 +10175,6 @@
           "size_code": "274",
           "variants": [
             {
-              "code": "274-03",
-              "description": "ΠΙΑΤΟ ΤΕΡΑΚΟΤΑ ME ΡΟΔΕΣ d42 cm-ΤΕΡΑΚΟΤΑ",
-              "color": "ΤΕΡΑΚΟΤΑ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_274-03.jpg",
-              "pack": "0",
-              "excel_ar": "Πιάτα με ρόδες για γλάστρες τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Κατάλληλα για εύκολη μετακίνηση γλαστρών σε εσωτερικούς και εξωτερικούς χώρους"
-            },
-            {
               "code": "274-90",
               "description": "ΠΙΑΤΟ ΤΕΡΑΚΟΤΑ ME ΡΟΔΕΣ d42 cm-MAPMAPI",
               "color": "MAPMAPI",
@@ -10303,7 +10183,7 @@
               "excel_ar": "Πιάτα με ρόδες για γλάστρες τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Κατάλληλα για εύκολη μετακίνηση γλαστρών σε εσωτερικούς και εξωτερικούς χώρους"
             }
           ],
-          "colors_count": 2,
+          "colors_count": 1,
           "specs": {
             "liters": null,
             "width": null,
@@ -10316,7 +10196,7 @@
         }
       ],
       "sizes_count": 4,
-      "variants_count": 8
+      "variants_count": 6
     },
     {
       "id": "2700",
@@ -11395,26 +11275,10 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA με γυαλιστερή επιφάνεια, υψηλής αισθητικής και εξαιρετικής αντοχής. Ιδανικά για κάθε χώρο, εσωτερικό ή εξωτερικό, και διαθέσιμα σε κομψούς, μοντέρνους χρωματισμούς"
             },
             {
-              "code": "860.2-26",
-              "description": "ΚΑΣΠΩ LINEA GLOSS 3,5lt-d20x17h cm-ΓΚΡΙ ΚΑΦΕ",
-              "color": "ΓΚΡΙ ΚΑΦΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_860_2-26.jpg",
-              "pack": "0",
-              "excel_ar": "Στρογγυλά κασπώ LINEA με γυαλιστερή επιφάνεια, υψηλής αισθητικής και εξαιρετικής αντοχής. Ιδανικά για κάθε χώρο, εσωτερικό ή εξωτερικό, και διαθέσιμα σε κομψούς, μοντέρνους χρωματισμούς"
-            },
-            {
               "code": "860.2-25",
               "description": "ΚΑΣΠΩ LINEA GLOSS 3,5lt-d20x17h cm-ΜΟΛΥΒΙ",
               "color": "ΜΟΛΥΒΙ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_860_2-25.jpg",
-              "pack": "0",
-              "excel_ar": "Στρογγυλά κασπώ LINEA με γυαλιστερή επιφάνεια, υψηλής αισθητικής και εξαιρετικής αντοχής. Ιδανικά για κάθε χώρο, εσωτερικό ή εξωτερικό, και διαθέσιμα σε κομψούς, μοντέρνους χρωματισμούς"
-            },
-            {
-              "code": "860.2-14",
-              "description": "ΚΑΣΠΩ LINEA GLOSS 3,5lt-d20x17h cm-ΜΠΟΡΝΤΩ",
-              "color": "ΜΠΟΡΝΤΩ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_860_2-14.jpg",
               "pack": "0",
               "excel_ar": "Στρογγυλά κασπώ LINEA με γυαλιστερή επιφάνεια, υψηλής αισθητικής και εξαιρετικής αντοχής. Ιδανικά για κάθε χώρο, εσωτερικό ή εξωτερικό, και διαθέσιμα σε κομψούς, μοντέρνους χρωματισμούς"
             },
@@ -11427,7 +11291,7 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA με γυαλιστερή επιφάνεια, υψηλής αισθητικής και εξαιρετικής αντοχής. Ιδανικά για κάθε χώρο, εσωτερικό ή εξωτερικό, και διαθέσιμα σε κομψούς, μοντέρνους χρωματισμούς"
             }
           ],
-          "colors_count": 5,
+          "colors_count": 3,
           "specs": {
             "liters": "3.5",
             "width": null,
@@ -11443,22 +11307,6 @@
           "size_code": "860.5",
           "variants": [
             {
-              "code": "860.5-92",
-              "description": "ΚΑΣΠΩ LINEA NATURA 3,5lt-d20x17h cm-ΟΝΥΧΑΣ",
-              "color": "ΟΝΥΧΑΣ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_860_5-92.jpg",
-              "pack": "0",
-              "excel_ar": "Στρογγυλά κασπώ LINEA σειρά NATURA, με επιφάνεια μοναδικής τεχνοτροπίας που προσφέρει φυσική υφή και ξεχωριστή αισθητική. Εξαιρετικής αντοχής, κατάλληλα για εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
-            },
-            {
-              "code": "860.5-93",
-              "description": "ΚΑΣΠΩ LINEA NATURA 3,5lt-d20x17h cm-SMOKE",
-              "color": "SMOKE",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_860_5-93.jpg",
-              "pack": "0",
-              "excel_ar": "Στρογγυλά κασπώ LINEA σειρά NATURA, με επιφάνεια μοναδικής τεχνοτροπίας που προσφέρει φυσική υφή και ξεχωριστή αισθητική. Εξαιρετικής αντοχής, κατάλληλα για εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
-            },
-            {
               "code": "860.5-94",
               "description": "ΚΑΣΠΩ LINEA NATURA 3,5lt-d20x17h cm-ΜΑΟΝΙ",
               "color": "ΜΑΟΝΙ",
@@ -11467,7 +11315,7 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA σειρά NATURA, με επιφάνεια μοναδικής τεχνοτροπίας που προσφέρει φυσική υφή και ξεχωριστή αισθητική. Εξαιρετικής αντοχής, κατάλληλα για εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             }
           ],
-          "colors_count": 3,
+          "colors_count": 1,
           "specs": {
             "liters": "3.5",
             "width": null,
@@ -11587,14 +11435,6 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA με γυαλιστερή επιφάνεια, υψηλής αισθητικής και εξαιρετικής αντοχής. Ιδανικά για κάθε χώρο, εσωτερικό ή εξωτερικό, και διαθέσιμα σε κομψούς, μοντέρνους χρωματισμούς"
             },
             {
-              "code": "861.2-14",
-              "description": "ΚΑΣΠΩ LINEA GLOSS 7lt-d25x21h cm-ΜΠΟΡΝΤΩ",
-              "color": "ΜΠΟΡΝΤΩ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_861_2-14.jpg",
-              "pack": "0",
-              "excel_ar": "Στρογγυλά κασπώ LINEA με γυαλιστερή επιφάνεια, υψηλής αισθητικής και εξαιρετικής αντοχής. Ιδανικά για κάθε χώρο, εσωτερικό ή εξωτερικό, και διαθέσιμα σε κομψούς, μοντέρνους χρωματισμούς"
-            },
-            {
               "code": "861.2-53",
               "description": "ΚΑΣΠΩ LINEA GLOSS 7lt-d25x21h cm-ΕΚΡΟΥ",
               "color": "ΕΚΡΟΥ",
@@ -11603,7 +11443,7 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA με γυαλιστερή επιφάνεια, υψηλής αισθητικής και εξαιρετικής αντοχής. Ιδανικά για κάθε χώρο, εσωτερικό ή εξωτερικό, και διαθέσιμα σε κομψούς, μοντέρνους χρωματισμούς"
             }
           ],
-          "colors_count": 5,
+          "colors_count": 4,
           "specs": {
             "liters": "7",
             "width": null,
@@ -11675,14 +11515,6 @@
           "size_code": "862.2",
           "variants": [
             {
-              "code": "862.2-12",
-              "description": "ΚΑΣΠΩ LINEA GLOSS 13lt-d30x25h cm-ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "color": "ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_862_2-12.jpg",
-              "pack": "0",
-              "excel_ar": "Στρογγυλά κασπώ LINEA με γυαλιστερή επιφάνεια, υψηλής αισθητικής και εξαιρετικής αντοχής. Ιδανικά για κάθε χώρο, εσωτερικό ή εξωτερικό, και διαθέσιμα σε κομψούς, μοντέρνους χρωματισμούς"
-            },
-            {
               "code": "862.2-26",
               "description": "ΚΑΣΠΩ LINEA GLOSS 13lt-d30x25h cm-ΓΚΡΙ ΚΑΦΕ",
               "color": "ΓΚΡΙ ΚΑΦΕ",
@@ -11715,7 +11547,7 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA με γυαλιστερή επιφάνεια, υψηλής αισθητικής και εξαιρετικής αντοχής. Ιδανικά για κάθε χώρο, εσωτερικό ή εξωτερικό, και διαθέσιμα σε κομψούς, μοντέρνους χρωματισμούς"
             }
           ],
-          "colors_count": 5,
+          "colors_count": 4,
           "specs": {
             "liters": "13",
             "width": null,
@@ -11730,14 +11562,6 @@
           "size_label": "862.5",
           "size_code": "862.5",
           "variants": [
-            {
-              "code": "862.5-92",
-              "description": "ΚΑΣΠΩ LINEA NATURA 13lt-d30x25h cm-ΟΝΥΧΑΣ",
-              "color": "ΟΝΥΧΑΣ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_862_5-92.jpg",
-              "pack": "0",
-              "excel_ar": "Στρογγυλά κασπώ LINEA σειρά NATURA, με επιφάνεια μοναδικής τεχνοτροπίας που προσφέρει φυσική υφή και ξεχωριστή αισθητική. Εξαιρετικής αντοχής, κατάλληλα για εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν"
-            },
             {
               "code": "862.5-93",
               "description": "ΚΑΣΠΩ LINEA NATURA 13lt-d30x25h cm-SMOKE",
@@ -11763,7 +11587,7 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA σειρά NATURA, με επιφάνεια μοναδικής τεχνοτροπίας που προσφέρει φυσική υφή και ξεχωριστή αισθητική. Εξαιρετικής αντοχής, κατάλληλα για εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν"
             }
           ],
-          "colors_count": 4,
+          "colors_count": 3,
           "specs": {
             "liters": "13",
             "width": null,
@@ -11803,14 +11627,6 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA, εξαιρετικής αντοχής και υψηλής αισθητικής, ιδανικά για εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             },
             {
-              "code": "864-14",
-              "description": "ΚΑΣΠΩ LINEA 30lt-d40x34h cm-ΜΠΟΡΝΤΩ",
-              "color": "ΜΠΟΡΝΤΩ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_864-14.jpg",
-              "pack": "0",
-              "excel_ar": "Στρογγυλά κασπώ LINEA, εξαιρετικής αντοχής και υψηλής αισθητικής, ιδανικά για εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
-            },
-            {
               "code": "864-01",
               "description": "ΚΑΣΠΩ LINEA 30lt-d40x34h cm-ΛΕΥΚΟ",
               "color": "ΛΕΥΚΟ",
@@ -11819,7 +11635,7 @@
               "excel_ar": "Στρογγυλά κασπώ LINEA, εξαιρετικής αντοχής και υψηλής αισθητικής, ιδανικά για εσωτερικούς και εξωτερικούς χώρους. Διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             }
           ],
-          "colors_count": 5,
+          "colors_count": 4,
           "specs": {
             "liters": "30",
             "width": null,
@@ -11936,7 +11752,7 @@
         }
       ],
       "sizes_count": 11,
-      "variants_count": 57
+      "variants_count": 49
     },
     {
       "id": "2780",
@@ -11959,22 +11775,6 @@
               "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
             },
             {
-              "code": "469-14",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 2lt-d16x15,5h cm-ΜΠΟΡΝΤΩ",
-              "color": "ΜΠΟΡΝΤΩ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_469-14.jpg",
-              "pack": "25",
-              "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
-            },
-            {
-              "code": "469-25",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 2lt-d16x15,5h cm-ΜΟΛΥΒΙ",
-              "color": "ΜΟΛΥΒΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_469-25.jpg",
-              "pack": "25",
-              "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
-            },
-            {
               "code": "469-26",
               "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 2lt-d16x15,5h cm-ΓΚΡΙ ΚΑΦΕ",
               "color": "ΓΚΡΙ ΚΑΦΕ",
@@ -11983,7 +11783,7 @@
               "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
             }
           ],
-          "colors_count": 4,
+          "colors_count": 2,
           "specs": {
             "liters": "2",
             "width": null,
@@ -12015,22 +11815,6 @@
               "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
             },
             {
-              "code": "470-13",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 3,5lt-d20x18,5h cm-ΜΠΡΟΝΖΕ",
-              "color": "ΜΠΡΟΝΖΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_470-13.jpg",
-              "pack": "15",
-              "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
-            },
-            {
-              "code": "470-14",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 3,5lt-d20x18,5h cm-ΜΠΟΡΝΤΩ",
-              "color": "ΜΠΟΡΝΤΩ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_470-14.jpg",
-              "pack": "15",
-              "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
-            },
-            {
               "code": "470-17",
               "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 3,5lt-d20x18,5h cm-ΤΡΙΑΝΤΑΦΥΛΛΙ",
               "color": "ΤΡΙΑΝΤΑΦΥΛΛΙ",
@@ -12045,17 +11829,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_470-25.jpg",
               "pack": "15",
               "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
-            },
-            {
-              "code": "470-26",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 3,5lt-d20x18,5h cm-ΓΚΡΙ ΚΑΦΕ",
-              "color": "ΓΚΡΙ ΚΑΦΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_470-26.jpg",
-              "pack": "15",
-              "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
             }
           ],
-          "colors_count": 7,
+          "colors_count": 4,
           "specs": {
             "liters": "3.5",
             "width": null,
@@ -12063,78 +11839,6 @@
             "box_height": null,
             "diameter": "20",
             "height": "18.5",
-            "has_specs": true
-          }
-        },
-        {
-          "size_label": "471",
-          "size_code": "471",
-          "variants": [
-            {
-              "code": "471-12",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 7lt-d25x24h cm-ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "color": "ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_471-12.jpg",
-              "pack": "10",
-              "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
-            },
-            {
-              "code": "471-26",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 7lt-d25x24h cm-ΓΚΡΙ ΚΑΦΕ",
-              "color": "ΓΚΡΙ ΚΑΦΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_471-26.jpg",
-              "pack": "10",
-              "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
-            },
-            {
-              "code": "471-25",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 7lt-d25x24h cm-ΜΟΛΥΒΙ",
-              "color": "ΜΟΛΥΒΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_471-25.jpg",
-              "pack": "10",
-              "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
-            },
-            {
-              "code": "471-14",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 7lt-d25x24h cm-ΜΠΟΡΝΤΩ",
-              "color": "ΜΠΟΡΝΤΩ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_471-14.jpg",
-              "pack": "10",
-              "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
-            },
-            {
-              "code": "471-13",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 7lt-d25x24h cm-ΜΠΡΟΝΖΕ",
-              "color": "ΜΠΡΟΝΖΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_471-13.jpg",
-              "pack": "10",
-              "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
-            },
-            {
-              "code": "471-01",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 7lt-d25x24h cm-ΛΕΥΚΟ",
-              "color": "ΛΕΥΚΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_471-01.jpg",
-              "pack": "10",
-              "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
-            },
-            {
-              "code": "471-17",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 7lt-d25x24h cm-ΤΡΙΑΝΤΑΦΥΛΛΙ",
-              "color": "ΤΡΙΑΝΤΑΦΥΛΛΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_471-17.jpg",
-              "pack": "10",
-              "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
-            }
-          ],
-          "colors_count": 7,
-          "specs": {
-            "liters": "7",
-            "width": null,
-            "depth": null,
-            "box_height": null,
-            "diameter": "25",
-            "height": "24",
             "has_specs": true
           }
         },
@@ -12295,14 +11999,6 @@
               "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
             },
             {
-              "code": "868-16",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 1,2lt-d13x13h cm-ΜΩΒ",
-              "color": "ΜΩΒ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_868-16.jpg",
-              "pack": "30",
-              "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
-            },
-            {
               "code": "868-19",
               "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 1,2lt-d13x13h cm-ΠΟΡΤΟΚΑΛΙ",
               "color": "ΠΟΡΤΟΚΑΛΙ",
@@ -12327,7 +12023,7 @@
               "excel_ar": "Γλάστρες BASIC σχεδιασμένη με μοναδική αισθητική με εξαιρετική ποιότητα κατασκευής. Διατίθονται σε ποικιλία χρωμάτων και είναι ιδανικές για κάθε τύπο εσωτερικού ή εξωτερικού χώρου"
             }
           ],
-          "colors_count": 11,
+          "colors_count": 10,
           "specs": {
             "liters": "1.2",
             "width": null,
@@ -12663,14 +12359,6 @@
           "size_code": "872",
           "variants": [
             {
-              "code": "872-12",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 13lt-d30x28,5h cm-ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "color": "ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_872-12.jpg",
-              "pack": "0",
-              "excel_ar": "Χαμηλές στρογγυλές γλάστρες LINEA, εξαιρετικής αντοχής και υψηλής ποιότητας. Κατάλληλες για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που ταιριάζουν σε κάθε αισθητική"
-            },
-            {
               "code": "872-83",
               "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 13lt-d30x28,5h cm-MABI",
               "color": "MABI",
@@ -12775,7 +12463,7 @@
               "excel_ar": "Χαμηλές στρογγυλές γλάστρες LINEA, εξαιρετικής αντοχής και υψηλής ποιότητας. Κατάλληλες για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που ταιριάζουν σε κάθε αισθητική"
             }
           ],
-          "colors_count": 14,
+          "colors_count": 13,
           "specs": {
             "liters": "13",
             "width": null,
@@ -13143,31 +12831,15 @@
               "excel_ar": "Χαμηλές στρογγυλές γλάστρες LINEA, εξαιρετικής αντοχής και υψηλής ποιότητας. Κατάλληλες για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που ταιριάζουν σε κάθε αισθητική"
             },
             {
-              "code": "877-13",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 78lt-d55x50h cm-ΜΠΡΟΝΖΕ",
-              "color": "ΜΠΡΟΝΖΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_877-13.jpg",
-              "pack": "0",
-              "excel_ar": "Χαμηλές στρογγυλές γλάστρες LINEA, εξαιρετικής αντοχής και υψηλής ποιότητας. Κατάλληλες για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που ταιριάζουν σε κάθε αισθητική"
-            },
-            {
               "code": "877-01",
               "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 78lt-d55x50h cm-ΛΕΥΚΟ",
               "color": "ΛΕΥΚΟ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_877-01.jpg",
               "pack": "0",
               "excel_ar": "Χαμηλές στρογγυλές γλάστρες LINEA, εξαιρετικής αντοχής και υψηλής ποιότητας. Κατάλληλες για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που ταιριάζουν σε κάθε αισθητική"
-            },
-            {
-              "code": "877-79",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 78lt-d55x50h cm-ΓΚΡΙ ΣΤΑΧΤΙ",
-              "color": "ΓΚΡΙ ΣΤΑΧΤΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_877-79.jpg",
-              "pack": "0",
-              "excel_ar": "Χαμηλές στρογγυλές γλάστρες LINEA, εξαιρετικής αντοχής και υψηλής ποιότητας. Κατάλληλες για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που ταιριάζουν σε κάθε αισθητική"
             }
           ],
-          "colors_count": 6,
+          "colors_count": 4,
           "specs": {
             "liters": "78",
             "width": null,
@@ -13221,17 +12893,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_879-13.jpg",
               "pack": "0",
               "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
-            },
-            {
-              "code": "879-01",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 3lt-d16x22h cm-ΛΕΥΚΟ",
-              "color": "ΛΕΥΚΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_879-01.jpg",
-              "pack": "0",
-              "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
             }
           ],
-          "colors_count": 6,
+          "colors_count": 5,
           "specs": {
             "liters": "3",
             "width": null,
@@ -13246,14 +12910,6 @@
           "size_label": "880",
           "size_code": "880",
           "variants": [
-            {
-              "code": "880-12",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 5lt-d20x26h cm-ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "color": "ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_880-12.jpg",
-              "pack": "0",
-              "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
-            },
             {
               "code": "880-26",
               "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 5lt-d20x26h cm-ΓΚΡΙ ΚΑΦΕ",
@@ -13279,14 +12935,6 @@
               "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
             },
             {
-              "code": "880-13",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 5lt-d20x26h cm-ΜΠΡΟΝΖΕ",
-              "color": "ΜΠΡΟΝΖΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_880-13.jpg",
-              "pack": "0",
-              "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
-            },
-            {
               "code": "880-01",
               "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 5lt-d20x26h cm-ΛΕΥΚΟ",
               "color": "ΛΕΥΚΟ",
@@ -13295,7 +12943,7 @@
               "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
             }
           ],
-          "colors_count": 6,
+          "colors_count": 4,
           "specs": {
             "liters": "5",
             "width": null,
@@ -13343,14 +12991,6 @@
               "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
             },
             {
-              "code": "881-13",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 10lt-d25x34h cm-ΜΠΡΟΝΖΕ",
-              "color": "ΜΠΡΟΝΖΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_881-13.jpg",
-              "pack": "0",
-              "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
-            },
-            {
               "code": "881-01",
               "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 10lt-d25x34h cm-ΛΕΥΚΟ",
               "color": "ΛΕΥΚΟ",
@@ -13359,7 +12999,7 @@
               "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
             }
           ],
-          "colors_count": 6,
+          "colors_count": 5,
           "specs": {
             "liters": "10",
             "width": null,
@@ -13421,17 +13061,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_882-01.jpg",
               "pack": "0",
               "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
-            },
-            {
-              "code": "882-79",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. LINEA 18lt-d30x41h cm-ΓΚΡΙ ΣΤΑΧΤΙ",
-              "color": "ΓΚΡΙ ΣΤΑΧΤΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_882-79.jpg",
-              "pack": "0",
-              "excel_ar": "Γλάστρες LINEA, ψηλές και στρογγυλές, με ανθεκτική κατασκευή και ποιοτικό φινίρισμα. Σε μοντέρνα χρώματα για κάθε χώρο"
             }
           ],
-          "colors_count": 7,
+          "colors_count": 6,
           "specs": {
             "liters": "18",
             "width": null,
@@ -13507,8 +13139,8 @@
           }
         }
       ],
-      "sizes_count": 20,
-      "variants_count": 155
+      "sizes_count": 19,
+      "variants_count": 134
     },
     {
       "id": "2790",
@@ -13979,14 +13611,6 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             },
             {
-              "code": "892-59",
-              "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d24x2,5h cm-ΑΜΕΘΥΣΤΟΣ",
-              "color": "ΑΜΕΘΥΣΤΟΣ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_892-59.jpg",
-              "pack": "30",
-              "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
-            },
-            {
               "code": "892-79",
               "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d24x2,5h cm-ΓΚΡΙ ΣΤΑΧΤΙ",
               "color": "ΓΚΡΙ ΣΤΑΧΤΙ",
@@ -14023,14 +13647,6 @@
               "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d24x2,5h cm-CITRINE",
               "color": "CITRINE",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_892-95.jpg",
-              "pack": "30",
-              "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
-            },
-            {
-              "code": "892-37",
-              "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d24x2,5h cm-ΑΣΗΜΙ",
-              "color": "ΑΣΗΜΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_892-37.jpg",
               "pack": "30",
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             },
@@ -14075,7 +13691,7 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             }
           ],
-          "colors_count": 21,
+          "colors_count": 19,
           "specs": {
             "liters": null,
             "width": null,
@@ -14115,26 +13731,10 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             },
             {
-              "code": "893-14",
-              "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d28x2,8h cm-ΜΠΟΡΝΤΩ",
-              "color": "ΜΠΟΡΝΤΩ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_893-14.jpg",
-              "pack": "10",
-              "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
-            },
-            {
               "code": "893-13",
               "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d28x2,8h cm-ΜΠΡΟΝΖΕ",
               "color": "ΜΠΡΟΝΖΕ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_893-13.jpg",
-              "pack": "10",
-              "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
-            },
-            {
-              "code": "893-01",
-              "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d28x2,8h cm-ΛΕΥΚΟ",
-              "color": "ΛΕΥΚΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_893-01.jpg",
               "pack": "10",
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             },
@@ -14155,7 +13755,7 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             }
           ],
-          "colors_count": 8,
+          "colors_count": 6,
           "specs": {
             "liters": null,
             "width": null,
@@ -14203,14 +13803,6 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             },
             {
-              "code": "894-13",
-              "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d32x3h cm-ΜΠΡΟΝΖΕ",
-              "color": "ΜΠΡΟΝΖΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_894-13.jpg",
-              "pack": "10",
-              "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
-            },
-            {
               "code": "894-01",
               "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d32x3h cm-ΛΕΥΚΟ",
               "color": "ΛΕΥΚΟ",
@@ -14235,14 +13827,6 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             },
             {
-              "code": "894-93",
-              "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d32x3h cm-SMOKE",
-              "color": "SMOKE",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_894-93.jpg",
-              "pack": "10",
-              "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
-            },
-            {
               "code": "894-92",
               "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d32x3h cm-ΟΝΥΧΑΣ",
               "color": "ΟΝΥΧΑΣ",
@@ -14255,22 +13839,6 @@
               "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d32x3h cm-CITRINE",
               "color": "CITRINE",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_894-95.jpg",
-              "pack": "10",
-              "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
-            },
-            {
-              "code": "894-58",
-              "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d32x3h cm-ΤΙΤΑΝΙΟ",
-              "color": "ΤΙΤΑΝΙΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_894-58.jpg",
-              "pack": "10",
-              "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
-            },
-            {
-              "code": "894-16",
-              "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d32x3h cm-ΜΩΒ",
-              "color": "ΜΩΒ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_894-16.jpg",
               "pack": "10",
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             },
@@ -14291,7 +13859,7 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             }
           ],
-          "colors_count": 15,
+          "colors_count": 11,
           "specs": {
             "liters": null,
             "width": null,
@@ -14306,14 +13874,6 @@
           "size_label": "895",
           "size_code": "895",
           "variants": [
-            {
-              "code": "895-12",
-              "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d36x3,5h cm-ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "color": "ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_895-12.jpg",
-              "pack": "10",
-              "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
-            },
             {
               "code": "895-26",
               "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d36x3,5h cm-ΓΚΡΙ ΚΑΦΕ",
@@ -14371,7 +13931,7 @@
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             }
           ],
-          "colors_count": 8,
+          "colors_count": 7,
           "specs": {
             "liters": null,
             "width": null,
@@ -14505,17 +14065,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_897-01.jpg",
               "pack": "4",
               "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
-            },
-            {
-              "code": "897-79",
-              "description": "ΠΙΑΤΟ ΣΤΡΟΓΓ. LINEA d43x4h cm-ΓΚΡΙ ΣΤΑΧΤΙ",
-              "color": "ΓΚΡΙ ΣΤΑΧΤΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_897-79.jpg",
-              "pack": "4",
-              "excel_ar": "Ανθεκτικό και λειτουργικό στρογγυλό πιατάκι, κατάλληλο για όλες τις βασικές σειρές γλαστρών, LINEA, IRIS, BASIC και INNOVA. Συμπληρώνει ιδανικά κάθε γλάστρα προσφέροντας πρακτικότητα και αισθητική"
             }
           ],
-          "colors_count": 6,
+          "colors_count": 5,
           "specs": {
             "liters": null,
             "width": null,
@@ -14528,7 +14080,7 @@
         }
       ],
       "sizes_count": 9,
-      "variants_count": 108
+      "variants_count": 98
     },
     {
       "id": "2800",
@@ -14589,17 +14141,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_560-01.jpg",
               "pack": "0",
               "excel_ar": "Κομψά κασπώ LINEA με μοντέρνα σχεδίαση, σε πολλά μεγέθη και αποχρώσεις. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, με στυλ και ποιότητα"
-            },
-            {
-              "code": "560-79",
-              "description": "ΚΑΣΠΩ TETP. LINEA 2lt-15x15x12,5h cm-ΓΚΡΙ ΣΤΑΧΤΙ",
-              "color": "ΓΚΡΙ ΣΤΑΧΤΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_560-79.jpg",
-              "pack": "0",
-              "excel_ar": "Κομψά κασπώ LINEA με μοντέρνα σχεδίαση, σε πολλά μεγέθη και αποχρώσεις. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, με στυλ και ποιότητα"
             }
           ],
-          "colors_count": 7,
+          "colors_count": 6,
           "specs": {
             "liters": "2",
             "width": "15",
@@ -14619,14 +14163,6 @@
               "description": "ΚΑΣΠΩ TETP.LINEA GLOSS 2lt-15x15x12,5h cm-ΠΡΑΣ/ΚΙΤΡΙΝΟ",
               "color": "ΠΡΑΣ/ΚΙΤΡΙΝΟ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_560_2-12.jpg",
-              "pack": "0",
-              "excel_ar": "Γυαλιστερά τετράγωνα κασπώ LINEA, εξαιρετικής ποιότητας και φινιρίσματος, ιδανικά για χρήση σε εσωτερικούς και εξωτερικούς χώρους. Διατίθονται σε ποικιλία διαστάσεων και μοντέρνων χρωμάτων"
-            },
-            {
-              "code": "560.2-26",
-              "description": "ΚΑΣΠΩ TETP.LINEA GLOSS 2lt-15x15x12,5h cm-ΓΚΡΙ ΚΑΦΕ",
-              "color": "ΓΚΡΙ ΚΑΦΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_560_2-26.jpg",
               "pack": "0",
               "excel_ar": "Γυαλιστερά τετράγωνα κασπώ LINEA, εξαιρετικής ποιότητας και φινιρίσματος, ιδανικά για χρήση σε εσωτερικούς και εξωτερικούς χώρους. Διατίθονται σε ποικιλία διαστάσεων και μοντέρνων χρωμάτων"
             },
@@ -14655,7 +14191,7 @@
               "excel_ar": "Γυαλιστερά τετράγωνα κασπώ LINEA, εξαιρετικής ποιότητας και φινιρίσματος, ιδανικά για χρήση σε εσωτερικούς και εξωτερικούς χώρους. Διατίθονται σε ποικιλία διαστάσεων και μοντέρνων χρωμάτων"
             }
           ],
-          "colors_count": 5,
+          "colors_count": 4,
           "specs": {
             "liters": "2",
             "width": "15",
@@ -14757,17 +14293,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_561-01.jpg",
               "pack": "0",
               "excel_ar": "Κομψά κασπώ LINEA με μοντέρνα σχεδίαση, σε πολλά μεγέθη και αποχρώσεις. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, με στυλ και ποιότητα"
-            },
-            {
-              "code": "561-79",
-              "description": "ΚΑΣΠΩ TETP. LINEA 5lt-21x21x17h cm-ΓΚΡΙ ΣΤΑΧΤΙ",
-              "color": "ΓΚΡΙ ΣΤΑΧΤΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_561-79.jpg",
-              "pack": "0",
-              "excel_ar": "Κομψά κασπώ LINEA με μοντέρνα σχεδίαση, σε πολλά μεγέθη και αποχρώσεις. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, με στυλ και ποιότητα"
             }
           ],
-          "colors_count": 7,
+          "colors_count": 6,
           "specs": {
             "liters": "5",
             "width": "21",
@@ -14787,22 +14315,6 @@
               "description": "ΚΑΣΠΩ TETP. LINEA 12lt-27x27x22h cm-ΠΡΑΣ/ΚΙΤΡΙΝΟ",
               "color": "ΠΡΑΣ/ΚΙΤΡΙΝΟ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_562-12.jpg",
-              "pack": "0",
-              "excel_ar": "Κομψά κασπώ LINEA με μοντέρνα σχεδίαση, σε πολλά μεγέθη και αποχρώσεις. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, με στυλ και ποιότητα"
-            },
-            {
-              "code": "562-26",
-              "description": "ΚΑΣΠΩ TETP. LINEA 12lt-27x27x22h cm-ΓΚΡΙ ΚΑΦΕ",
-              "color": "ΓΚΡΙ ΚΑΦΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_562-26.jpg",
-              "pack": "0",
-              "excel_ar": "Κομψά κασπώ LINEA με μοντέρνα σχεδίαση, σε πολλά μεγέθη και αποχρώσεις. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, με στυλ και ποιότητα"
-            },
-            {
-              "code": "562-25",
-              "description": "ΚΑΣΠΩ TETP. LINEA 12lt-27x27x22h cm-ΜΟΛΥΒΙ",
-              "color": "ΜΟΛΥΒΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_562-25.jpg",
               "pack": "0",
               "excel_ar": "Κομψά κασπώ LINEA με μοντέρνα σχεδίαση, σε πολλά μεγέθη και αποχρώσεις. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, με στυλ και ποιότητα"
             },
@@ -14829,17 +14341,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_562-01.jpg",
               "pack": "0",
               "excel_ar": "Κομψά κασπώ LINEA με μοντέρνα σχεδίαση, σε πολλά μεγέθη και αποχρώσεις. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, με στυλ και ποιότητα"
-            },
-            {
-              "code": "562-79",
-              "description": "ΚΑΣΠΩ TETP. LINEA 12lt-27x27x22h cm-ΓΚΡΙ ΣΤΑΧΤΙ",
-              "color": "ΓΚΡΙ ΣΤΑΧΤΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_562-79.jpg",
-              "pack": "0",
-              "excel_ar": "Κομψά κασπώ LINEA με μοντέρνα σχεδίαση, σε πολλά μεγέθη και αποχρώσεις. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, με στυλ και ποιότητα"
             }
           ],
-          "colors_count": 7,
+          "colors_count": 4,
           "specs": {
             "liters": "12",
             "width": "27",
@@ -15159,22 +14663,6 @@
               "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με κομψό σχεδιασμό και εξαιρετική αντοχή. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             },
             {
-              "code": "572-26",
-              "description": "ΓΛΑΣΤΡΑ TETP. LINEA 17lt-27x27x34h cm Νο 572-ΓΚΡΙ ΚΑΦΕ",
-              "color": "ΓΚΡΙ ΚΑΦΕ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_572-26.jpg",
-              "pack": "0",
-              "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με κομψό σχεδιασμό και εξαιρετική αντοχή. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
-            },
-            {
-              "code": "572-25",
-              "description": "ΓΛΑΣΤΡΑ TETP. LINEA 17lt-27x27x34h cm Νο 572-ΜΟΛΥΒΙ",
-              "color": "ΜΟΛΥΒΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_572-25.jpg",
-              "pack": "0",
-              "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με κομψό σχεδιασμό και εξαιρετική αντοχή. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
-            },
-            {
               "code": "572-14",
               "description": "ΓΛΑΣΤΡΑ TETP. LINEA 17lt-27x27x34h cm Νο 572-ΜΠΟΡΝΤΩ",
               "color": "ΜΠΟΡΝΤΩ",
@@ -15207,14 +14695,6 @@
               "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με κομψό σχεδιασμό και εξαιρετική αντοχή. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             },
             {
-              "code": "572-79",
-              "description": "ΓΛΑΣΤΡΑ TETP. LINEA 17lt-27x27x34h cm Νο 572-ΓΚΡΙ ΣΤΑΧΤΙ",
-              "color": "ΓΚΡΙ ΣΤΑΧΤΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_572-79.jpg",
-              "pack": "0",
-              "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με κομψό σχεδιασμό και εξαιρετική αντοχή. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
-            },
-            {
               "code": "572-84",
               "description": "ΓΛΑΣΤΡΑ TETP. LINEA 17lt-27x27x34h cm Νο 572-ΒΑΣΙΛΙΚΟΣ",
               "color": "ΒΑΣΙΛΙΚΟΣ",
@@ -15223,7 +14703,7 @@
               "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με κομψό σχεδιασμό και εξαιρετική αντοχή. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             }
           ],
-          "colors_count": 9,
+          "colors_count": 6,
           "specs": {
             "liters": "17",
             "width": "27",
@@ -15319,14 +14799,6 @@
               "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με κομψό σχεδιασμό και εξαιρετική αντοχή. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             },
             {
-              "code": "574-16",
-              "description": "ΓΛΑΣΤΡΑ TETP. LINEA 30lt-33x33x42h cm-ΜΩΒ",
-              "color": "ΜΩΒ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_574-16.jpg",
-              "pack": "0",
-              "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με κομψό σχεδιασμό και εξαιρετική αντοχή. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
-            },
-            {
               "code": "574-79",
               "description": "ΓΛΑΣΤΡΑ TETP. LINEA 30lt-33x33x42h cm-ΓΚΡΙ ΣΤΑΧΤΙ",
               "color": "ΓΚΡΙ ΣΤΑΧΤΙ",
@@ -15335,7 +14807,7 @@
               "excel_ar": "Χαμηλές τετράγωνες γλάστρες LINEA, με κομψό σχεδιασμό και εξαιρετική αντοχή. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, διατίθενται σε μοντέρνα χρώματα που αναδεικνύουν κάθε περιβάλλον"
             }
           ],
-          "colors_count": 8,
+          "colors_count": 7,
           "specs": {
             "liters": "30",
             "width": "33",
@@ -15421,25 +14893,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_580-13.jpg",
               "pack": "0",
               "excel_ar": "Γλάστρες LINEA σε ψηλό τετράγωνο σχήμα, με σύγχρονο design και υψηλή αντοχή. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, σε μοντέρνες αποχρώσεις"
-            },
-            {
-              "code": "580-01",
-              "description": "ΓΛΑΣΤΡΑ TETP. LINEA 3lt-15x15x27h cm-ΛΕΥΚΟ",
-              "color": "ΛΕΥΚΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_580-01.jpg",
-              "pack": "0",
-              "excel_ar": "Γλάστρες LINEA σε ψηλό τετράγωνο σχήμα, με σύγχρονο design και υψηλή αντοχή. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, σε μοντέρνες αποχρώσεις"
-            },
-            {
-              "code": "580-79",
-              "description": "ΓΛΑΣΤΡΑ TETP. LINEA 3lt-15x15x27h cm-ΓΚΡΙ ΣΤΑΧΤΙ",
-              "color": "ΓΚΡΙ ΣΤΑΧΤΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_580-79.jpg",
-              "pack": "0",
-              "excel_ar": "Γλάστρες LINEA σε ψηλό τετράγωνο σχήμα, με σύγχρονο design και υψηλή αντοχή. Ιδανική επιλογή για τη διακόσμηση κάθε χώρου, σε μοντέρνες αποχρώσεις"
             }
           ],
-          "colors_count": 7,
+          "colors_count": 5,
           "specs": {
             "liters": "3",
             "width": "15",
@@ -15724,7 +15180,7 @@
         }
       ],
       "sizes_count": 20,
-      "variants_count": 108
+      "variants_count": 96
     },
     {
       "id": "2810",
@@ -15803,14 +15259,6 @@
               "excel_ar": "Κομψά τετράγωνα πιατάκια για γλάστρες LINEA, σε μοναδική αισθητική και χρωματική ποικιλία"
             },
             {
-              "code": "590-79",
-              "description": "ΠΙΑΤΟ TETP. LINEA 12x12x2h cm-ΓΚΡΙ ΣΤΑΧΤΙ",
-              "color": "ΓΚΡΙ ΣΤΑΧΤΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_590-79.jpg",
-              "pack": "25",
-              "excel_ar": "Κομψά τετράγωνα πιατάκια για γλάστρες LINEA, σε μοναδική αισθητική και χρωματική ποικιλία"
-            },
-            {
               "code": "590-94",
               "description": "ΠΙΑΤΟ TETP. LINEA 12x12x2h cm-ΜΑΟΝΙ",
               "color": "ΜΑΟΝΙ",
@@ -15851,7 +15299,7 @@
               "excel_ar": "Κομψά τετράγωνα πιατάκια για γλάστρες LINEA, σε μοναδική αισθητική και χρωματική ποικιλία"
             }
           ],
-          "colors_count": 14,
+          "colors_count": 13,
           "specs": {
             "liters": null,
             "width": "12",
@@ -16112,7 +15560,7 @@
         }
       ],
       "sizes_count": 4,
-      "variants_count": 39
+      "variants_count": 38
     },
     {
       "id": "2820",
@@ -16239,14 +15687,6 @@
           "size_code": "823",
           "variants": [
             {
-              "code": "823-12",
-              "description": "ΖΑΡΝΤΙΝΙΕΡΑ&ΔΙΣΚΟΣ LINEA 11lt-58x18x17h cm-ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "color": "ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_823-12.jpg",
-              "pack": "0",
-              "excel_ar": "Μοντέρνες ζαρντινιέρες LINEA με ενσωματωμένο πιάτο, για πρακτικότητα και κομψό αποτέλεσμα. Σε διαφορετικά μεγέθη και νέες μοντέρνες αποχρώσεις που ανανεώνουν κάθε χώρο"
-            },
-            {
               "code": "823-26",
               "description": "ΖΑΡΝΤΙΝΙΕΡΑ&ΔΙΣΚΟΣ LINEA 11lt-58x18x17h cm-ΓΚΡΙ ΚΑΦΕ",
               "color": "ΓΚΡΙ ΚΑΦΕ",
@@ -16279,7 +15719,7 @@
               "excel_ar": "Μοντέρνες ζαρντινιέρες LINEA με ενσωματωμένο πιάτο, για πρακτικότητα και κομψό αποτέλεσμα. Σε διαφορετικά μεγέθη και νέες μοντέρνες αποχρώσεις που ανανεώνουν κάθε χώρο"
             }
           ],
-          "colors_count": 5,
+          "colors_count": 4,
           "specs": {
             "liters": "11",
             "width": "58",
@@ -16292,7 +15732,7 @@
         }
       ],
       "sizes_count": 3,
-      "variants_count": 15
+      "variants_count": 14
     },
     {
       "id": "2840",
@@ -16659,14 +16099,6 @@
           "size_code": "974",
           "variants": [
             {
-              "code": "974-12",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. IRIS 28lt-d40x35h cm-ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "color": "ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_974-12.jpg",
-              "pack": "0",
-              "excel_ar": "Γλάστρες IRIS, υψηλής ποιότητας και κομψής αισθητικής, ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό. Διατίθενται σε μοντέρνα χρώματα και ποικιλία διαστάσεων. Οι κωδικοί 974 και 976 είναι συμβατοί με το καινοτόμο σύστημα OMNIROLL, που επιτρέπει εύκολη και ασφαλή μετακίνηση"
-            },
-            {
               "code": "974-26",
               "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. IRIS 28lt-d40x35h cm-ΓΚΡΙ ΚΑΦΕ",
               "color": "ΓΚΡΙ ΚΑΦΕ",
@@ -16707,7 +16139,7 @@
               "excel_ar": "Γλάστρες IRIS, υψηλής ποιότητας και κομψής αισθητικής, ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό. Διατίθενται σε μοντέρνα χρώματα και ποικιλία διαστάσεων. Οι κωδικοί 974 και 976 είναι συμβατοί με το καινοτόμο σύστημα OMNIROLL, που επιτρέπει εύκολη και ασφαλή μετακίνηση"
             }
           ],
-          "colors_count": 6,
+          "colors_count": 5,
           "specs": {
             "liters": "28",
             "width": null,
@@ -16723,14 +16155,6 @@
           "size_code": "976",
           "variants": [
             {
-              "code": "976-12",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. IRIS 55lt-d50x44h cm-ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "color": "ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_976-12.jpg",
-              "pack": "0",
-              "excel_ar": "Γλάστρες IRIS, υψηλής ποιότητας και κομψής αισθητικής, ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό. Διατίθενται σε μοντέρνα χρώματα και ποικιλία διαστάσεων. Οι κωδικοί 974 και 976 είναι συμβατοί με το καινοτόμο σύστημα OMNIROLL, που επιτρέπει εύκολη και ασφαλή μετακίνηση"
-            },
-            {
               "code": "976-26",
               "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. IRIS 55lt-d50x44h cm-ΓΚΡΙ ΚΑΦΕ",
               "color": "ΓΚΡΙ ΚΑΦΕ",
@@ -16743,14 +16167,6 @@
               "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. IRIS 55lt-d50x44h cm-ΜΟΛΥΒΙ",
               "color": "ΜΟΛΥΒΙ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_976-25.jpg",
-              "pack": "0",
-              "excel_ar": "Γλάστρες IRIS, υψηλής ποιότητας και κομψής αισθητικής, ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό. Διατίθενται σε μοντέρνα χρώματα και ποικιλία διαστάσεων. Οι κωδικοί 974 και 976 είναι συμβατοί με το καινοτόμο σύστημα OMNIROLL, που επιτρέπει εύκολη και ασφαλή μετακίνηση"
-            },
-            {
-              "code": "976-14",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. IRIS 55lt-d50x44h cm-ΜΠΟΡΝΤΩ",
-              "color": "ΜΠΟΡΝΤΩ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_976-14.jpg",
               "pack": "0",
               "excel_ar": "Γλάστρες IRIS, υψηλής ποιότητας και κομψής αισθητικής, ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό. Διατίθενται σε μοντέρνα χρώματα και ποικιλία διαστάσεων. Οι κωδικοί 974 και 976 είναι συμβατοί με το καινοτόμο σύστημα OMNIROLL, που επιτρέπει εύκολη και ασφαλή μετακίνηση"
             },
@@ -16771,7 +16187,7 @@
               "excel_ar": "Γλάστρες IRIS, υψηλής ποιότητας και κομψής αισθητικής, ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό. Διατίθενται σε μοντέρνα χρώματα και ποικιλία διαστάσεων. Οι κωδικοί 974 και 976 είναι συμβατοί με το καινοτόμο σύστημα OMNIROLL, που επιτρέπει εύκολη και ασφαλή μετακίνηση"
             }
           ],
-          "colors_count": 6,
+          "colors_count": 4,
           "specs": {
             "liters": "55",
             "width": null,
@@ -16784,7 +16200,7 @@
         }
       ],
       "sizes_count": 7,
-      "variants_count": 46
+      "variants_count": 43
     },
     {
       "id": "2860",
@@ -16821,17 +16237,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_665_2-14.jpg",
               "pack": "0",
               "excel_ar": "Ζαρντινιέρες LILY GLOSS με γυαλιστερή επιφάνεια και ξεχωριστά χρώματα. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, προσφέρουν κομψότητα και φρεσκάδα σε κάθε περιβάλλον"
-            },
-            {
-              "code": "665.2-25",
-              "description": "ΖΑΡΝΤΙΝΙΕΡΑ LILY GLOSS 2,5lt 30x12x11h cm-ΜΟΛΥΒΙ",
-              "color": "ΜΟΛΥΒΙ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_665_2-25.jpg",
-              "pack": "0",
-              "excel_ar": "Ζαρντινιέρες LILY GLOSS με γυαλιστερή επιφάνεια και ξεχωριστά χρώματα. Ιδανικές για εσωτερικούς και εξωτερικούς χώρους, προσφέρουν κομψότητα και φρεσκάδα σε κάθε περιβάλλον"
             }
           ],
-          "colors_count": 4,
+          "colors_count": 3,
           "specs": {
             "liters": "2.5",
             "width": "30",
@@ -16846,22 +16254,6 @@
           "size_label": "665.5",
           "size_code": "665.5",
           "variants": [
-            {
-              "code": "665.5-92",
-              "description": "ΖΑΡΝΤΙΝΙΕΡΑ LILY NATURA 2,5lt 30x12x11h cm-ΟΝΥΧΑΣ",
-              "color": "ΟΝΥΧΑΣ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_665_5-92.jpg",
-              "pack": "0",
-              "excel_ar": "Ζαρντινιέρες LILY NATURA, διαθέσιμες σε τέσσερις διαφορετικές τεχνοτροπίες, που προσφέρουν φυσική υφή και ξεχωριστή αισθητική. Ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό"
-            },
-            {
-              "code": "665.5-93",
-              "description": "ΖΑΡΝΤΙΝΙΕΡΑ LILY NATURA 2,5lt 30x12x11h cm-SMOKE",
-              "color": "SMOKE",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_665_5-93.jpg",
-              "pack": "0",
-              "excel_ar": "Ζαρντινιέρες LILY NATURA, διαθέσιμες σε τέσσερις διαφορετικές τεχνοτροπίες, που προσφέρουν φυσική υφή και ξεχωριστή αισθητική. Ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό"
-            },
             {
               "code": "665.5-94",
               "description": "ΖΑΡΝΤΙΝΙΕΡΑ LILY NATURA 2,5lt 30x12x11h cm-ΜΑΟΝΙ",
@@ -16879,7 +16271,7 @@
               "excel_ar": "Ζαρντινιέρες LILY NATURA, διαθέσιμες σε τέσσερις διαφορετικές τεχνοτροπίες, που προσφέρουν φυσική υφή και ξεχωριστή αισθητική. Ιδανικές για κάθε χώρο, εσωτερικό ή εξωτερικό"
             }
           ],
-          "colors_count": 4,
+          "colors_count": 2,
           "specs": {
             "liters": "2.5",
             "width": "30",
@@ -17039,31 +16431,15 @@
               "excel_ar": "Γλαστράκια LILY NATURA, διαθέσιμα σε τέσσερις μοναδικές τεχνοτροπίες που προσφέρουν φυσική υφή και υψηλή αισθητική. Ιδανικά για εσωτερικούς και εξωτερικούς χώρους, προσθέτουν στυλ σε κάθε περιβάλλον"
             },
             {
-              "code": "669.5-93",
-              "description": "ΓΛΑΣΤΡΑ LILY NATURA 1,8lt 15x15x14h cm-SMOKE",
-              "color": "SMOKE",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_669_5-93.jpg",
-              "pack": "0",
-              "excel_ar": "Γλαστράκια LILY NATURA, διαθέσιμα σε τέσσερις μοναδικές τεχνοτροπίες που προσφέρουν φυσική υφή και υψηλή αισθητική. Ιδανικά για εσωτερικούς και εξωτερικούς χώρους, προσθέτουν στυλ σε κάθε περιβάλλον"
-            },
-            {
               "code": "669.5-94",
               "description": "ΓΛΑΣΤΡΑ LILY NATURA 1,8lt 15x15x14h cm-ΜΑΟΝΙ",
               "color": "ΜΑΟΝΙ",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_669_5-94.jpg",
               "pack": "0",
               "excel_ar": "Γλαστράκια LILY NATURA, διαθέσιμα σε τέσσερις μοναδικές τεχνοτροπίες που προσφέρουν φυσική υφή και υψηλή αισθητική. Ιδανικά για εσωτερικούς και εξωτερικούς χώρους, προσθέτουν στυλ σε κάθε περιβάλλον"
-            },
-            {
-              "code": "669.5-95",
-              "description": "ΓΛΑΣΤΡΑ LILY NATURA 1,8lt 15x15x14h cm-CITRINE",
-              "color": "CITRINE",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_669_5-95.jpg",
-              "pack": "0",
-              "excel_ar": "Γλαστράκια LILY NATURA, διαθέσιμα σε τέσσερις μοναδικές τεχνοτροπίες που προσφέρουν φυσική υφή και υψηλή αισθητική. Ιδανικά για εσωτερικούς και εξωτερικούς χώρους, προσθέτουν στυλ σε κάθε περιβάλλον"
             }
           ],
-          "colors_count": 4,
+          "colors_count": 2,
           "specs": {
             "liters": "1.8",
             "width": "15",
@@ -17076,7 +16452,7 @@
         }
       ],
       "sizes_count": 6,
-      "variants_count": 23
+      "variants_count": 18
     },
     {
       "id": "2870",
@@ -17131,14 +16507,6 @@
               "excel_ar": "Γλάστρες INNOVA, ανθεκτικές και καλαίσθητες, σε δύο μεγέθη και σύγχρονα χρώματα. Κατάλληλες για όλους τους χώρους"
             },
             {
-              "code": "672-01",
-              "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. INNOVA 11lt-d29x26h cm-ΛΕΥΚΟ",
-              "color": "ΛΕΥΚΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_672-01.jpg",
-              "pack": "0",
-              "excel_ar": "Γλάστρες INNOVA, ανθεκτικές και καλαίσθητες, σε δύο μεγέθη και σύγχρονα χρώματα. Κατάλληλες για όλους τους χώρους"
-            },
-            {
               "code": "672-40",
               "description": "ΓΛΑΣΤΡΑ ΣΤΡΟΓΓ. INNOVA 11lt-d29x26h cm-ΚΑΦΕ ΣΚΟΥΡΟ",
               "color": "ΚΑΦΕ ΣΚΟΥΡΟ",
@@ -17155,7 +16523,7 @@
               "excel_ar": "Γλάστρες INNOVA, ανθεκτικές και καλαίσθητες, σε δύο μεγέθη και σύγχρονα χρώματα. Κατάλληλες για όλους τους χώρους"
             }
           ],
-          "colors_count": 8,
+          "colors_count": 7,
           "specs": {
             "liters": "11",
             "width": null,
@@ -17232,7 +16600,7 @@
         }
       ],
       "sizes_count": 2,
-      "variants_count": 14
+      "variants_count": 13
     },
     {
       "id": "2900",
@@ -17375,26 +16743,10 @@
           "size_code": "32",
           "variants": [
             {
-              "code": "32-03",
-              "description": "ΚΑΣΠΩ ΤΕΡΑΚΟΤΑ d31,5x12h cm-ΤΕΡΑΚΟΤΑ",
-              "color": "ΤΕΡΑΚΟΤΑ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_32-03.jpg",
-              "pack": "0",
-              "excel_ar": "Κασπώ τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Διατίθονται σε ξεχωριστά χρώματα και ποικιλία διαστάσεων, κατάλληλα για όλους τους χώρους και κάθε είδος φυτού"
-            },
-            {
               "code": "32-90",
               "description": "ΚΑΣΠΩ ΤΕΡΑΚΟΤΑ d31,5x12h cm-MAPMAPI",
               "color": "MAPMAPI",
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_32-90.jpg",
-              "pack": "0",
-              "excel_ar": "Κασπώ τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Διατίθονται σε ξεχωριστά χρώματα και ποικιλία διαστάσεων, κατάλληλα για όλους τους χώρους και κάθε είδος φυτού"
-            },
-            {
-              "code": "32-12",
-              "description": "ΚΑΣΠΩ ΤΕΡΑΚΟΤΑ d31,5x12h cm-ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "color": "ΠΡΑΣ/ΚΙΤΡΙΝΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_32-12.jpg",
               "pack": "0",
               "excel_ar": "Κασπώ τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Διατίθονται σε ξεχωριστά χρώματα και ποικιλία διαστάσεων, κατάλληλα για όλους τους χώρους και κάθε είδος φυτού"
             },
@@ -17405,25 +16757,9 @@
               "image_url": "https://viomes.gr/images/packshot_photos/viomes_32-17.jpg",
               "pack": "0",
               "excel_ar": "Κασπώ τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Διατίθονται σε ξεχωριστά χρώματα και ποικιλία διαστάσεων, κατάλληλα για όλους τους χώρους και κάθε είδος φυτού"
-            },
-            {
-              "code": "32-16",
-              "description": "ΚΑΣΠΩ ΤΕΡΑΚΟΤΑ d31,5x12h cm-ΜΩΒ",
-              "color": "ΜΩΒ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_32-16.jpg",
-              "pack": "0",
-              "excel_ar": "Κασπώ τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Διατίθονται σε ξεχωριστά χρώματα και ποικιλία διαστάσεων, κατάλληλα για όλους τους χώρους και κάθε είδος φυτού"
-            },
-            {
-              "code": "32-14",
-              "description": "ΚΑΣΠΩ ΤΕΡΑΚΟΤΑ d31,5x12h cm-ΜΠΟΡΝΤΩ",
-              "color": "ΜΠΟΡΝΤΩ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_32-14.jpg",
-              "pack": "0",
-              "excel_ar": "Κασπώ τύπου τερακότα, εξαιρετικής αντοχής και ποιότητας. Διατίθονται σε ξεχωριστά χρώματα και ποικιλία διαστάσεων, κατάλληλα για όλους τους χώρους και κάθε είδος φυτού"
             }
           ],
-          "colors_count": 6,
+          "colors_count": 2,
           "specs": {
             "liters": null,
             "width": null,
@@ -17460,7 +16796,7 @@
         }
       ],
       "sizes_count": 4,
-      "variants_count": 19
+      "variants_count": 15
     },
     {
       "id": "2910",
@@ -17499,14 +16835,6 @@
               "excel_ar": "Αυτοποτιζόμενες ζαρντινιέρες LOTUS, με ενσωματωμένη δεξαμενή χωρητικότητας 12 λίτρων, προσφέροντας αυτόνομο πότισμα στα φυτά για έως και 6 εβδομάδες"
             },
             {
-              "code": "731-01",
-              "description": "ΖΑΡΝΤΙΝΙΕΡΑ LOTUS 46lt 59x34,5x40,5h cm-ΛΕΥΚΟ",
-              "color": "ΛΕΥΚΟ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_731-01.jpg",
-              "pack": "0",
-              "excel_ar": "Αυτοποτιζόμενες ζαρντινιέρες LOTUS, με ενσωματωμένη δεξαμενή χωρητικότητας 12 λίτρων, προσφέροντας αυτόνομο πότισμα στα φυτά για έως και 6 εβδομάδες"
-            },
-            {
               "code": "731-56",
               "description": "ΖΑΡΝΤΙΝΙΕΡΑ LOTUS 46lt 59x34,5x40,5h cm-ΜΠΕΖ ΑΜΜΟΥ",
               "color": "ΜΠΕΖ ΑΜΜΟΥ",
@@ -17523,7 +16851,7 @@
               "excel_ar": "Αυτοποτιζόμενες ζαρντινιέρες LOTUS, με ενσωματωμένη δεξαμενή χωρητικότητας 12 λίτρων, προσφέροντας αυτόνομο πότισμα στα φυτά για έως και 6 εβδομάδες"
             }
           ],
-          "colors_count": 6,
+          "colors_count": 5,
           "specs": {
             "liters": "46",
             "width": "59",
@@ -17648,7 +16976,7 @@
         }
       ],
       "sizes_count": 4,
-      "variants_count": 14
+      "variants_count": 13
     },
     {
       "id": "2920",
@@ -17719,14 +17047,6 @@
           "size_code": "791",
           "variants": [
             {
-              "code": "791-50",
-              "description": "ΓΛΑΣΤΡΑ GEA 9lt-d29x25h cm-ΓΚΡΙ ΜΠΕΖ",
-              "color": "ΓΚΡΙ ΜΠΕΖ",
-              "image_url": "https://viomes.gr/images/packshot_photos/viomes_791-50.jpg",
-              "pack": "0",
-              "excel_ar": "Γλάστρες GEA με σύγχρονο, καινοτόμο σχεδιασμό και κορυφαία ποιότητα. Σε πέντε ιδιαίτερες αποχρώσεις που ταιριάζουν σε φυσικά και μοντέρνα περιβάλλοντα"
-            },
-            {
               "code": "791-84",
               "description": "ΓΛΑΣΤΡΑ GEA 9lt-d29x25h cm-ΒΑΣΙΛΙΚΟΣ",
               "color": "ΒΑΣΙΛΙΚΟΣ",
@@ -17759,7 +17079,7 @@
               "excel_ar": "Γλάστρες GEA με σύγχρονο, καινοτόμο σχεδιασμό και κορυφαία ποιότητα. Σε πέντε ιδιαίτερες αποχρώσεις που ταιριάζουν σε φυσικά και μοντέρνα περιβάλλοντα"
             }
           ],
-          "colors_count": 5,
+          "colors_count": 4,
           "specs": {
             "liters": "9",
             "width": null,
@@ -17884,7 +17204,7 @@
         }
       ],
       "sizes_count": 4,
-      "variants_count": 20
+      "variants_count": 19
     },
     {
       "id": "2930",

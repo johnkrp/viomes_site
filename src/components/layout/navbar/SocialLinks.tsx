@@ -1,6 +1,6 @@
 const SocialLinks = () => {
   return (
-    <div className="hidden items-center gap-4 lg:flex lg:justify-start lg:pl-0 lg:-ml-6">
+    <div className="hidden items-center gap-2 lg:flex lg:justify-start lg:pl-0 lg:-ml-0">
       <a
         href="https://www.facebook.com/ANARTISISVIOMES"
         target="_blank"

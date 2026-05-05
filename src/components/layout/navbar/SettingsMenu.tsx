@@ -1,11 +1,10 @@
 import {
-  backgroundColorOptions,
   getFlagEmoji,
   languages,
   sizeOptions,
-  textSecondaryColorOptions,
   typographyOptions,
 } from "@/components/layout/navbar/constants";
+import ColorWheelPicker from "@/components/ui/ColorWheelPicker";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,7 +17,13 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  generatePalette,
+  paletteToColorTokens,
+  type HarmonyMode,
+} from "@/lib/paletteGenerator";
 import { ChevronDown } from "lucide-react";
+import { useEffect, useState } from "react";
 
 type SettingsMenuProps = {
   isOpen: boolean;
@@ -31,22 +36,14 @@ type SettingsMenuProps = {
   onTitleSizeChange: (value: string) => void;
   plainTextSize: string;
   onPlainTextSizeChange: (value: string) => void;
-  backgroundColor: string;
-  onBackgroundColorChange: (value: string) => void;
-  textSecondaryColor: string;
-  onTextSecondaryColorChange: (value: string) => void;
-  customBackgroundHex: string;
-  onCustomBackgroundHexChange: (value: string) => void;
-  customTextHex: string;
-  onCustomTextHexChange: (value: string) => void;
+  paletteBaseColor: string;
+  onPaletteBaseColorChange: (value: string) => void;
 };
 
 const compactTriggerClassName =
   "inline-flex items-center gap-2 rounded-md border border-border/60 bg-background/30 px-3 py-1.5 text-sm text-foreground/85 backdrop-blur-sm transition hover:bg-background/45";
 const settingsPanelClassName =
-  "w-[min(92vw,22rem)] max-h-[min(80vh,36rem)] overflow-y-auto bg-card text-card-foreground border border-border shadow-xl backdrop-blur-none";
-const settingsSubPanelClassName =
-  "w-[min(88vw,19rem)] max-h-[65vh] overflow-y-auto bg-card text-card-foreground border border-border shadow-xl backdrop-blur-none";
+  "w-[min(92vw,24rem)] max-h-[min(80vh,40rem)] overflow-y-auto bg-card text-card-foreground border border-border shadow-xl backdrop-blur-none";
 
 const SettingsMenu = ({
   isOpen,
@@ -59,25 +56,13 @@ const SettingsMenu = ({
   onTitleSizeChange,
   plainTextSize,
   onPlainTextSizeChange,
-  backgroundColor,
-  onBackgroundColorChange,
-  textSecondaryColor,
-  onTextSecondaryColorChange,
-  customBackgroundHex,
-  onCustomBackgroundHexChange,
-  customTextHex,
-  onCustomTextHexChange,
+  paletteBaseColor,
+  onPaletteBaseColorChange,
 }: SettingsMenuProps) => {
+  const [harmonyMode, setHarmonyMode] = useState<HarmonyMode>("analogous");
+
   const selectedLanguage =
     languages.find((selected) => selected.code === language) ?? languages[0];
-  const selectedBackgroundColor =
-    backgroundColorOptions.find(
-      (selected) => selected.code === backgroundColor,
-    ) ?? backgroundColorOptions[0];
-  const selectedTextSecondaryColor =
-    textSecondaryColorOptions.find(
-      (selected) => selected.code === textSecondaryColor,
-    ) ?? textSecondaryColorOptions[0];
   const selectedTypography =
     typographyOptions.find((selected) => selected.code === typography) ??
     typographyOptions[0];
@@ -87,6 +72,25 @@ const SettingsMenu = ({
   const selectedPlainTextSize =
     sizeOptions.find((selected) => selected.code === plainTextSize) ??
     sizeOptions[1];
+
+  // When palette base color changes, apply it to CSS variables
+  useEffect(() => {
+    const palette = generatePalette(paletteBaseColor, harmonyMode);
+    const tokens = paletteToColorTokens(palette);
+
+    // Apply CSS variables
+    Object.entries(tokens).forEach(([key, value]) => {
+      document.documentElement.style.setProperty(key, value);
+    });
+
+    // Save to localStorage
+    try {
+      localStorage.setItem("viomes_palette_base_color", paletteBaseColor);
+      localStorage.setItem("viomes_palette_harmony", harmonyMode);
+    } catch {
+      /* ignore */
+    }
+  }, [paletteBaseColor, harmonyMode]);
 
   return (
     <DropdownMenu open={isOpen} onOpenChange={onOpenChange}>
@@ -104,11 +108,13 @@ const SettingsMenu = ({
           Site Settings
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
+
+        {/* Language */}
         <DropdownMenuSub>
           <DropdownMenuSubTrigger className="text-sm">
             Language: {selectedLanguage.label}
           </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent className={settingsSubPanelClassName}>
+          <DropdownMenuSubContent className="w-[min(88vw,19rem)] max-h-[65vh] overflow-y-auto bg-card text-card-foreground border border-border shadow-xl backdrop-blur-none">
             <DropdownMenuRadioGroup
               value={language}
               onValueChange={onLanguageChange}
@@ -132,11 +138,13 @@ const SettingsMenu = ({
             </DropdownMenuRadioGroup>
           </DropdownMenuSubContent>
         </DropdownMenuSub>
+
+        {/* Font */}
         <DropdownMenuSub>
           <DropdownMenuSubTrigger className="text-sm">
             Font: {selectedTypography.label}
           </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent className={settingsSubPanelClassName}>
+          <DropdownMenuSubContent className="w-[min(88vw,19rem)] max-h-[65vh] overflow-y-auto bg-card text-card-foreground border border-border shadow-xl backdrop-blur-none">
             <DropdownMenuRadioGroup
               value={typography}
               onValueChange={onTypographyChange}
@@ -149,11 +157,13 @@ const SettingsMenu = ({
             </DropdownMenuRadioGroup>
           </DropdownMenuSubContent>
         </DropdownMenuSub>
+
+        {/* Title Size */}
         <DropdownMenuSub>
           <DropdownMenuSubTrigger className="text-sm">
             Title size: {selectedTitleSize.label}
           </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent className={settingsSubPanelClassName}>
+          <DropdownMenuSubContent className="w-[min(88vw,19rem)] max-h-[65vh] overflow-y-auto bg-card text-card-foreground border border-border shadow-xl backdrop-blur-none">
             <DropdownMenuRadioGroup
               value={titleSize}
               onValueChange={onTitleSizeChange}
@@ -166,11 +176,13 @@ const SettingsMenu = ({
             </DropdownMenuRadioGroup>
           </DropdownMenuSubContent>
         </DropdownMenuSub>
+
+        {/* Text Size */}
         <DropdownMenuSub>
           <DropdownMenuSubTrigger className="text-sm">
             Text size: {selectedPlainTextSize.label}
           </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent className={settingsSubPanelClassName}>
+          <DropdownMenuSubContent className="w-[min(88vw,19rem)] max-h-[65vh] overflow-y-auto bg-card text-card-foreground border border-border shadow-xl backdrop-blur-none">
             <DropdownMenuRadioGroup
               value={plainTextSize}
               onValueChange={onPlainTextSizeChange}
@@ -183,77 +195,14 @@ const SettingsMenu = ({
             </DropdownMenuRadioGroup>
           </DropdownMenuSubContent>
         </DropdownMenuSub>
-        <DropdownMenuSub>
-          <DropdownMenuSubTrigger className="text-sm">
-            Background: {selectedBackgroundColor.label}
-          </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent className={settingsSubPanelClassName}>
-            <DropdownMenuRadioGroup
-              value={backgroundColor}
-              onValueChange={onBackgroundColorChange}
-            >
-              {backgroundColorOptions.map((option) => (
-                <DropdownMenuRadioItem key={option.code} value={option.code}>
-                  {option.label}
-                </DropdownMenuRadioItem>
-              ))}
-            </DropdownMenuRadioGroup>
-          </DropdownMenuSubContent>
-        </DropdownMenuSub>
-        <DropdownMenuSub>
-          <DropdownMenuSubTrigger className="text-sm">
-            Text / Secondary: {selectedTextSecondaryColor.label}
-          </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent className={settingsSubPanelClassName}>
-            <DropdownMenuRadioGroup
-              value={textSecondaryColor}
-              onValueChange={onTextSecondaryColorChange}
-            >
-              {textSecondaryColorOptions.map((option) => (
-                <DropdownMenuRadioItem key={option.code} value={option.code}>
-                  {option.label}
-                </DropdownMenuRadioItem>
-              ))}
-            </DropdownMenuRadioGroup>
-          </DropdownMenuSubContent>
-        </DropdownMenuSub>
-        {backgroundColor === "custom" || textSecondaryColor === "custom" ? (
-          <>
-            <DropdownMenuSeparator />
-            {backgroundColor === "custom" ? (
-              <div className="px-2 py-1.5">
-                <label className="mb-1 block text-xs text-foreground/70">
-                  Custom background
-                </label>
-                <input
-                  type="color"
-                  value={customBackgroundHex}
-                  onChange={(event) =>
-                    onCustomBackgroundHexChange(event.target.value)
-                  }
-                  className="h-8 w-full cursor-pointer rounded-md border border-border/60 bg-background/30 p-0.5"
-                  aria-label="Custom background color"
-                />
-              </div>
-            ) : null}
-            {textSecondaryColor === "custom" ? (
-              <div className="px-2 py-1.5">
-                <label className="mb-1 block text-xs text-foreground/70">
-                  Custom text / secondary
-                </label>
-                <input
-                  type="color"
-                  value={customTextHex}
-                  onChange={(event) =>
-                    onCustomTextHexChange(event.target.value)
-                  }
-                  className="h-8 w-full cursor-pointer rounded-md border border-border/60 bg-background/30 p-0.5"
-                  aria-label="Custom text and secondary color"
-                />
-              </div>
-            ) : null}
-          </>
-        ) : null}
+
+        <DropdownMenuSeparator />
+
+        {/* Color Wheel Picker */}
+        <ColorWheelPicker
+          baseHex={paletteBaseColor}
+          onColorChange={onPaletteBaseColorChange}
+        />
       </DropdownMenuContent>
     </DropdownMenu>
   );

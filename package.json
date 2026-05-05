@@ -16,7 +16,13 @@
     "agents:install:user": "powershell -ExecutionPolicy Bypass -File ./scripts/install-superagent-user.ps1",
     "uipro:init:copilot": "npx -y uipro-cli@latest init --ai copilot",
     "uipro:update": "npx -y uipro-cli@latest update",
-    "intent:classify": "node scripts/superagent-intent-classifier.cjs"
+    "intent:classify": "node scripts/superagent-intent-classifier.cjs",
+    "graph:update": ".\\.venv-graphify\\Scripts\\graphify update .",
+    "graph:cluster": ".\\.venv-graphify\\Scripts\\graphify cluster-only .",
+    "graph:benchmark": ".\\.venv-graphify\\Scripts\\graphify benchmark",
+    "graph:query": ".\\.venv-graphify\\Scripts\\graphify query",
+    "graph:path": ".\\.venv-graphify\\Scripts\\graphify path",
+    "graph:explain": ".\\.venv-graphify\\Scripts\\graphify explain"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.1",

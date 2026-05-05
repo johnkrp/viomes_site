@@ -25,6 +25,16 @@ The visual mood should stay calm and grounded. It should not drift into generic 
 
 The current palette is defined in [src/index.css](src/index.css). It should be treated as the active system, not a placeholder.
 
+**Current Palette (as of May 4, 2026):**
+
+- **Primary**: hsl(46 31% 38%) — warm olive/gold brown
+- **Secondary**: hsl(63 27% 46%) — muted golden tone
+- **Accent**: hsl(24 27% 32%) — warm rust/brown (used for CTAs, key actions)
+- **Background**: hsl(53 9% 82%) — warm cream/sand
+- **Foreground**: hsl(37 25% 13%) — deep brown/charcoal
+- **Muted**: hsl(53 9% 82%) — soft sand
+- **Border**: hsl(58 16% 60%) — subtle stone gray
+
 ### Core Surfaces
 
 - **Background**: warm cream and sand tones for the page canvas
@@ -33,10 +43,19 @@ The current palette is defined in [src/index.css](src/index.css). It should be t
 
 ### Text & Emphasis
 
-- **Foreground**: deep muted green for primary text
+- **Foreground**: deep brown (hsl(37 25% 13%)) for primary text
 - **Muted text**: desaturated stone for supporting copy, metadata, and secondary labels
-- **Accent / Primary**: muted VIOMES green for CTAs, links, key markers, and active states
+- **Accent / Primary**: warm rust/brown (hsl(24 27% 32%)) for CTAs, links, key markers, and active states
 - **Destructive**: a reserved warm red for errors only
+
+### Header & Footer Styling (Implemented May 4, 2026)
+
+- **Background**: derived from the active palette's primary color and darkened for contrast
+- **Text**: light foreground derived from the active palette
+- **Text Hover**: derived from the active palette's primary family for subtle emphasis
+- **Button Default**: hsl(var(--accent)) — warm rust/brown
+- **Button Hover**: transparent with text color changing to hover state
+- **Search Icon**: treated like social icons (no accent background)
 
 ### Rules
 
@@ -45,6 +64,24 @@ The current palette is defined in [src/index.css](src/index.css). It should be t
 - Preserve strong enough contrast for body text, chips, buttons, and footer links.
 - Keep dark mode in the same family of colors rather than switching to a dramatic neon-dark system.
 - Do not introduce brand colors that compete with the core earth-tone identity.
+
+### Recent Updates (May 5, 2026)
+
+- **Palette tokens added**: the site now exposes semantic CSS variables in `src/index.css` for the active palette so runtime choices and HMR updates are consistent across components. Key variables added:
+  - `--viomes-bg` (page background) — #DCD8CF / hsl(42 16% 84%)
+  - `--viomes-surface` (cards, panels) — #B7B69C / hsl(58 16% 66%)
+  - `--primary` (primary action / brand) — #807244 / hsl(46 31% 38%)
+  - `--accent` (accent / CTA) — #56393E / hsl(350 20% 28%)
+  - `--viomes-dark` (deep grounding tone) — #4C4326 / hsl(46 33% 22%)
+  - `--header-bg`, `--header-text`, `--header-hover` — mapped from the palette for header/footer usage
+
+- **Header & UX changes**: the header height and logo size were reduced to feel less dominant; the header now reads its colors from `--header-*` tokens so the header and footer update immediately when a new palette is applied.
+
+- **Color input & runtime behavior**: the color wheel UI was improved so typed hex input is permissive while only applying complete valid hex values; palette changes are written to `document.documentElement.style` by the settings menu to make HMR/live preview consistent.
+
+- **Responsive typography**: base text sizes are exposed as CSS variables and are adjusted at runtime based on viewport dimensions so typography scales smoothly across devices.
+
+- **Verification & next steps**: changes were verified on the local dev server and a production build. Next steps: run automated contrast checks for key foreground/background pairs (header, CTAs, body text) and tweak `--header-text` if needed for WCAG AA.
 
 ### Palette Direction Over Time
 
@@ -56,7 +93,7 @@ Future: if the design system evolves, the palette should become more consistent,
 
 ## 3. Typography Rules
 
-Typography is defined in [src/index.css](src/index.css). The current stack uses Poppins for body text and Inter for headings, which gives the site a clean, modern structure without becoming sterile.
+Typography is defined in [src/index.css](src/index.css). The current stack uses Poppins for body text and Inter for headings, which gives the site a clean, modern structure without becoming sterile. Base text sizes now scale with viewport dimensions through shared CSS variables, while the navbar controls can still nudge the overall size up or down.
 
 ### Typographic Voice
 
@@ -111,6 +148,15 @@ The component system should feel designed, not merely assembled.
 - The header should communicate structure quickly, not dominate the screen.
 - Active state, hover state, and scroll state should be obvious but understated.
 
+#### Header Structure (Updated May 4, 2026)
+
+- **4-column layout**: Logo (left) | Main subjects (left-center) | Lesser subjects (right-center) | Icons (right)
+- **Background**: Deep espresso (rgb(46, 40, 31)), consistent across all states
+- **Text**: White (rgb(255, 255, 255)) with hover state rgb(105, 78, 60)
+- **Icons**: Search, Social links, Settings grouped on right; search icon matches social style
+- **Spacing**: Full-width with edge-aligned columns (no centering)
+- **Visual Distinction**: Primary nav (prominent, no dropdowns) vs secondary nav (subtle, less emphasis)
+
 ### Badges & Trust Chips
 
 - Badges should be small, pill-shaped, and used for trust signals or compact metadata.
@@ -133,6 +179,29 @@ The layout should be spacious without feeling empty, and structured without feel
 - Keep the page story simple: hero, discovery, supporting sections, trust content, footer.
 - Use clear section breaks so the page remains easy to follow.
 - Make sure the user can understand what the company sells within seconds.
+
+### Hero Section Design Direction (Muuto-Inspired, In Progress)
+
+**Planned Structure** (see [docs/MUUTO_HERO_ANALYSIS.md](docs/MUUTO_HERO_ANALYSIS.md) for detailed analysis):
+
+- **Asymmetrical split layout**: Left ~45% dominant product/lifestyle image | Right ~55% content area
+- **Background color**: Warm brown (accent-adjacent) for content area
+- **Headline**: Bold, broken across lines for visual rhythm (e.g., "Πολυχρηστικά προϊόντα" split)
+- **Secondary imagery**: Layered product shots for compositional depth
+- **Label/CTA**: Subtle "Explore" text as secondary call-to-action
+- **Typography**: Strong, compact headline anchors layout; supporting paragraph follows
+- **Responsive**: Stacks on mobile (headline > images > label) while maintaining impact
+
+**Key Principles to Apply**:
+
+1. Use VIOMES product images (not Muuto lifestyle content)
+2. Apply warm brown accent color for content background
+3. Keep layout clean with minimal UI (2-3 images, 1 headline, 1 label)
+4. Maintain asymmetry for visual interest without clutter
+5. Preserve current hero auto-rotate carousel logic, adapt structure
+6. Test readability and image load on mobile
+
+**Status**: Under design; awaiting HTML/CSS implementation.
 
 ### Spacing
 
@@ -243,6 +312,7 @@ These sites are not templates to copy. They are useful references for tone, hier
 - Uses editorial composition and typography to make commerce feel like a curated brand experience rather than a dense catalog grid.
 - Good benchmark for image pacing, section rhythm, and how to balance lifestyle atmosphere with clear product navigation.
 - Useful as a reference for clean navigation behavior, minimal but intentional motion, and high-quality visual hierarchy on both desktop and mobile.
+- **Hero Section Pattern** (analyzed May 4, 2026): Asymmetrical split layout with dominant image, solid content background, and layered imagery for depth. See [docs/MUUTO_HERO_ANALYSIS.md](docs/MUUTO_HERO_ANALYSIS.md) for full analysis and VIOMES adaptation strategy.
 
 ### What VIOMES Should Take From Them
 
@@ -435,6 +505,9 @@ When asking an agent to design for this repo, use prompts that reinforce the exi
 - Use responsive card layouts, restrained motion, and clear product discovery hierarchy.
 - Extend the current visual language rather than replacing it.
 - Treat https://www.muuto.com as an inspiration benchmark for spacing rhythm, editorial layout composition, and premium simplicity (without copying brand identity).
+- Before major redesigns, review `graphify-out/GRAPH_REPORT.md` so design changes respect the current code and data-flow architecture.
+- If a design change introduces new cross-page behavior, refresh the graph at the start of the next chat (`graphify update .`) and validate new dependencies in `graphify-out/graph.html`.
+- For command details and refresh cadence, use [docs/GRAPHIFY_WORKFLOW.md](docs/GRAPHIFY_WORKFLOW.md).
 
 ## 14. Inspiration Study Checklist (Muuto)
 

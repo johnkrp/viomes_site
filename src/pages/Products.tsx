@@ -26,13 +26,14 @@ import {
   resolveSwatchBackground,
 } from "@/lib/colorSwatch";
 import {
+  KITCHEN_SUBCATEGORIES,
   resolveSiteCategories,
   siteCategories,
   type SiteCategory,
 } from "@/lib/productCategories";
 import {
   resolveTestPackshotByCode,
-  resolveTestPackshotFromImageUrl
+  resolveTestPackshotFromImageUrl,
 } from "@/lib/testPackshotOverrides";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Search } from "lucide-react";
@@ -170,9 +171,12 @@ const normalizeSearchText = (value: string) =>
 const isSiteCategory = (value: string): value is SiteCategory =>
   (siteCategories as readonly string[]).includes(value);
 
+const KITCHEN_CATEGORY: SiteCategory = "Κουζίνα";
+
 const Products = () => {
   const [searchParams] = useSearchParams();
   const categoryFromQuery = searchParams.get("category");
+  const subcategoryFromQuery = searchParams.get("subcategory");
   const [products, setProducts] = useState<GroupedProduct[]>([]);
   const [additionalImagesByCode, setAdditionalImagesByCode] = useState<
     Record<string, string[]>
@@ -187,17 +191,46 @@ const Products = () => {
       : [],
   );
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
+  const [selectedSubcategories, setSelectedSubcategories] = useState<string[]>(
+    subcategoryFromQuery &&
+      KITCHEN_SUBCATEGORIES.includes(
+        subcategoryFromQuery as (typeof KITCHEN_SUBCATEGORIES)[number],
+      )
+      ? [subcategoryFromQuery]
+      : [],
+  );
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(true);
+  const [isSubcategoriesOpen, setIsSubcategoriesOpen] = useState(true);
   const [isColorsOpen, setIsColorsOpen] = useState(true);
   const [grayBackgroundImages, setGrayBackgroundImages] = useState<Set<string>>(
     new Set(),
   );
+
+  const hasKitchenSelected = selectedCategories.includes(KITCHEN_CATEGORY);
 
   useEffect(() => {
     if (!categoryFromQuery) return;
     if (!isSiteCategory(categoryFromQuery)) return;
     setSelectedCategories([categoryFromQuery]);
   }, [categoryFromQuery]);
+
+  useEffect(() => {
+    if (!subcategoryFromQuery) return;
+    if (
+      !KITCHEN_SUBCATEGORIES.includes(
+        subcategoryFromQuery as (typeof KITCHEN_SUBCATEGORIES)[number],
+      )
+    ) {
+      return;
+    }
+    setSelectedSubcategories([subcategoryFromQuery]);
+  }, [subcategoryFromQuery]);
+
+  useEffect(() => {
+    if (hasKitchenSelected) return;
+    if (selectedSubcategories.length === 0) return;
+    setSelectedSubcategories([]);
+  }, [hasKitchenSelected, selectedSubcategories.length]);
 
   useEffect(() => {
     let isMounted = true;
@@ -277,7 +310,13 @@ const Products = () => {
           ),
         );
 
-      return matchesQuery && matchesCategory && matchesColor;
+      const matchesSubcategory =
+        selectedSubcategories.length === 0 ||
+        selectedSubcategories.includes(product.subcategory || "");
+
+      return (
+        matchesQuery && matchesCategory && matchesColor && matchesSubcategory
+      );
     });
 
     if (sortMode === "title-asc") {
@@ -293,7 +332,14 @@ const Products = () => {
     }
 
     return filtered;
-  }, [products, searchTerm, selectedCategories, selectedColors, sortMode]);
+  }, [
+    products,
+    searchTerm,
+    selectedCategories,
+    selectedColors,
+    selectedSubcategories,
+    sortMode,
+  ]);
 
   const toggleValue = <T extends string>(
     value: T,
@@ -310,6 +356,7 @@ const Products = () => {
   const clearFilters = () => {
     setSelectedCategories([]);
     setSelectedColors([]);
+    setSelectedSubcategories([]);
     setSearchTerm("");
     setSortMode("relevant");
   };
@@ -389,6 +436,24 @@ const Products = () => {
                 ))}
               </div>
             </div>
+
+            {hasKitchenSelected ? (
+              <TextFilterGroup
+                title="Υποκατηγορίες κουζίνας"
+                options={KITCHEN_SUBCATEGORIES as unknown as string[]}
+                selected={selectedSubcategories}
+                open={isSubcategoriesOpen}
+                onToggleOpen={() => setIsSubcategoriesOpen((prev) => !prev)}
+                onToggle={(value) =>
+                  toggleValue(
+                    value,
+                    selectedSubcategories,
+                    setSelectedSubcategories,
+                  )
+                }
+              />
+            ) : null}
+
             <ColorFilterGroup
               title="Χρώματα"
               options={colorOptions}
@@ -544,6 +609,62 @@ type ColorFilterGroupProps = {
   open: boolean;
   onToggleOpen: () => void;
   onToggle: (value: string) => void;
+};
+
+type TextFilterGroupProps = {
+  title: string;
+  options: string[];
+  selected: string[];
+  open: boolean;
+  onToggleOpen: () => void;
+  onToggle: (value: string) => void;
+};
+
+const TextFilterGroup = ({
+  title,
+  options,
+  selected,
+  open,
+  onToggleOpen,
+  onToggle,
+}: TextFilterGroupProps) => {
+  return (
+    <div className="pt-4">
+      <div className="flex items-center justify-between">
+        <h3 className="text-sm font-medium text-foreground">{title}</h3>
+        <button
+          type="button"
+          onClick={onToggleOpen}
+          className="text-xl leading-none text-foreground/80 hover:text-foreground"
+          aria-label={open ? `Απόκρυψη ${title}` : `Εμφάνιση ${title}`}
+        >
+          {open ? "-" : "+"}
+        </button>
+      </div>
+      <div className="mt-4 border-t border-border/80" />
+      <div className={cn("mt-4 space-y-2", open ? "block" : "hidden")}>
+        {options.map((option) => {
+          const isSelected = selected.includes(option);
+          return (
+            <button
+              key={`${title}-${option}`}
+              type="button"
+              onClick={() => onToggle(option)}
+              className={cn(
+                "flex w-full items-center justify-between rounded-sm border px-3 py-2 text-left text-sm transition",
+                isSelected
+                  ? "border-foreground bg-foreground/5 text-foreground"
+                  : "border-border text-foreground/75 hover:border-foreground/30 hover:text-foreground",
+              )}
+              aria-pressed={isSelected}
+            >
+              <span className="truncate">{option}</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
 const ColorFilterGroup = ({

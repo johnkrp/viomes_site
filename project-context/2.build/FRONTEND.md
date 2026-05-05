@@ -4,7 +4,7 @@
 **Phase**: 2. BUILD  
 **Owner**: `@frontend-eng`  
 **Status**: To Be Filled  
-**Last Updated**: April 2026
+**Last Updated**: May 2026
 
 ---
 
@@ -17,6 +17,7 @@
 - [ ] UI component library integration
 - [ ] Responsive design across breakpoints
 - [ ] Navigation and routing
+- [ ] Responsive typography scaling tied to viewport size
 
 ### Performance Optimizations
 
@@ -48,6 +49,12 @@
 ## Issues & Decisions
 
 _To be documented during implementation_
+
+- Catalog grouping has a manual override layer in [src/lib/familyGroupingRules.ts](src/lib/familyGroupingRules.ts).
+- Mixed Excel families are split at runtime by `size_code` so one source group can become multiple product detail pages.
+- The first `size_code` in each split group is used as the public product id.
+- When a family split changes, update the grouped JSON copies and the family rules together so the runtime fetch and fallback import stay aligned.
+- The shared text-size variables are now scaled from viewport dimensions in the navbar, then adjusted by the existing user-selected text-size controls.
 
 ## Performance Metrics
 

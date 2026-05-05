@@ -1,0 +1,33 @@
+# Graphify scope tuning for this repo
+
+# Dependency/build outputs
+node_modules/
+dist/
+dist-ssr/
+coverage/
+
+# Local tooling/state
+.git/
+.github/
+.vscode/
+.venv-graphify/
+.playwright-mcp/
+tmp/
+tmp_*
+
+# Generated/project artifacts
+graphify-out/
+plans/
+project-context/
+
+# Large static/media assets (keep app code, skip heavy binaries)
+public/**/*.png
+public/**/*.jpg
+public/**/*.jpeg
+public/**/*.gif
+public/**/*.webp
+public/**/*.svg
+public/**/*.ico
+public/**/*.mp4
+public/**/*.webm
+public/**/*.mov

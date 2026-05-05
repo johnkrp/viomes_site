@@ -9,6 +9,13 @@
 import { Button } from "@/components/ui/button";
 import { PackshotVariantSelector } from "@/components/ui/PackshotVariantSelector";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   loadAdditionalImages,
   loadCatalogProducts,
 } from "@/lib/catalogDataLoader";
@@ -23,9 +30,25 @@ import {
   resolveTestPackshotVariantsFromImageUrl,
 } from "@/lib/testPackshotOverrides";
 import { cn } from "@/lib/utils";
-import { AlertCircle, ArrowLeft, Expand, X } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import {
+  AlertCircle,
+  ArrowLeft,
+  Droplets,
+  Expand,
+  MoveHorizontal,
+  MoveVertical,
+  Orbit,
+  X,
+} from "lucide-react";
+import { type ComponentType, useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+
+type DimensionHighlight = {
+  key: string;
+  label: string;
+  value: string;
+  Icon: ComponentType<{ className?: string }>;
+};
 
 const isValidImageUrl = (url: string | undefined | null) =>
   Boolean(url && url.trim() && !url.includes("viomes_.jpg"));
@@ -116,6 +139,9 @@ const ProductDetail = () => {
   const [selectedColorIndex, setSelectedColorIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [selectedMainImage, setSelectedMainImage] = useState<string | null>(
+    null,
+  );
   const [selectedPackshotVariant, setSelectedPackshotVariant] = useState<
     string | null
   >(null);
@@ -137,7 +163,9 @@ const ProductDetail = () => {
       "products",
     );
     console.log("[ProductDetail] First product sample:", products[0]);
-    const found = products.find((entry) => entry.id === id);
+    const found =
+      products.find((entry) => entry.id === id) ||
+      products.find((entry) => (id ? entry.id.startsWith(`${id}-`) : false));
     console.log(
       "[ProductDetail] Product found:",
       found ? "YES" : "NO",
@@ -228,6 +256,17 @@ const ProductDetail = () => {
     return Array.from(familyImages);
   }, [product, additionalImagesByCode, selectedVariant?.code]);
 
+  const galleryImages = useMemo(() => {
+    const deduped = new Set<string>();
+    if (packshotImage) deduped.add(packshotImage);
+    additionalImages.forEach((image) => {
+      if (image) deduped.add(image);
+    });
+    return Array.from(deduped);
+  }, [packshotImage, additionalImages]);
+
+  const mainImage = selectedMainImage || packshotImage;
+
   const sizeSpecs = useMemo(() => {
     if (!product) return [];
     return product.sizes.map((size) => {
@@ -271,6 +310,18 @@ const ProductDetail = () => {
         handleLanguageChange,
       );
   }, []);
+
+  useEffect(() => {
+    if (!galleryImages.length) {
+      setSelectedMainImage(null);
+      return;
+    }
+
+    setSelectedMainImage((current) => {
+      if (current && galleryImages.includes(current)) return current;
+      return galleryImages[0];
+    });
+  }, [galleryImages]);
 
   useEffect(() => {
     let isMounted = true;
@@ -318,18 +369,8 @@ const ProductDetail = () => {
   }, []);
 
   // NOW do conditional early returns for rendering
-  if (isDataLoading) {
-    return (
-      <div className="min-h-screen bg-background pt-32 pb-20">
-        <div className="container mx-auto max-w-3xl px-6">
-          <div className="rounded-2xl border border-border bg-card p-8 text-center shadow-sm text-muted-foreground">
-            Φόρτωση προϊόντος...
-          </div>
-        </div>
-      </div>
-    );
-  }
 
+  // If there was an error loading data, still show the error page as before
   if (dataLoadError) {
     return (
       <div className="min-h-screen bg-background pt-32 pb-20">
@@ -343,6 +384,19 @@ const ProductDetail = () => {
   }
 
   if (!product) {
+    // While data is loading, show a compact inline loader instead of a full-page
+    // loading screen. If loading finished and still no product, show the
+    // existing "not found" message.
+    if (isDataLoading) {
+      return (
+        <div className="container mx-auto max-w-3xl px-6 py-6">
+          <div className="rounded-2xl border border-border bg-card p-6 text-center shadow-sm text-muted-foreground">
+            Φόρτωση προϊόντος...
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="min-h-screen bg-background pt-32 pb-20">
         <div className="container mx-auto max-w-3xl px-6">
@@ -370,6 +424,88 @@ const ProductDetail = () => {
     setSelectedSizeIndex(index);
     setSelectedColorIndex(0);
   };
+
+  const selectedSizeSpecs = sizeSpecs[safeSizeIndex]?.specs;
+
+  const dimensionHighlights = [
+    selectedSizeSpecs?.liters
+      ? {
+          key: "liters",
+          label: "Λίτρα",
+          value: `${selectedSizeSpecs.liters} L`,
+          Icon: Droplets,
+        }
+      : null,
+    selectedSizeSpecs?.diameter
+      ? {
+          key: "diameter",
+          label: "Διάμετρος",
+          value: `${selectedSizeSpecs.diameter} cm`,
+          Icon: Orbit,
+        }
+      : selectedSizeSpecs?.width
+        ? {
+            key: "width",
+            label: "Πλάτος",
+            value: `${selectedSizeSpecs.width} cm`,
+            Icon: MoveHorizontal,
+          }
+        : null,
+    selectedSizeSpecs?.depth
+      ? {
+          key: "depth",
+          label: "Βάθος",
+          value: `${selectedSizeSpecs.depth} cm`,
+          Icon: MoveHorizontal,
+        }
+      : null,
+    selectedSizeSpecs?.height || selectedSizeSpecs?.boxHeight
+      ? {
+          key: "height",
+          label: "Ύψος",
+          value: `${selectedSizeSpecs.height || selectedSizeSpecs.boxHeight} cm`,
+          Icon: MoveVertical,
+        }
+      : null,
+  ].filter((item): item is DimensionHighlight => item !== null);
+
+  const getSizeOptionLabel = (index: number) => {
+    const size = product.sizes[index];
+    const specs = sizeSpecs[index]?.specs;
+
+    if (specs?.liters) return `${specs.liters}L`;
+    if (specs?.width) return `${specs.width} cm`;
+    if (specs?.diameter) return `${specs.diameter} cm`;
+    return size.size_code || size.size_label || `Μέγεθος ${index + 1}`;
+  };
+
+  const getSizeSortValue = (index: number) => {
+    const specs = sizeSpecs[index]?.specs;
+    const liters = specs?.liters ? Number.parseFloat(specs.liters) : NaN;
+    if (Number.isFinite(liters)) return liters;
+
+    const width = specs?.width ? Number.parseFloat(specs.width) : NaN;
+    if (Number.isFinite(width)) return width;
+
+    const diameter = specs?.diameter ? Number.parseFloat(specs.diameter) : NaN;
+    if (Number.isFinite(diameter)) return diameter;
+
+    return Number.POSITIVE_INFINITY;
+  };
+
+  const sortedSizeOptions = product.sizes
+    .map((_, index) => ({
+      index,
+      label: getSizeOptionLabel(index),
+      sortValue: getSizeSortValue(index),
+    }))
+    .sort((a, b) => {
+      if (a.sortValue !== b.sortValue) return a.sortValue - b.sortValue;
+      return a.label.localeCompare(b.label, undefined, {
+        numeric: true,
+        sensitivity: "base",
+      });
+    });
 
   return (
     <div className="min-h-screen bg-background pb-12 pt-32 md:pb-14 md:pt-36 lg:pt-40">
@@ -399,6 +535,22 @@ const ProductDetail = () => {
                     </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
+                {product.subcategory ? (
+                  <>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                      <BreadcrumbLink asChild>
+                        <Link
+                          to={`/products?category=${encodeURIComponent(
+                            primaryCategory,
+                          )}&subcategory=${encodeURIComponent(product.subcategory)}`}
+                        >
+                          {product.subcategory}
+                        </Link>
+                      </BreadcrumbLink>
+                    </BreadcrumbItem>
+                  </>
+                ) : null}
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbPage>{product.title}</BreadcrumbPage>
@@ -407,40 +559,73 @@ const ProductDetail = () => {
             </Breadcrumb>
 
             <div className="rounded-2xl bg-transparent p-2 md:p-4">
-              <button
-                type="button"
-                onClick={() => {
-                  setLightboxImage(packshotImage);
-                  setIsLightboxOpen(true);
-                }}
-                className="group relative block w-full cursor-zoom-in"
-                aria-label="Προβολή packshot"
-              >
-                <img
-                  src={packshotImage}
-                  alt={`${product.title} packshot`}
-                  style={
-                    isTestPackshot
-                      ? {
-                          WebkitMaskImage:
-                            "radial-gradient(ellipse at center, black 56%, transparent 88%)",
-                          maskImage:
-                            "radial-gradient(ellipse at center, black 56%, transparent 88%)",
-                        }
-                      : undefined
-                  }
-                  className={cn(
-                    "mx-auto h-[260px] w-full object-contain sm:h-[320px] md:h-[460px] lg:h-[520px]",
-                    isTestPackshot ? "mix-blend-darken" : "mix-blend-multiply",
-                  )}
-                  loading="lazy"
-                  decoding="async"
-                />
-                <span className="pointer-events-none absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white opacity-0 transition group-hover:opacity-100">
-                  <Expand className="h-3.5 w-3.5" />
-                  Zoom
-                </span>
-              </button>
+              <div className="grid grid-cols-[minmax(0,1fr)_5.75rem] items-start gap-3 md:gap-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLightboxImage(mainImage);
+                    setIsLightboxOpen(true);
+                  }}
+                  className="group relative block w-full cursor-zoom-in"
+                  aria-label="Προβολή κύριας εικόνας"
+                >
+                  <img
+                    src={mainImage}
+                    alt={`${product.title} image`}
+                    style={
+                      mainImage === packshotImage && isTestPackshot
+                        ? {
+                            WebkitMaskImage:
+                              "radial-gradient(ellipse at center, black 56%, transparent 88%)",
+                            maskImage:
+                              "radial-gradient(ellipse at center, black 56%, transparent 88%)",
+                          }
+                        : undefined
+                    }
+                    className={cn(
+                      "mx-auto h-[260px] w-full object-contain sm:h-[320px] md:h-[460px] lg:h-[520px]",
+                      mainImage === packshotImage && isTestPackshot
+                        ? "mix-blend-darken"
+                        : "mix-blend-multiply",
+                    )}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="pointer-events-none absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white opacity-0 transition group-hover:opacity-100">
+                    <Expand className="h-3.5 w-3.5" />
+                    Zoom
+                  </span>
+                </button>
+
+                <div className="flex max-h-[520px] flex-col gap-2 overflow-y-auto pr-0.5">
+                  {galleryImages.map((image, index) => {
+                    const isActive = image === mainImage;
+                    return (
+                      <button
+                        key={`${image}-${index}`}
+                        type="button"
+                        onClick={() => setSelectedMainImage(image)}
+                        className={cn(
+                          "overflow-hidden border bg-white/70 transition",
+                          isActive
+                            ? "border-foreground shadow-sm"
+                            : "border-foreground/15 hover:border-foreground/45",
+                        )}
+                        aria-label={`Εικόνα ${index + 1}`}
+                        aria-current={isActive ? "true" : "false"}
+                      >
+                        <img
+                          src={image}
+                          alt={`Thumbnail ${index + 1}`}
+                          className="h-[5rem] w-[5rem] object-cover md:h-[5.75rem] md:w-[5.75rem]"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
 
             {/* Packshot Variant Selector */}
@@ -463,10 +648,13 @@ const ProductDetail = () => {
               <h1 className="font-heading text-3xl font-semibold leading-[1.15] text-foreground sm:text-4xl md:text-5xl">
                 {product.title}
               </h1>
+              <p className="mt-2 text-sm font-normal tracking-[0.01em] text-foreground/38 md:text-base">
+                Κωδικός: {selectedVariant?.code || "-"}
+              </p>
             </div>
 
             <div>
-              <p className="max-w-[56ch] text-base leading-relaxed text-foreground/85 md:text-lg">
+              <p className="max-w-[6] text-base leading-relaxed text-foreground/85 md:text-lg">
                 {selectedVariant?.excel_ar ||
                   selectedVariant?.description ||
                   "Δεν υπάρχει περιγραφή για την τρέχουσα παραλλαγή."}
@@ -474,107 +662,54 @@ const ProductDetail = () => {
             </div>
 
             <div>
-              <p className="text-[11px] uppercase tracking-[0.18em] text-foreground/60">
-                Selected code
+              <p className="mb-2 text-[11px] font-bold text-foreground/85">
+                Μέγεθος:
               </p>
-              <p className="mt-2 font-mono text-base text-foreground">
-                {selectedVariant?.code || "-"}
-              </p>
-            </div>
-
-            <div>
-              <p className="mb-2 text-[11px] font-medium text-foreground/85">
-                Select size
-              </p>
-              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                {product.sizes.map((size, index) => {
-                  const active = index === safeSizeIndex;
-                  const specs = sizeSpecs[index]?.specs;
-                  const hasDiameter = Boolean(specs?.diameter);
-                  const hasBox3D = Boolean(
-                    specs?.width && specs?.depth && specs?.boxHeight,
-                  );
-                  const hasWidthHeightOnly = Boolean(
-                    specs?.width &&
-                    !specs?.depth &&
-                    (specs?.height || specs?.boxHeight),
-                  );
-                  const specsLabel = hasDiameter
-                    ? [
-                        specs?.liters ? `${specs.liters}L` : null,
-                        specs?.diameter ? `Ø${specs.diameter}cm` : null,
-                        specs?.height ? `H${specs.height}cm` : null,
-                      ]
-                        .filter(Boolean)
-                        .join(" · ")
-                    : hasBox3D
-                      ? [
-                          specs?.liters ? `${specs.liters}L` : null,
-                          `W${specs.width}cm`,
-                          `D${specs.depth}cm`,
-                          `H${specs.boxHeight}cm`,
-                        ]
-                          .filter(Boolean)
-                          .join(" · ")
-                      : hasWidthHeightOnly
-                        ? [
-                            specs?.liters ? `${specs.liters}L` : null,
-                            `W${specs.width}cm`,
-                            `H${specs.height || specs.boxHeight}cm`,
-                          ]
-                            .filter(Boolean)
-                            .join(" · ")
-                        : [
-                            specs?.liters ? `${specs.liters}L` : null,
-                            specs?.diameter ? `Ø${specs.diameter}cm` : null,
-                            specs?.height ? `H${specs.height}cm` : null,
-                          ]
-                            .filter(Boolean)
-                            .join(" · ");
-                  return (
-                    <button
-                      key={`${size.size_code}-${index}`}
-                      type="button"
-                      onClick={() => onSelectSize(index)}
-                      className={cn(
-                        "flex h-11 w-full items-center justify-center rounded-xl border px-3 py-2 text-center transition",
-                        active
-                          ? "border-foreground bg-foreground text-background"
-                          : "border-foreground/25 bg-white/70 text-foreground hover:border-foreground/55",
-                      )}
+              <Select
+                value={String(safeSizeIndex)}
+                onValueChange={(value) => onSelectSize(Number(value))}
+              >
+                <SelectTrigger className="h-9 w-full max-w-[75px] border-foreground/25 bg-white/70 text-left text-xs text-foreground sm:text-sm">
+                  <SelectValue placeholder="Επιλογή λίτρων" />
+                </SelectTrigger>
+                <SelectContent>
+                  {sortedSizeOptions.map((option) => (
+                    <SelectItem
+                      key={`size-option-${option.index}`}
+                      value={String(option.index)}
                     >
-                      {specsLabel ? (
-                        <p
-                          className={cn(
-                            "truncate text-[11px]",
-                            active
-                              ? "text-background/85"
-                              : "text-foreground/70",
-                          )}
-                        >
-                          {specsLabel}
-                        </p>
-                      ) : (
-                        <p
-                          className={cn(
-                            "text-[11px]",
-                            active
-                              ? "text-background/85"
-                              : "text-foreground/70",
-                          )}
-                        >
-                          Επιλογή μεγέθους
-                        </p>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              {dimensionHighlights.length > 0 ? (
+                <div className="mt-4 border-y border-foreground/18 bg-foreground/[0.02] py-4">
+                  <div className="grid grid-cols-1 gap-x-5 gap-y-3 sm:grid-cols-2">
+                    {dimensionHighlights.map((item) => (
+                      <div
+                        key={item.key}
+                        className="flex items-center gap-2.5 text-foreground/80"
+                      >
+                        <item.Icon className="h-4 w-4 shrink-0 text-foreground/55" />
+                        <span className="text-xs">{item.label}:</span>
+                        <span className="text-sm font-medium text-foreground/90">
+                          {item.value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <p className="mt-2 text-xs text-foreground/55">
+                  Δεν υπάρχουν διαθέσιμες διαστάσεις για αυτό το μέγεθος.
+                </p>
+              )}
             </div>
 
             <div>
-              <p className="mb-2 text-[11px] font-medium text-foreground/85">
-                Select color
+              <p className="mb-2 text-[11px] font-bold text-foreground/85">
+                Επιλογή χρώματος
               </p>
 
               {(() => {
@@ -603,7 +738,7 @@ const ProductDetail = () => {
                           return (
                             <div
                               key={`${variant.code}-${variant.color}`}
-                              className="flex max-w-[2.6rem] flex-col items-center gap-0.5"
+                              className="flex max-w-[2.6rem] flex-col items-center"
                             >
                               <button
                                 type="button"
@@ -640,17 +775,6 @@ const ProductDetail = () => {
                                     : "w-0 opacity-0",
                                 )}
                               />
-                              <span
-                                className={cn(
-                                  "max-w-20 truncate text-center text-[10px] leading-tight",
-                                  safeColorIndex === variantIndex
-                                    ? "text-foreground/85"
-                                    : "text-foreground/60",
-                                )}
-                                title={variant.color}
-                              >
-                                {colorTitle}
-                              </span>
                             </div>
                           );
                         })}
@@ -672,7 +796,7 @@ const ProductDetail = () => {
                           return (
                             <div
                               key={`${variant.code}-${variant.color}`}
-                              className="flex max-w-[2.6rem] flex-col items-center gap-0.5"
+                              className="flex max-w-[2.6rem] flex-col items-center"
                             >
                               <button
                                 type="button"
@@ -709,17 +833,6 @@ const ProductDetail = () => {
                                     : "w-0 opacity-0",
                                 )}
                               />
-                              <span
-                                className={cn(
-                                  "max-w-20 truncate text-center text-[10px] leading-tight hidden",
-                                  safeColorIndex === variantIndex
-                                    ? "text-foreground/85"
-                                    : "text-foreground/60",
-                                )}
-                                title={variant.color}
-                              >
-                                {colorTitle}
-                              </span>
                             </div>
                           );
                         })}
@@ -731,45 +844,6 @@ const ProductDetail = () => {
             </div>
           </div>
         </section>
-
-        {additionalImages.length > 0 ? (
-          <section className="mt-8 md:mt-10">
-            <div
-              className={cn(
-                "mx-auto gap-3",
-                additionalImages.length === 1 &&
-                  "grid max-w-md grid-cols-1 justify-items-center",
-                additionalImages.length === 2 &&
-                  "grid max-w-3xl grid-cols-2 justify-items-center",
-                additionalImages.length === 3 &&
-                  "grid max-w-5xl grid-cols-3 justify-items-center",
-                additionalImages.length >= 4 &&
-                  "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4",
-              )}
-            >
-              {additionalImages.map((image, index) => (
-                <button
-                  key={`${image}-${index}`}
-                  type="button"
-                  onClick={() => {
-                    setLightboxImage(image);
-                    setIsLightboxOpen(true);
-                  }}
-                  className="group flex items-center justify-center overflow-hidden rounded-xl border border-foreground/15 bg-white/50"
-                  aria-label={`Επιπλέον εικόνα ${index + 1}`}
-                >
-                  <img
-                    src={image}
-                    alt={`Additional ${index + 1}`}
-                    className="h-48 w-full object-cover object-center transition duration-300 group-hover:scale-105 sm:h-60 lg:h-72"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </button>
-              ))}
-            </div>
-          </section>
-        ) : null}
       </div>
 
       {isLightboxOpen ? (

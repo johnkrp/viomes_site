@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary text-secondary-foreground pb-10 pt-20">
+    <footer className="site-header-footer bg-secondary text-secondary-foreground pb-10 pt-20">
       <div className="container mx-auto px-4">
         <section className="mb-14 rounded-2xl border border-border/60 bg-background/35 p-6 sm:p-8 lg:p-10">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -103,26 +103,42 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/products/eidi-spitioy"
+                  to="/products?category=Μπάνιο"
                   className="hover:text-accent transition-colors"
                 >
-                  Είδη Σπιτιού
+                  Μπάνιο
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/products/glastres"
+                  to="/products?category=Κουζίνα"
                   className="hover:text-accent transition-colors"
                 >
-                  Γλάστρες
+                  Κουζίνα
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/products/epaggelmatikos-eksoplismos"
+                  to="/products?category=Κήπος"
                   className="hover:text-accent transition-colors"
                 >
-                  Επαγγελματικός Εξοπλισμός
+                  Κήπος
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/products?category=Καθαριότητα"
+                  className="hover:text-accent transition-colors"
+                >
+                  Καθαριότητα
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/products"
+                  className="hover:text-accent transition-colors"
+                >
+                  Όλα τα Προϊόντα
                 </Link>
               </li>
             </ul>

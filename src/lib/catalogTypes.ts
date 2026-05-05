@@ -31,6 +31,7 @@ export type GroupedProduct = {
   family_indicator?: string;
   group_root?: string;
   category?: string;
+  subcategory?: string;
   title: string;
   representative_image: string;
   sizes: CatalogSizeGroup[];

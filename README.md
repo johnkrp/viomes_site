@@ -8,7 +8,7 @@ Keep this README, [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md), [MEMORY.md](MEMORY
 
 ## Project Snapshot
 
-This is a React + TypeScript + Vite single-page application for VIOMES S.A. The site is Greek-first, with route content and SEO metadata authored in Greek and no assumption of full multilingual coverage. Theme setup is wrapped in [src/main.tsx](src/main.tsx) through `ThemeProvider`, while route-aware page titles and meta descriptions are managed in [src/App.tsx](src/App.tsx).
+This is a React + TypeScript + Vite single-page application for VIOMES S.A. The site is Greek-first, with route content and SEO metadata authored in Greek and no assumption of full multilingual coverage. Theme setup is wrapped in [src/main.tsx](src/main.tsx) through `ThemeProvider`, while route-aware page titles and meta descriptions are managed in [src/App.tsx](src/App.tsx). The global chrome also includes palette-driven header/footer colors and viewport-responsive text sizing.
 
 ## Quick Start
 
@@ -34,7 +34,7 @@ npm run test:coverage
 
 Routing lives in [src/App.tsx](src/App.tsx). The app uses `react-router-dom` with lazy-loaded pages and a small client-side SEO manager that updates `document.title` and the description meta tag per route.
 
-Key routes currently include `/`, `/products`, `/products/:id`, `/products/eidi-spitioy`, `/products/glastres`, `/products/epaggelmatikos-eksoplismos`, `/about`, `/sustainability`, `/quality`, `/industries`, `/news`, and `/contact`. Some informational routes reuse the main page components, so `App.tsx` is the source of truth for what is actually exposed.
+Key routes currently include `/`, `/products`, `/products/:id`, `/about`, `/sustainability`, `/quality`, `/industries`, `/news`, and `/contact`. Category shortcuts now resolve through query params (for example `/products?category=Μπάνιο`) instead of dedicated category route components.
 
 ## Catalog Data Pipeline
 
@@ -45,6 +45,14 @@ Catalog content is not hardcoded in component-local product arrays. The flow is:
 3. Runtime copies live in [public/data](public/data) for the deployed app, while bundled JSON in [src/data](src/data) acts as a fallback import.
 4. [src/lib/catalogDataLoader.ts](src/lib/catalogDataLoader.ts) loads `public/data/*` first and falls back to the bundled `src/data/*` imports if fetches fail.
 5. Pages such as [src/pages/Products.tsx](src/pages/Products.tsx), [src/pages/ProductDetail.tsx](src/pages/ProductDetail.tsx), and the category pages consume the grouped catalog data and additional image map to render the UI.
+6. The loader applies runtime split normalization for known mixed Excel groups (for example `1390`) so unrelated families render as separate product cards/detail pages.
+7. Manual family overrides live in [src/lib/familyGroupingRules.ts](src/lib/familyGroupingRules.ts). This file is the source of truth for special cases where one Excel group must be split into multiple product detail pages by `size_code`.
+
+Family grouping notes:
+
+- Split products use the first `size_code` in each rule as the public product URL id.
+- Titles and subcategories can be overridden per split group when the source workbook needs cleaner catalog labels.
+- Keep the runtime JSON copies and the family rules file in sync when a manual grouping changes.
 
 Important observations:
 
@@ -52,6 +60,7 @@ Important observations:
 - Excel `D`, `F`, `I`, `L`, `AO`, `AP`, `AR`, `AZ`, and `BA..BD` feed the product code, description, color, pack, localized text, packshot, and extra images.
 - The generator groups variants under a product by Excel `W` marker, uses the code prefix before `-` as the size bucket, and picks the first non-empty packshot as the representative image.
 - The UI never reads Excel directly. It only consumes the generated JSON through the loader layer.
+- The separate [Color Guide.xlsx](src/data/Color%20Guide.xlsx) workbook is the source for color names, hex values, and swatch labels used in [src/lib/colorSwatch.ts](src/lib/colorSwatch.ts); [src/lib/colorTags.ts](src/lib/colorTags.ts) maps the code suffixes to the tag image files in [public/images/NEW COLOR TAGS 2023](public/images/NEW%20COLOR%20TAGS%202023).
 
 When the catalog data changes, update the source generation flow, rebuild the JSON, and let the loader consume the refreshed files. The app code should stay focused on rendering and filtering that imported catalog data.
 
@@ -83,6 +92,45 @@ project-context/
 ## Workflow Docs
 
 Start with `project-context/1.define/` for scope and requirements, then move to `project-context/2.build/` for implementation guidance, and use `project-context/3.deliver/` for deployment, monitoring, and release notes. Use the remaining top-level docs only when you need a specific project note or integration reference.
+
+## Graphify Knowledge Graph
+
+This repo uses Graphify to keep an up-to-date architecture map for humans and agents.
+For a compact command reference, see [docs/GRAPHIFY_WORKFLOW.md](docs/GRAPHIFY_WORKFLOW.md).
+For project-specific architecture Q&A, see [docs/ARCHITECTURE_FAQ.md](docs/ARCHITECTURE_FAQ.md).
+
+Primary outputs live in `graphify-out/`:
+
+- `GRAPH_REPORT.md`: quick architecture summary (god nodes, surprising links, suggested questions)
+- `graph.html`: interactive graph explorer
+- `graph.json`: machine-readable graph for `query`, `path`, and `explain` commands
+
+Recommended routine:
+
+1. Build or refresh code graph at the start of a new chat session (or when explicitly requested):
+
+```bash
+.\.venv-graphify\Scripts\graphify update .
+```
+
+2. Run a full semantic refresh (docs/images/papers + code) from Codex chat:
+
+```text
+$graphify .
+```
+
+3. Ask targeted architecture questions in terminal:
+
+```bash
+.\.venv-graphify\Scripts\graphify query "how does catalog data flow to product pages?" --budget 1200
+.\.venv-graphify\Scripts\graphify path "generate_catalog_json.py" "Home.tsx"
+.\.venv-graphify\Scripts\graphify explain "Catalog Data Pipeline"
+```
+
+Agent behavior:
+
+- `AGENTS.md` and `.codex/hooks.json` are configured so Codex checks graph context before raw file search.
+- Keep `graphify-out/GRAPH_REPORT.md` current so new contributors can orient quickly.
 
 ## Documentation Maintenance
 

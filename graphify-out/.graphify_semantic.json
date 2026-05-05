@@ -1,0 +1,538 @@
+{
+  "nodes": [
+    {
+      "id": "readme_md",
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "project_overview_md",
+      "label": "PROJECT_OVERVIEW.md",
+      "file_type": "document",
+      "source_file": "PROJECT_OVERVIEW.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "design_md",
+      "label": "DESIGN.md",
+      "file_type": "document",
+      "source_file": "DESIGN.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "memory_md",
+      "label": "MEMORY.md",
+      "file_type": "document",
+      "source_file": "MEMORY.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "catalog_generator_readme_md",
+      "label": "README-catalog-json-generator.md",
+      "file_type": "document",
+      "source_file": "src/data/README-catalog-json-generator.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "muuto_teardown_md",
+      "label": "MUUTO_TEARDOWN_2026-04-21.md",
+      "file_type": "document",
+      "source_file": "docs/MUUTO_TEARDOWN_2026-04-21.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "cleanup_report_md",
+      "label": "CLEANUP_REPORT_2026-04-21.md",
+      "file_type": "document",
+      "source_file": "docs/CLEANUP_REPORT_2026-04-21.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "color_guide_pdf",
+      "label": "COLOUR GUIDE draft 13",
+      "file_type": "paper",
+      "source_file": "public/images/NEW COLOR TAGS 2023/COLOUR GUIDE_draft 13.pdf",
+      "source_location": null
+    },
+    {
+      "id": "categories_header_cta_png",
+      "label": "categories-header-cta.png",
+      "file_type": "image",
+      "source_file": "categories-header-cta.png",
+      "source_location": null
+    },
+    {
+      "id": "typescript_svg",
+      "label": "typescript.svg",
+      "file_type": "image",
+      "source_file": "src/typescript.svg",
+      "source_location": null
+    },
+    {
+      "id": "catalog_data_pipeline",
+      "label": "Catalog Data Pipeline",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L40"
+    },
+    {
+      "id": "route_seo_shell",
+      "label": "Route and SEO Shell",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L33"
+    },
+    {
+      "id": "greek_first_content",
+      "label": "Greek-first Content",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L12"
+    },
+    {
+      "id": "runtime_data_fallback",
+      "label": "Runtime Data Fallback",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L45"
+    },
+    {
+      "id": "product_grouping_markers",
+      "label": "Excel Grouping Markers W/X",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L53"
+    },
+    {
+      "id": "temporary_packshot_override",
+      "label": "Temporary Packshot Override",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L63"
+    },
+    {
+      "id": "design_warm_earth_palette",
+      "label": "Warm Earth Palette",
+      "file_type": "document",
+      "source_file": "DESIGN.md",
+      "source_location": "L25"
+    },
+    {
+      "id": "editorial_collage_hero",
+      "label": "Editorial Collage Hero",
+      "file_type": "document",
+      "source_file": "DESIGN.md",
+      "source_location": "L249"
+    },
+    {
+      "id": "category_showroom_layout",
+      "label": "Category Showroom Layout",
+      "file_type": "document",
+      "source_file": "DESIGN.md",
+      "source_location": "L200"
+    },
+    {
+      "id": "muuto_benchmark",
+      "label": "Muuto Benchmark",
+      "file_type": "document",
+      "source_file": "docs/MUUTO_TEARDOWN_2026-04-21.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "deployment_plesk_flow",
+      "label": "Plesk Deployment Flow",
+      "file_type": "document",
+      "source_file": "MEMORY.md",
+      "source_location": "L19"
+    },
+    {
+      "id": "cleanup_policy",
+      "label": "Cleanup Policy",
+      "file_type": "document",
+      "source_file": "docs/CLEANUP_REPORT_2026-04-21.md",
+      "source_location": "L1"
+    }
+  ],
+  "edges": [
+    {
+      "source": "readme_md",
+      "target": "catalog_data_pipeline",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_md",
+      "target": "route_seo_shell",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_md",
+      "target": "greek_first_content",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_md",
+      "target": "runtime_data_fallback",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_md",
+      "target": "temporary_packshot_override",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "project_overview_md",
+      "target": "catalog_data_pipeline",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_OVERVIEW.md",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "project_overview_md",
+      "target": "route_seo_shell",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_OVERVIEW.md",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "project_overview_md",
+      "target": "runtime_data_fallback",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "PROJECT_OVERVIEW.md",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "memory_md",
+      "target": "deployment_plesk_flow",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MEMORY.md",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "cleanup_report_md",
+      "target": "cleanup_policy",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/CLEANUP_REPORT_2026-04-21.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "design_md",
+      "target": "design_warm_earth_palette",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "DESIGN.md",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "design_md",
+      "target": "editorial_collage_hero",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "DESIGN.md",
+      "source_location": "L249",
+      "weight": 1.0
+    },
+    {
+      "source": "design_md",
+      "target": "category_showroom_layout",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "DESIGN.md",
+      "source_location": "L200",
+      "weight": 1.0
+    },
+    {
+      "source": "muuto_teardown_md",
+      "target": "muuto_benchmark",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/MUUTO_TEARDOWN_2026-04-21.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "muuto_benchmark",
+      "target": "editorial_collage_hero",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.78,
+      "source_file": "docs/MUUTO_TEARDOWN_2026-04-21.md",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "catalog_generator_readme_md",
+      "target": "catalog_data_pipeline",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/data/README-catalog-json-generator.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "catalog_generator_readme_md",
+      "target": "product_grouping_markers",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/data/README-catalog-json-generator.md",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "catalog_data_pipeline",
+      "target": "product_grouping_markers",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "catalog_data_pipeline",
+      "target": "src_data_generate_catalog_json_py",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "catalog_data_pipeline",
+      "target": "src_lib_catalogdataloader_ts",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "catalog_data_pipeline",
+      "target": "src_pages_products_tsx",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "catalog_data_pipeline",
+      "target": "src_pages_productdetail_tsx",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "catalog_data_pipeline",
+      "target": "src_pages_home_tsx",
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.72,
+      "source_file": "PROJECT_OVERVIEW.md",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "route_seo_shell",
+      "target": "src_app_tsx",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "route_seo_shell",
+      "target": "src_main_tsx",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "runtime_data_fallback",
+      "target": "src_data_products_grouped_json",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.61,
+      "source_file": "README.md",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "runtime_data_fallback",
+      "target": "src_data_additional_images_json",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.61,
+      "source_file": "README.md",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "temporary_packshot_override",
+      "target": "src_lib_testpackshotoverrides_ts",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "design_warm_earth_palette",
+      "target": "src_pages_home_tsx",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.67,
+      "source_file": "DESIGN.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "editorial_collage_hero",
+      "target": "src_pages_home_tsx",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.76,
+      "source_file": "DESIGN.md",
+      "source_location": "L249",
+      "weight": 1.0
+    },
+    {
+      "source": "category_showroom_layout",
+      "target": "src_components_home_categoriesshowcasesection_tsx",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.74,
+      "source_file": "DESIGN.md",
+      "source_location": "L200",
+      "weight": 1.0
+    },
+    {
+      "source": "color_guide_pdf",
+      "target": "src_lib_colorswatch_ts",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.69,
+      "source_file": "README.md",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "color_guide_pdf",
+      "target": "src_lib_colortags_ts",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.69,
+      "source_file": "README.md",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "categories_header_cta_png",
+      "target": "editorial_collage_hero",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.58,
+      "source_file": "categories-header-cta.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "cleanup_policy",
+      "target": "project_overview_md",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.64,
+      "source_file": "docs/CLEANUP_REPORT_2026-04-21.md",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "deployment_plesk_flow",
+      "target": "src_app_tsx",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.55,
+      "source_file": "MEMORY.md",
+      "source_location": "L19",
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "catalog_runtime_flow",
+      "label": "Catalog Runtime Flow",
+      "nodes": [
+        "catalog_data_pipeline",
+        "src_data_generate_catalog_json_py",
+        "src_lib_catalogdataloader_ts",
+        "src_pages_products_tsx"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.78,
+      "source_file": "README.md"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

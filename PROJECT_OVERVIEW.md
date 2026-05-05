@@ -22,9 +22,10 @@ The main routes currently exposed by `src/App.tsx` are:
 - `/`
 - `/products`
 - `/products/:id`
-- `/products/eidi-spitioy`
-- `/products/glastres`
-- `/products/epaggelmatikos-eksoplismos`
+- `/products/mpanio`
+- `/products/kouzina`
+- `/products/kipos`
+- `/products/kathariotita`
 - `/about`
 - `/sustainability`
 - `/quality`
@@ -48,6 +49,7 @@ The main routes currently exposed by `src/App.tsx` are:
 3. It emits grouped product JSON plus a variant-to-additional-images map.
 4. `src/lib/catalogDataLoader.ts` loads the runtime JSON from `public/data` and falls back to bundled `src/data` imports.
 5. The page components render the imported catalog data; they do not talk to Excel directly.
+6. Special family splits are defined in [src/lib/familyGroupingRules.ts](src/lib/familyGroupingRules.ts), which normalizes mixed Excel groups into separate product cards and detail pages by `size_code`.
 
 ### Key Implementation Observations
 
@@ -55,6 +57,7 @@ The main routes currently exposed by `src/App.tsx` are:
 - The product `id` comes from the extracted group code, while the size bucket comes from the variant code prefix before `-`.
 - The grouped JSON includes derived category data so the product pages can filter by site category without parsing Excel at runtime.
 - The representative image is chosen from the first non-empty packshot in the grouped variants.
+- Some catalog families are intentionally split at runtime by `size_code` rules. Those overrides live in [src/lib/familyGroupingRules.ts](src/lib/familyGroupingRules.ts) and should be treated as the source of truth for manual grouping exceptions.
 
 ## Project Docs And Workflow
 
@@ -63,6 +66,26 @@ The main routes currently exposed by `src/App.tsx` are:
 - `project-context/3.deliver` contains deployment, monitoring, release notes, and runbooks.
 - `README.md` is the start-here guide for setup and workflow notes.
 - Local orchestration lives in `plans/README.md` and the global Copilot instructions; this repo does not keep root `*.agent.md` files anymore.
+
+## Graphify Workflow (Architecture Map)
+
+Graphify is part of the default architecture workflow in this repo.
+Use [docs/GRAPHIFY_WORKFLOW.md](docs/GRAPHIFY_WORKFLOW.md) as the quick command cheat sheet.
+
+- Outputs are written to `graphify-out/`:
+  - `GRAPH_REPORT.md` for quick orientation
+  - `graph.html` for visual dependency exploration
+  - `graph.json` for terminal/agent queries
+- Code-only refresh (at the start of a new chat session or on explicit request):
+  - `.\.venv-graphify\Scripts\graphify update .`
+- Full semantic refresh (code + docs/images/papers):
+  - run `$graphify .` in Codex chat
+- Query examples:
+  - `.\.venv-graphify\Scripts\graphify query "..." --budget 1200`
+  - `.\.venv-graphify\Scripts\graphify path "A" "B"`
+  - `.\.venv-graphify\Scripts\graphify explain "NodeName"`
+
+When debugging cross-module behavior or planning refactors, check `graphify-out/GRAPH_REPORT.md` first, then use path/query/explain before broad file-grep passes.
 
 ## Documentation Rule
 

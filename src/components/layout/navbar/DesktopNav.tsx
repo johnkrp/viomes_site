@@ -1,29 +1,52 @@
-import { navLinks } from "@/components/layout/navbar/constants";
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import type { NavLink } from "./types";
 
 type DesktopNavProps = {
   pathname: string;
+  links?: readonly NavLink[];
+  /** When false, hide dropdown chevrons and treat children as absent */
+  showDropdowns?: boolean;
+  /** Styling variant: primary = larger / more prominent, secondary = subtle */
+  variant?: "primary" | "secondary";
 };
 
-const DesktopNav = ({ pathname }: DesktopNavProps) => {
+const DesktopNav = ({
+  pathname,
+  links,
+  showDropdowns = true,
+  variant = "secondary",
+}: DesktopNavProps) => {
+  const items = links ?? [];
+
   return (
-    <nav className="mt-2 hidden items-center gap-5 lg:flex xl:gap-6">
-      {navLinks.map((link) => {
+    <nav
+      className={cn(
+        "mt-0 hidden items-center lg:flex",
+        variant === "primary" ? "gap-8 xl:gap-10" : "gap-6",
+      )}
+    >
+      {items.map((link) => {
         const isActive =
           pathname === link.href ||
           (link.children?.some((child) => child.href === pathname) ?? false);
 
-        if (link.children?.length) {
+        const baseLinkClass = cn(
+          variant === "primary"
+            ? "text-base font-semibold xl:text-lg"
+            : "text-sm font-medium text-foreground/70",
+          "transition-colors hover:text-accent",
+          isActive &&
+            (variant === "primary" ? "text-accent" : "text-foreground"),
+        );
+
+        if (showDropdowns && link.children?.length) {
           return (
             <div key={link.name} className="group relative">
               <Link
                 to={link.href}
-                className={cn(
-                  "inline-flex items-center text-base font-semibold transition-colors hover:text-accent xl:text-lg",
-                  isActive ? "text-accent" : "text-foreground/70",
-                )}
+                className={cn("inline-flex items-center", baseLinkClass)}
               >
                 {link.name}
                 <ChevronDown className="ml-1 h-4 w-4" />
@@ -50,14 +73,7 @@ const DesktopNav = ({ pathname }: DesktopNavProps) => {
         }
 
         return (
-          <Link
-            key={link.name}
-            to={link.href}
-            className={cn(
-              "text-base font-semibold transition-colors hover:text-accent xl:text-lg",
-              isActive ? "text-accent" : "text-foreground/70",
-            )}
-          >
+          <Link key={link.name} to={link.href} className={baseLinkClass}>
             {link.name}
           </Link>
         );

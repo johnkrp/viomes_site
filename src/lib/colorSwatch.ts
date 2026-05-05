@@ -9,6 +9,21 @@ const hashColor = (value: string) => {
 const normalizeColorKey = (value: string) =>
   (value || "").toUpperCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim();
 
+const titleCaseWord = (word: string) => {
+  if (!word) return word;
+  if (/^[0-9]+$/.test(word)) return word;
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+};
+
+const titleCaseText = (value: string) =>
+  (value || "")
+    .split(/([\s/-]+)/)
+    .map((segment) =>
+      /[\s/-]+/.test(segment) ? segment : titleCaseWord(segment),
+    )
+    .join("")
+    .trim();
+
 type ColorMeta = {
   hex?: string;
   english: string;
@@ -1341,10 +1356,52 @@ const colorMap: Record<string, ColorMeta> = {
   "96": { english: "Lava", greek: "Λάβα", code: "96" },
   "97": { english: "Petra", greek: "Πέτρα", code: "97" },
   "98": { english: "Agate", greek: "Αχάτης", code: "98" },
+  "111": {
+    hex: "#612C51",
+    english: "Aubergine",
+    greek: "Μελιτζανί",
+    code: "111",
+  },
+  "138": {
+    hex: "#003D4C",
+    english: "Petrol",
+    greek: "Πετρόλ",
+    code: "138",
+  },
+  "139": {
+    hex: "#000070",
+    english: "Indigo",
+    greek: "Ίντιγκο",
+    code: "139",
+  },
+  "163": {
+    hex: "#888B8D",
+    english: "Cloud",
+    greek: "Σύννεφο",
+    code: "163",
+  },
+  "173": {
+    hex: "#69A8B6",
+    english: "Baby blue",
+    greek: "Σκούρο Σιέλ",
+    code: "173",
+  },
+  "184": {
+    hex: "#737B4C",
+    english: "Moss",
+    greek: "Πράσινο Μος",
+    code: "184",
+  },
+  "189": {
+    hex: "#C69214",
+    english: "Mustard",
+    greek: "Μουσταρδί",
+    code: "189",
+  },
 };
 
-const orderedColorKeys = Object.keys(colorMap).sort(
-  (a, b) => b.length - a.length,
+const orderedColorEntries = Object.entries(colorMap).sort(
+  ([a], [b]) => b.length - a.length,
 );
 
 const isNoiseToken = (token: string) => {
@@ -1367,17 +1424,21 @@ const splitMixedColorTokens = (raw: string) =>
 
 const resolveSingleMeta = (raw: string): ColorMeta => {
   const normalized = normalizeColorKey(raw);
-  const match = orderedColorKeys.find((key) => normalized.includes(key));
+  const match = orderedColorEntries.find(([, meta]) =>
+    normalized.includes(
+      normalizeColorKey(meta.greek || meta.english || meta.code),
+    ),
+  );
   if (!match) {
     return {
       hex: hashColor(raw),
-      english: (raw || "").trim() || "Unknown",
-      greek: (raw || "").trim() || "???????",
+      english: titleCaseText(raw) || "Unknown",
+      greek: titleCaseText(raw) || "???????",
       code: "",
     };
   }
 
-  const meta = colorMap[match];
+  const meta = match[1];
   return {
     hex: meta.hex || hashColor(raw),
     english: meta.english,

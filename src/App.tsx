@@ -13,9 +13,6 @@ import ScrollToTop from "./components/layout/ScrollToTop";
 const Home = lazy(() => import("./pages/Home"));
 const Products = lazy(() => import("./pages/Products"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
-const CategoryHomeItems = lazy(() => import("./pages/CategoryHomeItems"));
-const CategoryPlanters = lazy(() => import("./pages/CategoryPlanters"));
-const CategoryProfessional = lazy(() => import("./pages/CategoryProfessional"));
 const About = lazy(() => import("./pages/About"));
 const Sustainability = lazy(() => import("./pages/Sustainability"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -38,20 +35,25 @@ const ROUTE_SEO: Record<string, { title: string; description: string }> = {
     description:
       "Ανακαλύψτε τη συλλογή προϊόντων VIOMES για σπίτι, κήπο και επαγγελματικές εφαρμογές.",
   },
-  "/products/eidi-spitioy": {
-    title: "Είδη Σπιτιού | VIOMES S.A.",
+  "/products/mpanio": {
+    title: "Μπάνιο | VIOMES S.A.",
     description:
-      "Πρακτικά και ανθεκτικά είδη σπιτιού με σύγχρονο σχεδιασμό και υψηλή ποιότητα κατασκευής.",
+      "Πρακτικές λύσεις οργάνωσης βάνιου με υψηλή ποιότητα και σύγχρονο διημέρευση.",
   },
-  "/products/glastres": {
-    title: "Γλάστρες | VIOMES S.A.",
+  "/products/kouzina": {
+    title: "Κουζίνα | VIOMES S.A.",
     description:
-      "Σειρά από γλάστρες και λύσεις κήπου για οικιακή και επαγγελματική χρήση.",
+      "Ανθεκτά είδη κουζίνας και αποθήκευσης για την καθημερινη διατροφή.",
   },
-  "/products/epaggelmatikos-eksoplismos": {
-    title: "Επαγγελματικός Εξοπλισμός | VIOMES S.A.",
+  "/products/kipos": {
+    title: "Κήπος | VIOMES S.A.",
     description:
-      "Επαγγελματικός εξοπλισμός υψηλής αντοχής για αποθήκευση, οργάνωση και καθημερινή χρήση.",
+      "Γλάστρες και λύσεις κήπου για εσωτερικούς και εξωτερικούς χώρους.",
+  },
+  "/products/kathariotita": {
+    title: "Καθαριότητα | VIOMES S.A.",
+    description:
+      "Εξοπλισμός καθαρισμού για οικιακή και επαγγελματική φροντίδα.",
   },
   "/about": {
     title: "Η Εταιρεία | VIOMES S.A.",
@@ -129,15 +131,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
-            <Route
-              path="/products/eidi-spitioy"
-              element={<CategoryHomeItems />}
-            />
-            <Route path="/products/glastres" element={<CategoryPlanters />} />
-            <Route
-              path="/products/epaggelmatikos-eksoplismos"
-              element={<CategoryProfessional />}
-            />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/about" element={<About />} />
             <Route path="/sustainability" element={<Sustainability />} />

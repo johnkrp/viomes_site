@@ -1,0 +1,677 @@
+{
+  "communities": {
+    "0": [
+      "data_generate_catalog_json_build_additional_images",
+      "data_generate_catalog_json_build_grouped_products",
+      "data_generate_catalog_json_build_rows",
+      "data_generate_catalog_json_clean",
+      "data_generate_catalog_json_derive_title",
+      "data_generate_catalog_json_extract_group_code",
+      "data_generate_catalog_json_filter_unreachable_additional_images",
+      "data_generate_catalog_json_is_green_description_cell",
+      "data_generate_catalog_json_is_url_reachable",
+      "data_generate_catalog_json_main",
+      "data_generate_catalog_json_normalize_ascii_slug",
+      "data_generate_catalog_json_normalize_for_match",
+      "data_generate_catalog_json_parse_args",
+      "data_generate_catalog_json_parse_specs_from_text",
+      "data_generate_catalog_json_resolve_site_category_from_excel",
+      "data_generate_catalog_json_resolve_xlsx_path",
+      "src_data_generate_catalog_json_py"
+    ],
+    "1": [
+      "catalog_data_pipeline",
+      "catalog_generator_readme_md",
+      "cleanup_policy",
+      "cleanup_report_md",
+      "deployment_plesk_flow",
+      "greek_first_content",
+      "memory_md",
+      "product_grouping_markers",
+      "project_overview_md",
+      "readme_md",
+      "route_seo_shell",
+      "runtime_data_fallback",
+      "src_app_pageloader",
+      "src_app_seomanager",
+      "src_app_tsx",
+      "src_main_tsx",
+      "temporary_packshot_override"
+    ],
+    "2": [
+      "lib_catalogdataloader_fetchjson",
+      "lib_catalogdataloader_fetchwithfallbacks",
+      "lib_catalogdataloader_loadadditionalimages",
+      "lib_catalogdataloader_loadcatalogproducts",
+      "lib_catalogdataloader_withbaseurl",
+      "pages_categoryhomeitems_getfamilycolors",
+      "pages_categoryhomeitems_loaddata",
+      "pages_categoryplanters_getfamilycolors",
+      "pages_categoryplanters_loaddata",
+      "pages_categoryprofessional_getfamilycolors",
+      "pages_categoryprofessional_loaddata",
+      "pages_productdetail_loaddata",
+      "src_lib_catalogdataloader_ts",
+      "src_pages_categoryhomeitems_tsx",
+      "src_pages_categoryplanters_tsx",
+      "src_pages_categoryprofessional_tsx"
+    ],
+    "3": [
+      "lib_colorswatch_hashcolor",
+      "lib_colorswatch_isnoisetoken",
+      "lib_colorswatch_matchescolorselection",
+      "lib_colorswatch_normalizecolorkey",
+      "lib_colorswatch_resolvecolor",
+      "lib_colorswatch_resolvecolortitle",
+      "lib_colorswatch_resolvesinglemeta",
+      "lib_colorswatch_resolveswatchbackground",
+      "lib_colorswatch_splitmixedcolortokens",
+      "lib_colorswatch_titlecasetext",
+      "lib_colorswatch_titlecaseword",
+      "src_lib_colorswatch_ts"
+    ],
+    "4": [
+      "pages_products_allcodes",
+      "pages_products_allcolors",
+      "pages_products_cn",
+      "pages_products_detectgraybackground",
+      "pages_products_issitecategory",
+      "pages_products_isvalidimageurl",
+      "pages_products_normalizeexcelcolor",
+      "pages_products_normalizegreek",
+      "pages_products_normalizesearchtext",
+      "pages_products_products",
+      "pages_products_resolvehoverimage",
+      "src_pages_products_tsx"
+    ],
+    "5": [
+      "lib_testpackshotoverrides_buildtestpackshotmap",
+      "lib_testpackshotoverrides_buildtestpackshotvariantmap",
+      "lib_testpackshotoverrides_istestpackshotmodeenabled",
+      "lib_testpackshotoverrides_normalizekey",
+      "lib_testpackshotoverrides_resolvetestpackshotbycode",
+      "lib_testpackshotoverrides_resolvetestpackshotfromimageurl",
+      "lib_testpackshotoverrides_resolvetestpackshotvariants",
+      "lib_testpackshotoverrides_resolvetestpackshotvariantsfromimageurl",
+      "pages_products_resolveproductcardimage",
+      "src_lib_testpackshotoverrides_ts"
+    ],
+    "6": [
+      "categories_header_cta_png",
+      "category_showroom_layout",
+      "design_md",
+      "design_warm_earth_palette",
+      "editorial_collage_hero",
+      "muuto_benchmark",
+      "muuto_teardown_md",
+      "pages_home_scrolltocategories",
+      "src_components_home_categoriesshowcasesection_tsx",
+      "src_pages_home_tsx"
+    ],
+    "7": [
+      "pages_productdetail_cn",
+      "pages_productdetail_handlelanguagechange",
+      "pages_productdetail_isadditionalimageurl",
+      "pages_productdetail_isvalidimageurl",
+      "pages_productdetail_onselectsize",
+      "pages_productdetail_parsespecsfromtext",
+      "src_pages_productdetail_tsx"
+    ],
+    "8": [
+      "src_components_ui_pagination_tsx",
+      "ui_pagination_pagination",
+      "ui_pagination_paginationellipsis",
+      "ui_pagination_paginationlink",
+      "ui_pagination_paginationnext",
+      "ui_pagination_paginationprevious"
+    ],
+    "9": [
+      "data_generate_catalog_json_colab_extract_urls",
+      "data_generate_catalog_json_colab_norm",
+      "data_generate_catalog_json_colab_pick_col",
+      "data_generate_catalog_json_colab_slugify",
+      "data_generate_catalog_json_colab_split_code",
+      "src_data_generate_catalog_json_colab_py"
+    ],
+    "10": [
+      "layout_navbar_clamp",
+      "layout_navbar_handlescroll",
+      "layout_navbar_hextohsl",
+      "layout_navbar_toscaledrem",
+      "src_components_layout_navbar_tsx"
+    ],
+    "11": [
+      "lib_productcategories_mapexcelcategorytositecategory",
+      "lib_productcategories_normalizegreek",
+      "lib_productcategories_resolveprimarycategory",
+      "lib_productcategories_resolvesitecategories",
+      "src_lib_productcategories_ts"
+    ],
+    "12": [
+      "pages_productdetaillegacy_cn",
+      "pages_productdetaillegacy_isvalidimageurl",
+      "pages_productdetaillegacy_onselectsize",
+      "pages_productdetaillegacy_parsevariantspecs",
+      "src_pages_productdetaillegacy_tsx"
+    ],
+    "13": [
+      "home_topproductssection_handletouchend",
+      "home_topproductssection_handletouchmove",
+      "home_topproductssection_handletouchstart",
+      "src_components_home_topproductssection_tsx"
+    ],
+    "14": [
+      "src_components_ui_item_tsx",
+      "ui_item_cn",
+      "ui_item_itemgroup",
+      "ui_item_itemseparator"
+    ],
+    "15": [
+      "src_components_ui_optimizedimage_tsx",
+      "ui_optimizedimage_cn",
+      "ui_optimizedimage_handleerror",
+      "ui_optimizedimage_handleload"
+    ],
+    "16": [
+      "src_components_ui_sidebar_tsx",
+      "ui_sidebar_cn",
+      "ui_sidebar_handlekeydown",
+      "ui_sidebar_usesidebar"
+    ],
+    "17": [
+      "color_guide_pdf",
+      "lib_colortags_extractcolorcode",
+      "lib_colortags_resolvecolortagimage",
+      "src_lib_colortags_ts"
+    ],
+    "18": [
+      "src_components_ui_calendar_tsx",
+      "ui_calendar_calendar",
+      "ui_calendar_cn"
+    ],
+    "19": [
+      "src_components_ui_chart_tsx",
+      "ui_chart_cn",
+      "ui_chart_usechart"
+    ],
+    "20": [
+      "layout_layout_layout",
+      "src_components_layout_layout_tsx"
+    ],
+    "21": [
+      "layout_scrolltotop_scrolltotop",
+      "src_components_layout_scrolltotop_tsx"
+    ],
+    "22": [
+      "navbar_constants_getflagemoji",
+      "src_components_layout_navbar_constants_ts"
+    ],
+    "23": [
+      "navbar_sociallinks_sociallinks",
+      "src_components_layout_navbar_sociallinks_tsx"
+    ],
+    "24": [
+      "src_components_ui_badge_tsx",
+      "ui_badge_badge"
+    ],
+    "25": [
+      "src_components_ui_button_group_tsx",
+      "ui_button_group_buttongroup"
+    ],
+    "26": [
+      "src_components_ui_carousel_tsx",
+      "ui_carousel_usecarousel"
+    ],
+    "27": [
+      "src_components_ui_elegant_carousel_tsx",
+      "ui_elegant_carousel_elegantcarousel"
+    ],
+    "28": [
+      "src_components_ui_empty_tsx",
+      "ui_empty_cn"
+    ],
+    "29": [
+      "src_components_ui_field_tsx",
+      "ui_field_cn"
+    ],
+    "30": [
+      "src_components_ui_input_group_tsx",
+      "ui_input_group_cn"
+    ],
+    "31": [
+      "src_components_ui_kbd_tsx",
+      "ui_kbd_cn"
+    ],
+    "32": [
+      "src_components_ui_packshotvariantselector_tsx",
+      "ui_packshotvariantselector_packshotvariantselector"
+    ],
+    "33": [
+      "src_components_ui_skeleton_tsx",
+      "ui_skeleton_skeleton"
+    ],
+    "34": [
+      "src_components_ui_sonner_tsx",
+      "ui_sonner_toaster"
+    ],
+    "35": [
+      "src_components_ui_spinner_tsx",
+      "ui_spinner_spinner"
+    ],
+    "36": [
+      "hooks_use_mobile_useismobile",
+      "src_hooks_use_mobile_tsx"
+    ],
+    "37": [
+      "lib_utils_cn",
+      "src_lib_utils_ts"
+    ],
+    "38": [
+      "vite_config_ts"
+    ],
+    "39": [
+      "vitest_config_ts"
+    ],
+    "40": [
+      "scripts_install_superagent_user_ps1"
+    ],
+    "41": [
+      "scripts_install_superagent_ps1"
+    ],
+    "42": [
+      "src_vite_env_d_ts"
+    ],
+    "43": [
+      "src_components_home_homedata_ts"
+    ],
+    "44": [
+      "src_components_home_sustainabilitysection_tsx"
+    ],
+    "45": [
+      "src_components_layout_footer_tsx"
+    ],
+    "46": [
+      "src_components_layout_navbar_desktopnav_tsx"
+    ],
+    "47": [
+      "src_components_layout_navbar_mobilemenu_tsx"
+    ],
+    "48": [
+      "src_components_layout_navbar_settingsmenu_tsx"
+    ],
+    "49": [
+      "src_components_layout_navbar_types_ts"
+    ],
+    "50": [
+      "src_components_ui_accordion_tsx"
+    ],
+    "51": [
+      "src_components_ui_alert_dialog_tsx"
+    ],
+    "52": [
+      "src_components_ui_alert_tsx"
+    ],
+    "53": [
+      "src_components_ui_aspect_ratio_tsx"
+    ],
+    "54": [
+      "src_components_ui_avatar_tsx"
+    ],
+    "55": [
+      "src_components_ui_breadcrumb_tsx"
+    ],
+    "56": [
+      "src_components_ui_button_test_tsx"
+    ],
+    "57": [
+      "src_components_ui_button_tsx"
+    ],
+    "58": [
+      "src_components_ui_card_test_tsx"
+    ],
+    "59": [
+      "src_components_ui_card_tsx"
+    ],
+    "60": [
+      "src_components_ui_check_box_tsx"
+    ],
+    "61": [
+      "src_components_ui_collapsible_tsx"
+    ],
+    "62": [
+      "src_components_ui_command_tsx"
+    ],
+    "63": [
+      "src_components_ui_context_menu_tsx"
+    ],
+    "64": [
+      "src_components_ui_dialog_tsx"
+    ],
+    "65": [
+      "src_components_ui_drawer_tsx"
+    ],
+    "66": [
+      "src_components_ui_dropdown_menu_tsx"
+    ],
+    "67": [
+      "src_components_ui_form_tsx"
+    ],
+    "68": [
+      "src_components_ui_hover_card_tsx"
+    ],
+    "69": [
+      "src_components_ui_input_otp_tsx"
+    ],
+    "70": [
+      "src_components_ui_input_test_tsx"
+    ],
+    "71": [
+      "src_components_ui_input_tsx"
+    ],
+    "72": [
+      "src_components_ui_label_tsx"
+    ],
+    "73": [
+      "src_components_ui_menubar_tsx"
+    ],
+    "74": [
+      "src_components_ui_navigation_menu_tsx"
+    ],
+    "75": [
+      "src_components_ui_popover_tsx"
+    ],
+    "76": [
+      "src_components_ui_progress_tsx"
+    ],
+    "77": [
+      "src_components_ui_radio_group_tsx"
+    ],
+    "78": [
+      "src_components_ui_resizable_tsx"
+    ],
+    "79": [
+      "src_components_ui_scroll_area_tsx"
+    ],
+    "80": [
+      "src_components_ui_select_tsx"
+    ],
+    "81": [
+      "src_components_ui_separator_tsx"
+    ],
+    "82": [
+      "src_components_ui_sheet_tsx"
+    ],
+    "83": [
+      "src_components_ui_slider_tsx"
+    ],
+    "84": [
+      "src_components_ui_switch_tsx"
+    ],
+    "85": [
+      "src_components_ui_table_tsx"
+    ],
+    "86": [
+      "src_components_ui_tabs_tsx"
+    ],
+    "87": [
+      "src_components_ui_textarea_tsx"
+    ],
+    "88": [
+      "src_components_ui_toggle_group_tsx"
+    ],
+    "89": [
+      "src_components_ui_toggle_tsx"
+    ],
+    "90": [
+      "src_components_ui_tooltip_tsx"
+    ],
+    "91": [
+      "src_lib_catalogtypes_ts"
+    ],
+    "92": [
+      "src_pages_about_tsx"
+    ],
+    "93": [
+      "src_pages_contact_tsx"
+    ],
+    "94": [
+      "src_pages_sustainability_tsx"
+    ],
+    "95": [
+      "src_test_setup_ts"
+    ],
+    "96": [
+      "typescript_svg"
+    ]
+  },
+  "cohesion": {
+    "0": 0.25,
+    "1": 0.14,
+    "2": 0.17,
+    "3": 0.35,
+    "4": 0.2,
+    "5": 0.31,
+    "6": 0.22,
+    "7": 0.33,
+    "8": 0.33,
+    "9": 0.47,
+    "10": 0.4,
+    "11": 0.8,
+    "12": 0.4,
+    "13": 0.5,
+    "14": 0.5,
+    "15": 0.5,
+    "16": 0.5,
+    "17": 0.67,
+    "18": 0.67,
+    "19": 0.67,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0,
+    "23": 1.0,
+    "24": 1.0,
+    "25": 1.0,
+    "26": 1.0,
+    "27": 1.0,
+    "28": 1.0,
+    "29": 1.0,
+    "30": 1.0,
+    "31": 1.0,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0,
+    "35": 1.0,
+    "36": 1.0,
+    "37": 1.0,
+    "38": 1.0,
+    "39": 1.0,
+    "40": 1.0,
+    "41": 1.0,
+    "42": 1.0,
+    "43": 1.0,
+    "44": 1.0,
+    "45": 1.0,
+    "46": 1.0,
+    "47": 1.0,
+    "48": 1.0,
+    "49": 1.0,
+    "50": 1.0,
+    "51": 1.0,
+    "52": 1.0,
+    "53": 1.0,
+    "54": 1.0,
+    "55": 1.0,
+    "56": 1.0,
+    "57": 1.0,
+    "58": 1.0,
+    "59": 1.0,
+    "60": 1.0,
+    "61": 1.0,
+    "62": 1.0,
+    "63": 1.0,
+    "64": 1.0,
+    "65": 1.0,
+    "66": 1.0,
+    "67": 1.0,
+    "68": 1.0,
+    "69": 1.0,
+    "70": 1.0,
+    "71": 1.0,
+    "72": 1.0,
+    "73": 1.0,
+    "74": 1.0,
+    "75": 1.0,
+    "76": 1.0,
+    "77": 1.0,
+    "78": 1.0,
+    "79": 1.0,
+    "80": 1.0,
+    "81": 1.0,
+    "82": 1.0,
+    "83": 1.0,
+    "84": 1.0,
+    "85": 1.0,
+    "86": 1.0,
+    "87": 1.0,
+    "88": 1.0,
+    "89": 1.0,
+    "90": 1.0,
+    "91": 1.0,
+    "92": 1.0,
+    "93": 1.0,
+    "94": 1.0,
+    "95": 1.0,
+    "96": 1.0
+  },
+  "gods": [
+    {
+      "id": "catalog_data_pipeline",
+      "label": "Catalog Data Pipeline",
+      "degree": 9
+    },
+    {
+      "id": "data_generate_catalog_json_clean",
+      "label": "clean()",
+      "degree": 7
+    },
+    {
+      "id": "data_generate_catalog_json_build_rows",
+      "label": "build_rows()",
+      "degree": 7
+    },
+    {
+      "id": "data_generate_catalog_json_main",
+      "label": "main()",
+      "degree": 7
+    },
+    {
+      "id": "lib_catalogdataloader_loadcatalogproducts",
+      "label": "loadCatalogProducts()",
+      "degree": 7
+    },
+    {
+      "id": "lib_colorswatch_resolvesinglemeta",
+      "label": "resolveSingleMeta()",
+      "degree": 6
+    },
+    {
+      "id": "lib_colorswatch_resolveswatchbackground",
+      "label": "resolveSwatchBackground()",
+      "degree": 5
+    },
+    {
+      "id": "lib_testpackshotoverrides_normalizekey",
+      "label": "normalizeKey()",
+      "degree": 5
+    },
+    {
+      "id": "data_generate_catalog_json_resolve_site_category_from_excel",
+      "label": "resolve_site_category_from_excel()",
+      "degree": 4
+    },
+    {
+      "id": "data_generate_catalog_json_build_grouped_products",
+      "label": "build_grouped_products()",
+      "degree": 4
+    }
+  ],
+  "surprises": [
+    {
+      "source": "cn()",
+      "target": "resolveSwatchBackground()",
+      "source_files": [
+        "src\\pages\\ProductDetailLegacy.tsx",
+        "src\\lib\\colorSwatch.ts"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities; peripheral node `cn()` unexpectedly reaches hub `resolveSwatchBackground()`"
+    },
+    {
+      "source": "loadData()",
+      "target": "loadCatalogProducts()",
+      "source_files": [
+        "src\\pages\\CategoryHomeItems.tsx",
+        "src\\lib\\catalogDataLoader.ts"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; peripheral node `loadData()` unexpectedly reaches hub `loadCatalogProducts()`"
+    },
+    {
+      "source": "loadData()",
+      "target": "loadCatalogProducts()",
+      "source_files": [
+        "src\\pages\\CategoryPlanters.tsx",
+        "src\\lib\\catalogDataLoader.ts"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; peripheral node `loadData()` unexpectedly reaches hub `loadCatalogProducts()`"
+    },
+    {
+      "source": "loadData()",
+      "target": "loadCatalogProducts()",
+      "source_files": [
+        "src\\pages\\CategoryProfessional.tsx",
+        "src\\lib\\catalogDataLoader.ts"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; peripheral node `loadData()` unexpectedly reaches hub `loadCatalogProducts()`"
+    },
+    {
+      "source": "loadData()",
+      "target": "loadCatalogProducts()",
+      "source_files": [
+        "src\\pages\\ProductDetail.tsx",
+        "src\\lib\\catalogDataLoader.ts"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `Catalog Data Pipeline` connect `Community 1` to `Community 0`, `Community 2`, `Community 4`, `Community 6`, `Community 7`?",
+      "why": "High betweenness centrality (0.097) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 4 inferred relationships involving `loadCatalogProducts()` (e.g. with `loadData()` and `loadData()`) actually correct?",
+      "why": "`loadCatalogProducts()` has 4 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `Greek-first Content` to the rest of the system?",
+      "why": "1 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.14 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

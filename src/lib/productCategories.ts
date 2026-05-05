@@ -1,7 +1,8 @@
 export const siteCategories = [
-  "Είδη Σπιτιού",
-  "Γλάστρες",
-  "Επαγγελματικός Εξοπλισμός",
+  "Μπάνιο",
+  "Κουζίνα",
+  "Κήπος",
+  "Καθαριότητα",
 ] as const;
 
 export type SiteCategory = (typeof siteCategories)[number];
@@ -14,31 +15,40 @@ type ProductCategoryCandidate = {
   category?: string;
 };
 
-export const HOME_ITEMS_SUBCATEGORIES = [
-  "Αεροστεγή",
-  "Εξοπλισμός κουζίνας",
-  "Λεκάνες",
-  "Φαράσια",
+export const BATHROOM_SUBCATEGORIES = [
   "Είδη μπάνιου",
+  "Λεκάνες",
   "Κουβάδες και στυφτήρια",
-  "Κάδοι απορριμάτων & ανακύκλωσης",
-  "Εξοπλισμός ρούχων",
-  "Κουτιά",
-  "Επιπλα κήπου",
-  "Λοιπός οικιακός εξοπλισμός",
+  "Αεροστεγή",
 ] as const;
 
-export const PLANTERS_SUBCATEGORIES = [
+export const KITCHEN_SUBCATEGORIES = [
+  "Φαγητοδοχεία",
+  "Σερβίρισμα",
+  "Σκεύη μαγειρικής",
+  "Εξοπλισμός κουζίνας",
+  "Κάδοι απορριμμάτων",
+] as const;
+
+export const GARDEN_SUBCATEGORIES = [
   "Γλάστρες τοίχου",
   "Γλάστρες και πιάτα",
   "Ζαρντινιέρες",
+  "Επιπλα κήπου",
 ] as const;
 
-export const PROFESSIONAL_SUBCATEGORIES = [
-  "Κάδοι απορριμμάτων",
+export const CLEANING_SUBCATEGORIES = [
+  "Κάδοι απορριμάτων & ανακύκλωσης",
   "Εξοπλισμός τουαλέτας",
   "Σκεύη καθαρισμού",
+  "Εξοπλισμός ρούχων",
 ] as const;
+
+export const HOME_ITEMS_SUBCATEGORIES = BATHROOM_SUBCATEGORIES;
+
+export const PLANTERS_SUBCATEGORIES = GARDEN_SUBCATEGORIES;
+
+export const PROFESSIONAL_SUBCATEGORIES = CLEANING_SUBCATEGORIES;
 
 export const normalizeGreek = (value: string) =>
   value
@@ -48,9 +58,14 @@ export const normalizeGreek = (value: string) =>
 
 const mapExcelCategoryToSiteCategory = (value: string): SiteCategory => {
   const normalized = normalizeGreek(value || "");
-  if (normalized.includes("ειδη σπιτιου")) return siteCategories[0];
-  if (normalized.includes("γλαστρες")) return siteCategories[1];
-  return siteCategories[2];
+  if (normalized.includes("μπανιο")) return "Μπάνιο";
+  if (normalized.includes("κουζιν")) return "Κουζίνα";
+  if (normalized.includes("γλαστρες") || normalized.includes("κηπος"))
+    return "Κήπος";
+  if (normalized.includes("καθαριοτητα") || normalized.includes("επαγγελματ"))
+    return "Καθαριότητα";
+  if (normalized.includes("ειδη σπιτιου")) return "Μπάνιο";
+  return "Μπάνιο";
 };
 
 export const resolveSiteCategories = (product: ProductCategoryCandidate) => {
@@ -62,46 +77,39 @@ export const resolveSiteCategories = (product: ProductCategoryCandidate) => {
   const text = normalizeGreek(`${product.title} ${product.id} ${familyText}`);
   const categories = new Set<SiteCategory>();
 
-  const homeKeywords = [
-    "showroom",
-    "kiklos",
-    "deco",
-    "cubo",
-    "basic bin",
-    "waste container",
-    "pedal bin",
+  const bathroomKeywords = [
     "wc equipment",
-    "equipment for clothes",
-    "storage box",
-    "nova box",
-    "cleaning equipment",
-    "bucket",
-    "wringer",
-    "dust pan",
-    "kitchen collection",
-    "fresco",
-    "food container",
-    "ora basin",
+    "toilet brush",
     "basin",
-    "dish drainer",
-    "kitchen equipment",
-    "household article",
-    "garden furniture",
-    "καδος",
     "λεκαν",
-    "κουβα",
-    "κουτι",
-    "αποθηκευ",
-    "πιατοθηκ",
-    "κουζιν",
+    "τουαλετ",
+    "μπανιο",
     "wc",
   ];
 
-  if (homeKeywords.some((keyword) => text.includes(keyword))) {
-    categories.add("Είδη Σπιτιού");
+  if (bathroomKeywords.some((keyword) => text.includes(keyword))) {
+    categories.add("Μπάνιο");
   }
 
-  const planterKeywords = [
+  const kitchenKeywords = [
+    "kitchen collection",
+    "fresco",
+    "food container",
+    "dish drainer",
+    "kitchen equipment",
+    "storage box",
+    "nova box",
+    "κουζιν",
+    "κουτι",
+    "αποθηκευ",
+    "πιατοθηκ",
+  ];
+
+  if (kitchenKeywords.some((keyword) => text.includes(keyword))) {
+    categories.add("Κουζίνα");
+  }
+
+  const gardenKeywords = [
     "γλαστ",
     "πιατο γλαστ",
     "ζαρντιν",
@@ -133,39 +141,44 @@ export const resolveSiteCategories = (product: ProductCategoryCandidate) => {
     "campana",
     "sydney",
     "rondo",
+    "garden furniture",
+    "κηπος",
   ];
 
-  if (planterKeywords.some((keyword) => text.includes(keyword))) {
-    categories.add("Γλάστρες");
+  if (gardenKeywords.some((keyword) => text.includes(keyword))) {
+    categories.add("Κήπος");
   }
 
-  const professionalKeywords = [
+  const cleaningKeywords = [
     "ho.re.ca",
     "horeca",
     "βιομηχαν",
-    "επαγγελματ",
+    "cleaning equipment",
     "kiklos collection",
     "deco bin",
     "cubo bin",
     "basic bin",
     "waste container",
     "pedal bin",
-    "wc equipment",
-    "toilet brush",
+    "bucket",
+    "wringer",
+    "dust pan",
+    "equipment for clothes",
+    "κουβα",
+    "κουβαδα",
     "καδος",
     "πενταλ",
-    "τουαλετ",
     "stand",
     "κονταρι",
     "παρκετεζ",
   ];
 
-  if (professionalKeywords.some((keyword) => text.includes(keyword))) {
-    categories.add("Επαγγελματικός Εξοπλισμός");
+  if (cleaningKeywords.some((keyword) => text.includes(keyword))) {
+    categories.add("Καθαριότητα");
   }
 
   if (categories.size === 0) {
-    categories.add("Είδη Σπιτιού");
+    categories.add("Μπάνιο");
   }
 
   return Array.from(categories);
@@ -173,9 +186,8 @@ export const resolveSiteCategories = (product: ProductCategoryCandidate) => {
 
 export const resolvePrimaryCategory = (product: ProductCategoryCandidate) => {
   const categories = resolveSiteCategories(product);
-  if (categories.includes("Γλάστρες")) return "Γλάστρες";
-  if (categories.includes("Επαγγελματικός Εξοπλισμός")) {
-    return "Επαγγελματικός Εξοπλισμός";
-  }
-  return "Είδη Σπιτιού";
+  if (categories.includes("Κήπος")) return "Κήπος";
+  if (categories.includes("Κουζίνα")) return "Κουζίνα";
+  if (categories.includes("Καθαριότητα")) return "Καθαριότητα";
+  return "Μπάνιο";
 };
