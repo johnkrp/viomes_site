@@ -11,6 +11,11 @@ const brandImages = {
   cuboBlack: "https://viomes.gr/images/brand_section/cubo_black.jpg",
 };
 
+const brandSlides = [
+  { label: "VERDIA", shortLabel: "01" },
+  { label: "KIKLOS", shortLabel: "02" },
+] as const;
+
 const desktopBaseCanvas =
   "absolute inset-0 aspect-[4.08/1] w-full min-h-[260px] overflow-hidden transition-opacity duration-1000 ease-out";
 
@@ -37,12 +42,55 @@ const desktopKiklos = {
   cuboBlack: "absolute right-[1.35%] top-[6%] h-[82%] w-[18%] overflow-hidden",
 };
 
+const BrandCarouselControls = ({
+  activeSlide,
+  onSelectSlide,
+  className = "",
+}: {
+  activeSlide: number;
+  onSelectSlide: (index: number) => void;
+  className?: string;
+}) => (
+  <div
+    className={`z-20 flex items-center gap-2 border border-white/20 bg-black/20 px-3 py-2 text-white shadow-lg shadow-black/10 backdrop-blur-sm ${className}`}
+    aria-label="Brand carousel controls"
+  >
+    <span className="mr-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/70">
+      Brand
+    </span>
+    {brandSlides.map((slide, index) => {
+      const isActive = activeSlide === index;
+
+      return (
+        <button
+          key={slide.label}
+          type="button"
+          onClick={() => onSelectSlide(index)}
+          className={`group flex items-center gap-2 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] transition ${
+            isActive ? "text-white" : "text-white/55 hover:text-white"
+          }`}
+          aria-label={`Show ${slide.label} brand slide`}
+          aria-current={isActive ? "true" : "false"}
+        >
+          <span
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              isActive ? "w-6 bg-white" : "w-1.5 bg-white/40 group-hover:bg-white/75"
+            }`}
+          />
+          <span className="hidden xl:inline">{slide.label}</span>
+          <span className="xl:hidden">{slide.shortLabel}</span>
+        </button>
+      );
+    })}
+  </div>
+);
+
 const BrandVerdiaSection = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   useEffect(() => {
     const interval = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % 2);
+      setActiveSlide((current) => (current + 1) % brandSlides.length);
     }, 8000);
 
     return () => window.clearInterval(interval);
@@ -160,11 +208,24 @@ const BrandVerdiaSection = () => {
               />
             </div>
           </div>
+
+          <BrandCarouselControls
+            activeSlide={activeSlide}
+            onSelectSlide={setActiveSlide}
+            className="absolute bottom-[7%] right-[3%]"
+          />
         </div>
       </div>
 
       <div className="lg:hidden">
         <div className="grid gap-6 bg-[#817642] px-5 py-8 sm:px-8 sm:py-10">
+          <div className="flex justify-end">
+            <BrandCarouselControls
+              activeSlide={activeSlide}
+              onSelectSlide={setActiveSlide}
+            />
+          </div>
+
           <div className="grid gap-4 sm:grid-cols-[1.15fr_0.85fr] sm:items-center">
             <div className="relative overflow-hidden">
               <img
