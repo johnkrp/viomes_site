@@ -43,7 +43,7 @@ const desktopKiklos = {
     "absolute left-[15%] top-[19%] text-[clamp(2rem,3.25vw,4.1rem)] font-bold leading-none tracking-[0.03em] text-white",
   logo: "absolute left-[41%] top-[42%] -translate-x-1/2 -translate-y-1/2",
   signature: "absolute left-[31%] top-[74%]",
-  cuboCherry: "absolute left-[60%] top-[16%] h-[68%] w-[21%] overflow-hidden",
+  cuboCherry: "absolute left-[60.5%] top-[16%] h-[68%] w-[21%] overflow-hidden",
   cuboBlack: "absolute right-[1.35%] top-[6%] h-[82%] w-[18%] overflow-hidden",
 };
 
