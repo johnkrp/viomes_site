@@ -72,9 +72,9 @@ const Home = () => {
 
   return (
     <div className="flex flex-col">
-      <section className="relative min-h-[100svh] overflow-hidden bg-background pt-28 text-foreground sm:pt-32 lg:pt-36">
-        <div className="mx-auto grid min-h-[calc(100svh-8rem)] w-full max-w-[1480px] items-center gap-10 px-5 pb-20 sm:px-8 lg:grid-cols-[0.86fr_1.14fr] lg:gap-16 lg:px-16 xl:px-20">
-          <div className="relative z-10 flex flex-col items-start lg:pb-10">
+      <section className="relative min-h-[100svh] overflow-hidden bg-background pt-24 text-foreground sm:pt-28 lg:pt-32">
+        <div className="mx-auto grid min-h-[calc(100svh-7rem)] w-full max-w-[1640px] items-center gap-8 px-4 pb-16 sm:px-6 lg:grid-cols-[0.72fr_1.28fr] lg:gap-10 lg:px-8 xl:px-10">
+          <div className="relative z-10 flex flex-col items-start lg:pb-8">
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">
               VIOMES S.A.
             </p>
@@ -89,27 +89,16 @@ const Home = () => {
             </Button>
           </div>
 
-          <div className="relative min-h-[420px] lg:min-h-[620px]">
-            <div className="absolute -left-[10%] top-[8%] hidden h-[38%] w-[42%] border border-primary/15 lg:block" />
-            <div className="relative ml-auto w-full max-w-[760px] overflow-hidden bg-primary/5 shadow-sm lg:w-[88%]">
+          <div className="relative min-h-[440px] lg:min-h-[680px]">
+            <div className="absolute -left-[4%] top-[5%] hidden h-[34%] w-[32%] border border-primary/15 lg:block" />
+            <div className="relative ml-auto h-full w-full overflow-hidden bg-primary/5 shadow-sm">
               <img
                 src={heroImage}
                 alt="VIOMES προϊόντα σε σύγχρονη σύνθεση"
-                className="aspect-[0.92/1] w-full object-cover object-center sm:aspect-[1.1/1] lg:aspect-[0.86/1]"
+                className="h-full min-h-[440px] w-full object-cover object-center sm:min-h-[560px] lg:min-h-[680px]"
                 decoding="async"
                 fetchPriority="high"
               />
-            </div>
-            <div className="absolute -bottom-[7%] left-[5%] hidden w-[48%] bg-primary px-8 py-7 text-primary-foreground shadow-xl lg:block">
-              <h2 className="font-heading text-4xl font-semibold leading-[0.95] tracking-[-0.04em]">
-                Made in Greece
-              </h2>
-              <p className="mt-4 max-w-sm text-sm leading-relaxed text-primary-foreground/80">
-                Λύσεις καθημερινής χρήσης με έμφαση στην αντοχή, τη λειτουργικότητα και την αισθητική.
-              </p>
-              <Button asChild variant="link" className="mt-3 h-auto px-0 text-primary-foreground underline underline-offset-4">
-                <Link to="/about">Μάθετε περισσότερα</Link>
-              </Button>
             </div>
           </div>
         </div>
