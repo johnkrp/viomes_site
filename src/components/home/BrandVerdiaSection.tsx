@@ -12,8 +12,8 @@ const brandImages = {
 };
 
 const brandSlides = [
-  { label: "VERDIA", shortLabel: "01" },
-  { label: "KIKLOS", shortLabel: "02" },
+  { label: "VERDIA", shortLabel: "V" },
+  { label: "KIKLOS", shortLabel: "K" },
 ] as const;
 
 const brandLockup = {
