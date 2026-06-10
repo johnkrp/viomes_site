@@ -28,9 +28,8 @@ export const navLinks: readonly NavLink[] = [
       { name: "Βιώσιμη Ανάπτυξη", href: "/sustainability" },
     ],
   },
-  { name: "Επικοινωνία", en: "Contact", href: "/contact" },
-  { name: "Βιωσιμότητα", en: "Sustainability", href: "#" },
-  { name: "Νέα", en: "News", href: "#" },
+  { name: "Βιωσιμότητα", en: "Sustainability", href: "/sustainability" },
+  { name: "Νέα", en: "News", href: "/news" },
 ];
 
 export const languages: readonly LanguageOption[] = [

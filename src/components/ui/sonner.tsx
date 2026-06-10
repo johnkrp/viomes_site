@@ -1,3 +1,4 @@
+import type * as React from "react";
 "use client"
 
 import { useTheme } from "next-themes"
@@ -29,3 +30,4 @@ const Toaster = ({ ...props }: ToasterProps) => {
 }
 
 export { Toaster }
+

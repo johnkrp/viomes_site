@@ -50,7 +50,7 @@ const About = () => {
   ];
 
   return (
-    <div className="pt-32 md:pt-36 min-h-screen">
+    <div className="pt-32 md:pt-36 min-h-screen bg-background">
       {/* About Hero */}
       <section className="relative h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0">
@@ -63,12 +63,12 @@ const About = () => {
           />
           <div className="absolute inset-0 bg-primary/60 backdrop-blur-[2px]" />
         </div>
-        <div className="container mx-auto px-4 relative z-10 text-center text-white">
-          <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6 animate-slide-up">
+        <div className="container mx-auto px-4 relative z-10 text-center text-primary-foreground">
+          <h1 className="page-display-title mb-6 animate-slide-up">
             Πάνω από 45 χρόνια <br />
             <span className="text-accent">Ηγετικής Παρουσίας.</span>
           </h1>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed animate-slide-up [animation-delay:100ms]">
+          <p className="page-lead max-w-3xl mx-auto text-primary-foreground/80 animate-slide-up [animation-delay:100ms]">
             Στην VIOMES, συνδυάζουμε την παράδοση στην ποιότητα με την
             τεχνολογική καινοτομία για να δημιουργήσουμε προϊόντα που βελτιώνουν
             την καθημερινότητα.
@@ -77,21 +77,19 @@ const About = () => {
       </section>
 
       {/* Stats Grid */}
-      <section className="py-20 bg-white relative z-20 -mt-20">
+      <section className="relative z-20 -mt-20 bg-background py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, i) => (
               <div
                 key={i}
-                className="bg-white rounded-3xl p-8 shadow-elegant border border-border/50 flex flex-col items-center text-center group hover:border-accent transition-all duration-500"
+                className="rounded-3xl border border-border/50 bg-background p-8 shadow-elegant transition-all duration-500 group flex flex-col items-center text-center hover:border-accent"
               >
                 <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-white transition-all duration-500">
                   <stat.icon className="w-8 h-8" />
                 </div>
-                <h3 className="text-4xl font-black mb-2 tracking-tight">
-                  {stat.value}
-                </h3>
-                <p className="text-sm font-bold text-muted-foreground uppercase tracking-widest">
+                <h3 className="page-section-title mb-2">{stat.value}</h3>
+                <p className="page-eyebrow text-muted-foreground">
                   {stat.label}
                 </p>
               </div>
@@ -101,15 +99,13 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 bg-secondary/20">
+      <section className="bg-background py-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-12">
               <div className="space-y-6">
-                <h2 className="text-4xl font-black tracking-tight">
-                  Όραμα & Αποστολή
-                </h2>
-                <p className="text-muted-foreground leading-relaxed text-lg">
+                <h2 className="page-section-title">Όραμα & Αποστολή</h2>
+                <p className="page-lead text-muted-foreground">
                   Αποστολή μας είναι να αποτελούμε την πρώτη επιλογή των πελατών
                   μας, προσφέροντας καινοτόμες και βιώσιμες λύσεις πλαστικών
                   προϊόντων, διατηρώντας τα υψηλότερα πρότυπα ποιότητας και
@@ -122,7 +118,7 @@ const About = () => {
                     <Target className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Στόχος μας</h3>
+                    <h3 className="page-card-title mb-2">Στόχος μας</h3>
                     <p className="text-muted-foreground">
                       Η συνεχής επέκταση της γκάμας μας και η διείσδυση σε νέες
                       αγορές παγκοσμίως.
@@ -134,7 +130,7 @@ const About = () => {
                     <Zap className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Καινοτομία</h3>
+                    <h3 className="page-card-title mb-2">Καινοτομία</h3>
                     <p className="text-muted-foreground">
                       Επένδυση στην έρευνα και ανάπτυξη για τη δημιουργία
                       προϊόντων φιλικών προς το περιβάλλον.
@@ -165,11 +161,9 @@ const About = () => {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="overflow-hidden bg-background py-24">
         <div className="container mx-auto px-4 mb-20">
-          <h2 className="text-4xl font-black tracking-tight text-center">
-            Η Διαδρομή μας
-          </h2>
+          <h2 className="page-section-title text-center">Η Διαδρομή μας</h2>
         </div>
         <div className="container mx-auto px-4 relative">
           <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border hidden lg:block" />
@@ -184,10 +178,10 @@ const About = () => {
               >
                 <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-accent border-4 border-white z-10" />
                 <div className="lg:w-[45%] bg-secondary/30 p-8 rounded-3xl border border-border/50 hover:border-accent transition-all duration-300">
-                  <span className="text-accent font-black text-2xl mb-2 block">
+                  <span className="mb-2 block text-accent font-black text-2xl">
                     {item.year}
                   </span>
-                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                  <h3 className="page-card-title mb-3">{item.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {item.desc}
                   </p>
@@ -203,26 +197,32 @@ const About = () => {
       <section className="py-24 bg-primary text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="space-y-6 p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+            <div className="space-y-6 p-8 rounded-3xl bg-primary-foreground/5 border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-all group">
               <FlaskConical className="w-12 h-12 text-accent group-hover:scale-110 transition-transform" />
-              <h3 className="text-2xl font-bold">Έρευνα & Ανάπτυξη</h3>
-              <p className="text-white/60 leading-relaxed">
+              <h3 className="page-card-title text-primary-foreground">
+                Έρευνα & Ανάπτυξη
+              </h3>
+              <p className="page-body text-primary-foreground/60">
                 Σχεδιάζουμε in-house νέα καλούπια και προϊόντα, εστιάζοντας στην
                 εργονομία και τη λειτουργικότητα.
               </p>
             </div>
-            <div className="space-y-6 p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+            <div className="space-y-6 p-8 rounded-3xl bg-primary-foreground/5 border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-all group">
               <ClipboardCheck className="w-12 h-12 text-accent group-hover:scale-110 transition-transform" />
-              <h3 className="text-2xl font-bold">Έλεγχος Ποιότητας</h3>
-              <p className="text-white/60 leading-relaxed">
+              <h3 className="page-card-title text-primary-foreground">
+                Έλεγχος Ποιότητας
+              </h3>
+              <p className="page-body text-primary-foreground/60">
                 Αυστηροί έλεγχοι σε κάθε παρτίδα παραγωγής για τη διασφάλιση των
                 υψηλότερων προδιαγραφών αντοχής.
               </p>
             </div>
-            <div className="space-y-6 p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group">
+            <div className="space-y-6 p-8 rounded-3xl bg-primary-foreground/5 border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-all group">
               <Ship className="w-12 h-12 text-accent group-hover:scale-110 transition-transform" />
-              <h3 className="text-2xl font-bold">Logistics & Εξαγωγές</h3>
-              <p className="text-white/60 leading-relaxed">
+              <h3 className="page-card-title text-primary-foreground">
+                Logistics & Εξαγωγές
+              </h3>
+              <p className="page-body text-primary-foreground/60">
                 Ιδιόκτητος στόλος και συνεργασίες με διεθνή δίκτυα για ασφαλή
                 και άμεση παράδοση παγκοσμίως.
               </p>
@@ -236,12 +236,12 @@ const About = () => {
         <div className="absolute top-0 right-0 p-20 opacity-10">
           <Globe2 className="w-96 h-96 text-white" />
         </div>
-        <div className="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-white">
+        <div className="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-primary-foreground">
           <div className="max-w-xl text-center md:text-left">
-            <h2 className="text-4xl font-black mb-4 tracking-tight">
+            <h2 className="page-section-title mb-4 text-primary-foreground">
               Ενδιαφέρεστε για συνεργασία;
             </h2>
-            <p className="text-lg text-white/80">
+            <p className="page-lead text-primary-foreground/80">
               Επικοινωνήστε μαζί μας για να συζητήσουμε τις δικές σας ανάγκες.
             </p>
           </div>

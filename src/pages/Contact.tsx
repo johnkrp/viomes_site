@@ -48,10 +48,8 @@ const Contact = () => {
     <div className="min-h-screen bg-background pt-32 md:pt-36">
       <section className="container mx-auto px-4 sm:px-6">
         <div className="p-1 sm:p-2">
-          <h1 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl">
-            Επικοινωνία
-          </h1>
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-foreground/75 sm:text-base">
+          <h1 className="page-section-title text-foreground">Επικοινωνία</h1>
+          <p className="page-body mt-4 max-w-3xl text-foreground/75">
             Είμαστε στη διάθεσή σας για πληροφορίες σχετικά με τα προϊόντα και
             τις συνεργασίες της VIOMES.
           </p>
@@ -61,7 +59,7 @@ const Contact = () => {
       <section className="container mx-auto mt-8 px-4 pb-20 sm:px-6">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
           <div>
-            <h2 className="text-xl font-bold text-foreground sm:text-2xl">
+            <h2 className="page-card-title text-foreground">
               Στοιχεία επικοινωνίας
             </h2>
             <div className="mt-5 space-y-4">
@@ -71,20 +69,18 @@ const Contact = () => {
                     <item.icon className="h-4 w-4" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-foreground/60">
+                    <p className="page-eyebrow text-foreground/60">
                       {item.title}
                     </p>
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="text-sm text-foreground hover:text-accent sm:text-base"
+                        className="page-body text-foreground hover:text-accent"
                       >
                         {item.value}
                       </a>
                     ) : (
-                      <p className="text-sm text-foreground sm:text-base">
-                        {item.value}
-                      </p>
+                      <p className="page-body text-foreground">{item.value}</p>
                     )}
                   </div>
                 </div>
@@ -105,10 +101,10 @@ const Contact = () => {
         </div>
 
         <div className="mt-10">
-          <h2 className="text-xl font-bold text-foreground sm:text-2xl">
+          <h2 className="page-card-title text-foreground">
             Φόρμα επικοινωνίας
           </h2>
-          <p className="mt-2 text-sm text-foreground/70">
+          <p className="page-body mt-2 text-foreground/70">
             Συμπληρώστε τα στοιχεία σας και θα επικοινωνήσουμε μαζί σας.
           </p>
           <form className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2">

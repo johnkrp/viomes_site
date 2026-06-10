@@ -1,46 +1,41 @@
 ﻿import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/check-box";
 import { Input } from "@/components/ui/input";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
 } from "@/components/ui/select";
 import {
-  loadAdditionalImages,
-  loadCatalogProducts,
+    loadAdditionalImages,
+    loadCatalogProducts,
 } from "@/lib/catalogDataLoader";
 import type { GroupedProduct } from "@/lib/catalogTypes";
+import { resolveSwatchBackground } from "@/lib/colorSwatch";
 import {
-  matchesColorSelection,
-  resolveSwatchBackground,
-} from "@/lib/colorSwatch";
-import {
-  KITCHEN_SUBCATEGORIES,
-  resolveSiteCategories,
-  siteCategories,
-  type SiteCategory,
+    KITCHEN_SUBCATEGORIES,
+    siteCategories,
+    type SiteCategory,
 } from "@/lib/productCategories";
+import { filterProducts, type SortMode } from "@/lib/productFiltering";
 import {
-  resolveTestPackshotByCode,
-  resolveTestPackshotFromImageUrl,
+    resolveTestPackshotByCode,
+    resolveTestPackshotFromImageUrl,
 } from "@/lib/testPackshotOverrides";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Search } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-
-type SortMode = "relevant" | "title-asc" | "variants-desc" | "sizes-desc";
 
 const detectGrayBackground = (img: HTMLImageElement): boolean => {
   if (!img.complete) return false;
@@ -114,7 +109,7 @@ const allCodes = (product: GroupedProduct) => {
 const isValidImageUrl = (url: string | undefined | null) =>
   Boolean(url && url.trim() && !url.includes("viomes_.jpg"));
 
-const resolveHoverImage = (
+const resolveFirstAdditionalImage = (
   product: GroupedProduct,
   additionalImagesByCode: Record<string, string[]>,
 ) => {
@@ -124,23 +119,28 @@ const resolveHoverImage = (
   product.sizes.forEach((size) => {
     size.variants.forEach((variant) => {
       const additional = additionalImagesByCode[variant.code] || [];
-      additional.filter(isValidImageUrl).forEach((url) => {
+      additional.forEach((url) => {
         const normalized = url.trim();
-        if (!normalized || seen.has(normalized)) return;
+        if (!isValidImageUrl(normalized) || seen.has(normalized)) return;
         seen.add(normalized);
         images.push(normalized);
       });
     });
   });
 
-  return (
-    images.find((url) => url !== product.representative_image) ||
-    images[1] ||
-    null
-  );
+  return images[0] || null;
 };
 
-const resolveProductCardImage = (product: GroupedProduct) => {
+const resolveProductCardImage = (
+  product: GroupedProduct,
+  additionalImagesByCode: Record<string, string[]>,
+) => {
+  const firstAdditionalImage = resolveFirstAdditionalImage(
+    product,
+    additionalImagesByCode,
+  );
+  if (firstAdditionalImage) return firstAdditionalImage;
+
   const fromRepresentative = resolveTestPackshotFromImageUrl(
     product.representative_image,
   );
@@ -155,18 +155,6 @@ const resolveProductCardImage = (product: GroupedProduct) => {
 
   return product.representative_image;
 };
-
-const normalizeGreek = (value: string) =>
-  value
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
-
-const normalizeSearchText = (value: string) =>
-  normalizeGreek(value)
-    .replace(/[^\p{L}\p{N}\s]/gu, " ")
-    .replace(/\s+/g, " ")
-    .trim();
 
 const isSiteCategory = (value: string): value is SiteCategory =>
   (siteCategories as readonly string[]).includes(value);
@@ -285,53 +273,14 @@ const Products = () => {
   );
 
   const filteredProducts = useMemo(() => {
-    const query = normalizeSearchText(searchTerm);
-
-    const filtered = products.filter((product) => {
-      const codes = allCodes(product);
-      const colors = allColors(product);
-      const categories = resolveSiteCategories(product);
-
-      const matchesQuery =
-        !query ||
-        normalizeSearchText(product.title).includes(query) ||
-        normalizeSearchText(product.id).includes(query) ||
-        codes.some((code) => normalizeSearchText(code).includes(query));
-
-      const matchesCategory =
-        selectedCategories.length === 0 ||
-        selectedCategories.some((selected) => categories.includes(selected));
-
-      const matchesColor =
-        selectedColors.length === 0 ||
-        colors.some((familyColor) =>
-          selectedColors.some((selectedColor) =>
-            matchesColorSelection(familyColor, selectedColor),
-          ),
-        );
-
-      const matchesSubcategory =
-        selectedSubcategories.length === 0 ||
-        selectedSubcategories.includes(product.subcategory || "");
-
-      return (
-        matchesQuery && matchesCategory && matchesColor && matchesSubcategory
-      );
+    return filterProducts({
+      products,
+      searchTerm,
+      selectedCategories,
+      selectedColors,
+      selectedSubcategories,
+      sortMode,
     });
-
-    if (sortMode === "title-asc") {
-      return [...filtered].sort((a, b) => a.title.localeCompare(b.title));
-    }
-
-    if (sortMode === "variants-desc") {
-      return [...filtered].sort((a, b) => b.variants_count - a.variants_count);
-    }
-
-    if (sortMode === "sizes-desc") {
-      return [...filtered].sort((a, b) => b.sizes_count - a.sizes_count);
-    }
-
-    return filtered;
   }, [
     products,
     searchTerm,
@@ -376,10 +325,8 @@ const Products = () => {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <h1 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-          Προϊόντα
-        </h1>
-        <p className="mt-3 max-w-3xl leading-relaxed text-foreground/70 sm:mt-4">
+        <h1 className="page-display-title text-foreground">Προϊόντα</h1>
+        <p className="page-lead mt-3 max-w-3xl text-foreground/70 sm:mt-4">
           Μία κάρτα ανά οικογένεια προϊόντος. Επιλέξτε προϊόν για να δείτε όλα
           τα διαθέσιμα μεγέθη και χρώματα.
         </p>
@@ -526,11 +473,10 @@ const Products = () => {
             {filteredProducts.map((product, index) => {
               const colors = allColors(product);
               const cardKey = `${product.id}-${product.family_indicator || product.group_root || ""}-${product.title}-${index}`;
-              const hoverImage = resolveHoverImage(
+              const cardImage = resolveProductCardImage(
                 product,
                 additionalImagesByCode,
               );
-              const cardImage = resolveProductCardImage(product);
 
               return (
                 <Link
@@ -538,12 +484,26 @@ const Products = () => {
                   to={`/products/${product.id}`}
                   className={cn("group block transition-all duration-300")}
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] sm:p-1.5 lg:p-2 bg-background">
+                  <div className="relative overflow-hidden p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.28)] sm:p-1.5 lg:p-2 bg-background">
                     <img
                       src={cardImage}
                       alt={product.title}
                       onLoad={(e) => {
                         const img = e.currentTarget;
+                        try {
+                          const container =
+                            img.parentElement as HTMLElement | null;
+                          if (
+                            img?.naturalWidth &&
+                            img?.naturalHeight &&
+                            container
+                          ) {
+                            container.style.aspectRatio = `${img.naturalWidth}/${img.naturalHeight}`;
+                          }
+                        } catch {
+                          /* ignore */
+                        }
+
                         if (detectGrayBackground(img)) {
                           setGrayBackgroundImages(
                             (prev) => new Set([...prev, cardImage]),
@@ -555,43 +515,18 @@ const Products = () => {
                         grayBackgroundImages.has(cardImage)
                           ? "mix-blend-luminosity"
                           : "mix-blend-multiply",
-                        hoverImage
-                          ? "opacity-100 group-hover:scale-[1.03] group-hover:opacity-0"
-                          : "opacity-100 group-hover:scale-[1.03]",
+                        "opacity-100 group-hover:scale-[1.03]",
                       )}
                       loading="lazy"
                       decoding="async"
                     />
-                    {hoverImage ? (
-                      <img
-                        src={hoverImage}
-                        alt={`${product.title} alternate view`}
-                        className="absolute inset-0 h-full w-full object-cover opacity-0 transition duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    ) : null}
                   </div>
 
-                  <div className="px-0.5 pt-3">
-                    <h3 className="min-h-12 text-base font-medium leading-tight text-foreground sm:min-h-14 sm:text-lg">
-                      {product.title}
-                    </h3>
-                    <p className="mt-1 text-xs text-foreground/65 sm:text-sm">
-                      {product.sizes_count} μεγέθη • {colors.length} χρώματα
-                    </p>
-
-                    <div className="mt-3 flex min-h-5 items-center gap-1.5">
-                      {colors.slice(0, 10).map((color) => (
-                        <span
-                          key={`${product.id}-${color}`}
-                          className="h-3.5 w-3.5 rounded-full border border-black/10"
-                          style={{ background: resolveSwatchBackground(color) }}
-                          title={color}
-                        />
-                      ))}
+                    <div className="px-0.5 pt-3">
+                      <h3 className="min-h-12 text-base font-medium leading-tight text-foreground sm:min-h-14 sm:text-lg">
+                        {product.title}
+                      </h3>
                     </div>
-                  </div>
                 </Link>
               );
             })}

@@ -1,0 +1,165 @@
+:root {
+  --background: 42 16% 84%;
+  --foreground: 46 33% 22%;
+  --card: 53 9% 98%;
+  --card-foreground: 37 25% 13%;
+  --popover: 53 9% 98%;
+  --popover-foreground: 37 25% 13%;
+  --primary: 46 31% 38%;
+  --primary-foreground: 53 9% 98%;
+  --secondary: 63 27% 46%;
+  --secondary-foreground: 37 25% 13%;
+  --muted: 42 16% 84%;
+  --muted-foreground: 37 14% 34%;
+  --accent: 350 20% 28%;
+  --accent-foreground: 53 9% 98%;
+  --destructive: 7 49% 40%;
+  --destructive-foreground: 53 9% 98%;
+  --border: 58 16% 60%;
+  --input: 58 16% 60%;
+  --ring: 46 31% 38%;
+  --sidebar: 42 16% 84%;
+  --sidebar-foreground: 37 25% 13%;
+  --sidebar-primary: 46 31% 38%;
+  --sidebar-primary-foreground: 53 9% 98%;
+  --sidebar-accent: 42 16% 84%;
+  --sidebar-accent-foreground: 37 25% 13%;
+  --sidebar-border: 58 16% 60%;
+  --sidebar-ring: 46 31% 38%;
+
+  --viomes-bg: 42 16% 84%;
+  --viomes-surface: 58 16% 66%;
+  --viomes-dark: 46 33% 22%;
+  --viomes-primary: 46 31% 38%;
+  --viomes-accent: 350 20% 28%;
+  --viomes-header-bg: 46 33% 22%;
+  --viomes-header-text: 42 16% 84%;
+  --viomes-header-hover: 350 20% 36%;
+  --header-bg: var(--viomes-header-bg);
+  --header-text: var(--viomes-header-text);
+  --header-hover: var(--viomes-header-hover);
+  --viomes-panel: 48 11% 79%;
+  --viomes-frame: 48 11% 82%;
+  --viomes-light: 53 9% 98%;
+  --viomes-muted: 37 14% 34%;
+  --viomes-footer: 46 33% 22%;
+
+  --font-sans: "Ubuntu", sans-serif;
+  --font-heading: "Ubuntu", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6rem;
+  --text-9xl: 8rem;
+
+  --type-hero-heading: clamp(4rem, 6.7vw, 8rem);
+  --type-hero-mobile-heading: clamp(3rem, 14vw, 5.3rem);
+  --type-hero-banner-title: clamp(2.8rem, 6vw, 5.8rem);
+  --type-brand-wordmark-verdia: clamp(2.4rem, 4.05vw, 4.8rem);
+  --type-brand-wordmark-kiklos: clamp(2rem, 3.25vw, 4.1rem);
+  --type-brand-headline: clamp(2rem, 2.55vw, 3.35rem);
+  --type-category-title: clamp(1.5rem, 1.5vw, 2.35rem);
+  --type-category-copy: clamp(0.9rem, 0.72vw, 1rem);
+  --type-category-mobile-title: clamp(1.1rem, 3.1vw, 1.875rem);
+  --type-category-mobile-copy: clamp(0.75rem, 1.2vw, 1rem);
+  --type-page-display: clamp(3rem, 6vw, 5.5rem);
+  --type-page-section: clamp(2rem, 4vw, 3rem);
+  --type-page-card-title: clamp(1.25rem, 2.2vw, 1.875rem);
+  --type-page-body: clamp(0.95rem, 1vw, 1.125rem);
+  --type-page-lead: clamp(1rem, 1.2vw, 1.25rem);
+  --type-page-eyebrow: 0.75rem;
+
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --spacing-6: 6px;
+  --spacing-9: 9px;
+  --spacing-11: 11px;
+  --spacing-12: 12px;
+  --spacing-14: 14px;
+  --spacing-15: 15px;
+  --spacing-16: 16px;
+  --spacing-18: 18px;
+  --spacing-20: 20px;
+  --spacing-23: 23px;
+  --spacing-24: 24px;
+  --spacing-34: 34px;
+  --spacing-36: 36px;
+  --spacing-45: 45px;
+  --spacing-77: 77px;
+  --spacing-86: 86px;
+
+  --section-gap: 45px;
+  --card-padding: 18px;
+  --element-gap: 18px;
+
+  --radius: 0.5rem;
+  --radius-cards: 12px;
+  --radius-badges: 36px;
+  --radius-buttons: 36px;
+
+  --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.1);
+  --shadow-2xs: 0px 1px 2px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0px 1px 2px hsl(0 0% 0% / 0.05);
+  --shadow-sm: 0px 1px 2px hsl(0 0% 0% / 0.05);
+  --shadow:
+    0px 4px 6px -1px hsl(0 0% 0% / 0.05), 0px 2px 4px -1px hsl(0 0% 0% / 0.03);
+  --shadow-md:
+    0px 10px 15px -3px hsl(0 0% 0% / 0.05), 0px 4px 6px -2px hsl(0 0% 0% / 0.02);
+  --shadow-lg:
+    0px 20px 25px -5px hsl(0 0% 0% / 0.05),
+    0px 10px 10px -5px hsl(0 0% 0% / 0.02);
+  --shadow-xl:
+    0px 20px 25px -5px hsl(0 0% 0% / 0.05),
+    0px 10px 10px -5px hsl(0 0% 0% / 0.02);
+  --shadow-2xl:
+    0px 20px 25px -5px hsl(0 0% 0% / 0.05),
+    0px 10px 10px -5px hsl(0 0% 0% / 0.02);
+
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+}
+
+.dark {
+  --background: 37 25% 13%;
+  --foreground: 53 9% 82%;
+  --card: 37 25% 17%;
+  --card-foreground: 53 9% 82%;
+  --popover: 37 25% 17%;
+  --popover-foreground: 53 9% 82%;
+  --primary: 46 31% 48%;
+  --primary-foreground: 37 25% 13%;
+  --secondary: 37 25% 23%;
+  --secondary-foreground: 53 9% 82%;
+  --muted: 37 20% 22%;
+  --muted-foreground: 53 9% 70%;
+  --accent: 24 27% 38%;
+  --accent-foreground: 53 9% 98%;
+  --destructive: 7 49% 50%;
+  --destructive-foreground: 53 9% 98%;
+  --border: 37 20% 26%;
+  --input: 37 20% 26%;
+  --ring: 46 31% 48%;
+  --sidebar: 37 25% 17%;
+  --sidebar-foreground: 53 9% 82%;
+  --sidebar-primary: 46 31% 48%;
+  --sidebar-primary-foreground: 37 25% 13%;
+  --sidebar-accent: 37 20% 22%;
+  --sidebar-accent-foreground: 53 9% 82%;
+  --sidebar-border: 37 20% 26%;
+  --sidebar-ring: 46 31% 48%;
+}

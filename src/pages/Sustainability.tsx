@@ -1,5 +1,12 @@
-import { ArrowRight, Leaf, Recycle, ShieldCheck, Users, Handshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  ArrowRight,
+  Handshake,
+  Leaf,
+  Recycle,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const sustainabilityAreas = [
@@ -28,7 +35,8 @@ const sustainabilityAreas = [
     title: "Υγεία και Ασφάλεια",
     description:
       "Χτίζουμε ένα περιβάλλον όπου η Υγεία και η Ασφάλεια έρχονται πρώτες, με πρότυπες συνθήκες εργασίας και υπεύθυνες διαδικασίες σε κάθε στάδιο λειτουργίας.",
-    image: "https://viomes.gr/images/main_static/menu_photos/health_and_safety1.jpg",
+    image:
+      "https://viomes.gr/images/main_static/menu_photos/health_and_safety1.jpg",
     icon: ShieldCheck,
   },
   {
@@ -54,14 +62,14 @@ const Sustainability = () => {
         </div>
 
         <div className="mx-auto mt-8 max-w-4xl text-center">
-          <h1 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <h1 className="page-display-title text-foreground">
             Βιώσιμη Ανάπτυξη
           </h1>
-          <p className="mt-4 text-base leading-relaxed text-foreground/75 sm:text-lg">
-            Στη VIOMES έχουμε ενσωματώσει τις αρχές της βιώσιμης ανάπτυξης σε όλες
-            μας τις λειτουργίες και στρατηγικές, αναγνωρίζοντας ότι μόνο έτσι
-            μπορούμε να διασφαλίσουμε τη συνεχή εξέλιξή μας σε έναν κόσμο που
-            αλλάζει με ταχύτητα.
+          <p className="page-lead mt-4 text-foreground/75">
+            Στη VIOMES έχουμε ενσωματώσει τις αρχές της βιώσιμης ανάπτυξης σε
+            όλες μας τις λειτουργίες και στρατηγικές, αναγνωρίζοντας ότι μόνο
+            έτσι μπορούμε να διασφαλίσουμε τη συνεχή εξέλιξή μας σε έναν κόσμο
+            που αλλάζει με ταχύτητα.
           </p>
         </div>
       </section>
@@ -83,8 +91,10 @@ const Sustainability = () => {
                 <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent">
                   <area.icon className="h-5 w-5" />
                 </div>
-                <h2 className="text-xl font-bold text-foreground sm:text-2xl">{area.title}</h2>
-                <p className="mt-3 text-sm leading-relaxed text-foreground/75 sm:text-base">
+                <h2 className="page-card-title text-foreground">
+                  {area.title}
+                </h2>
+                <p className="page-body mt-3 text-foreground/75">
                   {area.description}
                 </p>
               </div>
@@ -106,4 +116,3 @@ const Sustainability = () => {
 };
 
 export default Sustainability;
-

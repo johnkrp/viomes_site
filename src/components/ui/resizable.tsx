@@ -1,3 +1,4 @@
+import type * as React from "react";
 "use client";
 
 import { GripVertical } from "lucide-react";
@@ -45,3 +46,4 @@ const ResizableHandle = ({
 );
 
 export { ResizableHandle, ResizablePanel, ResizablePanelGroup };
+

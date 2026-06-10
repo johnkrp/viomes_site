@@ -28,11 +28,14 @@ coverage/
 
 # Misc
 .turbo/
+tmp/
 tmp_*
 .playwright-mcp/
 __pycache__/
 *.pyc
 .venv-graphify/
+oryzo_design_structure/
+*.bak
 
 # Graphify generated artifacts (keep graph report/json/html tracked if needed)
 graphify-out/cache/
@@ -49,12 +52,13 @@ design-variations.html
 design-variations.png
 homepage-current.png
 workspaceState.state.json
-\[\]
-\{
-x.id
-s.size_code).join('
-
 # Orchestra plan artifacts
 plans/*-plan.md
 plans/*-phase-*-complete.md
 plans/*-complete.md
+
+# Local image optimization backups
+public/images/_originals/
+
+# Temporary design explorations
+proposal_1_soft_minimal_bold/

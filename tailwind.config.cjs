@@ -129,6 +129,12 @@ module.exports = {
           },
         },
       },
+      transitionDuration: {
+        600: "600ms",
+      },
+      transitionTimingFunction: {
+        artevasi: "cubic-bezier(.2,.9,.2,1)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

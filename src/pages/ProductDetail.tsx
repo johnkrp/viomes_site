@@ -8,13 +8,7 @@
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { PackshotVariantSelector } from "@/components/ui/PackshotVariantSelector";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+// Size selector replaced by inline buttons; removed Select import
 import {
   loadAdditionalImages,
   loadCatalogProducts,
@@ -33,21 +27,23 @@ import { cn } from "@/lib/utils";
 import {
   AlertCircle,
   ArrowLeft,
+  ChevronDown,
+  Diameter,
   Droplets,
   Expand,
+  type LucideIcon,
   MoveHorizontal,
   MoveVertical,
-  Orbit,
   X,
 } from "lucide-react";
-import { type ComponentType, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 type DimensionHighlight = {
   key: string;
   label: string;
   value: string;
-  Icon: ComponentType<{ className?: string }>;
+  Icon: LucideIcon;
 };
 
 const isValidImageUrl = (url: string | undefined | null) =>
@@ -127,6 +123,17 @@ const parseSpecsFromText = (text: string) => {
   };
 };
 
+type ParsedSpecs = ReturnType<typeof parseSpecsFromText>;
+
+const EMPTY_SPECS: ParsedSpecs = {
+  liters: null,
+  width: null,
+  depth: null,
+  boxHeight: null,
+  diameter: null,
+  height: null,
+};
+
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [products, setProducts] = useState<GroupedProduct[]>([]);
@@ -139,6 +146,9 @@ const ProductDetail = () => {
   const [selectedColorIndex, setSelectedColorIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const [morePanelHeight, setMorePanelHeight] = useState(0);
+  const morePanelContentRef = useRef<HTMLDivElement | null>(null);
   const [selectedMainImage, setSelectedMainImage] = useState<string | null>(
     null,
   );
@@ -155,23 +165,10 @@ const ProductDetail = () => {
 
   const product = useMemo(() => {
     if (!products.length) return undefined;
-    console.log(
-      "[ProductDetail] Looking for product ID:",
-      id,
-      "in",
-      products.length,
-      "products",
-    );
-    console.log("[ProductDetail] First product sample:", products[0]);
-    const found =
+    return (
       products.find((entry) => entry.id === id) ||
-      products.find((entry) => (id ? entry.id.startsWith(`${id}-`) : false));
-    console.log(
-      "[ProductDetail] Product found:",
-      found ? "YES" : "NO",
-      found?.title,
+      products.find((entry) => (id ? entry.id.startsWith(`${id}-`) : false))
     );
-    return found;
   }, [id, products]);
 
   const safeSizeIndex = Math.min(
@@ -266,8 +263,16 @@ const ProductDetail = () => {
   }, [packshotImage, additionalImages]);
 
   const mainImage = selectedMainImage || packshotImage;
+  const [mainImageAspect, setMainImageAspect] = useState<string | undefined>(
+    undefined,
+  );
 
-  const sizeSpecs = useMemo(() => {
+  useEffect(() => {
+    // reset stored aspect when main image source changes
+    setMainImageAspect(undefined);
+  }, [mainImage]);
+
+  const sizeSpecs = useMemo<Array<{ specs: ParsedSpecs }>>(() => {
     if (!product) return [];
     return product.sizes.map((size) => {
       if (size.specs?.has_specs) {
@@ -286,7 +291,14 @@ const ProductDetail = () => {
       const bestVariantForSpecs =
         size.variants.find((variant) => {
           const specs = parseSpecsFromText(variant.description || "");
-          return specs.liters || specs.diameter || specs.height;
+          return (
+            specs.liters ||
+            specs.diameter ||
+            specs.width ||
+            specs.depth ||
+            specs.height ||
+            specs.boxHeight
+          );
         }) || size.variants[0];
 
       return {
@@ -294,6 +306,125 @@ const ProductDetail = () => {
       };
     });
   }, [product]);
+
+  const familyRows = useMemo(() => {
+    if (!product)
+      return [] as Array<{
+        family: string;
+        dims: string;
+        liters: string | number | null | string;
+        boxInfo: string | number | null | string;
+        length: string;
+        width: string;
+        diameter: string;
+        height: string;
+        pcs1: string;
+        pcs2: string;
+        pallet: string;
+      }>;
+
+    const map = new Map<
+      string,
+      {
+        family: string;
+        dims: string;
+        liters: string;
+        boxInfo: string;
+        length: string;
+        width: string;
+        diameter: string;
+        height: string;
+        pcs1: string;
+        pcs2: string;
+        pallet: string;
+      }
+    >();
+
+    product.sizes.forEach((size, sIdx) => {
+      size.variants.forEach((variant) => {
+        const code = variant.code || "-";
+        const family = code.split("-")[0] || code;
+
+        if (map.has(family)) return;
+
+        const specs = parseSpecsFromText(variant.description || "");
+        const fallback = sizeSpecs[sIdx]?.specs ?? EMPTY_SPECS;
+
+        const liters = specs.liters || fallback.liters || "-";
+
+        const length = specs.width || fallback.width || "-";
+        const width = specs.depth || fallback.depth || "-";
+        const diameter = specs.diameter || fallback.diameter || "-";
+        const height =
+          specs.height ||
+          fallback.height ||
+          specs.boxHeight ||
+          fallback.boxHeight ||
+          "-";
+
+        const dims =
+          diameter && diameter !== "-"
+            ? `Ø ${diameter} x H ${height}`
+            : length !== "-"
+              ? `${length} x ${width} x ${height}`
+              : "-";
+
+        const boxInfo = fallback.boxHeight || specs.boxHeight || "-";
+
+        // parse pack field for pcs per package and pallet info if available
+        const rawPack = (variant as any).pack || "";
+        let pcs1 = "-";
+        let pcs2 = "-";
+        let pallet = "-";
+        if (rawPack) {
+          // common formats: "3/18/216" or "10" or "3 x 18"
+          const parts = rawPack.split(/[^0-9]+/).filter(Boolean);
+          if (parts.length === 1) pcs1 = parts[0];
+          if (parts.length === 2) {
+            pcs1 = parts[0];
+            pcs2 = parts[1];
+          }
+          if (parts.length >= 3) {
+            pcs1 = parts[0];
+            pcs2 = parts[1];
+            pallet = parts[2];
+          }
+        }
+
+        map.set(family, {
+          family,
+          dims,
+          liters,
+          boxInfo,
+          length,
+          width,
+          diameter,
+          height,
+          pcs1,
+          pcs2,
+          pallet,
+        });
+      });
+    });
+
+    return Array.from(map.values()).sort((a, b) => {
+      const na = Number.parseInt(a.family, 10);
+      const nb = Number.parseInt(b.family, 10);
+      if (!Number.isNaN(na) && !Number.isNaN(nb)) return na - nb;
+      return a.family.localeCompare(b.family, undefined, { numeric: true });
+    });
+  }, [product, sizeSpecs]);
+
+  const hasRoundDimensions = familyRows.some((row) => row.diameter !== "-");
+  const useRectangularTable = !hasRoundDimensions;
+  const hasLitersColumn = familyRows.some((row) => row.liters !== "-");
+
+  const fmtValue = (val: string | number | null | undefined) => {
+    if (val === null || typeof val === "undefined" || val === "-") return "—";
+    const s = String(val);
+    // use comma decimal separator to match examples
+    return s.includes(".") ? s.replace(".", ",") : s;
+  };
 
   // All effect hooks must also be called consistently
   useEffect(() => {
@@ -328,7 +459,6 @@ const ProductDetail = () => {
 
     const loadData = async () => {
       try {
-        console.log("[ProductDetail] Loading data for ID:", id);
         setIsDataLoading(true);
         setDataLoadError(null);
 
@@ -337,19 +467,11 @@ const ProductDetail = () => {
           loadAdditionalImages(),
         ]);
 
-        console.log(
-          "[ProductDetail] Data loaded. Products:",
-          catalogProducts.length,
-          "Additional images keys:",
-          Object.keys(additionalImages).length,
-        );
-
         if (!isMounted) return;
 
         setProducts(catalogProducts);
         setAdditionalImagesByCode(additionalImages);
-      } catch (error) {
-        console.error("[ProductDetail] Data loading failed:", error);
+      } catch {
         if (!isMounted) return;
         setDataLoadError("Αδυναμία φόρτωσης καταλόγου προϊόντων.");
         setProducts([]);
@@ -367,6 +489,32 @@ const ProductDetail = () => {
       isMounted = false;
     };
   }, []);
+
+  useEffect(() => {
+    const contentEl = morePanelContentRef.current;
+    if (!contentEl) return;
+
+    const updateHeight = () => {
+      setMorePanelHeight(contentEl.scrollHeight);
+    };
+
+    updateHeight();
+
+    if (typeof ResizeObserver !== "undefined") {
+      const observer = new ResizeObserver(updateHeight);
+      observer.observe(contentEl);
+      return () => observer.disconnect();
+    }
+
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, [
+    isMoreOpen,
+    selectedVariant?.code,
+    selectedVariant?.excel_ar,
+    selectedVariant?.excel_tech_gr,
+    selectedVariant?.excel_care_gr,
+  ]);
 
   // NOW do conditional early returns for rendering
 
@@ -425,7 +573,7 @@ const ProductDetail = () => {
     setSelectedColorIndex(0);
   };
 
-  const selectedSizeSpecs = sizeSpecs[safeSizeIndex]?.specs;
+  const selectedSizeSpecs = sizeSpecs[safeSizeIndex]?.specs ?? EMPTY_SPECS;
 
   const dimensionHighlights = [
     selectedSizeSpecs?.liters
@@ -441,7 +589,7 @@ const ProductDetail = () => {
           key: "diameter",
           label: "Διάμετρος",
           value: `${selectedSizeSpecs.diameter} cm`,
-          Icon: Orbit,
+          Icon: Diameter,
         }
       : selectedSizeSpecs?.width
         ? {
@@ -472,10 +620,12 @@ const ProductDetail = () => {
   const getSizeOptionLabel = (index: number) => {
     const size = product.sizes[index];
     const specs = sizeSpecs[index]?.specs;
-
-    if (specs?.liters) return `${specs.liters}L`;
+    // Prefer physical diameter first, then width or depth (length),
+    // then fallback to liters if present, then size codes/labels.
+    if (specs?.diameter) return `d${specs.diameter}`;
     if (specs?.width) return `${specs.width} cm`;
-    if (specs?.diameter) return `${specs.diameter} cm`;
+    if (specs?.depth) return `${specs.depth} cm`;
+    if (specs?.liters) return `${specs.liters}L`;
     return size.size_code || size.size_label || `Μέγεθος ${index + 1}`;
   };
 
@@ -507,96 +657,65 @@ const ProductDetail = () => {
       });
     });
 
+  // Split an array into two rows: first gets ceil(n/2), second gets rest
+  const splitTwoRows = <T,>(arr: T[]) => {
+    const half = Math.ceil(arr.length / 2);
+    return [arr.slice(0, half), arr.slice(half)] as [T[], T[]];
+  };
+
   return (
     <div className="min-h-screen bg-background pb-12 pt-32 md:pb-14 md:pt-36 lg:pt-40">
-      <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 md:px-7 lg:px-10">
-        <section className="grid items-start gap-6 md:gap-8 xl:grid-cols-[1.1fr_0.9fr] xl:gap-10">
-          <div>
-            <Breadcrumb className="mb-8 text-xs text-foreground/75">
-              <BreadcrumbList className="flex-wrap gap-y-1">
-                <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link to="/">Αρχική</Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbLink asChild>
-                    <Link to="/products">Προϊόντα</Link>
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
+      <div className="mx-auto w-full max-w-[1400px] sm:px-6 md:px-7 lg:px-10">
+        <Breadcrumb className="mb-8 text-xs text-accent">
+          <BreadcrumbList className="flex-wrap gap-y-1">
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/">Αρχική</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link to="/products">Προϊόντα</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link
+                  to={`/products?category=${encodeURIComponent(primaryCategory)}`}
+                >
+                  {primaryCategory}
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            {product.subcategory ? (
+              <>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                   <BreadcrumbLink asChild>
                     <Link
-                      to={`/products?category=${encodeURIComponent(primaryCategory)}`}
+                      to={`/products?category=${encodeURIComponent(
+                        primaryCategory,
+                      )}&subcategory=${encodeURIComponent(product.subcategory)}`}
                     >
-                      {primaryCategory}
+                      {product.subcategory}
                     </Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
-                {product.subcategory ? (
-                  <>
-                    <BreadcrumbSeparator />
-                    <BreadcrumbItem>
-                      <BreadcrumbLink asChild>
-                        <Link
-                          to={`/products?category=${encodeURIComponent(
-                            primaryCategory,
-                          )}&subcategory=${encodeURIComponent(product.subcategory)}`}
-                        >
-                          {product.subcategory}
-                        </Link>
-                      </BreadcrumbLink>
-                    </BreadcrumbItem>
-                  </>
-                ) : null}
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                  <BreadcrumbPage>{product.title}</BreadcrumbPage>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
+              </>
+            ) : null}
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{product.title}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
 
+        <section className="grid items-start gap-6 md:gap-8 xl:grid-cols-[1.1fr_0.9fr] xl:gap-10">
+          <div>
             <div className="rounded-2xl bg-transparent p-2 md:p-4">
-              <div className="grid grid-cols-[minmax(0,1fr)_5.75rem] items-start gap-3 md:gap-4">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setLightboxImage(mainImage);
-                    setIsLightboxOpen(true);
-                  }}
-                  className="group relative block w-full cursor-zoom-in"
-                  aria-label="Προβολή κύριας εικόνας"
-                >
-                  <img
-                    src={mainImage}
-                    alt={`${product.title} image`}
-                    style={
-                      mainImage === packshotImage && isTestPackshot
-                        ? {
-                            WebkitMaskImage:
-                              "radial-gradient(ellipse at center, black 56%, transparent 88%)",
-                            maskImage:
-                              "radial-gradient(ellipse at center, black 56%, transparent 88%)",
-                          }
-                        : undefined
-                    }
-                    className={cn(
-                      "mx-auto h-[260px] w-full object-contain sm:h-[320px] md:h-[460px] lg:h-[520px]",
-                      mainImage === packshotImage && isTestPackshot
-                        ? "mix-blend-darken"
-                        : "mix-blend-multiply",
-                    )}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span className="pointer-events-none absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white opacity-0 transition group-hover:opacity-100">
-                    <Expand className="h-3.5 w-3.5" />
-                    Zoom
-                  </span>
-                </button>
-
+              <div className="grid grid-cols-[5.75rem_minmax(0,1fr)] items-start gap-3 md:gap-4">
                 <div className="flex max-h-[520px] flex-col gap-2 overflow-y-auto pr-0.5">
                   {galleryImages.map((image, index) => {
                     const isActive = image === mainImage;
@@ -606,7 +725,7 @@ const ProductDetail = () => {
                         type="button"
                         onClick={() => setSelectedMainImage(image)}
                         className={cn(
-                          "overflow-hidden border bg-white/70 transition",
+                          "overflow-hidden border bg-background/70 transition",
                           isActive
                             ? "border-foreground shadow-sm"
                             : "border-foreground/15 hover:border-foreground/45",
@@ -625,6 +744,56 @@ const ProductDetail = () => {
                     );
                   })}
                 </div>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLightboxImage(mainImage);
+                    setIsLightboxOpen(true);
+                  }}
+                  className="group relative block w-full cursor-zoom-in"
+                  style={
+                    mainImageAspect
+                      ? { aspectRatio: mainImageAspect }
+                      : undefined
+                  }
+                  aria-label="Προβολή κύριας εικόνας"
+                >
+                  <img
+                    src={mainImage}
+                    alt={`${product.title} image`}
+                    onLoad={(e) => {
+                      const img = e.currentTarget as HTMLImageElement;
+                      if (img?.naturalWidth && img?.naturalHeight) {
+                        setMainImageAspect(
+                          `${img.naturalWidth}/${img.naturalHeight}`,
+                        );
+                      }
+                    }}
+                    style={
+                      mainImage === packshotImage && isTestPackshot
+                        ? {
+                            WebkitMaskImage:
+                              "radial-gradient(ellipse at center, black 56%, transparent 88%)",
+                            maskImage:
+                              "radial-gradient(ellipse at center, black 56%, transparent 88%)",
+                          }
+                        : undefined
+                    }
+                    className={cn(
+                      "mx-auto w-full h-full object-contain",
+                      mainImage === packshotImage && isTestPackshot
+                        ? "mix-blend-darken"
+                        : "mix-blend-multiply",
+                    )}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="pointer-events-none absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white opacity-0 transition group-hover:opacity-100">
+                    <Expand className="h-3.5 w-3.5" />
+                    Zoom
+                  </span>
+                </button>
               </div>
             </div>
 
@@ -643,204 +812,578 @@ const ProductDetail = () => {
             )}
           </div>
 
-          <div className="space-y-6 md:space-y-8">
+          <div className="space-y-6 md:space-y-4">
             <div>
-              <h1 className="font-heading text-3xl font-semibold leading-[1.15] text-foreground sm:text-4xl md:text-5xl">
+              <h1 className="font-heading text-3xl font-medium leading-[1.15] text-accent sm:text-4xl md:text-5xl">
                 {product.title}
               </h1>
-              <p className="mt-2 text-sm font-normal tracking-[0.01em] text-foreground/38 md:text-base">
-                Κωδικός: {selectedVariant?.code || "-"}
+              <p className="mt-3 text-sm font-normal tracking-[0.01em] text-accent md:text-base">
+                SKU {selectedVariant?.code || "-"}
               </p>
             </div>
 
-            <div>
-              <p className="max-w-[6] text-base leading-relaxed text-foreground/85 md:text-lg">
-                {selectedVariant?.excel_ar ||
-                  selectedVariant?.description ||
-                  "Δεν υπάρχει περιγραφή για την τρέχουσα παραλλαγή."}
-              </p>
-            </div>
+            {/* Description moved below color selection for layout change */}
 
-            <div>
-              <p className="mb-2 text-[11px] font-bold text-foreground/85">
-                Μέγεθος:
+            <div className="border-t-2 border-border/50 pt-1 md:pt-2 mt-0">
+              <p className="mb-4 text-base font-medium text-accent">
+                Επιλογή μεγέθους
               </p>
-              <Select
-                value={String(safeSizeIndex)}
-                onValueChange={(value) => onSelectSize(Number(value))}
+
+              <div
+                role="listbox"
+                aria-label="Επιλογή μεγέθους"
+                className="mb-4"
               >
-                <SelectTrigger className="h-9 w-full max-w-[75px] border-foreground/25 bg-white/70 text-left text-xs text-foreground sm:text-sm">
-                  <SelectValue placeholder="Επιλογή λίτρων" />
-                </SelectTrigger>
-                <SelectContent>
-                  {sortedSizeOptions.map((option) => (
-                    <SelectItem
-                      key={`size-option-${option.index}`}
-                      value={String(option.index)}
-                    >
-                      {option.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              {dimensionHighlights.length > 0 ? (
-                <div className="mt-4 border-y border-foreground/18 bg-foreground/[0.02] py-4">
-                  <div className="grid grid-cols-1 gap-x-5 gap-y-3 sm:grid-cols-2">
-                    {dimensionHighlights.map((item) => (
-                      <div
-                        key={item.key}
-                        className="flex items-center gap-2.5 text-foreground/80"
-                      >
-                        <item.Icon className="h-4 w-4 shrink-0 text-foreground/55" />
-                        <span className="text-xs">{item.label}:</span>
-                        <span className="text-sm font-medium text-foreground/90">
-                          {item.value}
-                        </span>
+                {(() => {
+                  const [row1, row2] = splitTwoRows(sortedSizeOptions);
+                  return (
+                    <>
+                      <div className="flex items-center gap-4 mb-2">
+                        {row1.map((option) => {
+                          const isActive = option.index === safeSizeIndex;
+                          return (
+                            <button
+                              key={`size-option-${option.index}`}
+                              type="button"
+                              onClick={() => onSelectSize(option.index)}
+                              aria-pressed={isActive}
+                              className={cn(
+                                "h-9 w-14 font-medium flex items-center justify-center text-sm border transition",
+                                isActive
+                                  ? "bg-foreground text-white border-foreground"
+                                  : "bg-background/70 border-foreground/25 hover:border-foreground/45",
+                              )}
+                              title={`Επιλογή ${option.label}`}
+                            >
+                              {option.label}
+                            </button>
+                          );
+                        })}
                       </div>
-                    ))}
+
+                      <div className="flex items-center gap-4">
+                        {row2.map((option) => {
+                          const isActive = option.index === safeSizeIndex;
+                          return (
+                            <button
+                              key={`size-option-${option.index}`}
+                              type="button"
+                              onClick={() => onSelectSize(option.index)}
+                              aria-pressed={isActive}
+                              className={cn(
+                                "h-9 w-14 font-medium flex items-center justify-center text-sm border transition",
+                                isActive
+                                  ? "bg-foreground text-white border-foreground"
+                                  : "bg-background/70 border-foreground/25 hover:border-foreground/45",
+                              )}
+                              title={`Επιλογή ${option.label}`}
+                            >
+                              {option.label}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </>
+                  );
+                })()}
+              </div>
+
+              <div className="border-t-2 border-border/50 pt-6 md:pt-2">
+                <p className="mb-4 text-base font-medium text-accent">
+                  Επιλογή χρώματος
+                </p>
+
+                {(() => {
+                  // Separate single and combination colors
+                  const singleColors = sortedVariants.filter(
+                    (v) => !/[/_]/.test(v.code),
+                  );
+                  const combinationColors = sortedVariants.filter((v) =>
+                    /[/_]/.test(v.code),
+                  );
+
+                  return (
+                    <div className="flex flex-col gap-4">
+                      {/* Single colors */}
+                      {singleColors.length > 0 &&
+                        (() => {
+                          const [r1, r2] = splitTwoRows(singleColors);
+                          return (
+                            <>
+                              <div className="flex items-end gap-2 sm:gap-3 mb-2">
+                                {r1.map((variant) => {
+                                  const colorTitle = resolveColorTitle(
+                                    variant.color,
+                                    language,
+                                  );
+                                  const colorTagImage = resolveColorTagImage(
+                                    variant.code,
+                                  );
+                                  const variantIndex =
+                                    sortedVariants.indexOf(variant);
+                                  return (
+                                    <div
+                                      key={`${variant.code}-${variant.color}`}
+                                      className="flex max-w-[2.6rem] flex-col items-center"
+                                    >
+                                      <button
+                                        type="button"
+                                        onClick={() =>
+                                          setSelectedColorIndex(variantIndex)
+                                        }
+                                        className="overflow-hidden transition hover:scale-105"
+                                        title={`${colorTitle} (${variant.code})`}
+                                        aria-label={`${colorTitle} (${variant.code})`}
+                                      >
+                                        {colorTagImage ? (
+                                          <img
+                                            src={colorTagImage}
+                                            alt={colorTitle}
+                                            className="h-[2.6rem] w-[2.6rem] object-contain"
+                                          />
+                                        ) : (
+                                          <div
+                                            className="h-[2.6rem] w-[2.6rem] rounded-full"
+                                            style={{
+                                              background:
+                                                resolveSwatchBackground(
+                                                  variant.color,
+                                                ),
+                                            }}
+                                          />
+                                        )}
+                                      </button>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+
+                              <div className="flex items-end gap-2 sm:gap-3">
+                                {r2.map((variant) => {
+                                  const colorTitle = resolveColorTitle(
+                                    variant.color,
+                                    language,
+                                  );
+                                  const colorTagImage = resolveColorTagImage(
+                                    variant.code,
+                                  );
+                                  const variantIndex =
+                                    sortedVariants.indexOf(variant);
+                                  return (
+                                    <div
+                                      key={`${variant.code}-${variant.color}`}
+                                      className="flex max-w-[2.6rem] flex-col items-center"
+                                    >
+                                      <button
+                                        type="button"
+                                        onClick={() =>
+                                          setSelectedColorIndex(variantIndex)
+                                        }
+                                        className="overflow-hidden transition hover:scale-105"
+                                        title={`${colorTitle} (${variant.code})`}
+                                        aria-label={`${colorTitle} (${variant.code})`}
+                                      >
+                                        {colorTagImage ? (
+                                          <img
+                                            src={colorTagImage}
+                                            alt={colorTitle}
+                                            className="h-[2.6rem] w-[2.6rem] object-contain"
+                                          />
+                                        ) : (
+                                          <div
+                                            className="h-[2.6rem] w-[2.6rem] rounded-full"
+                                            style={{
+                                              background:
+                                                resolveSwatchBackground(
+                                                  variant.color,
+                                                ),
+                                            }}
+                                          />
+                                        )}
+                                      </button>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </>
+                          );
+                        })()}
+
+                      {/* Combination colors */}
+                      {combinationColors.length > 0 &&
+                        (() => {
+                          const [r1, r2] = splitTwoRows(combinationColors);
+                          return (
+                            <>
+                              <div className="flex items-end gap-2 sm:gap-3 mb-2">
+                                {r1.map((variant) => {
+                                  const colorTitle = resolveColorTitle(
+                                    variant.color,
+                                    language,
+                                  );
+                                  const colorTagImage = resolveColorTagImage(
+                                    variant.code,
+                                  );
+                                  const variantIndex =
+                                    sortedVariants.indexOf(variant);
+                                  return (
+                                    <div
+                                      key={`${variant.code}-${variant.color}`}
+                                      className="flex max-w-[2.6rem] flex-col items-center"
+                                    >
+                                      <button
+                                        type="button"
+                                        onClick={() =>
+                                          setSelectedColorIndex(variantIndex)
+                                        }
+                                        className="overflow-hidden transition hover:scale-105"
+                                        title={`${colorTitle} (${variant.code})`}
+                                        aria-label={`${colorTitle} (${variant.code})`}
+                                      >
+                                        {colorTagImage ? (
+                                          <img
+                                            src={colorTagImage}
+                                            alt={colorTitle}
+                                            className="h-[2.6rem] w-[2.6rem] object-contain"
+                                          />
+                                        ) : (
+                                          <div
+                                            className="h-[2.6rem] w-[2.6rem] rounded-full"
+                                            style={{
+                                              background:
+                                                resolveSwatchBackground(
+                                                  variant.color,
+                                                ),
+                                            }}
+                                          />
+                                        )}
+                                      </button>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+
+                              <div className="flex items-end gap-2 sm:gap-3">
+                                {r2.map((variant) => {
+                                  const colorTitle = resolveColorTitle(
+                                    variant.color,
+                                    language,
+                                  );
+                                  const colorTagImage = resolveColorTagImage(
+                                    variant.code,
+                                  );
+                                  const variantIndex =
+                                    sortedVariants.indexOf(variant);
+                                  return (
+                                    <div
+                                      key={`${variant.code}-${variant.color}`}
+                                      className="flex max-w-[2.6rem] flex-col items-center"
+                                    >
+                                      <button
+                                        type="button"
+                                        onClick={() =>
+                                          setSelectedColorIndex(variantIndex)
+                                        }
+                                        className="overflow-hidden transition hover:scale-105"
+                                        title={`${colorTitle} (${variant.code})`}
+                                        aria-label={`${colorTitle} (${variant.code})`}
+                                      >
+                                        {colorTagImage ? (
+                                          <img
+                                            src={colorTagImage}
+                                            alt={colorTitle}
+                                            className="h-[2.6rem] w-[2.6rem] object-contain"
+                                          />
+                                        ) : (
+                                          <div
+                                            className="h-[2.6rem] w-[2.6rem] rounded-full"
+                                            style={{
+                                              background:
+                                                resolveSwatchBackground(
+                                                  variant.color,
+                                                ),
+                                            }}
+                                          />
+                                        )}
+                                      </button>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </>
+                          );
+                        })()}
+                    </div>
+                  );
+                })()}
+              </div>
+
+              <div className="border-t-2 border-border/50 pt-6 md:pt-2 mt-6">
+                <p className="mt-1 max-w-[6] whitespace-pre-line leading-relaxed text-accent md:text-base text-justify">
+                  {selectedVariant?.excel_ar ||
+                    selectedVariant?.description ||
+                    "Δεν υπάρχει περιγραφή για την τρέχουσα παραλλαγή."}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Full-width divider row that spans both columns; table aligned to right column */}
+          <div className="col-span-full mt-0 border-t-2 border-border/60">
+            <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6 md:px-7 lg:px-10">
+              <div className="grid xl:grid-cols-[1.1fr_0.9fr]">
+                <div />
+                <div className="pt-6 md:pt-8">
+                  <div className="overflow-x-auto border-border bg-background">
+                    <table className="w-full table-auto text-base bg-transparent">
+                      <thead className="text-accent">
+                        <tr>
+                          <th className="px-3 py-1 text-center font-semibold">
+                            <div className="flex flex-col items-center gap-1">
+                              <img
+                                src="/images/proposal_1_soft_minimal_bold/01_kodikos_hash.svg"
+                                alt="Κωδικός"
+                                className="h-6 w-6"
+                              />
+                              <span className="mt-1 mb-3 text-sm italic font-semibold">symbol</span>
+                              <span className="mt-1 text-sm font-semibold text-accent italic">
+                              
+                              </span>
+                            </div>
+                          </th>
+
+                          {useRectangularTable ? (
+                            <>
+                              <th className="px-3 py-1 text-center font-semibold">
+                                <div className="flex flex-col items-center gap-0">
+                                  <img
+                                    src="/images/proposal_1_soft_minimal_bold/03_mikos_dimension_line.svg"
+                                    alt="Μήκος"
+                                    className="h-7 w-7"
+                                  />
+                                  <span className="mt-1 text-sm italic font-semibold">
+                                    Μήκος
+                                  </span>
+                                  <span className="mt-0 text-sm italic text-accent">
+                                    cm
+                                  </span>
+                                </div>
+                              </th>
+
+                              <th className="px-3 py-1 text-center font-semibold">
+                                <div className="flex flex-col items-center gap-0">
+                                  <img
+                                    src="/images/proposal_1_soft_minimal_bold/04_platos_rounded_rect_arrow.svg"
+                                    alt="Πλάτος"
+                                    className="h-7 w-7"
+                                  />
+                                  <span className="mt-1 text-sm italic font-semibold">
+                                    Πλάτος
+                                  </span>
+                                  <span className="mt-0 text-sm text-accent italic">
+                                    cm
+                                  </span>
+                                </div>
+                              </th>
+
+                              <th className="px-3 py-1 text-center font-semibold">
+                                <div className="flex flex-col items-center gap-0">
+                                  <img
+                                    src="/images/proposal_1_soft_minimal_bold/05_ypsos_dotted_gauge.svg"
+                                    alt="Ύψος"
+                                    className="h-7 w-7"
+                                  />
+                                  <span className="mt-1 text-sm italic font-semibold">
+                                    Ύψος
+                                  </span>
+                                  <span className="mt-0 text-sm text-accent italic">
+                                    cm
+                                  </span>
+                                </div>
+                              </th>
+                            </>
+                          ) : (
+                            <>
+                              <th className="px-3 py-1 text-center font-semibold">
+                                <div className="flex flex-col items-center gap-0">
+                                  <img
+                                    src="/images/proposal_1_soft_minimal_bold/02_diametros_slash_circle.svg"
+                                    alt="Διάμετρος"
+                                    className="h-7 w-7"
+                                  />
+                                  <span className="mt-1 text-sm italic font-semibold">
+                                    Διάμ.
+                                  </span>
+                                  <span className="mt-0 text-sm text-accent italic">
+                                    cm
+                                  </span>
+                                </div>
+                              </th>
+
+                              <th className="px-4 py-2 text-center font-semibold">
+                                <div className="flex flex-col items-center gap-0">
+                                  <img
+                                    src="/images/proposal_1_soft_minimal_bold/05_ypsos_dotted_gauge.svg"
+                                    alt="Ύψος"
+                                    className="h-7 w-7"
+                                  />
+                                  <span className="mt-1 text-sm italic font-semibold">
+                                    Ύψος
+                                  </span>
+                                  <span className="mt-0 text-sm text-accent italic">
+                                    cm
+                                  </span>
+                                </div>
+                              </th>
+                            </>
+                          )}
+
+                          {hasLitersColumn ? (
+                            <th className="px-3 py-1 text-center font-semibold">
+                              <div className="flex flex-col items-center gap-0">
+                                <img
+                                  src="/images/proposal_1_soft_minimal_bold/06_litra_drop.svg"
+                                  alt="Λίτρα"
+                                  className="h-7 w-7"
+                                />
+                                <span className="mt-1 text-sm italic font-semibold">
+                                  Λίτρα
+                                </span>
+                                <span className="mt-0 text-sm text-accent italic">
+                                  L
+                                </span>
+                              </div>
+                            </th>
+                          ) : null}
+
+                          <th className="px-3 py-1 text-center font-semibold">
+                            <div className="flex flex-col items-center gap-0">
+                              <img
+                                src="/images/proposal_1_soft_minimal_bold/07_syskevasia_cube.svg"
+                                alt="Συσκευασία"
+                                className="h-7 w-7"
+                              />
+                              <span className="mt-1 text-sm font-semibold italic">Συσκ.</span>
+                              <span className="mt-0 text-sm font-semibold text-accent italic">
+                                τεμ.
+                              </span>
+                            </div>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {familyRows.map((row) => (
+                          <tr
+                            key={row.family}
+                            className={cn(
+                              "text-accent",
+                              "bg-transparent",
+                              "font-normal",
+                            )}
+                          >
+                            <td className="px-3 py-1 text-center">
+                              {row.family}
+                            </td>
+                            {useRectangularTable ? (
+                              <>
+                                <td className="px-3 py-1 text-center">
+                                  {fmtValue(row.length)}
+                                </td>
+                                <td className="px-3 py-1 text-center">
+                                  {fmtValue(row.width)}
+                                </td>
+                                <td className="px-3 py-1 text-center">
+                                  {fmtValue(row.height)}
+                                </td>
+                              </>
+                            ) : (
+                              <>
+                                <td className="px-3 py-1 text-center">
+                                  {fmtValue(row.diameter)}
+                                </td>
+                                <td className="px-3 py-1 text-center">
+                                  {fmtValue(row.height)}
+                                </td>
+                              </>
+                            )}
+                            {hasLitersColumn ? (
+                              <td className="px-3 py-1 text-center">
+                                {fmtValue(row.liters)}
+                              </td>
+                            ) : null}
+                            <td className="px-3 py-1 text-center">
+                              {fmtValue(row.pcs1)}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div className="mt-6 w-full border-t-2 border-border/50 pt-4 text-accent md:pt-3">
+                    <button
+                      type="button"
+                      onClick={() => setIsMoreOpen((current) => !current)}
+                      className="flex items-center gap-2 text-left text-base transition hover:opacity-80"
+                      aria-expanded={isMoreOpen}
+                    >
+                      <span className="font-medium">Περισσότερα</span>
+                      <ChevronDown
+                        className={cn(
+                          "h-5 w-5 transition-transform duration-300 ease-out motion-reduce:transition-none",
+                          isMoreOpen && "rotate-180",
+                        )}
+                        aria-hidden="true"
+                      />
+                    </button>
+
+                    <div
+                      className="overflow-x-visible overflow-y-hidden transition-[height] duration-300 ease-out motion-reduce:transition-none"
+                      style={{ height: isMoreOpen ? `${morePanelHeight}px` : "0px" }}
+                      aria-hidden={!isMoreOpen}
+                    >
+                      <div ref={morePanelContentRef} className="pt-4">
+                        <div className="relative lg:ml-[-2rem] xl:ml-[-4rem] lg:w-[650px] xl:w-[700px]">
+                          <div className="grid gap-4 lg:grid-cols-3">
+                            <div className="bg-background/40">
+                              <h3 className="text-sm font-semibold text-accent">
+                                Αναλυτική Περιγραφή GR
+                              </h3>
+                              <p className="mt-1 whitespace-pre-line text-sm font-normal leading-relaxed text-accent">
+                                {selectedVariant?.excel_ar ||
+                                  selectedVariant?.description ||
+                                  "Δεν υπάρχει περιγραφή για την τρέχουσα παραλλαγή."}
+                              </p>
+                            </div>
+
+                            <div className="bg-background/40">
+                              <h3 className="text-sm font-semibold text-accent">
+                                Τεχνικά Χαρακτηριστικά
+                              </h3>
+                              <p className="mt-1 whitespace-pre-line text-sm font-normal leading-relaxed text-accent">
+                                {selectedVariant?.excel_tech_gr ||
+                                  selectedVariant?.description ||
+                                  "Δεν υπάρχει περιγραφή για την τρέχουσα παραλλαγή."}
+                              </p>
+                            </div>
+
+                            <div className="bg-background/40">
+                              <h3 className="text-sm font-semibold text-accent">
+                                Οδηγίες Χρήσης &amp; Φροντίδας
+                              </h3>
+                              <p className="mt-1 whitespace-pre-line text-sm font-normal leading-relaxed text-accent">
+                                {selectedVariant?.excel_care_gr ||
+                                  selectedVariant?.description ||
+                                  "Δεν υπάρχει περιγραφή για την τρέχουσα παραλλαγή."}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              ) : (
-                <p className="mt-2 text-xs text-foreground/55">
-                  Δεν υπάρχουν διαθέσιμες διαστάσεις για αυτό το μέγεθος.
-                </p>
-              )}
-            </div>
-
-            <div>
-              <p className="mb-2 text-[11px] font-bold text-foreground/85">
-                Επιλογή χρώματος
-              </p>
-
-              {(() => {
-                // Separate single and combination colors
-                const singleColors = sortedVariants.filter(
-                  (v) => !/[/_]/.test(v.code),
-                );
-                const combinationColors = sortedVariants.filter((v) =>
-                  /[/_]/.test(v.code),
-                );
-
-                return (
-                  <div className="flex flex-col gap-4">
-                    {/* Single colors */}
-                    {singleColors.length > 0 && (
-                      <div className="flex flex-wrap items-end gap-2 sm:gap-3">
-                        {singleColors.map((variant, index) => {
-                          const colorTitle = resolveColorTitle(
-                            variant.color,
-                            language,
-                          );
-                          const colorTagImage = resolveColorTagImage(
-                            variant.code,
-                          );
-                          const variantIndex = sortedVariants.indexOf(variant);
-                          return (
-                            <div
-                              key={`${variant.code}-${variant.color}`}
-                              className="flex max-w-[2.6rem] flex-col items-center"
-                            >
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  setSelectedColorIndex(variantIndex)
-                                }
-                                className="overflow-hidden rounded transition hover:scale-105"
-                                title={`${colorTitle} (${variant.code})`}
-                                aria-label={`${colorTitle} (${variant.code})`}
-                              >
-                                {colorTagImage ? (
-                                  <img
-                                    src={colorTagImage}
-                                    alt={colorTitle}
-                                    className="h-[2.6rem] w-[2.6rem] object-contain"
-                                  />
-                                ) : (
-                                  <div
-                                    className="h-[2.6rem] w-[2.6rem] rounded-full"
-                                    style={{
-                                      background: resolveSwatchBackground(
-                                        variant.color,
-                                      ),
-                                    }}
-                                  />
-                                )}
-                              </button>
-                              <span
-                                aria-hidden="true"
-                                className={cn(
-                                  "h-[1.5px] rounded-full bg-foreground/75 transition-opacity",
-                                  safeColorIndex === variantIndex
-                                    ? "w-5 opacity-100"
-                                    : "w-0 opacity-0",
-                                )}
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
-                    )}
-
-                    {/* Combination colors */}
-                    {combinationColors.length > 0 && (
-                      <div className="flex flex-wrap items-end gap-2 sm:gap-3">
-                        {combinationColors.map((variant) => {
-                          const colorTitle = resolveColorTitle(
-                            variant.color,
-                            language,
-                          );
-                          const colorTagImage = resolveColorTagImage(
-                            variant.code,
-                          );
-                          const variantIndex = sortedVariants.indexOf(variant);
-                          return (
-                            <div
-                              key={`${variant.code}-${variant.color}`}
-                              className="flex max-w-[2.6rem] flex-col items-center"
-                            >
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  setSelectedColorIndex(variantIndex)
-                                }
-                                className="overflow-hidden rounded transition hover:scale-105"
-                                title={`${colorTitle} (${variant.code})`}
-                                aria-label={`${colorTitle} (${variant.code})`}
-                              >
-                                {colorTagImage ? (
-                                  <img
-                                    src={colorTagImage}
-                                    alt={colorTitle}
-                                    className="h-[2.6rem] w-[2.6rem] object-contain"
-                                  />
-                                ) : (
-                                  <div
-                                    className="h-[2.6rem] w-[2.6rem] rounded-full"
-                                    style={{
-                                      background: resolveSwatchBackground(
-                                        variant.color,
-                                      ),
-                                    }}
-                                  />
-                                )}
-                              </button>
-                              <span
-                                aria-hidden="true"
-                                className={cn(
-                                  "h-[1.5px] rounded-full bg-foreground/75 transition-opacity",
-                                  safeColorIndex === variantIndex
-                                    ? "w-5 opacity-100"
-                                    : "w-0 opacity-0",
-                                )}
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                );
-              })()}
+              </div>
             </div>
           </div>
         </section>

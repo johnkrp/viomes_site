@@ -21,3 +21,31 @@ Object.defineProperty(window, "matchMedia", {
     dispatchEvent: vi.fn(),
   })),
 });
+
+const storageFactory = () => {
+  const store = new Map<string, string>();
+  return {
+    getItem: vi.fn((key: string) => store.get(key) ?? null),
+    setItem: vi.fn((key: string, value: string) => {
+      store.set(key, String(value));
+    }),
+    removeItem: vi.fn((key: string) => {
+      store.delete(key);
+    }),
+    clear: vi.fn(() => {
+      store.clear();
+    }),
+  };
+};
+
+Object.defineProperty(window, "localStorage", {
+  value: storageFactory(),
+  writable: true,
+  configurable: true,
+});
+
+Object.defineProperty(window, "sessionStorage", {
+  value: storageFactory(),
+  writable: true,
+  configurable: true,
+});

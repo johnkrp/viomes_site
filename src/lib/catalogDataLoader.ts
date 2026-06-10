@@ -46,7 +46,7 @@ const withBaseUrl = (relativePath: string) => {
 };
 
 const fetchJson = async <T>(url: string): Promise<T> => {
-  const response = await fetch(url, { cache: "no-store" });
+  const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Failed to fetch ${url}: ${response.status}`);
   }
@@ -78,8 +78,8 @@ const splitGroupedProduct = (product: GroupedProduct): GroupedProduct[] => {
     product.sizes.map((size) => [String(size.size_code), size]),
   );
 
-  const splitProducts: GroupedProduct[] = rules
-    .map((rule) => {
+  const splitProducts = rules
+    .map<GroupedProduct | null>((rule) => {
       const selectedSizes = rule.sizeCodes
         .map((sizeCode) => sizesByCode.get(sizeCode))
         .filter((size): size is GroupedProduct["sizes"][number] =>
@@ -109,9 +109,9 @@ const splitGroupedProduct = (product: GroupedProduct): GroupedProduct[] => {
         sizes: selectedSizes,
         sizes_count: selectedSizes.length,
         variants_count: variantsCount,
-      };
+      } as GroupedProduct;
     })
-    .filter((entry): entry is GroupedProduct => Boolean(entry));
+    .filter((entry): entry is GroupedProduct => entry !== null);
 
   if (splitProducts.length === 0) return [product];
   return splitProducts;
@@ -127,11 +127,9 @@ export const loadCatalogProducts = async (): Promise<GroupedProduct[]> => {
       "/data/products-grouped.json",
     ])
       .then((payload) => normalizeGroupedProducts(payload.products ?? []))
-      .catch(async () => {
-        const module = await import("@/data/products-grouped.json");
-        const fallbackProducts =
-          (module.default?.products as GroupedProduct[] | undefined) ?? [];
-        return normalizeGroupedProducts(fallbackProducts);
+      .catch((error) => {
+        console.warn("Unable to load catalog products", error);
+        return [];
       });
   }
 
@@ -144,9 +142,9 @@ export const loadAdditionalImages =
       additionalImagesPromise = fetchWithFallbacks<AdditionalImagesResponse>([
         withBaseUrl("data/additional-images.json"),
         "/data/additional-images.json",
-      ]).catch(async () => {
-        const module = await import("@/data/additional-images.json");
-        return (module.default as AdditionalImagesResponse) ?? {};
+      ]).catch((error) => {
+        console.warn("Unable to load additional images", error);
+        return {};
       });
     }
 

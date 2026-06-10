@@ -1,18 +1,9 @@
-﻿import {
-  baseTextSizes,
-  navLinks,
-  plainTextSizeKeys,
-  sizeOptions,
-  titleSizeKeys,
-  typographyOptions,
-} from "@/components/layout/navbar/constants";
+import { navLinks } from "@/components/layout/navbar/constants";
 import DesktopNav from "@/components/layout/navbar/DesktopNav";
 import MobileMenu from "@/components/layout/navbar/MobileMenu";
-import SettingsMenu from "@/components/layout/navbar/SettingsMenu";
-import SocialLinks from "@/components/layout/navbar/SocialLinks";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Menu, Search, X } from "lucide-react";
+import { Globe, Menu, Search, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -20,37 +11,12 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const [language, setLanguage] = useState<string>(
-    () => localStorage.getItem("viomes_language") || "el",
-  );
-  const [paletteBaseColor, setPaletteBaseColor] = useState<string>(() => {
-    try {
-      return localStorage.getItem("viomes_palette_base_color") || "#807244";
-    } catch {
-      return "#807244";
-    }
-  });
-  const [typography, setTypography] = useState<string>(
-    () => localStorage.getItem("viomes_typography") || "manrope-poppins",
-  );
-  const [titleSize, setTitleSize] = useState<string>(
-    () => localStorage.getItem("viomes_title_size") || "xl",
-  );
-  const [plainTextSize, setPlainTextSize] = useState<string>(
-    () => localStorage.getItem("viomes_plain_text_size") || "sm",
-  );
   const lastScrollY = useRef(0);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (isSettingsOpen) {
-        setIsHeaderVisible(true);
-        lastScrollY.current = currentScrollY;
-        return;
-      }
       const isNearTop = currentScrollY < 24;
       const isScrollingUp = currentScrollY < lastScrollY.current;
       const isScrollingDown = currentScrollY > lastScrollY.current;
@@ -74,134 +40,13 @@ const Navbar = () => {
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isSettingsOpen]);
+  }, []);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
       setIsHeaderVisible(true);
     }
   }, [isMobileMenuOpen]);
-
-  useEffect(() => {
-    if (isSettingsOpen) {
-      setIsHeaderVisible(true);
-    }
-  }, [isSettingsOpen]);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem("viomes_language", language);
-      window.dispatchEvent(
-        new CustomEvent("viomes-language-change", { detail: language }),
-      );
-    } catch {
-      /* ignore */
-    }
-  }, [language]);
-
-  useEffect(() => {
-    const selectedTypography =
-      typographyOptions.find((option) => option.code === typography) ??
-      typographyOptions[0];
-
-    document.documentElement.style.setProperty(
-      "--font-sans",
-      selectedTypography.sans,
-    );
-    document.documentElement.style.setProperty(
-      "--font-heading",
-      selectedTypography.heading,
-    );
-
-    try {
-      localStorage.setItem("viomes_typography", selectedTypography.code);
-    } catch {
-      /* ignore */
-    }
-  }, [typography]);
-
-  useEffect(() => {
-    const selectedTitleSize =
-      sizeOptions.find((option) => option.code === titleSize) ?? sizeOptions[1];
-    const selectedPlainTextSize =
-      sizeOptions.find((option) => option.code === plainTextSize) ??
-      sizeOptions[1];
-
-    const clamp = (value: number, min: number, max: number) =>
-      Math.min(Math.max(value, min), max);
-
-    const getViewportTextScale = () => {
-      if (typeof window === "undefined") {
-        return 1;
-      }
-
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      const widthScale = clamp(
-        0.9 + ((width - 375) / (1440 - 375)) * 0.18,
-        0.9,
-        1.08,
-      );
-      const heightScale = clamp(
-        0.96 + ((height - 700) / (1080 - 700)) * 0.06,
-        0.96,
-        1.02,
-      );
-
-      return widthScale * heightScale;
-    };
-
-    const toScaledRem = (value: string, scale: number) => {
-      const rem = Number.parseFloat(value.replace("rem", ""));
-      return `${(rem * scale).toFixed(4).replace(/\.?0+$/, "")}rem`;
-    };
-
-    const applyResponsiveTextSizes = () => {
-      const viewportScale = getViewportTextScale();
-      const plainScale = selectedPlainTextSize.scale * viewportScale;
-      const titleScale = selectedTitleSize.scale * viewportScale;
-
-      plainTextSizeKeys.forEach((cssVar) => {
-        const baseValue = baseTextSizes[cssVar];
-        document.documentElement.style.setProperty(
-          cssVar,
-          toScaledRem(baseValue, plainScale),
-        );
-      });
-
-      titleSizeKeys.forEach((cssVar) => {
-        const baseValue = baseTextSizes[cssVar];
-        document.documentElement.style.setProperty(
-          cssVar,
-          toScaledRem(baseValue, titleScale),
-        );
-      });
-    };
-
-    applyResponsiveTextSizes();
-
-    const handleResize = () => {
-      applyResponsiveTextSizes();
-    };
-
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("orientationchange", handleResize);
-
-    try {
-      localStorage.setItem("viomes_title_size", selectedTitleSize.code);
-      localStorage.setItem(
-        "viomes_plain_text_size",
-        selectedPlainTextSize.code,
-      );
-    } catch {
-      /* ignore */
-    }
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("orientationchange", handleResize);
-    };
-  }, [titleSize, plainTextSize]);
 
   return (
     <header
@@ -216,7 +61,7 @@ const Navbar = () => {
       <div className="relative h-full bg-transparent px-8 py-2 sm:px-10 lg:px-12 lg:flex lg:items-center lg:justify-between lg:py-2.5 lg:gap-6 w-full">
         {/* Left: Logo */}
         <div className="flex items-center flex-shrink-0">
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" className="no-link-underline flex items-center gap-2">
             <img
               src="/images/viomes-logo.png"
               alt="VIOMES Logo"
@@ -245,40 +90,36 @@ const Navbar = () => {
         </div>
 
         {/* Right: Social links + settings */}
-        <div className="flex items-center gap-6 flex-shrink-0">
-          <div className="hidden lg:flex items-center gap-6">
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <button
+            type="button"
+            aria-label="Language settings placeholder"
+            className="no-accent-bg inline-flex h-9 items-center gap-1 rounded-sm bg-[hsl(var(--viomes-header-bg))] px-1 text-[14px] font-medium uppercase tracking-[0.04em]"
+          >
+            <span className="leading-none">EN</span>
+            <Globe className="h-4 w-4" />
+          </button>
+          <div className="hidden lg:flex items-center gap-4">
             <Button
               variant="ghost"
               size="icon"
-              aria-label="Αναζήτηση"
-              className="text-foreground/70 hover:text-accent no-accent-bg"
+              aria-label="Search"
+              className="text-foreground/70 no-accent-bg transition-none hover:bg-transparent hover:text-foreground/70"
             >
               <Search className="w-5 h-5" />
             </Button>
-            <SocialLinks />
-            <div className="hidden lg:flex items-center gap-2">
-              <SettingsMenu
-                isOpen={isSettingsOpen}
-                onOpenChange={setIsSettingsOpen}
-                language={language}
-                onLanguageChange={setLanguage}
-                typography={typography}
-                onTypographyChange={setTypography}
-                titleSize={titleSize}
-                onTitleSizeChange={setTitleSize}
-                plainTextSize={plainTextSize}
-                onPlainTextSizeChange={setPlainTextSize}
-                paletteBaseColor={paletteBaseColor}
-                onPaletteBaseColorChange={setPaletteBaseColor}
-              />
-            </div>
+            <img
+              src="/images/antagonistikotitaframeEL.jpg"
+              alt="EU Competitiveness Program 2021-2027"
+              className="h-7 w-auto"
+            />
           </div>
           <Button
             variant="ghost"
             size="icon"
             className="absolute right-3 top-3 sm:right-4 lg:hidden"
             onClick={() => setIsMobileMenuOpen((prevState) => !prevState)}
-            aria-label={isMobileMenuOpen ? "Κλείσιμο μενού" : "Άνοιγμα μενού"}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
@@ -292,8 +133,6 @@ const Navbar = () => {
       <MobileMenu
         isOpen={isMobileMenuOpen}
         pathname={location.pathname}
-        language={language}
-        onLanguageChange={setLanguage}
         onClose={() => setIsMobileMenuOpen(false)}
       />
     </header>

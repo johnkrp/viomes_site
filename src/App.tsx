@@ -6,14 +6,19 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
+import AppErrorBoundary from "./components/layout/AppErrorBoundary";
 import Layout from "./components/layout/Layout";
 import ScrollToTop from "./components/layout/ScrollToTop";
+import { trackPageView } from "./lib/analytics";
 
 // Lazy load pages for better performance
 const Home = lazy(() => import("./pages/Home"));
 const Products = lazy(() => import("./pages/Products"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 const About = lazy(() => import("./pages/About"));
+const Quality = lazy(() => import("./pages/Quality"));
+const Industries = lazy(() => import("./pages/Industries"));
+const News = lazy(() => import("./pages/News"));
 const Sustainability = lazy(() => import("./pages/Sustainability"));
 const Contact = lazy(() => import("./pages/Contact"));
 
@@ -116,6 +121,8 @@ function SeoManager() {
       document.head.appendChild(descriptionEl);
     }
     descriptionEl.setAttribute("content", pageSeo.description);
+
+    trackPageView(pathname, pageSeo.title);
   }, [pathname]);
 
   return null;
@@ -124,23 +131,25 @@ function SeoManager() {
 function App() {
   return (
     <Router>
-      <SeoManager />
-      <ScrollToTop />
-      <Layout>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/products/:id" element={<ProductDetail />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/sustainability" element={<Sustainability />} />
-            <Route path="/quality" element={<About />} />
-            <Route path="/industries" element={<Home />} />
-            <Route path="/news" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </Suspense>
-      </Layout>
+      <AppErrorBoundary>
+        <SeoManager />
+        <ScrollToTop />
+        <Layout>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/products/:id" element={<ProductDetail />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/sustainability" element={<Sustainability />} />
+              <Route path="/quality" element={<Quality />} />
+              <Route path="/industries" element={<Industries />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </Suspense>
+        </Layout>
+      </AppErrorBoundary>
       <Toaster position="top-right" richColors />
     </Router>
   );

@@ -66,7 +66,7 @@ const CategoryHomeItems = () => {
   const homeProducts = useMemo(
     () =>
       products.filter((product) =>
-        resolveSiteCategories(product).includes("Είδη Σπιτιού"),
+        resolveSiteCategories(product).includes("Μπάνιο"),
       ),
     [products],
   );
@@ -86,7 +86,7 @@ const CategoryHomeItems = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#d9d1c4] via-[#e8e2d7] to-[#f3efe7] pt-32 pb-16">
+    <div className="min-h-screen bg-background pt-32 pb-16">
       <section className="relative overflow-hidden">
         <img
           src="https://viomes.gr/images/hero/ΕΙΔΗ ΣΠΙΤΙΟΥ.JPG"
@@ -113,14 +113,14 @@ const CategoryHomeItems = () => {
             </BreadcrumbList>
           </Breadcrumb>
 
-          <p className="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
+          <p className="page-eyebrow mt-8 inline-flex items-center gap-2 text-white/80">
             <Sparkles className="h-3.5 w-3.5" />
             Household Collection
           </p>
-          <h1 className="mt-3 max-w-3xl text-4xl font-black leading-tight text-white md:text-6xl">
+          <h1 className="page-display-title mt-3 max-w-3xl text-white">
             Είδη Σπιτιού
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
+          <p className="page-lead mt-5 max-w-2xl text-white/90">
             Καθημερινά προϊόντα οικιακής χρήσης με καθαρές γραμμές, αντοχή και
             λειτουργικό σχεδιασμό, σε ενιαία αισθητική που δένει με κάθε χώρο.
           </p>
@@ -136,10 +136,10 @@ const CategoryHomeItems = () => {
       <section className="container mx-auto px-6 py-12 md:py-16">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div>
-            <h2 className="text-2xl font-black text-[#2f281f] md:text-4xl">
+            <h2 className="page-section-title text-foreground">
               Κατηγορίες Ειδών Σπιτιού
             </h2>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-foreground/75 md:text-base">
+            <p className="page-body mt-4 max-w-xl text-foreground/75">
               Η κατηγορία παρουσιάζεται με πιο ήρεμη και ενιαία αισθητική ώστε
               το περιεχόμενο να αναπνέει μαζί με τις εικόνες.
             </p>
@@ -149,7 +149,7 @@ const CategoryHomeItems = () => {
             {HOME_ITEMS_SUBCATEGORIES.map((subcategory) => (
               <p
                 key={subcategory}
-                className="text-sm font-medium leading-relaxed text-[#3c352b] md:text-base"
+                className="page-body font-medium leading-relaxed text-foreground"
               >
                 {subcategory}
               </p>
@@ -167,8 +167,8 @@ const CategoryHomeItems = () => {
             loading="lazy"
             decoding="async"
           />
-          <div className="flex h-64 flex-col justify-end bg-[#cec5b7] px-6 py-6 md:h-[23rem] md:px-8">
-            <p className="text-sm leading-relaxed text-[#332c22] md:text-base">
+          <div className="flex h-64 flex-col justify-end bg-background px-6 py-6 md:h-[23rem] md:px-8">
+            <p className="page-body text-foreground">
               Από αεροστεγή και εξοπλισμό κουζίνας έως κάδους, κουτιά και είδη
               μπάνιου, η σειρά σχεδιάζεται για πρακτικότητα χωρίς οπτικό θόρυβο.
             </p>
@@ -187,7 +187,7 @@ const CategoryHomeItems = () => {
         ) : null}
 
         <div className="mb-8 flex items-end justify-between gap-4">
-          <h2 className="text-2xl font-black text-[#2f281f] md:text-4xl">
+          <h2 className="page-section-title text-foreground">
             Επιλεγμένες Οικογένειες
           </h2>
           <Link
@@ -223,10 +223,10 @@ const CategoryHomeItems = () => {
                 </div>
 
                 <div className="flex flex-col justify-center">
-                  <h3 className="text-2xl font-semibold leading-tight text-[#2f281f] md:text-3xl">
+                  <h3 className="page-card-title text-foreground">
                     {product.title}
                   </h3>
-                  <p className="mt-2 text-sm text-foreground/70 md:text-base">
+                  <p className="page-body mt-2 text-foreground/70">
                     {product.sizes_count} μεγέθη • {product.variants_count}{" "}
                     χρώματα/κωδικοί
                   </p>

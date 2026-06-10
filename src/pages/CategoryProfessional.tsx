@@ -66,7 +66,7 @@ const CategoryProfessional = () => {
   const professionalProducts = useMemo(
     () =>
       products.filter((product) =>
-        resolveSiteCategories(product).includes("Επαγγελματικός Εξοπλισμός"),
+        resolveSiteCategories(product).includes("Καθαριότητα"),
       ),
     [products],
   );
@@ -92,7 +92,7 @@ const CategoryProfessional = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#d7dbde] via-[#e7eaed] to-[#f4f6f7] pt-32 pb-16">
+    <div className="min-h-screen bg-background pt-32 pb-16">
       <section className="relative overflow-hidden">
         <img
           src="https://viomes.gr/images/hero/ΚΑΔΟΙ.JPG"
@@ -176,7 +176,7 @@ const CategoryProfessional = () => {
             loading="lazy"
             decoding="async"
           />
-          <div className="flex h-64 flex-col justify-end bg-[#c9d0d6] px-6 py-6 md:h-[23rem] md:px-8">
+          <div className="flex h-64 flex-col justify-end bg-background px-6 py-6 md:h-[23rem] md:px-8">
             <p className="text-sm leading-relaxed text-[#273038] md:text-base">
               Κάδοι, εξοπλισμός τουαλέτας και σκεύη καθαρισμού σχεδιασμένα για
               έντονη χρήση, εύκολη συντήρηση και επαγγελματική εικόνα.
@@ -200,7 +200,7 @@ const CategoryProfessional = () => {
             Επιλεγμένες Οικογένειες
           </h2>
           <Link
-            to={`/products?category=${encodeURIComponent("Επαγγελματικός Εξοπλισμός")}`}
+            to={`/products?category=${encodeURIComponent("Καθαριότητα")}`}
             className="text-sm font-semibold text-foreground/75 hover:text-foreground"
           >
             Δείτε όλα
@@ -257,7 +257,7 @@ const CategoryProfessional = () => {
 
         <div className="mt-10 flex justify-center">
           <Link
-            to={`/products?category=${encodeURIComponent("Επαγγελματικός Εξοπλισμός")}`}
+            to={`/products?category=${encodeURIComponent("Καθαριότητα")}`}
           >
             <Button className="h-12 rounded-full px-7 text-sm font-semibold">
               Όλος ο Επαγγελματικός Εξοπλισμός

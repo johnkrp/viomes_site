@@ -5,6 +5,11 @@ export type CatalogVariant = {
   image_url: string;
   pack?: string;
   excel_ar?: string;
+  excel_en?: string;
+  excel_tech_gr?: string;
+  excel_tech_en?: string;
+  excel_care_gr?: string;
+  excel_care_en?: string;
   stock?: number | null;
 };
 

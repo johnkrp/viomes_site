@@ -66,7 +66,7 @@ const CategoryPlanters = () => {
   const plantersProducts = useMemo(
     () =>
       products.filter((product) =>
-        resolveSiteCategories(product).includes("Γλάστρες"),
+        resolveSiteCategories(product).includes("Κήπος"),
       ),
     [products],
   );
@@ -89,7 +89,7 @@ const CategoryPlanters = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#d5ddd2] via-[#e6ece3] to-[#f1f5ef] pt-32 pb-16">
+    <div className="min-h-screen bg-background pt-32 pb-16">
       <section className="relative overflow-hidden">
         <img
           src="https://viomes.gr/images/hero/ΓΛΑΣΤΡΕΣ.JPG"
@@ -174,7 +174,7 @@ const CategoryPlanters = () => {
             loading="lazy"
             decoding="async"
           />
-          <div className="flex h-64 flex-col justify-end bg-[#ccd5c8] px-6 py-6 md:h-[23rem] md:px-8">
+          <div className="flex h-64 flex-col justify-end bg-background px-6 py-6 md:h-[23rem] md:px-8">
             <p className="text-sm leading-relaxed text-[#273029] md:text-base">
               Γλάστρες τοίχου, γλάστρες με πιάτα και ζαρντινιέρες που συνδυάζουν
               γεωμετρία και λειτουργικότητα με πολλές επιλογές χρωμάτων.
@@ -198,7 +198,7 @@ const CategoryPlanters = () => {
             Επιλεγμένες Οικογένειες
           </h2>
           <Link
-            to={`/products?category=${encodeURIComponent("Γλάστρες")}`}
+            to={`/products?category=${encodeURIComponent("Κήπος")}`}
             className="text-sm font-semibold text-foreground/75 hover:text-foreground"
           >
             Δείτε όλα
@@ -254,7 +254,7 @@ const CategoryPlanters = () => {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <Link to={`/products?category=${encodeURIComponent("Γλάστρες")}`}>
+          <Link to={`/products?category=${encodeURIComponent("Κήπος")}`}>
             <Button className="h-12 rounded-full px-7 text-sm font-semibold">
               Όλες οι Γλάστρες
               <ArrowRight className="ml-2 h-4 w-4" />

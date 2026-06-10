@@ -1,112 +1,177 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const CategoriesShowcaseSection = () => {
-  type CategoryTile = {
+  type CategoryCard = {
     title: string;
     description: string;
     image: string;
     href: string;
   };
 
-  const categories: CategoryTile[] = [
+  const categories: CategoryCard[] = [
     {
-      title: "Μπάνιο",
-      description: "Πρακτικές λύσεις οργάνωσης για καθημερινή χρήση.",
-      image: "https://viomes.gr/images/hero/categories/ΜΠΑΝΙΟ.png",
-      href: "/products?category=Μπάνιο",
+      title: "Flowerpots collection",
+      description: "Σχεδιασμένες για εσωτερικούς και εξωτερικούς χώρους.",
+      image: "https://viomes.gr/images/homepage/categories/planters.png",
+      href: "/products?category=Γλάστρες",
     },
     {
-      title: "Κουζίνα",
-      description: "Ανθεκτικά είδη κουζίνας και αποθήκευσης.",
-      image: "https://viomes.gr/images/hero/categories/ΚΟΥΖΙΝΑ_2.png",
-      href: "/products?category=Κουζίνα",
+      title: "Home collection",
+      description:
+        "Λειτουργικά και ποιοτικά είδη για το σπίτι με ιδιαίτερο design.",
+      image: "https://viomes.gr/images/homepage/categories/home_collection.png",
+      href: "/products?category=Είδη%20Σπιτιού",
     },
     {
-      title: "Κήπος",
-      description: "Γλάστρες και λύσεις για εσωτερικούς ή εξωτερικούς χώρους.",
-      image: "https://viomes.gr/images/hero/categories/ΚΗΠΟΣ.png",
-      href: "/products?category=Κήπος",
-    },
-    {
-      title: "Καθαριότητα",
-      description: "Εξοπλισμός για οικιακή και επαγγελματική φροντίδα.",
-      image: "https://viomes.gr/images/hero/categories/ΚΑΘΑΡΙΟΤΗΤΑ_1.png",
-      href: "/products?category=Καθαριότητα",
+      title: "Professional collection",
+      description:
+        "Ανθεκτικές λύσεις για επαγγελματική χρήση, για ολους τους χώρους.",
+      image: "https://viomes.gr/images/homepage/categories/professional.png",
+      href: "/products?category=Επαγγελματικός%20Εξοπλισμός",
     },
   ] as const;
 
+  // Responsive staggered offsets: smaller on mobile, increase with screen size
+  const offsets = [
+    "top-0",
+    "top-4 sm:top-8 md:top-12 lg:top-16",
+    "top-2 sm:top-4 md:top-6 lg:top-8",
+  ];
+
   return (
     <section
-      className="mt-16 scroll-mt-24 bg-background pt-12 sm:mt-20 sm:pt-14 lg:mt-0 lg:h-[100svh] lg:pt-0"
+      className="bg-[hsl(var(--viomes-bg))]"
+      style={{
+        paddingTop: "clamp(3rem, 4.8vw, 7rem)",
+        paddingBottom: "clamp(3rem, 5.2vw, 8rem)",
+      }}
       id="categories"
     >
-      <div className="px-4 sm:px-6 lg:px-8 xl:px-12">
-        <div className="mx-auto w-full max-w-[1440px]">
-          <div className="mb-4 sm:mb-4 lg:mb-4">
-            <h2 className="font-heading text-3xl font-medium leading-tight text-foreground sm:text-4xl lg:text-6xl">
-              Κατηγορίες
-            </h2>
-          </div>
+      <div
+        className="w-full"
+        style={{
+          paddingLeft: "clamp(1rem, 2vw, 3.5rem)",
+          paddingRight: "clamp(1rem, 100vw, 32rem)",
+        }}
+      >
+        <div className="mx-auto w-full">
+          {/* Desktop stage with fixed aspect ratio - hidden on small screens */}
+          <div className="hidden lg:block">
+            <div className="mx-auto w-full max-w-[1900px] overflow-visible aspect-[16/7]">
+              <div className="relative h-full w-full">
+                <div className="absolute inset-0 flex gap-4 xl:gap-8">
+                  {categories.slice(0, 3).map((card, idx) => {
+                    const verticalOffsets = ["0px", "45px", "-35px"];
 
-          <div className="mb-4 flex flex-col gap-6 md:mb-4 md:flex-row md:items-end md:justify-between lg:mb-4">
-            <p className="max-w-3xl text-base leading-relaxed text-foreground/70 sm:text-lg">
-              Ανακαλύψτε λύσεις για κάθε χώρο, από το σπίτι και τον κήπο μέχρι
-              επαγγελματικές εφαρμογές, με έμφαση στην αντοχή και τον σύγχρονο
-              σχεδιασμό.
-            </p>
-            <Link
-              to="/products"
-              className="inline-flex h-12 items-center gap-2 border border-foreground bg-foreground px-6 text-sm font-semibold tracking-[0.06em] text-background transition-colors hover:bg-background hover:text-foreground"
-            >
-              Δείτε όλα
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
+                    return (
+                      <Link
+                        key={card.title}
+                        to={card.href}
+                        className="group relative flex-1 transition-all duration-300"
+                        style={{
+                          animationDelay: `${idx * 120}ms`,
+                          transform: `translateY(${verticalOffsets[idx]})`,
+                        }}
+                      >
+                        <div className="viomes-animate-card h-full flex flex-col overflow-hidden bg-[hsl(var(--accent))] text-[hsl(var(--viomes-light))] transition-shadow duration-300 ease-out group-hover:shadow-lg">
+                          {/* Image: 2/3 of card height */}
+                          <div className="h-2/3 overflow-hidden bg-[hsl(var(--viomes-bg))]">
+                            <img
+                              src={card.image}
+                              alt={card.title}
+                              className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </div>
 
-          <div className="grid gap-0 md:grid-cols-6 md:auto-rows-[14rem] lg:h-[calc(100svh-15rem)] lg:grid-rows-2 lg:auto-rows-fr">
-            {categories.map((category, index) => (
-              <Link
-                key={category.title}
-                to={category.href}
-                className={`group relative min-h-[14rem] overflow-hidden border border-border/70 bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:min-h-[16rem] md:min-h-0 ${
-                  index === 0
-                    ? "md:col-span-4 md:row-span-1"
-                    : index === 1
-                      ? "md:col-span-2 md:row-span-1"
-                      : index === 2
-                        ? "md:col-span-2 md:row-span-1"
-                        : index === 3
-                          ? "md:col-span-4 md:row-span-1"
-                          : "md:col-span-3 md:row-span-1"
-                }`}
-                aria-label={category.title}
-              >
-                <img
-                  src={category.image}
-                  alt={category.title}
-                  className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/66 via-black/16 to-black/0" />
-                <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
-                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 text-white sm:p-6 lg:p-7">
-                  <div className="max-w-[82%]">
-                    <h3 className="font-heading text-3xl font-medium leading-tight opacity-90 transition-opacity duration-300 sm:text-4xl lg:text-4xl">
-                      {category.title}
-                    </h3>
-                    <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/80 opacity-90 transition-[max-height,opacity] duration-300 sm:text-base md:max-h-0 md:overflow-hidden md:opacity-0 md:group-hover:max-h-20 md:group-hover:opacity-100">
-                      {category.description}
-                    </p>
-                  </div>
+                          {/* Text: 1/3 of card height */}
+                          <div
+                            className="h-1/3 flex flex-col justify-between px-6 pt-6 pb-3"
+                            style={{ containerType: "inline-size" }}
+                          >
+                            <h3
+                              className="font-heading font-medium leading-tight transition-opacity duration-300 group-hover:opacity-100 opacity-95"
+                              style={{
+                                fontSize: "clamp(1.15rem, 7.9cqw, 4.95rem)",
+                              }}
+                            >
+                              {card.title}
+                            </h3>
 
-                  <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center border border-white/20 bg-white/12 backdrop-blur-sm transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
-                    <ArrowUpRight className="h-5 w-5" />
-                  </span>
+                            <div className="flex flex-col gap-2 transition-transform duration-300 group-hover:-translate-y-4">
+                              <p
+                                className="max-w-md leading-relaxed text-[hsl(var(--viomes-light))]/85"
+                                style={{
+                                  fontSize: "clamp(0.72rem, 3.4cqw, 1.2rem)",
+                                }}
+                              >
+                                {card.description}
+                              </p>
+                              <span className="text-xs font-medium uppercase tracking-[0.15em] text-[hsl(var(--viomes-light))] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                Περισσότερα
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
-              </Link>
-            ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile / tablet fallback: stacked cards (kept for small screens) */}
+          <div className="lg:hidden">
+            <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-10 md:flex-row md:items-start">
+              {categories.map((card, idx) => (
+                <Link
+                  key={card.title}
+                  to={card.href}
+                  className={`group relative flex-1 transition-all duration-300 ${offsets[idx]}`}
+                >
+                  <div
+                    className={`viomes-animate-card flex min-h-[280px] flex-col overflow-hidden sm:min-h-[360px] md:min-h-[420px] lg:min-h-[520px] text-[hsl(var(--viomes-light))] transition-all duration-300 ease-out group-hover:shadow-lg bg-[hsl(var(--accent))]`}
+                    style={{ animationDelay: `${idx * 120}ms` }}
+                  >
+                    <div className="h-[55%] overflow-hidden bg-[hsl(var(--viomes-bg))] sm:h-[60%]">
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+
+                    <div className="flex h-[45%] flex-col justify-between p-4 sm:p-5 md:p-6 lg:p-7 sm:h-[40%]">
+                      <div className="space-y-2 sm:space-y-3">
+                        <h3
+                          className="font-heading font-medium leading-tight transition-opacity duration-300 group-hover:opacity-100 opacity-95"
+                          style={{
+                            fontSize: "var(--type-category-mobile-title)",
+                          }}
+                        >
+                          {card.title}
+                        </h3>
+                        <p
+                          className="max-w-md leading-relaxed text-[hsl(var(--viomes-light))]/80 transition-opacity duration-300 group-hover:text-[hsl(var(--viomes-light))]/95"
+                          style={{
+                            fontSize: "var(--type-category-mobile-copy)",
+                          }}
+                        >
+                          {card.description}
+                        </p>
+                      </div>
+                      <span className="text-xs font-medium uppercase tracking-[0.15em] text-[hsl(var(--viomes-light))] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        Περισσότερα
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -1,4 +1,20 @@
-const USE_TEST_PACKSHOTS = import.meta.env.VITE_USE_TEST_PACKSHOTS === "true";
+const REQUESTED_TEST_PACKSHOTS =
+  import.meta.env.VITE_USE_TEST_PACKSHOTS === "true";
+const ALLOW_TEST_PACKSHOTS_IN_PROD =
+  import.meta.env.VITE_ALLOW_TEST_PACKSHOTS_IN_PROD === "true";
+const USE_TEST_PACKSHOTS =
+  REQUESTED_TEST_PACKSHOTS &&
+  (!import.meta.env.PROD || ALLOW_TEST_PACKSHOTS_IN_PROD);
+
+if (
+  REQUESTED_TEST_PACKSHOTS &&
+  import.meta.env.PROD &&
+  !ALLOW_TEST_PACKSHOTS_IN_PROD
+) {
+  console.warn(
+    "VITE_USE_TEST_PACKSHOTS is enabled, but production overrides are blocked. Set VITE_ALLOW_TEST_PACKSHOTS_IN_PROD=true to allow it.",
+  );
+}
 
 const TEST_PACKSHOT_DIR = "/images/packshot-test";
 const TEST_PACKSHOT_FILES = [
@@ -9,6 +25,7 @@ const TEST_PACKSHOT_FILES = [
   "1020-163_01.jpg",
   "1020-173.jpg",
   "1020-173_01.jpg",
+  "1020-173_02.jpg",
   "1020-184.jpg",
   "1020-184_01.jpg",
   "1020-189_01.jpg",
@@ -18,7 +35,8 @@ const TEST_PACKSHOT_FILES = [
   "1020-76.jpg",
   "1020-76_01.jpg",
   "1020_189.jpg",
-  "1030-73.jpg",
+  "1030-173.jpg",
+  "1030-76.jpg",
   "1031-111.jpg",
   "1031-111_01.jpg",
   "1031-138.jpg",
@@ -27,6 +45,7 @@ const TEST_PACKSHOT_FILES = [
   "1031-163_01.jpg",
   "1031-173.jpg",
   "1031-173_01.jpg",
+  "1031-173_02.jpg",
   "1031-184.jpg",
   "1031-184_01.jpg",
   "1031-189.jpg",
@@ -68,11 +87,17 @@ const TEST_PACKSHOT_FILES = [
   "140-50.jpg",
   "140-50_01.jpg",
   "140-50_02.jpg",
+  "140-50_03.jpg",
+  "140-50_04.jpg",
   "140-58.jpg",
   "140-58_01.jpg",
   "140-58_02.jpg",
   "185.6-97.jpg",
   "185.6-97_01.jpg",
+  "185.6-97_02.jpg",
+  "185.6-97_03.jpg",
+  "237-03.jpg",
+  "237-03_01.jpg",
   "239-03.jpg",
   "239-03_01.jpg",
   "239-03_02.jpg",
@@ -126,10 +151,14 @@ const TEST_PACKSHOT_FILES = [
   "62-76_02.jpg",
   "62-76_03.jpg",
   "62-76_04.jpg",
+  "62-76_05.jpg",
+  "62-76_06.jpg",
   "62-84.jpg",
   "62-84_01.jpg",
   "62-84_02.jpg",
   "860.2-53.jpg",
+  "860.5-94.jpg",
+  "860.5-94_01.jpg",
   "861.5-94.jpg",
 ] as const;
 

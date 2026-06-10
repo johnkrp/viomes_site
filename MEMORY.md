@@ -8,7 +8,7 @@ This file stores the rules and facts that future agents and users should keep in
 - Update the core docs in the same change set when an important project change lands.
 - Prefer the existing project-context docs and workflow notes over creating new parallel docs.
 - Do not remove active catalog assets, generated JSON, or project-context documents without checking references first.
-- After any design changes check the output using Playwright for unexpected changes.
+- After any design changes check the output using Playwright in the already running localhost:3000.
 
 ## Stable Project Facts
 

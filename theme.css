@@ -1,0 +1,58 @@
+@theme {
+  --color-background: #dcd8cf;
+  --color-foreground: #4c4326;
+  --color-card: #f5f0ea;
+  --color-card-foreground: #32271a;
+  --color-popover: #f5f0ea;
+  --color-popover-foreground: #32271a;
+  --color-primary: #807244;
+  --color-primary-foreground: #f5f0ea;
+  --color-secondary: #b7b69c;
+  --color-secondary-foreground: #32271a;
+  --color-muted: #dcd8cf;
+  --color-muted-foreground: #887b6d;
+  --color-accent: #56393e;
+  --color-accent-foreground: #f5f0ea;
+  --color-destructive: #9b4b42;
+  --color-destructive-foreground: #f5f0ea;
+  --color-border: #cbc7c1;
+  --color-input: #cbc7c1;
+  --color-ring: #807244;
+
+  --color-viomes-bg: #dcd8cf;
+  --color-viomes-surface: #b7b69c;
+  --color-viomes-dark: #4c4326;
+  --color-viomes-primary: #807244;
+  --color-viomes-accent: #56393e;
+  --color-viomes-header-bg: #4c4326;
+  --color-viomes-header-text: #dcd8cf;
+  --color-viomes-header-hover: #6a4550;
+  --color-viomes-panel: #cbc7c1;
+  --color-viomes-frame: #d2cec8;
+  --color-viomes-footer: #4c4326;
+
+  --font-sans: "Ubuntu", sans-serif;
+  --font-heading: "Ubuntu", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.625rem;
+  --radius-2xl: 0.75rem;
+  --radius-3xl: 1rem;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --text-7xl: 4.5rem;
+  --text-8xl: 6rem;
+  --text-9xl: 8rem;
+}

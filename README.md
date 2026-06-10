@@ -34,13 +34,15 @@ npm run test:coverage
 
 Routing lives in [src/App.tsx](src/App.tsx). The app uses `react-router-dom` with lazy-loaded pages and a small client-side SEO manager that updates `document.title` and the description meta tag per route.
 
-Key routes currently include `/`, `/products`, `/products/:id`, `/about`, `/sustainability`, `/quality`, `/industries`, `/news`, and `/contact`. Category shortcuts now resolve through query params (for example `/products?category=Μπάνιο`) instead of dedicated category route components.
+Key routes currently include `/`, `/products`, `/products/:id`, `/about`, `/sustainability`, `/quality`, `/industries`, `/news`, and `/contact`.
+
+Category shortcuts resolve through query params (for example `/products?category=<site-category>`) instead of dedicated category route components. Category landing pages (`src/pages/CategoryHomeItems.tsx`, `src/pages/CategoryPlanters.tsx`, `src/pages/CategoryProfessional.tsx`) currently exist as standalone page modules but are not mounted in the router.
 
 ## Catalog Data Pipeline
 
 Catalog content is not hardcoded in component-local product arrays. The flow is:
 
-1. The source workbook in [src/data](src/data) is processed by [src/data/generate_catalog_json.py](src/data/generate_catalog_json.py).
+1. The source workbook in `scripts/catalog-data/source/` is processed by [scripts/catalog-data/generate_catalog_json.py](scripts/catalog-data/generate_catalog_json.py).
 2. The generator reads the Excel markers and product fields, then writes `products-grouped.json` and `additional-images.json`.
 3. Runtime copies live in [public/data](public/data) for the deployed app, while bundled JSON in [src/data](src/data) acts as a fallback import.
 4. [src/lib/catalogDataLoader.ts](src/lib/catalogDataLoader.ts) loads `public/data/*` first and falls back to the bundled `src/data/*` imports if fetches fail.
@@ -72,21 +74,21 @@ Temporary test packshots are handled in [src/lib/testPackshotOverrides.ts](src/l
 
 ```text
 src/
-├── App.tsx              # Routes and route-based SEO
-├── main.tsx             # App bootstrap and ThemeProvider
-├── components/          # Layout, home, and shared UI components
-├── pages/               # Route-level page components
-├── lib/                 # Catalog loading, color helpers, overrides, utilities
-└── data/                # Generated catalog JSON used by the loader
+- App.tsx              # Routes and route-based SEO
+- main.tsx             # App bootstrap and ThemeProvider
+- components/          # Layout, home, and shared UI components
+- pages/               # Route-level page components
+- lib/                 # Catalog loading, color helpers, overrides, utilities
+- data/                # Generated catalog JSON used by the loader
 
 public/
-├── data/                # Runtime JSON fallback copies
-└── images/packshot-test # Temporary packshot assets
+- data/                # Runtime JSON fallback copies
+- images/packshot-test # Temporary packshot assets
 
 project-context/
-├── 1.define/            # Requirements and planning docs
-├── 2.build/             # Build and implementation docs
-└── 3.deliver/           # Release, deploy, and runbook docs
+- 1.define/            # Requirements and planning docs
+- 2.build/             # Build and implementation docs
+- 3.deliver/           # Release, deploy, and runbook docs
 ```
 
 ## Workflow Docs
@@ -123,7 +125,7 @@ $graphify .
 
 ```bash
 .\.venv-graphify\Scripts\graphify query "how does catalog data flow to product pages?" --budget 1200
-.\.venv-graphify\Scripts\graphify path "generate_catalog_json.py" "Home.tsx"
+.\.venv-graphify\Scripts\graphify path "scripts/catalog-data/generate_catalog_json.py" "Home.tsx"
 .\.venv-graphify\Scripts\graphify explain "Catalog Data Pipeline"
 ```
 
@@ -192,6 +194,45 @@ It reads request text and outputs delegates such as `ui-ux-pro-max-skill`, `test
 
 These tools are **development-time only**. They do not replace Vite production build.
 
+## Vercel Deployment Notes
+
+This repo includes a `vercel.json` SPA rewrite so deep links (for example `/products/:id`) resolve to `index.html` and are then handled by React Router.
+
+Environment guardrails:
+
+- `VITE_USE_TEST_PACKSHOTS=true` enables test packshot behavior in non-production builds.
+- Production builds block this override by default.
+- To intentionally allow test packshots in production, also set `VITE_ALLOW_TEST_PACKSHOTS_IN_PROD=true`.
+
+Analytics options:
+
+- `VITE_GA_MEASUREMENT_ID` enables Google Analytics page-view reporting when the GA script is present.
+- `VITE_PLAUSIBLE_DOMAIN` enables Plausible SPA page-view reporting when the Plausible script is present.
+- `VITE_ANALYTICS_ENDPOINT` sends page-view payloads to a custom endpoint with session id, path, referrer, and timestamp.
+- `VITE_ANALYTICS_DEBUG=true` prints each page view to the browser console and stores them on `window.__VIOMES_PAGE_VIEWS__`.
+
+If you use GA or Plausible, add their script snippet to `index.html` or your tag manager; the app only emits the route-change events.
+
+Page views are emitted on every React Router path change, so you can reconstruct the route flow for each visitor from the analytics backend you choose.
+
+Recommended Vercel flow:
+
+1. Connect repo to Vercel for automatic preview deployments per branch/PR.
+2. Promote a validated preview to production instead of rebuilding.
+3. Keep catalog JSON/image assets under review for payload size to avoid slow deploys and runtime weight.
+
+GitHub Actions workflow:
+
+- File: `.github/workflows/vercel.yml`
+- Required repo secrets: `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`
+- Preview deploys run on pull requests, production deploys run on push to `main`.
+
+Image optimization helper:
+
+- Script: `scripts/optimize-images.sh`
+- Depends on `npx` and `sharp-cli` (auto-fetched through `npx`)
+- Optimizes selected high-impact JPG assets in-place and reports byte savings.
+
 ## Copilot Orchestra (project workflow)
 
 Generated plan artifacts are stored in [plans/README.md](plans/README.md).
@@ -201,4 +242,5 @@ Suggested use:
 1. Use the global Copilot workflow or the project docs to scope the task.
 2. Request the task (feature/fix/refactor).
 3. Approve the generated plan.
-4. Execute phase-by-phase (implement → review → commit).
+4. Execute phase-by-phase (implement -> review -> commit).
+

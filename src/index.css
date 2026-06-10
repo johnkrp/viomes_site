@@ -1,165 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Lora:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Merriweather:wght@400;500;700&family=Mulish:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+@import "../variables.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  :root {
-    /* Viomes Design System - Palette from Chromatic swatch */
-    --background: 53 9% 82%;
-    --foreground: 37 25% 13%;
-    --card: 53 9% 98%;
-    --card-foreground: 37 25% 13%;
-    --popover: 53 9% 98%;
-    --popover-foreground: 37 25% 13%;
-
-    --primary: 46 31% 38%;
-    --primary-foreground: 53 9% 98%;
-
-    --secondary: 63 27% 46%;
-    --secondary-foreground: 37 25% 13%;
-
-    --muted: 53 9% 82%;
-    --muted-foreground: 37 14% 34%;
-
-    --accent: 24 27% 32%;
-    --accent-foreground: 53 9% 98%;
-
-    --destructive: 7 49% 40%;
-    --destructive-foreground: 53 9% 98%;
-
-    --border: 58 16% 60%;
-    --input: 58 16% 60%;
-    --ring: 46 31% 38%;
-
-    /* Charts - Chromatic palette */
-    --chart-1: 46 31% 38%;
-    --chart-2: 63 27% 46%;
-    --chart-3: 24 27% 32%;
-    --chart-4: 58 16% 60%;
-    --chart-5: 37 25% 13%;
-
-    /* Sidebar - Chromatic palette */
-    --sidebar: 53 9% 82%;
-    --sidebar-foreground: 37 25% 13%;
-    --sidebar-primary: 46 31% 38%;
-    --sidebar-primary-foreground: 53 9% 98%;
-    --sidebar-accent: 53 9% 82%;
-    --sidebar-accent-foreground: 37 25% 13%;
-    --sidebar-border: 58 16% 60%;
-    --sidebar-ring: 46 31% 38%;
-
-    /* Fonts */
-    --font-sans: "Poppins", sans-serif;
-    --font-heading: "Inter", sans-serif;
-    --font-mono: "Geist Mono", monospace;
-    /* --viomes custom palette (added May 5, 2026) */
-    /* Background: #DCD8CF -> 42 16% 84% */
-    --viomes-bg: 42 16% 84%;
-    /* Surface / cards: #B7B69C -> 58 16% 66% */
-    --viomes-surface: 58 16% 66%;
-    /* Primary: #807244 -> 46 31% 38% (keeps existing primary) */
-    --primary: 46 31% 38%;
-    /* Accent / CTA: #56393E -> 350 20% 28% */
-    --accent: 350 20% 28%;
-    --accent-foreground: 42 16% 84%;
-    /* Dark grounding tone: #4C4326 -> 46 33% 22% */
-    --viomes-dark: 46 33% 22%;
-
-    /* Header/footer mapping (used by .site-header-footer rules) */
-    --header-bg: 46 33% 22%; /* deep grounding color */
-    --header-text: 42 16% 84%; /* light neutral for header text */
-    --header-hover: 350 20% 36%; /* slightly lighter accent for hovers */
-    --text-xs: 0.75rem;
-    --text-sm: 0.875rem;
-    --text-base: 1rem;
-    --text-lg: 1.125rem;
-    --text-xl: 1.25rem;
-    --text-2xl: 1.5rem;
-    --text-3xl: 1.875rem;
-    --text-4xl: 2.25rem;
-    --text-5xl: 3rem;
-    --text-6xl: 3.75rem;
-    --text-7xl: 4.5rem;
-    --text-8xl: 6rem;
-    --text-9xl: 8rem;
-
-    /* Shadows */
-    --radius: 0.5rem; /* slightly sharper corners site-wide */
-
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.1);
-
-    /* Shadows override */
-    --shadow-2xs: 0px 1px 2px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0px 1px 2px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0px 1px 2px hsl(0 0% 0% / 0.05);
-    --shadow:
-      0px 4px 6px -1px hsl(0 0% 0% / 0.05), 0px 2px 4px -1px hsl(0 0% 0% / 0.03);
-    --shadow-md:
-      0px 10px 15px -3px hsl(0 0% 0% / 0.05),
-      0px 4px 6px -2px hsl(0 0% 0% / 0.02);
-    --shadow-lg:
-      0px 20px 25px -5px hsl(0 0% 0% / 0.05),
-      0px 10px 10px -5px hsl(0 0% 0% / 0.02);
-    --shadow-xl:
-      0px 20px 25px -5px hsl(0 0% 0% / 0.05),
-      0px 10px 10px -5px hsl(0 0% 0% / 0.02);
-    --shadow-2xl:
-      0px 20px 25px -5px hsl(0 0% 0% / 0.05),
-      0px 10px 10px -5px hsl(0 0% 0% / 0.02);
-
-    /* Misc */
-    --tracking-normal: 0em;
-    --spacing: 0.25rem;
-  }
-
-  .dark {
-    /* Viomes Design System - Chromatic dark mode */
-    --background: 37 25% 13%;
-    --foreground: 53 9% 82%;
-    --card: 37 25% 17%;
-    --card-foreground: 53 9% 82%;
-    --popover: 37 25% 17%;
-    --popover-foreground: 53 9% 82%;
-
-    --primary: 46 31% 48%;
-    --primary-foreground: 37 25% 13%;
-
-    --secondary: 37 25% 23%;
-    --secondary-foreground: 53 9% 82%;
-
-    --muted: 37 20% 22%;
-    --muted-foreground: 53 9% 70%;
-
-    --accent: 24 27% 38%;
-    --accent-foreground: 53 9% 98%;
-
-    --destructive: 7 49% 50%;
-    --destructive-foreground: 53 9% 98%;
-
-    --border: 37 20% 26%;
-    --input: 37 20% 26%;
-    --ring: 46 31% 48%;
-
-    /* Charts - Chromatic dark mode */
-    --chart-1: 46 31% 48%;
-    --chart-2: 63 27% 46%;
-    --chart-3: 24 27% 38%;
-    --chart-4: 58 16% 60%;
-    --chart-5: 53 9% 82%;
-
-    /* Sidebar - Chromatic dark mode */
-    --sidebar: 37 25% 17%;
-    --sidebar-foreground: 53 9% 82%;
-    --sidebar-primary: 46 31% 48%;
-    --sidebar-primary-foreground: 37 25% 13%;
-    --sidebar-accent: 37 20% 22%;
-    --sidebar-accent-foreground: 53 9% 82%;
-    --sidebar-border: 37 20% 26%;
-    --sidebar-ring: 46 31% 48%;
-  }
-
   * {
     @apply border-border;
   }
@@ -168,12 +14,13 @@
     @apply bg-background text-foreground;
     font-family:
       var(--font-sans),
-      "Poppins",
+      "Ubuntu",
       -apple-system,
       BlinkMacSystemFont,
       "Segoe UI",
       "Roboto",
       sans-serif;
+    font-weight: 300;
     font-optical-sizing: none;
     letter-spacing: 0;
   }
@@ -184,7 +31,7 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-heading), "Inter", sans-serif;
+    font-family: var(--font-heading), "Ubuntu", sans-serif;
   }
 }
 
@@ -264,13 +111,106 @@
     fill 150ms ease;
   color: hsl(var(--header-text)) !important;
 }
+.site-header-footer a {
+  position: relative;
+  text-decoration: none;
+}
+.site-header-footer a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.015em;
+  width: 100%;
+  height: 0.1em;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 220ms ease;
+}
+.site-header-footer a:hover::after,
+.site-header-footer a:focus-visible::after {
+  transform: scaleX(1);
+}
+.site-header-footer a.no-link-underline::after {
+  display: none;
+}
 .site-header-footer button:not(.no-accent-bg) {
   background-color: hsl(var(--accent)) !important;
 }
 .site-header-footer a:hover,
 .site-header-footer button:hover,
 .site-header-footer [role="button"]:hover {
-  background-color: transparent !important;
-  color: hsl(var(--header-hover)) !important;
-  fill: hsl(var(--header-hover)) !important;
+  color: hsl(var(--header-text)) !important;
+  fill: hsl(var(--header-text)) !important;
+}
+
+/* Footer-specific overrides for light background + dark text */
+footer.site-header-footer {
+  background-color: hsl(42 16% 84%) !important;
+  color: hsl(46 33% 22%) !important;
+}
+footer.site-header-footer * {
+  color: hsl(46 33% 22%) !important;
+}
+footer.site-header-footer a,
+footer.site-header-footer button {
+  color: hsl(46 33% 22%) !important;
+}
+footer.site-header-footer a:hover,
+footer.site-header-footer button:hover,
+footer.site-header-footer [role="button"]:hover {
+  color: hsl(46 33% 22%) !important;
+  fill: hsl(46 33% 22%) !important;
+}
+
+footer.site-header-footer .footer-divider {
+  border-top-color: hsl(46 33% 22% / 0.28) !important;
+}
+
+@layer components {
+  .page-display-title {
+    font-family: var(--font-heading), "Ubuntu", sans-serif;
+    font-size: var(--type-page-display);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    font-weight: 900;
+  }
+
+  .page-section-title {
+    font-family: var(--font-heading), "Ubuntu", sans-serif;
+    font-size: var(--type-page-section);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 900;
+  }
+
+  .page-card-title {
+    font-family: var(--font-heading), "Ubuntu", sans-serif;
+    font-size: var(--type-page-card-title);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  .page-body {
+    font-size: var(--type-page-body);
+    line-height: 1.75;
+  }
+
+  .page-lead {
+    font-size: var(--type-page-lead);
+    line-height: 1.7;
+  }
+
+  .page-eyebrow {
+    font-size: var(--type-page-eyebrow);
+    line-height: 1;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .text-footer {
+    color: #4c4326;
+  }
 }

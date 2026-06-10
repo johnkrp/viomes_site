@@ -1,22 +1,14 @@
-import { languages, navLinks } from "@/components/layout/navbar/constants";
+import { navLinks } from "@/components/layout/navbar/constants";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 
 type MobileMenuProps = {
   isOpen: boolean;
   pathname: string;
-  language: string;
-  onLanguageChange: (value: string) => void;
   onClose: () => void;
 };
 
-const MobileMenu = ({
-  isOpen,
-  pathname,
-  language,
-  onLanguageChange,
-  onClose,
-}: MobileMenuProps) => {
+const MobileMenu = ({ isOpen, pathname, onClose }: MobileMenuProps) => {
   if (!isOpen) return null;
 
   return (
@@ -53,22 +45,7 @@ const MobileMenu = ({
           </div>
         ))}
 
-        <div className="rounded-lg border border-border bg-card p-3">
-          <label className="mb-2 block text-sm font-medium text-foreground/80">
-            Language
-          </label>
-          <select
-            value={language}
-            onChange={(event) => onLanguageChange(event.target.value)}
-            className="w-full rounded-md border border-border bg-card px-3 py-2 text-sm"
-          >
-            {languages.map((languageOption) => (
-              <option key={languageOption.code} value={languageOption.code}>
-                {languageOption.label}
-              </option>
-            ))}
-          </select>
-        </div>
+        {/* Language selector removed */}
       </div>
     </div>
   );

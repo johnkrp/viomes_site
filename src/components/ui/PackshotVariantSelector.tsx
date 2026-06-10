@@ -38,12 +38,7 @@ export const PackshotVariantSelector = ({
   };
 
   return (
-    <div
-      className={cn(
-        "flex flex-col gap-2",
-        className,
-      )}
-    >
+    <div className={cn("flex flex-col gap-2", className)}>
       <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
         Variant ({variants.length})
       </label>
@@ -69,9 +64,7 @@ export const PackshotVariantSelector = ({
             <div
               className={cn(
                 "absolute inset-0 pointer-events-none",
-                selected === variant
-                  ? "bg-primary/10"
-                  : "bg-transparent",
+                selected === variant ? "bg-primary/10" : "bg-transparent",
               )}
             />
             {/* Variant index badge */}

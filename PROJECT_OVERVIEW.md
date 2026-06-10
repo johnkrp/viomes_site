@@ -22,10 +22,6 @@ The main routes currently exposed by `src/App.tsx` are:
 - `/`
 - `/products`
 - `/products/:id`
-- `/products/mpanio`
-- `/products/kouzina`
-- `/products/kipos`
-- `/products/kathariotita`
 - `/about`
 - `/sustainability`
 - `/quality`
@@ -33,9 +29,11 @@ The main routes currently exposed by `src/App.tsx` are:
 - `/news`
 - `/contact`
 
+Category entry points are handled via query params, for example `/products?category=<site-category>`. Category landing page modules (`src/pages/CategoryHomeItems.tsx`, `src/pages/CategoryPlanters.tsx`, `src/pages/CategoryProfessional.tsx`) currently exist but are not mounted in `src/App.tsx`.
+
 ## Data And Assets
 
-- `src/data/generate_catalog_json.py` is the source-of-truth transformer from the Excel workbook to the app-ready JSON payloads.
+- `scripts/catalog-data/generate_catalog_json.py` is the source-of-truth transformer from the Excel workbook to the app-ready JSON payloads.
 - `src/data/products-grouped.json` and `src/data/additional-images.json` are the generated catalog payloads used by the app.
 - `public/data/*` are runtime fallback copies for those JSON files and are what the deployed app tries to fetch first.
 - `public/images/packshot-test` is the temporary test-packshot set used by the feature flag.
@@ -44,7 +42,7 @@ The main routes currently exposed by `src/App.tsx` are:
 
 ### Catalog Flow Summary
 
-1. The workbook in `src/data` is processed by `src/data/generate_catalog_json.py`.
+1. The workbook in `scripts/catalog-data/source/` is processed by `scripts/catalog-data/generate_catalog_json.py`.
 2. The generator reads Excel grouping markers, product metadata, packshots, and extra lifestyle images.
 3. It emits grouped product JSON plus a variant-to-additional-images map.
 4. `src/lib/catalogDataLoader.ts` loads the runtime JSON from `public/data` and falls back to bundled `src/data` imports.
@@ -133,3 +131,4 @@ If you need to understand or modify the app quickly, inspect files in this order
 5. `src/pages/*`
 
 That path gives you routing, data loading, global UI, then the page surfaces.
+
